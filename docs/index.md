@@ -20,6 +20,7 @@ Material de estudo para equipes de Produto e Engenharia trabalharem com document
 | [03 — VS Code e GitHub Copilot](03-vscode-e-copilot.md) | Ambiente, extensões, Git visual, modos do Copilot |
 | [04 — Personalizando o Copilot](04-copilot-customizacao.md) | Instructions, prompts, agentes e skills |
 | [05 — Branches e Pull Requests](05-branches-e-pull-requests.md) | Aprofundamento do fluxo completo |
+| [Módulo Extra — Instruções Específicas](modulo-extra.md) | Padrões de repositórios reais: Targetprocess, espelhamento de épicos, pasta `raw/` |
 
 ---
 

@@ -85,5 +85,42 @@ O comportamento do agente é definido em `.github/prompts/atualizar-epicos.promp
 
 ---
 
+## Dica 3 — Pasta `raw/` como zona de entrada de fontes
+
+**Repositórios:** `produto_docs`, `cloudops_docs`
+
+Inspirada no conceito de **LLM Wiki** de Andrej Karpathy, essa abordagem divide o repositório em duas zonas com papéis bem distintos:
+
+| Zona | Pasta | Papel | Quem escreve |
+|---|---|---|---|
+| **Fontes** | `raw/` | Documentos originais, imutáveis | Humano |
+| **Conhecimento** | `wiki/` ou `documentation/` | Páginas estruturadas e publicáveis | Agente |
+
+A ideia central é que o LLM não gera conhecimento do zero — ele **processa fontes reais** e produz conhecimento estruturado. O `raw/` é o arquivo permanente de tudo que alimentou a wiki; a wiki é o destilado consultável desse material.
+
+### Como usar
+
+O fluxo é simples:
+
+1. Um documento novo chega — PDF, DOCX, transcrição de reunião, spec doc, export do Targetprocess
+2. O arquivo é colocado em `raw/` na subpasta correspondente ao tema
+3. O agente é acionado para ingerir: `"ingerir raw/produto_visus/documento.md"`
+4. O agente lê a fonte, extrai o conteúdo relevante e cria ou atualiza páginas na wiki
+5. O `raw/` nunca é modificado pelo agente — serve como rastreabilidade de todas as fontes
+
+### Por que a separação importa
+
+Sem a divisão `raw/wiki`, é comum que o repositório misture fontes e conteúdo publicável, dificultando saber o que já foi processado e o que ainda está pendente. Com a separação:
+
+- É possível reprocessar uma fonte a qualquer momento (o original está intacto)
+- O agente nunca "inventa" — toda página da wiki tem um arquivo em `raw/` como origem
+- A wiki pode ser consultada pelo próprio agente para responder perguntas, sem precisar reler as fontes brutas
+
+### Variações nos repositórios
+
+Em `produto_docs`, o `raw/` está organizado por produto (`produto_eberick/`, `produto_visus/`, etc.) e o conteúdo processado vai para `wiki/`. Em `cloudops_docs`, o `raw/` usa subpastas `conteudo_a_organizar/` e `conteudo_ja_importado/` para rastrear o status de cada fonte, e o conteúdo processado vai para `documentation/`.
+
+---
+
 > **Módulo anterior:** [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md)  
 > **Índice:** [Início](./index.md)
