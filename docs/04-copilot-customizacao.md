@@ -189,7 +189,7 @@ O Copilot vai pedir os valores de `${input:caminho}` e `${input:modulo}` antes d
 
 ### O que são
 
-Arquivos `.agent.md` definem **agentes personalizados** — modos de operação do Copilot com instruções, ferramentas e comportamento específicos para uma tarefa recorrente.
+Arquivos `.agent.md` definem **agentes personalizados** — modos de operação do Copilot com instruções, ferramentas e comportamento específicos para uma tarefa recorrente. Cada agente tem um papel bem definido: sabe o que fazer, quais ferramentas pode usar e quais restrições deve respeitar.
 
 ### Onde ficam
 
@@ -199,6 +199,42 @@ Arquivos `.agent.md` definem **agentes personalizados** — modos de operação 
     ├── redator-tecnico.agent.md
     └── revisor-documentacao.agent.md
 ```
+
+### Quando usar agentes
+
+Use um agente quando a tarefa envolve **múltiplos passos sequenciais** e acesso a ferramentas (ler arquivos, criar arquivos, executar comandos). Compare com os outros mecanismos:
+
+| Situação | Mecanismo ideal |
+|---|---|
+| Regra que deve valer em toda conversa ("nunca invente conteúdo") | `copilot-instructions.md` |
+| Tarefa pontual que você dispara manualmente ("cria a página X") | `.prompt.md` |
+| Tarefa com múltiplos passos + leitura/escrita de arquivos + decisões | `.agent.md` |
+| Conhecimento especializado para um tipo de conteúdo | `SKILL.md` |
+
+#### Cenários típicos para equipes de documentação
+
+**Use um agente quando você precisa:**
+
+- **Ingerir uma fonte externa** — o agente lê o link/PDF, identifica onde o conteúdo se encaixa na estrutura, cria ou atualiza páginas e registra a fonte, tudo em sequência
+- **Revisar uma seção inteira** — varre múltiplos arquivos, detecta inconsistências de terminologia, links quebrados e páginas sem frontmatter
+- **Refatorar um módulo** — move páginas, atualiza referências cruzadas, reescreve o índice da seção
+- **Fazer onboarding de um novo módulo** — cria a estrutura de pastas, os arquivos iniciais e o índice a partir de um briefing
+
+**Não use um agente quando:**
+
+- A tarefa é um único arquivo com uma instrução simples → use `/prompt`
+- Você só quer uma sugestão inline de texto → use completions normais do Copilot
+- A tarefa não precisa acessar o sistema de arquivos → use o modo Ask ou Edit
+
+### Como invocar um agente
+
+No painel de Chat do VS Code, selecione o agente pelo nome na lista suspensa de modelos/agentes, ou digite `@` seguido do nome configurado no frontmatter:
+
+```
+@redator-tecnico ingira este artigo: https://...
+```
+
+O Copilot vai carregar as instruções do `.agent.md` antes de executar qualquer ação. Você verá as ferramentas sendo chamadas em tempo real no painel de chat.
 
 ### Estrutura de um arquivo `.agent.md`
 
@@ -227,14 +263,27 @@ Regras invioláveis:
 - Todo conteúdo novo precisa de frontmatter YAML completo
 ```
 
+### Configurando as ferramentas (`tools`)
+
+A lista `tools` controla o que o agente pode fazer. Defina apenas o mínimo necessário — um agente somente-leitura não deve ter `write_file`.
+
+| Ferramenta | O que permite |
+|---|---|
+| `read_file` | Ler arquivos do repositório |
+| `write_file` | Criar e editar arquivos |
+| `search_files` | Buscar conteúdo em arquivos |
+| `run_terminal` | Executar comandos (ex.: `mkdocs build`) |
+| `fetch_url` | Buscar conteúdo de URLs externas |
+
 ### Diferença entre Agente e Modo Agente padrão
 
 | | Modo Agente padrão | Agente personalizado (`.agent.md`) |
 |---|---|---|
 | Instruções | Genéricas do Copilot | Específicas do seu repositório |
 | Ferramentas | Todas disponíveis | Você define quais habilitar |
-| Invocação | `@agent` | `@redator-tecnico` (nome personalizado) |
-| Reutilização | Sempre igual | Cada agente tem seu foco |
+| Invocação | `@copilot` (modo agente) | `@redator-tecnico` (nome personalizado) |
+| Reutilização | Comportamento genérico | Cada agente tem seu foco e restrições |
+| Consistência | Varia conforme o prompt | Sempre o mesmo papel e regras |
 
 ---
 

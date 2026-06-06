@@ -40,4 +40,4 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.smartsymbols
   - pymdownx.tasklist:
-      custom_checkbox: true
+      custom_checkbox: false
