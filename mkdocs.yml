@@ -1,4 +1,5 @@
 site_name: Documentação como Código — Guia AltoQi
+site_url: https://andrebanki.github.io/github_para_docs/
 site_description: Material de estudo para equipes de Produto e Engenharia trabalharem com documentação usando Git, Markdown, MkDocs e GitHub Copilot
 site_author: AltoQi
 
