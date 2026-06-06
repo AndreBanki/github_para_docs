@@ -1,0 +1,39 @@
+site_name: Documentação como Código — Guia AltoQi
+site_description: Material de estudo para equipes de Produto e Engenharia trabalharem com documentação usando Git, Markdown, MkDocs e GitHub Copilot
+site_author: AltoQi
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: false
+
+theme:
+  name: readthedocs
+  language: pt-BR
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true

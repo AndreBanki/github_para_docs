@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - 01-git-para-documentacao.md
+  - 02-markdown-e-mkdocs.md
+  - 03-vscode-e-copilot.md
+  - 04-copilot-customizacao.md
+  - 05-branches-e-pull-requests.md
