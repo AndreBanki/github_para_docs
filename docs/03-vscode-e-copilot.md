@@ -28,7 +28,7 @@ No VS Code: `File → Open Folder` → selecione a pasta do repositório clonado
 
 ### 2.3 Extensões recomendadas
 
-Instale pelo painel de extensões (`Ctrl+Shift+X`):
+Instale pelo painel de extensões (clique em ![Extensions](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/extensions.svg){: .vscode-icon} na Barra de Atividades, ou `Ctrl+Shift+X`):
 
 | Extensão | ID | Para que serve |
 |---|---|---|
@@ -44,7 +44,7 @@ Instale pelo painel de extensões (`Ctrl+Shift+X`):
 
 ## 3. Preview de Markdown
 
-Pressione `Ctrl+Shift+V` para abrir o preview de Markdown ao lado do arquivo que está editando. Alternativamente, clique no ícone de preview no canto superior direito do editor.
+Clique no ícone ![Open Preview](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg){: .vscode-icon} no canto superior direito do editor para abrir o preview ao lado, ou pressione `Ctrl+Shift+V`.
 
 **Dica:** use `Ctrl+K V` para abrir o preview em coluna separada, editando e visualizando ao mesmo tempo.
 
@@ -76,8 +76,8 @@ git pull
 
 Baixa os commits mais recentes do repositório remoto e integra ao seu branch local. **Sempre execute antes de começar a trabalhar** para evitar conflitos desnecessários.
 
-**No VS Code:** Painel Source Control (`Ctrl+Shift+G`) → menu `...` → **Pull**.  
-Ou pelo botão **Sync Changes** na barra inferior (sincroniza pull + push).
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control (`Ctrl+Shift+G`) → menu ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg){: .vscode-icon} → **Pull**.  
+Ou clique em ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg){: .vscode-icon} **Sync Changes** na barra de status inferior (sincroniza pull + push).
 
 ---
 
@@ -89,7 +89,7 @@ git status
 
 Lista os arquivos modificados, adicionados ou deletados desde o último commit, indicando o que está preparado para commit e o que ainda não está.
 
-**No VS Code:** o Painel Source Control (`Ctrl+Shift+G`) exibe isso continuamente e de forma visual — arquivos com `M` (modified), `U` (untracked), `D` (deleted) ao lado de cada nome.
+**No VS Code:** o Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control (`Ctrl+Shift+G`) exibe isso continuamente e de forma visual — arquivos com `M` (modified), `U` (untracked), `D` (deleted) ao lado de cada nome.
 
 ---
 
@@ -103,7 +103,7 @@ git add .                              # tudo que foi alterado
 
 Move os arquivos para a **staging area**: uma área intermediária onde você decide exatamente o que vai entrar no próximo commit. Um commit só inclui o que foi adicionado com `git add`.
 
-**No VS Code:** Painel Source Control → clique no **`+`** ao lado de cada arquivo em "Changes" para fazer stage. Para adicionar tudo de uma vez, clique no **`+`** ao lado do título "Changes".
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control → clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} ao lado de cada arquivo em "Changes" para fazer stage. Para adicionar tudo de uma vez, clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} ao lado do título "Changes".
 
 ---
 
@@ -124,7 +124,7 @@ Cria um snapshot permanente dos arquivos que estão na staging area, com uma men
 | `refactor:` | Reorganização sem mudar conteúdo |
 | `chore:` | Alterações de configuração (mkdocs.yml, etc.) |
 
-**No VS Code:** Painel Source Control → escreva a mensagem no campo de texto no topo → `Ctrl+Enter` ou clique em **Commit**.
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control → escreva a mensagem no campo de texto → pressione `Ctrl+Enter` ou clique em ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg){: .vscode-icon} **Commit**.
 
 ---
 
@@ -142,7 +142,7 @@ git push origin docs/guia-collab
 
 Envia seus commits locais para o repositório remoto. No fluxo simplificado, isso publica diretamente. No fluxo completo, apenas sobe o branch — a publicação acontece só após o merge do Pull Request.
 
-**No VS Code:** Painel Source Control → botão **Sync Changes** (faz pull + push) ou menu `...` → **Push**.
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control → clique em ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg){: .vscode-icon} **Sync Changes** (faz pull + push) ou menu ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg){: .vscode-icon} → **Push**.
 
 ---
 
@@ -154,7 +154,7 @@ git checkout -b docs/nome-da-tarefa
 
 Cria um novo branch a partir do estado atual e já muda para ele. Usado no início do **fluxo completo** para isolar o trabalho do `main`. O nome deve descrever a tarefa (ex.: `docs/modulo-bid`, `fix/link-quebrado-collab`).
 
-**No VS Code:** clique no nome do branch na **barra de status inferior** (canto esquerdo) → selecione **Create new branch...** → digite o nome.
+**No VS Code:** clique em ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-branch.svg){: .vscode-icon} **nome do branch** na barra de status inferior (canto esquerdo) → selecione **Create new branch...** → digite o nome.
 
 ---
 
@@ -166,7 +166,7 @@ git log --oneline --graph
 
 Exibe o histórico de commits em formato compacto (uma linha por commit) com um grafo ASCII mostrando a estrutura de branches. Útil para entender o que foi feito e por quem.
 
-**No VS Code:** com a extensão **Git Graph** instalada, clique em **Git Graph** na barra de status inferior para ver o histórico de forma visual, com branches coloridos e detalhes de cada commit ao clicar.
+**No VS Code:** com a extensão **Git Graph** instalada, clique em ![Git Commit](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-commit.svg){: .vscode-icon} **Git Graph** na barra de status inferior para ver o histórico de forma visual, com branches coloridos e detalhes de cada commit ao clicar.
 
 ---
 
@@ -178,7 +178,7 @@ git checkout -- docs/arquivo-errado.md
 
 Descarta todas as alterações feitas no arquivo desde o último commit, restaurando-o para o estado salvo. **Atenção: irreversível** — o que foi alterado e não commitado é perdido.
 
-**No VS Code:** Painel Source Control → clique com o botão direito no arquivo → **Discard Changes**.
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control → clique com o botão direito no arquivo → **Discard Changes**.
 
 ---
 
@@ -192,7 +192,7 @@ Cria um **novo commit** que desfaz as mudanças do commit anterior. É a forma s
 
 > Prefira `git revert` a `git reset --hard`, que apaga commits de forma irreversível e pode causar problemas para outros colaboradores.
 
-**No VS Code:** Painel Source Control → extensão **Git Graph** → clique com o botão direito no commit que quer desfazer → **Revert**.
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control → extensão **Git Graph** → clique com o botão direito no commit que quer desfazer → **Revert**.
 
 ---
 
@@ -211,18 +211,18 @@ Após resolver todos os conflitos, faça `git add` nos arquivos resolvidos e dep
 
 ### Resumo: comandos × VS Code
 
-| Comando | O que faz | Equivalente no VS Code |
-|---|---|---|
-| `git clone` | Baixa o repositório | `Ctrl+Shift+P` → Git: Clone |
-| `git pull` | Atualiza do remoto | `...` → Pull |
-| `git status` | Lista arquivos alterados | Painel Source Control |
-| `git add` | Prepara para commit | `+` ao lado do arquivo |
-| `git commit -m` | Salva o snapshot | Campo de mensagem + `Ctrl+Enter` |
-| `git push` | Envia ao remoto | Sync Changes ou `...` → Push |
-| `git checkout -b` | Cria branch | Clique no branch (barra inferior) |
-| `git log` | Histórico de commits | Extensão Git Graph |
-| `git checkout -- arquivo` | Descarta mudanças | Discard Changes (botão direito) |
-| `git revert HEAD` | Desfaz último commit | Git Graph → Revert |
+| Comando | O que faz | Ícone / Botão no VS Code | Atalho / Ação |
+|---|---|---|---|
+| `git clone` | Baixa o repositório | — | `Ctrl+Shift+P` → Git: Clone |
+| `git pull` | Atualiza do remoto | ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg){: .vscode-icon} Sync Changes | ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg){: .vscode-icon} → Pull |
+| `git status` | Lista arquivos alterados | ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control | `Ctrl+Shift+G` |
+| `git add` | Prepara para commit | ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} ao lado do arquivo | — |
+| `git commit -m` | Salva o snapshot | ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg){: .vscode-icon} Commit | `Ctrl+Enter` |
+| `git push` | Envia ao remoto | ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg){: .vscode-icon} Sync Changes | ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg){: .vscode-icon} → Push |
+| `git checkout -b` | Cria branch | ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-branch.svg){: .vscode-icon} barra de status | — |
+| `git log` | Histórico de commits | ![Git Commit](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-commit.svg){: .vscode-icon} Git Graph | barra de status |
+| `git checkout -- arquivo` | Descarta mudanças | — | Discard Changes (botão direito) |
+| `git revert HEAD` | Desfaz último commit | — | Git Graph → Revert |
 
 ---
 
@@ -256,7 +256,7 @@ O Copilot pode sugerir automaticamente o próximo parágrafo com base no context
 
 ### 6.2 Chat Inline (`Ctrl+I`)
 
-Posicione o cursor onde quer inserir conteúdo e pressione `Ctrl+I`. Um campo de input aparece diretamente no editor:
+Posicione o cursor onde quer inserir conteúdo e pressione `Ctrl+I` — ou clique com o botão direito → **Copilot → Start Inline Chat**. Um campo de input aparece diretamente no editor:
 
 ```
 /doc Escreva uma introdução para esta seção sobre o módulo de Cotações
@@ -268,7 +268,7 @@ O Copilot gera o conteúdo e insere diretamente no arquivo. Você aceita ou reje
 
 ### 6.3 Painel de Chat (`Ctrl+Alt+I`)
 
-Abre um painel de conversação ao lado do editor. Ideal para:
+Clique em ![Copilot Chat](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/comment-discussion.svg){: .vscode-icon} na Barra de Atividades (ou pressione `Ctrl+Alt+I`) para abrir o painel de conversação ao lado do editor. Ideal para:
 - Fazer perguntas sobre o conteúdo do repositório
 - Pedir análises de estrutura
 - Trabalhar em tarefas mais longas com múltiplos arquivos
@@ -349,18 +349,19 @@ Peça ao Copilot para:
 
 ## 8. Atalhos Essenciais no VS Code
 
-| Ação | Atalho |
-|---|---|
-| Abrir painel de Chat do Copilot | `Ctrl+Alt+I` |
-| Inline Chat | `Ctrl+I` |
-| Aceitar sugestão inline | `Tab` |
-| Rejeitar sugestão inline | `Esc` |
-| Preview de Markdown | `Ctrl+Shift+V` |
-| Preview ao lado | `Ctrl+K V` |
-| Source Control (Git) | `Ctrl+Shift+G` |
-| Terminal integrado | `Ctrl+` ` |
-| Paleta de comandos | `Ctrl+Shift+P` |
-| Buscar em todos os arquivos | `Ctrl+Shift+F` |
+| Ação | Ícone / Onde Clicar | Atalho |
+|---|---|---|
+| Abrir painel de Chat do Copilot | ![Copilot Chat](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/comment-discussion.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Alt+I` |
+| Inline Chat | Botão direito → Copilot → Start Inline Chat | `Ctrl+I` |
+| Aceitar sugestão inline | Sugestão em cinza → aceitar | `Tab` |
+| Rejeitar sugestão inline | Sugestão em cinza → ignorar | `Esc` |
+| Preview de Markdown | ![Open Preview](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg){: .vscode-icon} canto superior direito do editor | `Ctrl+Shift+V` |
+| Preview ao lado | ![Open Preview](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg){: .vscode-icon} (abre em coluna separada) | `Ctrl+K V` |
+| Source Control (Git) | ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+G` |
+| Extensões | ![Extensions](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/extensions.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+X` |
+| Terminal integrado | ![Terminal](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/terminal.svg){: .vscode-icon} menu View → Terminal | Ctrl+` |
+| Paleta de comandos | — | `Ctrl+Shift+P` |
+| Buscar em todos os arquivos | ![Search](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/search.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+F` |
 
 ---
 

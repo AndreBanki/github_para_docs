@@ -7,6 +7,9 @@ docs_dir: docs
 site_dir: site
 use_directory_urls: false
 
+extra_css:
+  - stylesheets/vscode.css
+
 theme:
   name: readthedocs
   language: pt-BR
