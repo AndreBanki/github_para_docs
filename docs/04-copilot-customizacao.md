@@ -2,12 +2,13 @@
 
 > **Para quem é este módulo:** quem configura e mantém o ambiente de documentação — líderes de Produto, Engenharia e responsáveis pelo repositório.
 
-**Neste módulo você vai aprender:**
+!!! abstract "🎯 Objetivos de aprendizagem"
+    Neste módulo você vai aprender:
 
-- Os 4 mecanismos de personalização: Instructions, Prompts, Agentes e Skills
-- Onde colocar cada arquivo e como configurá-lo
-- Quando usar cada mecanismo (tabela de decisão)
-- Exemplo prático de sessão de trabalho com agente
+    - Os 4 mecanismos de personalização: Instructions, Prompts, Agentes e Skills
+    - Onde colocar cada arquivo e como configurá-lo
+    - Quando usar cada mecanismo (tabela de decisão)
+    - Exemplo prático de sessão de trabalho com agente
 
 !!! tip "Dica para PMs e redatores"
     Se você não vai configurar o ambiente, foque nas **seções 2 e 4** (Instructions e Prompts) — são as que você vai usar no dia a dia. As seções 5 e 6 (Agentes e Skills) são para quem monta o ambiente.
@@ -382,11 +383,11 @@ flowchart TD
     A --> B
     C --> D
     D --> E
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#e3f2fd,stroke:#1565c0
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#f3e5f5,stroke:#7b1fa2
-    style E fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style D fill:#0e3a30,stroke:#34d399,color:#dafff2
+    style E fill:#0e3d28,stroke:#3BE592,color:#e3fff1
 ```
 
 ---
@@ -429,6 +430,9 @@ flowchart TD
 - [ ] `.vscode/settings.json` com auto-approve para `git commit` (opcional)
 - [ ] `requirements.txt` atualizado e commitado
 - [ ] `.gitignore` incluindo `site/`, `.env`, `__pycache__`
+
+!!! success "✅ Resumo do módulo"
+    O Copilot pode ser moldado para o seu repositório por quatro mecanismos: **Instructions, Prompts, Agentes e Skills**. Você viu onde colocar cada arquivo, quando usar cada mecanismo (com tabela de decisão) e um exemplo prático de sessão de trabalho com um agente.
 
 ---
 

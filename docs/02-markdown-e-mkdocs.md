@@ -2,12 +2,13 @@
 
 > **Para quem é este módulo:** quem vai escrever e publicar documentação — redatores técnicos, PMs e Engenheiros.
 
-**Neste módulo você vai aprender:**
+!!! abstract "🎯 Objetivos de aprendizagem"
+    Neste módulo você vai aprender:
 
-- O que é Markdown e por que usá-lo em vez de Word/Google Docs
-- Toda a sintaxe essencial (títulos, listas, tabelas, imagens, código)
-- Como o MkDocs transforma arquivos `.md` em um site navegável
-- Como configurar o `mkdocs.yml` e visualizar o site localmente
+    - O que é Markdown e por que usá-lo em vez de Word/Google Docs
+    - Toda a sintaxe essencial (títulos, listas, tabelas, imagens, código)
+    - Como o MkDocs transforma arquivos `.md` em um site navegável
+    - Como configurar o `mkdocs.yml` e visualizar o site localmente
 
 ---
 
@@ -280,9 +281,9 @@ Este bloco é invisível para o leitor final, mas é usado pelo MkDocs para gera
 flowchart LR
     A["docs/*.md\nArquivos Markdown"] -->|mkdocs build| B["site/*.html\nSite estático"]
     B -->|deploy| C["GitHub Pages\nSite publicado"]
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#c8e6c9,stroke:#2e7d32
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style C fill:#155f3f,stroke:#3BE592,color:#ffffff
 ```
 
 A configuração central fica em `mkdocs.yml` na raiz do repositório.
@@ -447,6 +448,9 @@ Ou use o script do projeto:
 | `1. item` | Lista numerada |
 | `\| col \|` | Tabela |
 | `---` | Linha horizontal |
+
+!!! success "✅ Resumo do módulo"
+    Markdown é texto simples com marcações leves, mais portável que Word ou Google Docs. Você aprendeu a sintaxe essencial (títulos, listas, tabelas, imagens e código) e como o **MkDocs** transforma arquivos `.md` em um site navegável — configurando o `mkdocs.yml` e visualizando tudo localmente com `mkdocs serve`.
 
 ---
 

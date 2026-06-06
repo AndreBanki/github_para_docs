@@ -2,13 +2,14 @@
 
 > **Para quem é este módulo:** toda a equipe que vai escrever documentação no VS Code com apoio de IA.
 
-**Neste módulo você vai aprender:**
+!!! abstract "🎯 Objetivos de aprendizagem"
+    Neste módulo você vai aprender:
 
-- Por que usar o VS Code como editor de documentação
-- Como configurar o ambiente (extensões, preview, terminal)
-- Todos os comandos Git pelo VS Code (sem terminal)
-- Os 4 modos do GitHub Copilot e quando usar cada um
-- Boas práticas para IA generativa em documentação
+    - Por que usar o VS Code como editor de documentação
+    - Como configurar o ambiente (extensões, preview, terminal)
+    - Todos os comandos Git pelo VS Code (sem terminal)
+    - Os 4 modos do GitHub Copilot e quando usar cada um
+    - Boas práticas para IA generativa em documentação
 
 ---
 
@@ -261,10 +262,10 @@ flowchart TD
     A -->|Inserir ou editar\num trecho específico| C["Chat Inline\nCtrl+I"]
     A -->|Fazer uma pergunta\nou pedir análise| D["Painel de Chat\nCtrl+Alt+I"]
     A -->|Tarefa de múltiplos passos\ncom leitura/escrita de arquivos| E["Modo Agente\nChat → Agent"]
-    style B fill:#e3f2fd,stroke:#1565c0
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#e8f5e9,stroke:#2e7d32
-    style E fill:#f3e5f5,stroke:#7b1fa2
+    style B fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style E fill:#0e3a30,stroke:#34d399,color:#dafff2
 ```
 
 ### 6.1 Sugestões inline (Completions)
@@ -387,6 +388,9 @@ Peça ao Copilot para:
 | Terminal integrado | ![Terminal](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/terminal.svg){: .vscode-icon} menu View → Terminal | Ctrl+` |
 | Paleta de comandos | — | `Ctrl+Shift+P` |
 | Buscar em todos os arquivos | ![Search](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/search.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+F` |
+
+!!! success "✅ Resumo do módulo"
+    O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente (extensões, preview e terminal), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **4 modos do GitHub Copilot** e quando usar cada um na documentação.
 
 ---
 

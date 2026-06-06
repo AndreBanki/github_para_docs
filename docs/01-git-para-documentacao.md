@@ -2,13 +2,14 @@
 
 > **Para quem é este módulo:** equipes de Produto e Engenharia que mantêm documentação em repositórios Git — sem necessidade de saber programar.
 
-**Neste módulo você vai aprender:**
+!!! abstract "🎯 Objetivos de aprendizagem"
+    Neste módulo você vai aprender:
 
-- O que é Git e por que usá-lo para documentação
-- Os conceitos de repositório, commit, clone, push e pull
-- O fluxo de trabalho diário (simplificado e completo)
-- Os comandos essenciais e quando usá-los
-- Como resolver situações comuns (conflitos, desfazer erros)
+    - O que é Git e por que usá-lo para documentação
+    - Os conceitos de repositório, commit, clone, push e pull
+    - O fluxo de trabalho diário (simplificado e completo)
+    - Os comandos essenciais e quando usá-los
+    - Como resolver situações comuns (conflitos, desfazer erros)
 
 ---
 
@@ -117,11 +118,11 @@ Existem dois fluxos possíveis. Comece pelo simplificado e migre para o completo
 ```mermaid
 flowchart LR
     A["🔄 git pull\nAtualizar"] --> B["✏️ Editar\narquivos .md"] --> C["📦 git add .\nRegistrar"] --> D["💾 git commit\nCommitar"] --> E["🚀 git push\nPublicar"]
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#e8f5e9,stroke:#2e7d32
-    style D fill:#e8f5e9,stroke:#2e7d32
-    style E fill:#fce4ec,stroke:#c62828
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style C fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style E fill:#114e34,stroke:#25CE7B,color:#ffffff
 ```
 
 !!! warning "Atenção"
@@ -140,14 +141,14 @@ flowchart LR
     A["🔄 git pull\nAtualizar"] --> B["🌿 checkout -b\nCriar branch"] --> C["✏️ Editar\narquivos .md"] --> D["📦 git add .\nRegistrar"]
     D --> E["💾 git commit\nCommitar"] --> F["🚀 git push\nEnviar branch"]
     F --> G["🔍 Pull Request\nRevisar"] --> H["✅ Merge\nPublicar"]
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#f3e5f5,stroke:#7b1fa2
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#e8f5e9,stroke:#2e7d32
-    style E fill:#e8f5e9,stroke:#2e7d32
-    style F fill:#fce4ec,stroke:#c62828
-    style G fill:#fff9c4,stroke:#f9a825
-    style H fill:#c8e6c9,stroke:#2e7d32
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0e3a30,stroke:#34d399,color:#dafff2
+    style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style E fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style F fill:#114e34,stroke:#25CE7B,color:#ffffff
+    style G fill:#3a3408,stroke:#facc15,color:#fff6cf
+    style H fill:#155f3f,stroke:#3BE592,color:#ffffff
 ```
 
 ---
@@ -278,6 +279,9 @@ git revert HEAD    # cria um novo commit que desfaz o último
     | **Pull** | Baixar e integrar commits do repositório remoto |
     | **main** | Branch principal (produção) |
     | **Branch / PR** | Conceitos do fluxo completo — ver [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) |
+
+!!! success "✅ Resumo do módulo"
+    Git versiona sua documentação e evita que o trabalho de uma pessoa sobrescreva o de outra. Você viu os conceitos de **repositório, commit, clone, push e pull**, o fluxo diário (`pull` → editar → `add` → `commit` → `push`) e como lidar com conflitos e desfazer erros. Na prática, a maior parte dessas ações é feita pelos botões do VS Code — o importante é entender *o que cada operação faz*.
 
 ---
 

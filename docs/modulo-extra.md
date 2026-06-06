@@ -2,6 +2,10 @@
 
 > Este módulo reúne dicas práticas encontradas em repositórios reais da AltoQi. Cada dica descreve um padrão de instrução e como ele é usado no dia a dia.
 
+!!! abstract "🎯 O que você vai encontrar aqui"
+    Padrões reais de instrução usados nos repositórios da AltoQi: como documentar
+    a partir do Targetprocess, espelhar épicos e organizar a pasta `raw/` de fontes.
+
 ---
 
 ## Dica 1 — Documentar uma feature a partir do Targetprocess

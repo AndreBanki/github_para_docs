@@ -2,13 +2,14 @@
 
 > **Pré-requisito:** leia o [Módulo 1 — Git para Documentação](./01-git-para-documentacao.md) antes de continuar. Este documento aprofunda o **Fluxo Completo** — branches isolados e revisão via Pull Request.
 
-**Neste módulo você vai aprender:**
+!!! abstract "🎯 Objetivos de aprendizagem"
+    Neste módulo você vai aprender:
 
-- O que é um branch e por que ele existe
-- Como criar, navegar e trabalhar em branches
-- O que é um Pull Request e como fazer revisão
-- Como resolver conflitos de merge
-- O fluxo completo passo a passo
+    - O que é um branch e por que ele existe
+    - Como criar, navegar e trabalhar em branches
+    - O que é um Pull Request e como fazer revisão
+    - Como resolver conflitos de merge
+    - O fluxo completo passo a passo
 
 !!! tip "Não se preocupe se parecer complexo"
     90% do seu dia a dia é o fluxo simplificado (Módulo 1). Branches e PRs são para quando a equipe crescer ou o conteúdo precisar de revisão formal.
@@ -198,6 +199,9 @@ git push origin docs/nome-da-tarefa       # enviar branch para o GitHub
 → Merge no main → site atualizado automaticamente
 → Deletar o branch
 ```
+
+!!! success "✅ Resumo do módulo"
+    **Branches** isolam um trabalho em andamento sem afetar o `main`, e o **Pull Request** permite revisar o conteúdo antes de publicar. Você viu como criar e navegar em branches, abrir e revisar um PR, resolver conflitos de merge e executar o fluxo completo passo a passo.
 
 ---
 

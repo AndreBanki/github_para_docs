@@ -8,6 +8,7 @@ site_dir: site
 use_directory_urls: false
 
 extra_css:
+  - stylesheets/altoqi-course.css
   - stylesheets/vscode.css
 
 theme:
@@ -44,3 +45,4 @@ markdown_extensions:
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
+  - javascripts/altoqi-course.js
