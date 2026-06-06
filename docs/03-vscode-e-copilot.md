@@ -2,6 +2,14 @@
 
 > **Para quem é este módulo:** toda a equipe que vai escrever documentação no VS Code com apoio de IA.
 
+**Neste módulo você vai aprender:**
+
+- Por que usar o VS Code como editor de documentação
+- Como configurar o ambiente (extensões, preview, terminal)
+- Todos os comandos Git pelo VS Code (sem terminal)
+- Os 4 modos do GitHub Copilot e quando usar cada um
+- Boas práticas para IA generativa em documentação
+
 ---
 
 ## 1. Por que VS Code para documentação?
@@ -228,6 +236,9 @@ Após resolver todos os conflitos, faça `git add` nos arquivos resolvidos e dep
 
 ## 5. O que é o GitHub Copilot?
 
+!!! warning "Licença necessária"
+    O GitHub Copilot requer licença paga (individual ou via organização). Consulte seu gestor para verificar se sua conta já tem acesso.
+
 O GitHub Copilot é um **assistente de IA integrado ao editor**. Ele foi treinado em bilhões de linhas de código e documentação e pode:
 
 - **Completar frases e parágrafos** enquanto você digita (sugestões inline)
@@ -241,6 +252,20 @@ O Copilot lê o contexto dos arquivos abertos e do repositório inteiro para ger
 ---
 
 ## 6. Modos de uso do Copilot
+
+Use o diagrama abaixo para decidir qual modo usar:
+
+```mermaid
+flowchart TD
+    A{"O que você quer fazer?"} -->|Completar uma frase\nenquanto digita| B["Sugestões Inline\nTab para aceitar"]
+    A -->|Inserir ou editar\num trecho específico| C["Chat Inline\nCtrl+I"]
+    A -->|Fazer uma pergunta\nou pedir análise| D["Painel de Chat\nCtrl+Alt+I"]
+    A -->|Tarefa de múltiplos passos\ncom leitura/escrita de arquivos| E["Modo Agente\nChat → Agent"]
+    style B fill:#e3f2fd,stroke:#1565c0
+    style C fill:#fff3e0,stroke:#ef6c00
+    style D fill:#e8f5e9,stroke:#2e7d32
+    style E fill:#f3e5f5,stroke:#7b1fa2
+```
 
 ### 6.1 Sugestões inline (Completions)
 

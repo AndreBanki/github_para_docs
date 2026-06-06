@@ -2,6 +2,17 @@
 
 > **Pré-requisito:** leia o [Módulo 1 — Git para Documentação](./01-git-para-documentacao.md) antes de continuar. Este documento aprofunda o **Fluxo Completo** — branches isolados e revisão via Pull Request.
 
+**Neste módulo você vai aprender:**
+
+- O que é um branch e por que ele existe
+- Como criar, navegar e trabalhar em branches
+- O que é um Pull Request e como fazer revisão
+- Como resolver conflitos de merge
+- O fluxo completo passo a passo
+
+!!! tip "Não se preocupe se parecer complexo"
+    90% do seu dia a dia é o fluxo simplificado (Módulo 1). Branches e PRs são para quando a equipe crescer ou o conteúdo precisar de revisão formal.
+
 ---
 
 ## Por que isso existe?
@@ -23,11 +34,18 @@ A solução são dois conceitos: **branch** e **Pull Request**.
 
 Um branch é uma **linha do tempo paralela** do repositório. Enquanto o `main` continua estável e publicado, você trabalha numa cópia isolada — sem afetar ninguém.
 
-```
-main ─────────────────────────────────────────────────────► (produção)
-          │
-          └── docs/guia-collab ──────────────────────────► (seu rascunho)
-                   commit A → commit B → commit C
+```mermaid
+gitGraph
+    commit id: "página existente"
+    commit id: "correção anterior"
+    branch docs/guia-collab
+    commit id: "commit A"
+    commit id: "commit B"
+    commit id: "commit C"
+    checkout main
+    commit id: "outro trabalho"
+    merge docs/guia-collab id: "merge do PR"
+    commit id: "site atualizado"
 ```
 
 Só quando você decidir (e alguém aprovar) é que esse trabalho é incorporado ao `main`.
@@ -184,4 +202,4 @@ git push origin docs/nome-da-tarefa       # enviar branch para o GitHub
 ---
 
 > **Módulo anterior:** [01 — Git para Documentação](./01-git-para-documentacao.md)  
-> **Próximo módulo:** [02 — Markdown e MkDocs](./02-markdown-e-mkdocs.md)
+> **Índice:** [Início](./index.md)

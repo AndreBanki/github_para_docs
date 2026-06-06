@@ -2,6 +2,16 @@
 
 > **Para quem é este módulo:** quem configura e mantém o ambiente de documentação — líderes de Produto, Engenharia e responsáveis pelo repositório.
 
+**Neste módulo você vai aprender:**
+
+- Os 4 mecanismos de personalização: Instructions, Prompts, Agentes e Skills
+- Onde colocar cada arquivo e como configurá-lo
+- Quando usar cada mecanismo (tabela de decisão)
+- Exemplo prático de sessão de trabalho com agente
+
+!!! tip "Dica para PMs e redatores"
+    Se você não vai configurar o ambiente, foque nas **seções 2 e 4** (Instructions e Prompts) — são as que você vai usar no dia a dia. As seções 5 e 6 (Agentes e Skills) são para quem monta o ambiente.
+
 ---
 
 ## 1. Por que personalizar o Copilot?
@@ -356,29 +366,27 @@ type: tutorial
 
 ## 7. Visão Geral: como os mecanismos se encaixam
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  PERSONALIZAÇÃO DO COPILOT                  │
-└─────────────────────────────────────────────────────────────┘
-
-.github/copilot-instructions.md
-  └── Sempre ativo no repositório. Define o "quem sou eu" do agente.
-      Tom, estrutura, terminologia, restrições.
-
-docs/seção/.instructions.md  (applyTo: glob)
-  └── Instruções específicas por seção/módulo.
-
-.github/prompts/*.prompt.md
-  └── Templates de instrução invocados com /nome-do-prompt.
-      Para tarefas recorrentes e padronizadas.
-
-.github/agents/*.agent.md
-  └── Agentes especializados invocados com @nome-do-agente.
-      Têm ferramentas, contexto e comportamento definidos.
-
-.github/prompts/skills/*/SKILL.md
-  └── Conhecimento especializado que o Copilot carrega
-      automaticamente quando a tarefa corresponde ao domínio.
+```mermaid
+flowchart TD
+    subgraph sempre ["Sempre ativos"]
+        A["copilot-instructions.md\n📚 Manual do agente"]
+        B[".instructions.md\n📂 Regras por seção"]
+    end
+    subgraph invocados ["Invocados pelo usuário"]
+        C["*.prompt.md\n⚡ /nome-do-prompt"]
+        D["*.agent.md\n🤖 @nome-do-agente"]
+    end
+    subgraph automaticos ["Carregados automaticamente"]
+        E["SKILL.md\n🧠 Conhecimento especializado"]
+    end
+    A --> B
+    C --> D
+    D --> E
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#e3f2fd,stroke:#1565c0
+    style C fill:#fff3e0,stroke:#ef6c00
+    style D fill:#f3e5f5,stroke:#7b1fa2
+    style E fill:#e8f5e9,stroke:#2e7d32
 ```
 
 ---

@@ -6,6 +6,9 @@ title: Início
 
 Material de estudo para equipes de Produto e Engenharia trabalharem com documentação de produto usando Git, Markdown, MkDocs e GitHub Copilot.
 
+!!! tip "Primeira vez aqui?"
+    Este material foi feito para quem **nunca usou Git**. Siga os módulos em ordem — cada um constrói sobre o anterior. Ao final, você vai conseguir colaborar em documentação como um profissional.
+
 ---
 
 ## Módulos
@@ -22,11 +25,13 @@ Material de estudo para equipes de Produto e Engenharia trabalharem com document
 
 ## Fluxo Resumido
 
-```
-git pull                          → atualizar
-# editar arquivos .md no VS Code
-git add . && git commit -m "..."  → registrar
-git push                          → publicar
+```mermaid
+flowchart LR
+    A["🔄 git pull\nAtualizar"] --> B["✏️ Editar\narquivos .md"] --> C["📦 git add + commit\nRegistrar"] --> D["🚀 git push\nPublicar"]
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#fff3e0,stroke:#ef6c00
+    style C fill:#e8f5e9,stroke:#2e7d32
+    style D fill:#fce4ec,stroke:#c62828
 ```
 
 ---
@@ -38,4 +43,4 @@ git push                          → publicar
 | Git | https://git-scm.com |
 | Python 3.10+ | https://www.python.org |
 | VS Code | https://code.visualstudio.com |
-| GitHub Copilot (extensão) | Marketplace VS Code |
+| GitHub Copilot (extensão) | [Marketplace VS Code](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) |

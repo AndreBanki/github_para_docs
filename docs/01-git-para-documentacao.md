@@ -2,6 +2,14 @@
 
 > **Para quem é este módulo:** equipes de Produto e Engenharia que mantêm documentação em repositórios Git — sem necessidade de saber programar.
 
+**Neste módulo você vai aprender:**
+
+- O que é Git e por que usá-lo para documentação
+- Os conceitos de repositório, commit, clone, push e pull
+- O fluxo de trabalho diário (simplificado e completo)
+- Os comandos essenciais e quando usá-los
+- Como resolver situações comuns (conflitos, desfazer erros)
+
 ---
 
 ## 1. Por que usar Git para documentação?
@@ -81,19 +89,18 @@ git clone https://github.com/altoqi/visus-docs.git
 # resultado: C:\Repos\visus-docs\
 ```
 
-#### ⚠️ Nunca coloque um repositório dentro de outro
+??? warning "Nunca coloque um repositório dentro de outro"
+    O Git rastreia tudo que está dentro da pasta do repositório. Se você clonar um projeto dentro da pasta de outro repositório existente, o Git pai vai começar a enxergar o repositório filho como arquivos não rastreados — causando confusão e erros difíceis de diagnosticar.
 
-O Git rastreia tudo que está dentro da pasta do repositório. Se você clonar um projeto dentro da pasta de outro repositório existente, o Git pai vai começar a enxergar o repositório filho como arquivos não rastreados — causando confusão e erros difíceis de diagnosticar.
+    ```
+    ❌  C:\Repos\visus-docs\          ← repositório A
+                  └── curso_github\   ← repositório B clonado aqui dentro → PROBLEMA
 
-```
-❌  C:\Repos\visus-docs\          ← repositório A
-              └── curso_github\   ← repositório B clonado aqui dentro → PROBLEMA
+    ✅  C:\Repos\visus-docs\          ← repositório A
+        C:\Repos\curso_github\        ← repositório B na mesma pasta pai → CORRETO
+    ```
 
-✅  C:\Repos\visus-docs\          ← repositório A
-    C:\Repos\curso_github\        ← repositório B na mesma pasta pai → CORRETO
-```
-
-> **Exceção:** repositórios aninhados de forma intencional existem (chamados de *git submodules*), mas são uma configuração avançada que nunca acontece por acidente — exige um comando específico.
+    **Exceção:** repositórios aninhados de forma intencional existem (chamados de *git submodules*), mas são uma configuração avançada que nunca acontece por acidente — exige um comando específico.
 
 ---
 
@@ -107,28 +114,18 @@ Existem dois fluxos possíveis. Comece pelo simplificado e migre para o completo
 
 **Quando usar:** equipe pequena (2–3 pessoas), confiança mútua no conteúdo, sem necessidade de revisão formal antes de publicar. É o ponto de partida natural para quem está aprendendo.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│               FLUXO SIMPLIFICADO (main direto)          │
-└─────────────────────────────────────────────────────────┘
-
-1. ATUALIZAR          git pull
-   Busca as últimas mudanças antes de começar
-
-2. EDITAR             VS Code + GitHub Copilot
-   Cria ou edita arquivos .md
-
-3. REGISTRAR          git add .
-   Marca os arquivos alterados para o commit
-
-4. COMMITAR           git commit -m "docs: descreve o que foi feito"
-   Salva o snapshot localmente
-
-5. ENVIAR             git push
-   Publica direto no main — o site é atualizado automaticamente
+```mermaid
+flowchart LR
+    A["🔄 git pull\nAtualizar"] --> B["✏️ Editar\narquivos .md"] --> C["📦 git add .\nRegistrar"] --> D["💾 git commit\nCommitar"] --> E["🚀 git push\nPublicar"]
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#fff3e0,stroke:#ef6c00
+    style C fill:#e8f5e9,stroke:#2e7d32
+    style D fill:#e8f5e9,stroke:#2e7d32
+    style E fill:#fce4ec,stroke:#c62828
 ```
 
-> **Atenção:** no fluxo simplificado, o que você faz `push` vai direto para produção. Revise bem antes de commitar.
+!!! warning "Atenção"
+    No fluxo simplificado, o que você faz `push` vai direto para produção. Revise bem antes de commitar.
 
 ---
 
@@ -138,35 +135,19 @@ Existem dois fluxos possíveis. Comece pelo simplificado e migre para o completo
 
 O fluxo completo adiciona duas etapas entre o commit e a publicação: um **branch isolado** e um **Pull Request** com revisão. Para entender em detalhe o que são e como funcionam, veja o documento complementar: [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md).
 
-```
-┌─────────────────────────────────────────────────────────┐
-│             FLUXO COMPLETO (branch + PR)                │
-└─────────────────────────────────────────────────────────┘
-
-1. ATUALIZAR          git pull
-   Busca as últimas mudanças do repositório remoto
-   antes de começar a trabalhar
-
-2. CRIAR BRANCH       git checkout -b docs/nome-da-tarefa
-   Isola seu trabalho do branch principal
-
-3. EDITAR             VS Code + GitHub Copilot
-   Cria ou edita arquivos .md
-
-4. REGISTRAR          git add .
-   Marca os arquivos alterados para o próximo commit
-
-5. COMMITAR           git commit -m "docs: descreve o que foi feito"
-   Salva o snapshot com uma mensagem descritiva
-
-6. ENVIAR             git push origin docs/nome-da-tarefa
-   Envia seu branch para o repositório remoto (não publica ainda)
-
-7. REVISAR            Abrir Pull Request no GitHub
-   Solicita revisão de um colega antes de mesclar
-
-8. MESCLAR            Merge do PR no main
-   Após aprovação, o conteúdo entra no main e o site é atualizado
+```mermaid
+flowchart LR
+    A["🔄 git pull\nAtualizar"] --> B["🌿 checkout -b\nCriar branch"] --> C["✏️ Editar\narquivos .md"] --> D["📦 git add .\nRegistrar"]
+    D --> E["💾 git commit\nCommitar"] --> F["🚀 git push\nEnviar branch"]
+    F --> G["🔍 Pull Request\nRevisar"] --> H["✅ Merge\nPublicar"]
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#f3e5f5,stroke:#7b1fa2
+    style C fill:#fff3e0,stroke:#ef6c00
+    style D fill:#e8f5e9,stroke:#2e7d32
+    style E fill:#e8f5e9,stroke:#2e7d32
+    style F fill:#fce4ec,stroke:#c62828
+    style G fill:#fff9c4,stroke:#f9a825
+    style H fill:#c8e6c9,stroke:#2e7d32
 ```
 
 ---
@@ -250,6 +231,9 @@ git log --oneline --graph
 
 ## 5. Situações Comuns
 
+!!! tip "Conflitos são raros"
+    Se a equipe sempre faz `git pull` antes de começar a trabalhar, conflitos quase nunca acontecem. As situações abaixo são para quando eles ocorrem.
+
 ### "Alguém atualizou o arquivo que eu também editei"
 
 Isso gera um **conflito de merge**. O Git marca as diferenças no arquivo:
@@ -284,17 +268,16 @@ git revert HEAD    # cria um novo commit que desfaz o último
 
 ---
 
-## 6. Glossário Rápido
-
-| Termo | Significado |
-|---|---|
-| **Repository (repo)** | Pasta do projeto gerenciada pelo Git |
-| **Clone** | Baixar uma cópia completa do repositório para sua máquina |
-| **Commit** | Snapshot dos arquivos com mensagem descritiva |
-| **Push** | Enviar commits locais para o repositório remoto |
-| **Pull** | Baixar e integrar commits do repositório remoto |
-| **main** | Branch principal (produção) |
-| **Branch / PR** | Conceitos do fluxo completo — ver [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) |
+??? note "Glossário Rápido"
+    | Termo | Significado |
+    |---|---|
+    | **Repository (repo)** | Pasta do projeto gerenciada pelo Git |
+    | **Clone** | Baixar uma cópia completa do repositório para sua máquina |
+    | **Commit** | Snapshot dos arquivos com mensagem descritiva |
+    | **Push** | Enviar commits locais para o repositório remoto |
+    | **Pull** | Baixar e integrar commits do repositório remoto |
+    | **main** | Branch principal (produção) |
+    | **Branch / PR** | Conceitos do fluxo completo — ver [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) |
 
 ---
 

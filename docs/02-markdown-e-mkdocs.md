@@ -2,6 +2,13 @@
 
 > **Para quem é este módulo:** quem vai escrever e publicar documentação — redatores técnicos, PMs e Engenheiros.
 
+**Neste módulo você vai aprender:**
+
+- O que é Markdown e por que usá-lo em vez de Word/Google Docs
+- Toda a sintaxe essencial (títulos, listas, tabelas, imagens, código)
+- Como o MkDocs transforma arquivos `.md` em um site navegável
+- Como configurar o `mkdocs.yml` e visualizar o site localmente
+
 ---
 
 ## 1. O que é Markdown?
@@ -211,12 +218,21 @@ A extensão `admonition` do Python-Markdown (habilitada no `mkdocs.yml`) adicion
     Requisito ou pré-condição essencial.
 ```
 
-O título entre aspas é opcional — se omitido, o tipo é usado como título:
+O título entre aspas é opcional — se omitido, o tipo é usado como título.
 
-```markdown
-!!! warning
-    Sem título personalizado: o cabeçalho exibirá "Warning".
-```
+Veja como eles ficam renderizados:
+
+!!! note "Nota"
+    Informação complementar que não interrompe o fluxo.
+
+!!! tip "Dica"
+    Atalho ou boa prática recomendada.
+
+!!! warning "Atenção"
+    Algo que o usuário precisa observar com cuidado.
+
+!!! danger "Perigo"
+    Ação que pode causar perda de dados ou danos irreversíveis.
 
 Tipos disponíveis no tema ReadTheDocs:
 
@@ -249,6 +265,9 @@ tags: [collab, CDE, modelos-bim]
 
 Este bloco é invisível para o leitor final, mas é usado pelo MkDocs para gerar títulos, metadados de SEO e navegação.
 
+!!! tip "Não precisa decorar"
+    O prompt `/nova-pagina` (ver [Módulo 4](./04-copilot-customizacao.md)) preenche o frontmatter automaticamente. Basta saber que ele existe e para que serve.
+
 ---
 
 ## 3. O que é MkDocs?
@@ -257,8 +276,13 @@ Este bloco é invisível para o leitor final, mas é usado pelo MkDocs para gera
 
 ### Como funciona?
 
-```
-docs/*.md  ──► mkdocs build ──► site/*.html  ──► Hospedagem (GitHub Pages, servidor interno)
+```mermaid
+flowchart LR
+    A["docs/*.md\nArquivos Markdown"] -->|mkdocs build| B["site/*.html\nSite estático"]
+    B -->|deploy| C["GitHub Pages\nSite publicado"]
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#fff3e0,stroke:#ef6c00
+    style C fill:#c8e6c9,stroke:#2e7d32
 ```
 
 A configuração central fica em `mkdocs.yml` na raiz do repositório.
