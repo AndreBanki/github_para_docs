@@ -288,6 +288,30 @@ flowchart LR
 
 A configuração central fica em `mkdocs.yml` na raiz do repositório.
 
+### Estrutura de pastas no repositório
+
+Um repositório com MkDocs tem sempre **uma única pasta de documentação publicada** — por padrão chamada `docs/`, mas pode ter qualquer outro nome. O nome escolhido é declarado no `mkdocs.yml` via `docs_dir`:
+
+```yaml
+docs_dir: docs   # qualquer outro nome também funciona
+```
+
+Além dessa pasta, o repositório pode conter **qualquer número de pastas auxiliares** — rascunhos, materiais de apoio, scripts, prompts, etc. — que ficam versionadas no Git mas **não são publicadas** pelo MkDocs.
+
+```
+repositorio/
+├── mkdocs.yml
+├── docs/              ← única pasta publicada pelo MkDocs
+│   ├── index.md
+│   └── modulo-1.md
+├── rascunhos/         ← pasta auxiliar (versionada, mas não publicada)
+├── prompts/           ← pasta auxiliar (versionada, mas não publicada)
+└── site/              ← gerada pelo mkdocs build (não versionada — está no .gitignore)
+```
+
+!!! important "A pasta `site/` não é uma pasta auxiliar"
+    A pasta `site/` é gerada automaticamente pelo `mkdocs build` e está no `.gitignore`. Ela **não** deve ser commitada nem confundida com pastas auxiliares — é apenas o artefato de saída do build.
+
 ---
 
 ## 4. O arquivo `mkdocs.yml`
