@@ -42,15 +42,21 @@ A configuração é feita pelo **dono da conta** do repositório no GitHub:
 
 1. Acesse o repositório no GitHub
 2. Vá em **Settings** → **Pages** (menu lateral)
-3. Em **Source**, selecione **GitHub Actions**
-4. Crie (ou verifique se já existe) um arquivo `.github/workflows/deploy.yml` com o pipeline de build e publicação do MkDocs
+3. Em **Source**, selecione **Deploy from a branch**
+4. Selecione o branch **`gh-pages`** como origem
 
-!!! tip "Já está configurado neste repositório"
-    Este curso já usa GitHub Pages. Você pode ver o arquivo de configuração em `.github/workflows/` como referência.
+### Como publicar
 
-### Resultado
+Após commitar e fazer `push` das alterações para o `main`, execute o comando abaixo para reconstruir o site e enviar para o GitHub Pages:
 
-A cada `push` para o `main`, o GitHub Actions executa o build do MkDocs e publica automaticamente o site atualizado.
+```powershell
+mkdocs gh-deploy
+```
+
+Esse comando reconstrói o site localmente e faz `push` automático para o branch `gh-pages`.
+
+!!! warning "Não esqueça de publicar após cada commit"
+    O site **não é atualizado automaticamente**. Sempre execute `mkdocs gh-deploy` depois de commitar alterações para manter o conteúdo online sincronizado.
 
 ---
 
@@ -109,21 +115,21 @@ Entre em contato com o CloudOps descrevendo o repositório, o tipo de conteúdo 
 
 ## Como o conteúdo é atualizado em todos os casos
 
-Independentemente da opção escolhida, a lógica de atualização é a mesma:
+A lógica de atualização depende da opção de publicação escolhida. Para o **GitHub Pages com deploy manual** (como neste curso), o fluxo é:
 
-!!! success "Regra universal de atualização"
-    **O site online é atualizado sempre que ocorre um `push` para o branch `main`.**
-
-Isso vale tanto para o **fluxo simplificado** (você commita direto no `main`) quanto para o **fluxo completo** (um Pull Request é aprovado e mesclado no `main`).
+!!! success "Fluxo de atualização — GitHub Pages manual"
+    1. Faça o commit e `push` das alterações para o `main`
+    2. Execute `mkdocs gh-deploy` para publicar o site atualizado
 
 ```mermaid
 flowchart LR
-    A[Commit no main\nou merge de PR] --> B[Pipeline CI/CD\nexecutado automaticamente]
-    B --> C[Build do MkDocs]
-    C --> D[Site publicado\natualizado]
+    A[Commit + push\npara o main] --> B[Executar\nmkdocs gh-deploy]
+    B --> C[Build do MkDocs\nlocal]
+    C --> D[Push para branch\ngh-pages]
+    D --> E[Site publicado\natualizado]
 ```
 
-Você nunca precisa publicar manualmente — basta que o conteúdo esteja no `main`.
+Para opções com CI/CD configurado (Render.com, CloudOps), a atualização pode ocorrer automaticamente a cada `push` para o `main`, sem necessidade de comando manual.
 
 ---
 
