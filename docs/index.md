@@ -7,7 +7,7 @@ title: Início
   <h1>Documentação como <span class="hl">Código</span></h1>
   <p class="lead">Aprenda a colaborar em documentação de produto usando Git, Markdown, MkDocs e GitHub Copilot — mesmo que você nunca tenha usado Git na vida.</p>
   <div class="course-meta">
-    <span>📚 <b>6</b> módulos</span>
+    <span>📚 <b>7</b> módulos</span>
     <span>🎯 Nível <b>iniciante</b></span>
     <span>⏱️ ~<b>4h</b> de estudo</span>
     <span>💻 Prática guiada no VS Code</span>
@@ -57,6 +57,13 @@ title: Início
     <span class="mod-num">Módulo 05</span>
     <span class="mod-title">Branches e Pull Requests</span>
     <span class="mod-desc">Aprofundamento do fluxo completo: branches isolados e revisão por PR.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="06-publicacao-externa.html">
+    <span class="mod-icon">🌐</span>
+    <span class="mod-num">Módulo 06</span>
+    <span class="mod-title">Publicando para Acesso Externo</span>
+    <span class="mod-desc">GitHub Pages, Render.com, Keycloak e CloudOps — como escolher e como atualizar o site.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
   <a class="module-card extra" href="modulo-extra.html">
