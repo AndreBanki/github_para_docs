@@ -286,9 +286,24 @@ body,
 
 .rst-content .admonition.warning,
 .rst-content details.warning,
-.rst-content .admonition.caution { border-left-color: #fbbf24; }
+.rst-content .admonition.caution {
+  border-left-color: #fbbf24;
+  background: #1a1500 !important;
+  color: var(--text-light) !important;
+}
 .rst-content .admonition.warning > .admonition-title,
-.rst-content details.warning > summary { background: rgba(251,191,36,0.14); color: #fcd34d; }
+.rst-content details.warning > summary {
+  background: rgba(251,191,36,0.20) !important;
+  color: #ffe082 !important;
+}
+.rst-content .admonition.warning p,
+.rst-content .admonition.warning li,
+.rst-content details.warning p,
+.rst-content details.warning li,
+.rst-content .admonition.caution p,
+.rst-content .admonition.caution li {
+  color: var(--text-light) !important;
+}
 
 .rst-content .admonition.danger,
 .rst-content details.danger { border-left-color: #f87171; }
