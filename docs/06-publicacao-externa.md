@@ -137,3 +137,52 @@ Você nunca precisa publicar manualmente — basta que o conteúdo esteja no `ma
 | Render.com + senha | Privado | Senha única compartilhada | Baixa | Gratuito (plano free) |
 | Render.com + Keycloak | Privado | Login individual corporativo | Média | Depende do uso |
 | CloudOps AltoQi | Privado/Público | Gerenciado pela infraestrutura | Alta (gerenciada) | Interno |
+
+---
+
+## Exercícios práticos
+
+??? example "Exercício 1 — Publicar no GitHub Pages"
+    **Objetivo:** ativar o GitHub Pages e verificar o deploy automático.
+
+    1. Acesse o repositório do curso no GitHub
+    2. Vá em **Settings → Pages** (menu lateral)
+    3. Em **Source**, selecione **Deploy from a branch** e escolha o branch `gh-pages`
+    4. Salve as configurações
+    5. No repositório local, faça uma alteração pequena em qualquer arquivo `.md` (ex.: adicione uma linha em branco)
+    6. Commite e faça `git push` para o `main`
+    7. Acesse a aba **Actions** no GitHub e acompanhe a execução do workflow `deploy.yml`
+    8. Após o deploy concluir, acesse a URL pública do site
+
+    ✅ **Resultado esperado:** a alteração aparece na URL pública em menos de 2 minutos.
+
+??? example "Exercício 2 — Ler e interpretar os logs do GitHub Actions"
+    **Objetivo:** saber onde olhar quando um deploy falha.
+
+    1. Acesse a aba **Actions** no repositório do curso no GitHub
+    2. Clique no workflow mais recente
+    3. Expanda cada etapa e leia o log:
+       - Qual etapa instala as dependências?
+       - Qual etapa executa o `mkdocs gh-deploy`?
+       - Quanto tempo cada etapa levou?
+    4. Para simular uma falha, edite o `mkdocs.yml` e introduza um erro de sintaxe YAML (ex.: remova um `:`)
+    5. Faça push e observe a aba Actions — qual etapa falhou? Qual é a mensagem de erro?
+    6. Corrija o `mkdocs.yml` e faça push novamente
+
+    ✅ **Resultado esperado:** você consegue identificar onde um deploy falhou lendo os logs, sem ajuda externa.
+
+??? example "Exercício 3 — Decidir a opção de publicação para cenários reais"
+    **Objetivo:** aplicar a tabela de decisão a situações concretas.
+
+    Para cada cenário abaixo, escolha a opção de publicação mais adequada e justifique:
+
+    | Cenário | Opção recomendada | Por quê? |
+    |---|---|---|
+    | Manual de uso público de um produto AltoQi | ? | ? |
+    | Wiki interna de processos da equipe de Produto | ? | ? |
+    | Documentação técnica sensível para clientes enterprise | ? | ? |
+    | Guia de onboarding para novos colaboradores | ? | ? |
+
+    Compare suas respostas com o diagrama de decisão no início do módulo.
+
+    ✅ **Resultado esperado:** você consegue justificar cada escolha sem consultar o diagrama.

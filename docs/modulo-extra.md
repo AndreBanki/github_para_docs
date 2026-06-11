@@ -126,5 +126,69 @@ Em `produto_docs`, o `raw/` está organizado por produto (`produto_eberick/`, `p
 
 ---
 
+## Exercícios práticos
+
+??? example "Exercício 1 — Simular a ingestão de uma feature do TargetProcess"
+    **Objetivo:** praticar o fluxo da Dica 1 com um card fictício.
+
+    1. Abra o Copilot Chat no **modo agente** no VS Code
+    2. Simule um card do TargetProcess colando o texto abaixo na conversa:
+
+       ```
+       Feature 999001 — Exportação de relatório em PDF
+       Descrição: o usuário pode exportar o relatório de progresso do projeto
+       em formato PDF, com opção de incluir ou excluir gráficos.
+       Critérios de aceite:
+       - Botão "Exportar PDF" disponível na tela de relatórios
+       - Opções: incluir gráficos (sim/não), orientação (retrato/paisagem)
+       - PDF gerado com logo da empresa no cabeçalho
+       ```
+
+    3. Peça ao agente: `"Crie uma página de documentação para o usuário final com base nessa feature"`
+    4. Verifique se o agente:
+       - Excluiu os critérios de aceite (detalhes de implementação)
+       - Focou no comportamento visível para o usuário
+       - Criou frontmatter YAML correto
+
+    ✅ **Resultado esperado:** uma página de documentação orientada ao usuário, sem jargão técnico de desenvolvimento.
+
+??? example "Exercício 2 — Estruturar um repositório com pasta raw/"
+    **Objetivo:** criar a estrutura `raw/` + `wiki/` em um repositório de exercício.
+
+    1. No repositório do curso, crie a seguinte estrutura de pastas:
+       ```
+       raw/
+         produto_exemplo/
+           spec-funcionalidade-x.md
+       wiki/
+       ```
+    2. No arquivo `raw/produto_exemplo/spec-funcionalidade-x.md`, cole uma especificação simples (pode inventar — ex.: um formulário de cadastro)
+    3. Peça ao agente: `"Ingira o arquivo raw/produto_exemplo/spec-funcionalidade-x.md e crie a página correspondente em wiki/"`
+    4. Observe se o agente:
+       - Leu o arquivo `raw/` sem modificá-lo
+       - Criou uma página nova em `wiki/`
+       - A página em `wiki/` é orientada ao usuário (não copia a spec literalmente)
+
+    ✅ **Resultado esperado:** o arquivo `raw/` permanece intacto e `wiki/` tem uma nova página com conteúdo processado.
+
+??? example "Exercício 3 — Comparar os três padrões de ingestão"
+    **Objetivo:** consolidar a diferença entre as três dicas do módulo.
+
+    Preencha a tabela abaixo com base no que você aprendeu:
+
+    | | Dica 1 — Documentar feature | Dica 2 — Espelhar épico | Dica 3 — Pasta raw/ |
+    |---|---|---|---|
+    | **Repositório** | ? | ? | ? |
+    | **O agente filtra o conteúdo?** | ? | ? | ? |
+    | **Imagens são baixadas?** | ? | ? | ? |
+    | **Fonte principal** | ? | ? | ? |
+    | **Resultado** | ? | ? | ? |
+
+    Confira suas respostas relendo as três dicas do módulo.
+
+    ✅ **Resultado esperado:** você consegue explicar para um colega quando usar cada padrão, sem consultar o material.
+
+---
+
 > **Módulo anterior:** [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md)  
 > **Índice:** [Início](./index.md)

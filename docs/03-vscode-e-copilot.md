@@ -389,6 +389,45 @@ Peça ao Copilot para:
 | Paleta de comandos | — | `Ctrl+Shift+P` |
 | Buscar em todos os arquivos | ![Search](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/search.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+F` |
 
+---
+
+## Exercícios práticos
+
+??? example "Exercício 1 — Configurar o ambiente"
+    **Objetivo:** verificar que o ambiente está funcionando corretamente.
+
+    1. Instale as extensões recomendadas listadas na seção 2.3 (use `Ctrl+Shift+X` para abrir o painel)
+    2. Abra o repositório do curso no VS Code (`File → Open Folder`)
+    3. Abra o arquivo `docs/01-git-para-documentacao.md` e pressione `Ctrl+K V` para o preview ao lado
+    4. Abra o terminal integrado (Ctrl+`) e execute `mkdocs serve`
+    5. Acesse `http://localhost:8000` e confirme que o site carrega
+
+    ✅ **Resultado esperado:** o preview de Markdown e o site local estão funcionando simultaneamente.
+
+??? example "Exercício 2 — Commit via interface visual do VS Code"
+    **Objetivo:** executar o fluxo completo `pull → editar → commit → push` sem usar o terminal.
+
+    1. Clique em ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} na Barra de Atividades e verifique se há alterações pendentes
+    2. Clique no ícone **↓ Pull** (ou no ícone de sincronização) para atualizar o repositório
+    3. Edite o arquivo `docs/pagina-teste.md` (criado no módulo anterior) — adicione um parágrafo
+    4. No painel Source Control, clique em **+** ao lado do arquivo para fazer stage
+    5. Digite a mensagem de commit: `docs: adiciona parágrafo em pagina-teste`
+    6. Clique em **✓ Commit** e depois em **Sync Changes**
+
+    ✅ **Resultado esperado:** o commit aparece no histórico remoto no GitHub sem precisar de terminal.
+
+??? example "Exercício 3 — Usar o Copilot no modo chat para documentação"
+    **Objetivo:** experimentar o modo Ask e o modo Edit do Copilot num arquivo de documentação real.
+
+    1. Abra o Copilot Chat com `Ctrl+Alt+I`
+    2. No **modo Ask**, pergunte: `"Quais são as boas práticas para escrever documentação técnica em Markdown para desenvolvedores?"`
+    3. Abra o arquivo `docs/pagina-teste.md`
+    4. Selecione um parágrafo do arquivo e pressione `Ctrl+I` para abrir o **Inline Chat**
+    5. Digite: `"Reescreva este parágrafo em tom mais direto e técnico"`
+    6. Revise a sugestão — aceite com `Tab` ou rejeite com `Esc`
+
+    ✅ **Resultado esperado:** você usou dois modos diferentes do Copilot e entendeu quando cada um é mais adequado.
+
 !!! success "✅ Resumo do módulo"
     O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente (extensões, preview e terminal), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **4 modos do GitHub Copilot** e quando usar cada um na documentação.
 

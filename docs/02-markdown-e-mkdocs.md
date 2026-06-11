@@ -199,7 +199,9 @@ Especifique a linguagem logo após as três crases para habilitar syntax highlig
 
 ### Admonitions (extensão `admonition`)
 
-A extensão `admonition` do Python-Markdown (habilitada no `mkdocs.yml`) adiciona caixas de destaque compatíveis com o tema ReadTheDocs:
+A extensão `admonition` do Python-Markdown (habilitada no `mkdocs.yml`) adiciona caixas de destaque coloridas ao texto. Elas são amplamente usadas neste curso e nos repositórios de documentação da AltoQi.
+
+#### Sintaxe básica
 
 ```markdown
 !!! note "Nota"
@@ -219,9 +221,14 @@ A extensão `admonition` do Python-Markdown (habilitada no `mkdocs.yml`) adicion
     Requisito ou pré-condição essencial.
 ```
 
-O título entre aspas é opcional — se omitido, o tipo é usado como título.
+O título entre aspas é **opcional** — se omitido, o tipo é usado como título automaticamente:
 
-Veja como eles ficam renderizados:
+```markdown
+!!! tip
+    Esta dica não tem título personalizado — exibe "Tip" como padrão.
+```
+
+#### Veja como ficam renderizados
 
 !!! note "Nota"
     Informação complementar que não interrompe o fluxo.
@@ -235,17 +242,90 @@ Veja como eles ficam renderizados:
 !!! danger "Perigo"
     Ação que pode causar perda de dados ou danos irreversíveis.
 
-Tipos disponíveis no tema ReadTheDocs:
+!!! important "Importante"
+    Requisito ou pré-condição essencial.
 
-| Tipo | Uso recomendado |
-|---|---|
-| `note` | Observação ou informação complementar |
-| `tip` | Dica, atalho, boa prática |
-| `important` | Requisito obrigatório ou pré-condição |
-| `warning` | Situação que pode causar erros |
-| `caution` | Atenção antes de executar uma ação |
-| `danger` | Ação destrutiva ou irreversível |
-| `hint` | Sugestão discreta |
+#### Todos os tipos disponíveis no tema ReadTheDocs
+
+| Tipo | Cor | Uso recomendado |
+|---|---|---|
+| `note` | Azul | Observação ou informação complementar |
+| `tip` / `hint` | Verde | Dica, atalho, boa prática |
+| `important` | Roxo | Requisito obrigatório ou pré-condição |
+| `warning` / `caution` | Laranja | Situação que pode causar erros |
+| `danger` / `error` | Vermelho | Ação destrutiva ou irreversível |
+| `abstract` / `summary` | Ciano | Resumo de objetivos de aprendizagem |
+| `success` / `check` | Verde claro | Confirmação de conclusão ou checklist |
+| `info` | Azul claro | Referência ou contexto extra |
+
+#### Conteúdo dentro de admonitions
+
+Você pode colocar listas, código e até múltiplos parágrafos — basta manter a indentação de 4 espaços:
+
+```markdown
+!!! warning "Antes de continuar"
+    Verifique os seguintes itens:
+
+    - O Python 3.10 ou superior está instalado
+    - O `requirements.txt` foi instalado com `pip install -r requirements.txt`
+    - Você está dentro da pasta correta do repositório
+
+    Se qualquer item estiver pendente, resolva antes de prosseguir.
+```
+
+!!! warning "Antes de continuar"
+    Verifique os seguintes itens:
+
+    - O Python 3.10 ou superior está instalado
+    - O `requirements.txt` foi instalado com `pip install -r requirements.txt`
+    - Você está dentro da pasta correta do repositório
+
+    Se qualquer item estiver pendente, resolva antes de prosseguir.
+
+#### Admonition colapsável (`???`)
+
+Use `???` em vez de `!!!` para criar uma caixa que começa **fechada** — útil para conteúdo opcional, glossários ou detalhes avançados:
+
+```markdown
+??? note "Detalhes técnicos (opcional)"
+    Esta seção explica o funcionamento interno do MkDocs para quem quiser aprofundar.
+    Não é necessária para o uso no dia a dia.
+```
+
+??? note "Detalhes técnicos (opcional)"
+    Esta seção explica o funcionamento interno do MkDocs para quem quiser aprofundar.
+    Não é necessária para o uso no dia a dia.
+
+Use `???+` para começar **aberta** e permitir que o leitor feche:
+
+```markdown
+???+ tip "Atalhos do VS Code"
+    - `Ctrl+Shift+V` — preview de Markdown
+    - `Ctrl+K V` — preview ao lado
+```
+
+???+ tip "Atalhos do VS Code"
+    - `Ctrl+Shift+V` — preview de Markdown
+    - `Ctrl+K V` — preview ao lado
+
+#### Erros comuns de indentação
+
+!!! danger "Indentação incorreta quebra a admonition"
+    O conteúdo **deve** ter exatamente 4 espaços. Usar tab ou 2 espaços faz o texto sair da caixa e ser renderizado como parágrafo comum.
+
+```markdown
+# ✅ Correto — 4 espaços
+!!! tip "Dica"
+    Este texto está dentro da caixa.
+
+# ❌ Errado — 2 espaços
+!!! tip "Dica"
+  Este texto ficará fora da caixa.
+
+# ❌ Errado — sem indentação
+!!! tip "Dica"
+Este texto ficará fora da caixa.
+```
 
 ---
 
@@ -472,6 +552,54 @@ Ou use o script do projeto:
 | `1. item` | Lista numerada |
 | `\| col \|` | Tabela |
 | `---` | Linha horizontal |
+
+---
+
+## Exercícios práticos
+
+??? example "Exercício 1 — Criar uma página Markdown completa"
+    **Objetivo:** escrever uma página usando todos os elementos essenciais de Markdown.
+
+    1. Crie o arquivo `docs/pagina-teste.md` no repositório
+    2. Escreva uma página que contenha:
+       - Um título H1 e pelo menos dois H2
+       - Um parágrafo com texto em **negrito** e *itálico*
+       - Uma lista não-ordenada com 3 itens
+       - Uma tabela com 2 colunas e 3 linhas
+       - Um bloco de código com a linguagem especificada (ex.: ` ```bash `)
+       - Uma admonition `!!! tip` com pelo menos duas linhas de conteúdo
+    3. Abra o preview no VS Code (`Ctrl+K V`) e verifique a renderização
+    4. Faça commit e push do arquivo
+
+    ✅ **Resultado esperado:** a página renderiza corretamente no preview e no site local.
+
+??? example "Exercício 2 — Rodar o MkDocs localmente"
+    **Objetivo:** gerar o site e visualizá-lo no navegador.
+
+    1. Abra o terminal integrado do VS Code (Ctrl+`)
+    2. Certifique-se de estar na raiz do repositório
+    3. Execute:
+       ```bash
+       mkdocs serve
+       ```
+    4. Abra `http://localhost:8000` no navegador
+    5. Enquanto o servidor roda, edite o arquivo `docs/pagina-teste.md` criado no exercício anterior — observe que o navegador atualiza automaticamente ao salvar
+    6. Pare o servidor com `Ctrl+C` no terminal
+
+    ✅ **Resultado esperado:** o site carrega com a página de teste aparecendo na navegação.
+
+??? example "Exercício 3 — Usar admonitions colapsáveis"
+    **Objetivo:** praticar os tipos `!!!` e `???` de admonitions.
+
+    1. No arquivo `docs/pagina-teste.md`, adicione:
+       - Uma admonition `!!! warning` com uma lista de 3 itens
+       - Uma admonition colapsável `??? note` com um parágrafo de texto
+       - Uma admonition `???+` (começa aberta) com código dentro
+    2. Visualize no preview e confirme que a versão `???` começa fechada
+    3. Tente intencionalmente colocar 2 espaços de indentação em uma delas — observe o resultado quebrado no preview
+    4. Corrija para 4 espaços
+
+    ✅ **Resultado esperado:** as três admonitions rendeizam corretamente, com a `???` colapsando ao clicar.
 
 !!! success "✅ Resumo do módulo"
     Markdown é texto simples com marcações leves, mais portável que Word ou Google Docs. Você aprendeu a sintaxe essencial (títulos, listas, tabelas, imagens e código) e como o **MkDocs** transforma arquivos `.md` em um site navegável — configurando o `mkdocs.yml` e visualizando tudo localmente com `mkdocs serve`.
