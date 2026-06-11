@@ -249,6 +249,79 @@ Texto que está no main
 
 Você precisa editar o arquivo manualmente, escolhendo qual versão manter (ou combinando as duas), e depois fazer um novo commit. O VS Code tem uma interface visual para resolver conflitos.
 
+#### Walkthrough passo a passo: resolvendo um conflito no VS Code
+
+**Situação:** você e um colega editaram o mesmo parágrafo do arquivo `docs/visao-geral.md` e agora, ao fazer `git pull`, o Git informa conflito.
+
+---
+
+**Passo 1 — Identificar o conflito**
+
+O painel **Source Control** (`Ctrl+Shift+G`) exibe o arquivo com o ícone **C** (Conflict). Clique nele para abri-lo.
+
+```
+SOURCE CONTROL
+  Merge Changes
+    C  docs/visao-geral.md
+```
+
+---
+
+**Passo 2 — Entender as marcações no arquivo**
+
+O arquivo aberto mostrará algo como:
+
+```
+<<<<<<< HEAD (Current Change)
+O AltoQi Visus é uma plataforma de gestão de obras baseada em BIM.
+=======
+O AltoQi Visus é um ambiente colaborativo para gestão de projetos BIM.
+>>>>>>> origin/main (Incoming Change)
+```
+
+| Marcação | O que significa |
+|---|---|
+| `<<<<<<< HEAD` | Início da sua versão (local) |
+| `=======` | Separador entre as duas versões |
+| `>>>>>>> origin/main` | Fim da versão que veio do repositório remoto |
+
+---
+
+**Passo 3 — Escolher a resolução usando os botões do VS Code**
+
+O VS Code exibe quatro botões diretamente acima do bloco de conflito no editor:
+
+| Botão | O que faz |
+|---|---|
+| **Accept Current Change** | Mantém sua versão, descarta a do colega |
+| **Accept Incoming Change** | Mantém a versão do colega, descarta a sua |
+| **Accept Both Changes** | Insere as duas versões, uma após a outra |
+| **Compare Changes** | Abre diff lado a lado para decidir com mais cuidado |
+
+!!! tip "Na dúvida, use Compare Changes"
+    O diff lado a lado facilita entender o que cada pessoa mudou antes de decidir qual versão manter — ou como combinar as duas manualmente.
+
+---
+
+**Passo 4 — Editar manualmente se necessário**
+
+Se nenhum dos botões atende (por exemplo, você quer combinar partes das duas versões), apague as marcações `<<<<<<<`, `=======` e `>>>>>>>` manualmente e deixe o texto como deve ficar. O resultado final deve ser um arquivo limpo, sem nenhum marcador do Git.
+
+!!! warning "Nunca commite com marcadores de conflito"
+    Se o arquivo ainda contiver `<<<<<<< HEAD` ou `=======`, o conteúdo publicado ficará corrompido. Revise o arquivo inteiro antes de fazer o commit.
+
+---
+
+**Passo 5 — Fazer stage e commit da resolução**
+
+Após salvar o arquivo resolvido:
+
+1. No painel **Source Control**, clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} ao lado do arquivo para fazer stage
+2. Clique em ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg){: .vscode-icon} **Commit** (a mensagem sugerida `Merge branch 'origin/main'` já está preenchida)
+3. Clique em **Sync Changes** para enviar o commit de merge
+
+O conflito está resolvido. O histórico registrará que houve um merge e quem o resolveu.
+
 ---
 
 ### "Cometi um erro e quero desfazer antes de commitar"
