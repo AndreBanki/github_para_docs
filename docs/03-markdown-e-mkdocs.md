@@ -1,6 +1,8 @@
-# Módulo 2 — Markdown e MkDocs
+# Módulo 3 — Markdown e MkDocs
 
 > **Para quem é este módulo:** quem vai escrever e publicar documentação — redatores técnicos, PMs e Engenheiros.
+>
+> **Por que este módulo vem agora:** com o ambiente já pronto, a atenção passa para a produção do conteúdo. Este módulo ensina a escrever em Markdown e a validar localmente como o material será exibido no site gerado pelo MkDocs.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
@@ -347,7 +349,7 @@ tags: [collab, CDE, modelos-bim]
 Este bloco é invisível para o leitor final, mas é usado pelo MkDocs para gerar títulos, metadados de SEO e navegação.
 
 !!! tip "Não precisa decorar"
-    O prompt `/nova-pagina` (ver [Módulo 4](./04-copilot-customizacao.md)) preenche o frontmatter automaticamente. Basta saber que ele existe e para que serve.
+    O prompt `/nova-pagina` (ver [Módulo 6](./06-copilot-customizacao.md)) preenche o frontmatter automaticamente. Basta saber que ele existe e para que serve.
 
 ---
 
@@ -556,12 +558,12 @@ Ou use o script do projeto:
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     Markdown é texto simples com marcações leves, mais portável que Word ou Google Docs. Você aprendeu a sintaxe essencial (títulos, listas, tabelas, imagens e código) e como o **MkDocs** transforma arquivos `.md` em um site navegável — configurando o `mkdocs.yml` e visualizando tudo localmente com `mkdocs serve`.
 
 ---
 
-> **Módulo anterior:** [01 — Git para Documentação](./01-git-para-documentacao.md)  
-> **Próximo módulo:** [03 — VS Code e GitHub Copilot](./03-vscode-e-copilot.md)
+> **Módulo anterior:** [02 — VS Code e GitHub Copilot](./02-vscode-e-copilot.md)  
+> **Próximo módulo:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md)

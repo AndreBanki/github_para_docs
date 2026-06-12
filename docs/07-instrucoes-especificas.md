@@ -1,6 +1,8 @@
-# Módulo Extra — Instruções Específicas
+# Módulo 7 — Instruções Específicas
 
 > Este módulo reúne dicas práticas encontradas em repositórios reais da AltoQi. Cada dica descreve um padrão de instrução e como ele é usado no dia a dia.
+>
+> **Por que este módulo vem agora:** estes padrões fazem sentido apenas depois que a trilha base já está clara. Aqui entram exceções, especializações e práticas de repositórios reais que não precisam aparecer no onboarding inicial.
 
 !!! abstract "🎯 O que você vai encontrar aqui"
     Padrões reais de instrução usados nos repositórios da AltoQi: como documentar
@@ -127,9 +129,9 @@ Em `produto_docs`, o `raw/` está organizado por produto (`produto_eberick/`, `p
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
 
 ---
 
-> **Módulo anterior:** [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md)  
-> **Índice:** [Início](./index.md)
+> **Módulo anterior:** [06 — Personalizando o GitHub Copilot](./06-copilot-customizacao.md)  
+> **Próximo módulo:** [08 — Exercícios Práticos](./08-exercicios-praticos.md)

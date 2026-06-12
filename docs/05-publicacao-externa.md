@@ -1,4 +1,8 @@
-# Módulo 6 — Publicando para Acesso Externo
+# Módulo 5 — Publicando para Acesso Externo
+
+> **Para quem é este módulo:** quem precisa entender como a documentação sai do repositório e chega a um ambiente acessível para outras pessoas.
+>
+> **Por que este módulo vem agora:** depois de escrever, revisar e consolidar o conteúdo, o próximo passo natural é entender como ele vai para o ar. Este módulo fecha a trilha operacional principal mostrando as opções de publicação e atualização do site.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
@@ -141,4 +145,9 @@ Você nunca precisa publicar manualmente — basta que o conteúdo esteja no `ma
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
+
+---
+
+> **Módulo anterior:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md)  
+> **Próximo módulo:** [06 — Personalizando o GitHub Copilot](./06-copilot-customizacao.md)

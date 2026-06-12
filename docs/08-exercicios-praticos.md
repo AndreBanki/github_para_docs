@@ -1,6 +1,8 @@
-# Módulo Extra — Exercícios Práticos
+# Módulo 8 — Exercícios Práticos
 
-> Este módulo reúne todos os exercícios práticos do curso, organizados por módulo. Pratique após concluir cada módulo ou use este guia de revisão ao final do curso.
+> Este módulo reúne todos os exercícios práticos do curso, organizados na mesma ordem da trilha principal. Use-o como revisão ao final do curso ou volte ao exercício correspondente após cada módulo.
+>
+> **Por que este módulo vem por último:** este fechamento existe para consolidar a trilha inteira em prática guiada, sem interromper o fluxo de aprendizagem dos módulos principais. A ideia é praticar depois que o caminho completo já fez sentido.
 
 !!! abstract "🎯 Como usar este módulo"
     Os exercícios são independentes entre si — você pode fazê-los em ordem ou voltar a qualquer um quando precisar praticar um conceito específico. Cada exercício indica o resultado esperado para que você saiba se está no caminho certo.
@@ -11,27 +13,28 @@
 
 > [← Voltar ao módulo](./01-git-para-documentacao.md)
 
+!!! note "Quando fazer estes exercícios"
+     Embora estejam agrupados no Módulo 1 por assunto, estes exercícios dependem do ambiente configurado no Módulo 2. Se ainda não instalou Git, Python e VS Code, faça primeiro o exercício inicial do Módulo 2.
+
 ??? example "Exercício 1 — Seu primeiro clone e commit"
     **Objetivo:** executar o fluxo completo `clone → editar → commit → push` pela primeira vez.
 
-    **Pré-requisito:** ter o Git instalado e acesso ao repositório de exercícios do curso.
+     **Pré-requisito:** ter concluído o setup do Módulo 2 e ter acesso ao repositório de exercícios do curso.
 
-    1. Abra o terminal (ou use `Ctrl+Shift+P` → `Git: Clone` no VS Code)
-    2. Clone o repositório de exercícios:
-       ```bash
-       git clone https://github.com/andrebanki/github_para_docs.git
-       ```
-    3. Navegue até a pasta `docs/` e crie um arquivo com seu nome: `seu-nome.md`
-    4. Escreva uma linha de texto qualquer no arquivo
-    5. Salve, faça stage (`git add docs/seu-nome.md`) e commite:
-       ```bash
-       git commit -m "docs: adiciona arquivo de seu-nome"
-       ```
-    6. Faça push:
-       ```bash
-       git push
-       ```
-    7. Verifique o resultado no GitHub:
+     1. Abra o **VS Code** e use `Ctrl+Shift+P` → **Git: Clone**
+     2. Cole a URL do repositório de exercícios: `https://github.com/andrebanki/github_para_docs.git`
+     3. Escolha uma pasta local, aguarde o clone terminar e clique em **Open**
+     4. Na pasta `docs/`, crie um arquivo com seu nome: `seu-nome.md`
+     5. Escreva uma linha de texto qualquer no arquivo
+     6. Salve, faça stage (`git add docs/seu-nome.md`) e commite:
+         ```bash
+         git commit -m "docs: adiciona arquivo de seu-nome"
+         ```
+     7. Faça push:
+         ```bash
+         git push
+         ```
+     8. Verifique o resultado no GitHub:
        - Acesse **[github.com/andrebanki/github_para_docs](https://github.com/andrebanki/github_para_docs)**
        - Clique na pasta **`docs/`**
        - Confirme que o arquivo `seu-nome.md` aparece na listagem
@@ -71,9 +74,53 @@
 
 ---
 
-## Módulo 2 — Markdown e MkDocs
+## Módulo 2 — VS Code e GitHub Copilot
 
-> [← Voltar ao módulo](./02-markdown-e-mkdocs.md)
+> [← Voltar ao módulo](./02-vscode-e-copilot.md)
+
+??? example "Exercício 1 — Configurar o ambiente"
+    **Objetivo:** verificar que o ambiente está funcionando corretamente.
+
+    1. Confirme no terminal que `git --version` funciona
+    2. Confirme no terminal que `python --version` ou `py --version` funciona
+    3. Instale as extensões recomendadas listadas na seção 2.4 (use `Ctrl+Shift+X` para abrir o painel)
+    4. Abra o repositório do curso no VS Code (`File → Open Folder`)
+    5. Abra o terminal integrado (Ctrl+`) e execute `pip install -r requirements.txt`, se ainda não tiver feito isso
+    6. Abra o arquivo `docs/01-git-para-documentacao.md` e pressione `Ctrl+K V` para o preview ao lado
+    7. Execute `mkdocs serve`
+    8. Acesse `http://localhost:8000` e confirme que o site carrega
+
+    ✅ **Resultado esperado:** Git, Python, VS Code e o site local estão funcionando no mesmo ambiente.
+
+??? example "Exercício 2 — Commit via interface visual do VS Code"
+    **Objetivo:** executar o fluxo completo `pull → editar → commit → push` sem usar o terminal.
+
+    1. Clique em ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} na Barra de Atividades e verifique se há alterações pendentes
+    2. Clique no ícone **↓ Pull** (ou no ícone de sincronização) para atualizar o repositório
+    3. Crie o arquivo `docs/anotacoes-vscode.md` com um título H1 e um parágrafo curto
+    4. No painel Source Control, clique em **+** ao lado do arquivo para fazer stage
+    5. Digite a mensagem de commit: `docs: adiciona anotacoes-vscode`
+    6. Clique em **✓ Commit** e depois em **Sync Changes**
+
+    ✅ **Resultado esperado:** o commit aparece no histórico remoto no GitHub sem precisar de terminal.
+
+??? example "Exercício 3 — Usar o Copilot no modo chat para documentação"
+    **Objetivo:** experimentar o modo Ask e o modo Edit do Copilot num arquivo de documentação real.
+
+    1. Abra o Copilot Chat com `Ctrl+Alt+I`
+    2. No **modo Ask**, pergunte: `"Quais são as boas práticas para escrever documentação técnica em Markdown para desenvolvedores?"`
+    3. Abra o arquivo `docs/anotacoes-vscode.md`
+    4. Selecione um parágrafo do arquivo e pressione `Ctrl+I` para abrir o **Inline Chat**
+    5. Digite: `"Reescreva este parágrafo em tom mais direto e técnico"`
+    6. Revise a sugestão — aceite com `Tab` ou rejeite com `Esc`
+
+    ✅ **Resultado esperado:** você usou dois modos diferentes do Copilot e entendeu quando cada um é mais adequado.
+
+---
+
+## Módulo 3 — Markdown e MkDocs
+
+> [← Voltar ao módulo](./03-markdown-e-mkdocs.md)
 
 ??? example "Exercício 1 — Criar uma página Markdown completa"
     **Objetivo:** escrever uma página usando todos os elementos essenciais de Markdown.
@@ -121,99 +168,9 @@
 
 ---
 
-## Módulo 3 — VS Code e GitHub Copilot
+## Módulo 4 — Branches e Pull Requests
 
-> [← Voltar ao módulo](./03-vscode-e-copilot.md)
-
-??? example "Exercício 1 — Configurar o ambiente"
-    **Objetivo:** verificar que o ambiente está funcionando corretamente.
-
-    1. Instale as extensões recomendadas listadas na seção 2.3 (use `Ctrl+Shift+X` para abrir o painel)
-    2. Abra o repositório do curso no VS Code (`File → Open Folder`)
-    3. Abra o arquivo `docs/01-git-para-documentacao.md` e pressione `Ctrl+K V` para o preview ao lado
-    4. Abra o terminal integrado (Ctrl+`) e execute `mkdocs serve`
-    5. Acesse `http://localhost:8000` e confirme que o site carrega
-
-    ✅ **Resultado esperado:** o preview de Markdown e o site local estão funcionando simultaneamente.
-
-??? example "Exercício 2 — Commit via interface visual do VS Code"
-    **Objetivo:** executar o fluxo completo `pull → editar → commit → push` sem usar o terminal.
-
-    1. Clique em ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} na Barra de Atividades e verifique se há alterações pendentes
-    2. Clique no ícone **↓ Pull** (ou no ícone de sincronização) para atualizar o repositório
-    3. Edite o arquivo `docs/pagina-teste.md` (criado no módulo anterior) — adicione um parágrafo
-    4. No painel Source Control, clique em **+** ao lado do arquivo para fazer stage
-    5. Digite a mensagem de commit: `docs: adiciona parágrafo em pagina-teste`
-    6. Clique em **✓ Commit** e depois em **Sync Changes**
-
-    ✅ **Resultado esperado:** o commit aparece no histórico remoto no GitHub sem precisar de terminal.
-
-??? example "Exercício 3 — Usar o Copilot no modo chat para documentação"
-    **Objetivo:** experimentar o modo Ask e o modo Edit do Copilot num arquivo de documentação real.
-
-    1. Abra o Copilot Chat com `Ctrl+Alt+I`
-    2. No **modo Ask**, pergunte: `"Quais são as boas práticas para escrever documentação técnica em Markdown para desenvolvedores?"`
-    3. Abra o arquivo `docs/pagina-teste.md`
-    4. Selecione um parágrafo do arquivo e pressione `Ctrl+I` para abrir o **Inline Chat**
-    5. Digite: `"Reescreva este parágrafo em tom mais direto e técnico"`
-    6. Revise a sugestão — aceite com `Tab` ou rejeite com `Esc`
-
-    ✅ **Resultado esperado:** você usou dois modos diferentes do Copilot e entendeu quando cada um é mais adequado.
-
----
-
-## Módulo 4 — Personalizando o GitHub Copilot
-
-> [← Voltar ao módulo](./04-copilot-customizacao.md)
-
-??? example "Exercício 1 — Criar um copilot-instructions.md básico"
-    **Objetivo:** escrever o arquivo de instruções para um repositório fictício.
-
-    1. No repositório do curso, crie o arquivo `.github/copilot-instructions.md`
-    2. Escreva as seguintes seções:
-       - **Papel**: descreva o papel do agente (ex.: redator técnico do repositório X)
-       - **Estrutura de diretórios**: liste as pastas de `docs/` com uma linha explicando o que vai em cada uma
-       - **Estilo de escrita**: defina o tom (formal, direto, voz ativa) e 2 regras de terminologia
-       - **Restrições**: liste os arquivos que nunca devem ser modificados
-    3. Abra o Copilot Chat em **modo agente** e peça: `"Crie um arquivo index.md para a pasta docs/intro/"`
-    4. Observe se o agente seguiu as instruções que você escreveu
-
-    ✅ **Resultado esperado:** o agente cria o arquivo respeitando o estilo e a estrutura que você definiu.
-
-??? example "Exercício 2 — Criar um prompt reutilizável"
-    **Objetivo:** criar um arquivo `.prompt.md` para uma tarefa recorrente.
-
-    1. Crie o arquivo `.github/prompts/nova-pagina.prompt.md`
-    2. O prompt deve instruir o Copilot a criar uma nova página com:
-       - Frontmatter YAML com `title`, `created` e `updated`
-       - Um título H1 igual ao valor de `title`
-       - Uma seção `## Visão Geral` vazia
-       - Uma admonition `!!! abstract` com os objetivos da página (placeholder)
-    3. No Copilot Chat, invoque o prompt com `/nova-pagina` e peça para criar uma página sobre "Gestão de Permissões"
-    4. Verifique se o rascunho gerado segue o template do prompt
-
-    ✅ **Resultado esperado:** o Copilot gera uma página com a estrutura exata definida no prompt.
-
-??? example "Exercício 3 — Tabela de decisão na prática"
-    **Objetivo:** escolher o mecanismo correto para três cenários reais.
-
-    Para cada cenário abaixo, identifique qual mecanismo usar (Instructions, Prompt, Agente ou Skill) e justifique em uma frase:
-
-    | Cenário | Mecanismo | Por quê? |
-    |---|---|---|
-    | Toda página deve sempre ter frontmatter YAML | ? | ? |
-    | Criar uma nova página de tutorial quando solicitado | ? | ? |
-    | Ingerir um épico do TargetProcess, criar páginas e atualizar o índice | ? | ? |
-
-    Compare suas respostas com a tabela de decisão da seção 5 do módulo.
-
-    ✅ **Resultado esperado:** você consegue escolher o mecanismo certo sem consultar a tabela.
-
----
-
-## Módulo 5 — Branches e Pull Requests
-
-> [← Voltar ao módulo](./05-branches-e-pull-requests.md)
+> [← Voltar ao módulo](./04-branches-e-pull-requests.md)
 
 ??? example "Exercício 1 — Criar um branch e trabalhar isolado"
     **Objetivo:** praticar o fluxo de branch sem afetar o main.
@@ -277,9 +234,9 @@
 
 ---
 
-## Módulo 6 — Publicando para Acesso Externo
+## Módulo 5 — Publicando para Acesso Externo
 
-> [← Voltar ao módulo](./06-publicacao-externa.md)
+> [← Voltar ao módulo](./05-publicacao-externa.md)
 
 ??? example "Exercício 1 — Publicar no GitHub Pages"
     **Objetivo:** ativar o GitHub Pages e verificar o deploy automático.
@@ -328,9 +285,58 @@
 
 ---
 
-## Módulo Extra — Instruções Específicas
+## Módulo 6 — Personalizando o GitHub Copilot
 
-> [← Voltar ao módulo](./modulo-extra.md)
+> [← Voltar ao módulo](./06-copilot-customizacao.md)
+
+??? example "Exercício 1 — Criar um copilot-instructions.md básico"
+    **Objetivo:** escrever o arquivo de instruções para um repositório fictício.
+
+    1. No repositório do curso, crie o arquivo `.github/copilot-instructions.md`
+    2. Escreva as seguintes seções:
+       - **Papel**: descreva o papel do agente (ex.: redator técnico do repositório X)
+       - **Estrutura de diretórios**: liste as pastas de `docs/` com uma linha explicando o que vai em cada uma
+       - **Estilo de escrita**: defina o tom (formal, direto, voz ativa) e 2 regras de terminologia
+       - **Restrições**: liste os arquivos que nunca devem ser modificados
+    3. Abra o Copilot Chat em **modo agente** e peça: `"Crie um arquivo index.md para a pasta docs/intro/"`
+    4. Observe se o agente seguiu as instruções que você escreveu
+
+    ✅ **Resultado esperado:** o agente cria o arquivo respeitando o estilo e a estrutura que você definiu.
+
+??? example "Exercício 2 — Criar um prompt reutilizável"
+    **Objetivo:** criar um arquivo `.prompt.md` para uma tarefa recorrente.
+
+    1. Crie o arquivo `.github/prompts/nova-pagina.prompt.md`
+    2. O prompt deve instruir o Copilot a criar uma nova página com:
+       - Frontmatter YAML com `title`, `created` e `updated`
+       - Um título H1 igual ao valor de `title`
+       - Uma seção `## Visão Geral` vazia
+       - Uma admonition `!!! abstract` com os objetivos da página (placeholder)
+    3. No Copilot Chat, invoque o prompt com `/nova-pagina` e peça para criar uma página sobre "Gestão de Permissões"
+    4. Verifique se o rascunho gerado segue o template do prompt
+
+    ✅ **Resultado esperado:** o Copilot gera uma página com a estrutura exata definida no prompt.
+
+??? example "Exercício 3 — Tabela de decisão na prática"
+    **Objetivo:** escolher o mecanismo correto para três cenários reais.
+
+    Para cada cenário abaixo, identifique qual mecanismo usar (Instructions, Prompt, Agente ou Skill) e justifique em uma frase:
+
+    | Cenário | Mecanismo | Por quê? |
+    |---|---|---|
+    | Toda página deve sempre ter frontmatter YAML | ? | ? |
+    | Criar uma nova página de tutorial quando solicitado | ? | ? |
+    | Ingerir um épico do TargetProcess, criar páginas e atualizar o índice | ? | ? |
+
+    Compare suas respostas com a tabela de decisão da seção 5 do módulo.
+
+    ✅ **Resultado esperado:** você consegue escolher o mecanismo certo sem consultar a tabela.
+
+---
+
+## Módulo 7 — Instruções Específicas
+
+> [← Voltar ao módulo](./07-instrucoes-especificas.md)
 
 ??? example "Exercício 1 — Simular a ingestão de uma feature do TargetProcess"
     **Objetivo:** praticar o fluxo da Dica 1 com um card fictício.
@@ -394,4 +400,5 @@
 
 ---
 
+> **Módulo anterior:** [07 — Instruções Específicas](./07-instrucoes-especificas.md)  
 > **Índice:** [Início](./index.md)

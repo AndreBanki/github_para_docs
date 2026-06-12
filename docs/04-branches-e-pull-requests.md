@@ -1,6 +1,8 @@
-# Módulo 5 — Branches e Pull Requests
+# Módulo 4 — Branches e Pull Requests
 
 > **Pré-requisito:** leia o [Módulo 1 — Git para Documentação](./01-git-para-documentacao.md) antes de continuar. Este documento aprofunda o **Fluxo Completo** — branches isolados e revisão via Pull Request.
+>
+> **Por que este módulo vem agora:** depois de dominar o fluxo individual de edição, é hora de introduzir colaboração segura. Branches e Pull Requests entram aqui porque passam a fazer sentido quando o básico de edição, versionamento e validação local já está consolidado.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
@@ -203,12 +205,12 @@ git push origin docs/nome-da-tarefa       # enviar branch para o GitHub
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     **Branches** isolam um trabalho em andamento sem afetar o `main`, e o **Pull Request** permite revisar o conteúdo antes de publicar. Você viu como criar e navegar em branches, abrir e revisar um PR, resolver conflitos de merge e executar o fluxo completo passo a passo.
 
 ---
 
-> **Módulo anterior:** [01 — Git para Documentação](./01-git-para-documentacao.md)  
-> **Índice:** [Início](./index.md)
+> **Módulo anterior:** [03 — Markdown e MkDocs](./03-markdown-e-mkdocs.md)  
+> **Próximo módulo:** [05 — Publicando para Acesso Externo](./05-publicacao-externa.md)

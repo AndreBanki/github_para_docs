@@ -23,18 +23,24 @@ Este guia prepara você para trabalhar com este fluxo, mesmo sem experiência pr
 
 ```
 curso_github/
-├── README.md                    ← você está aqui
-├── 01-git-para-documentacao.md  ← fundamentos de Git aplicados a docs
-├── 02-markdown-e-mkdocs.md      ← escrita em Markdown e publicação com MkDocs
-├── 03-vscode-e-copilot.md       ← ambiente de trabalho e uso de IA
-└── 04-copilot-customizacao.md   ← instructions, prompts, agentes e skills
+├── README.md
+└── docs/
+  ├── index.md
+  ├── 01-git-para-documentacao.md   ← fundamentos de Git aplicados a docs
+  ├── 02-vscode-e-copilot.md        ← ambiente, extensões, Git visual e IA
+  ├── 03-markdown-e-mkdocs.md       ← escrita em Markdown e preview/build local
+  ├── 04-branches-e-pull-requests.md ← colaboração avançada com revisão
+  ├── 05-publicacao-externa.md      ← publicação e atualização do site
+  ├── 06-copilot-customizacao.md    ← instructions, prompts, agentes e skills
+  ├── 07-instrucoes-especificas.md  ← padrões específicos de repositórios reais
+  └── 08-exercicios-praticos.md     ← revisão prática ao final da trilha
 ```
 
 ---
 
 ## Módulos
 
-### [Módulo 1 — Git para Documentação](./01-git-para-documentacao.md)
+### [Módulo 1 — Git para Documentação](./docs/01-git-para-documentacao.md)
 
 O que você vai aprender:
 - O que é um repositório, commit, branch e Pull Request
@@ -45,7 +51,17 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 2 — Markdown e MkDocs](./02-markdown-e-mkdocs.md)
+### [Módulo 2 — VS Code e GitHub Copilot](./docs/02-vscode-e-copilot.md)
+
+O que você vai aprender:
+- Como instalar e configurar o VS Code para trabalhar com documentação
+- Quais extensões a equipe deve instalar logo no início
+- Como usar o Git pelo painel visual do VS Code
+- Como usar o GitHub Copilot no fluxo diário de escrita e revisão
+
+---
+
+### [Módulo 3 — Markdown e MkDocs](./docs/03-markdown-e-mkdocs.md)
 
 O que você vai aprender:
 - O que é Markdown e por que ele é superior ao Word para documentação técnica
@@ -57,19 +73,25 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 3 — VS Code e GitHub Copilot](./03-vscode-e-copilot.md)
+### [Módulo 4 — Branches e Pull Requests](./docs/04-branches-e-pull-requests.md)
 
 O que você vai aprender:
-- Por que usar VS Code para escrever documentação
-- Extensões essenciais para a equipe instalar
-- Como usar o Git diretamente pelo painel visual do VS Code (sem terminal)
-- O que é o GitHub Copilot e como ele se integra ao repositório
-- Os quatro modos de uso: sugestões inline, Inline Chat, painel de Chat e Modo Agente
-- Boas práticas para obter resultados de qualidade com IA
+- Como isolar trabalho em branches antes de publicar
+- Como abrir, revisar e aprovar Pull Requests no GitHub
+- Como resolver conflitos de merge no fluxo completo
 
 ---
 
-### [Módulo 4 — Personalizando o GitHub Copilot](./04-copilot-customizacao.md)
+### [Módulo 5 — Publicando para Acesso Externo](./docs/05-publicacao-externa.md)
+
+O que você vai aprender:
+- Como escolher a melhor opção de publicação para conteúdo público ou privado
+- Como o GitHub Pages se encaixa na trilha básica
+- Como funciona a atualização automática do site após `push` no `main`
+
+---
+
+### [Módulo 6 — Personalizando o GitHub Copilot](./docs/06-copilot-customizacao.md)
 
 O que você vai aprender:
 - O que é o `copilot-instructions.md` e por que ele é o "manual do agente"
@@ -78,6 +100,23 @@ O que você vai aprender:
 - Como definir agentes especializados com `.agent.md`
 - O que são Skills e quando usá-las
 - Como todos esses mecanismos se encaixam num fluxo de trabalho real
+
+---
+
+### [Módulo 7 — Instruções Específicas](./docs/07-instrucoes-especificas.md)
+
+O que você vai aprender:
+- Padrões usados em repositórios reais além da trilha básica
+- Como lidar com TargetProcess, espelhamento de épicos e pasta `raw/`
+- Quando aplicar esses padrões no dia a dia
+
+---
+
+### [Módulo 8 — Exercícios Práticos](./docs/08-exercicios-praticos.md)
+
+O que você vai aprender:
+- Como revisar a trilha inteira com exercícios na mesma ordem do curso
+- Como praticar desde setup até publicação em um módulo final único
 
 ---
 

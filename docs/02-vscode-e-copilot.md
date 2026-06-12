@@ -1,12 +1,15 @@
-# Módulo 3 — VS Code e GitHub Copilot para Documentação
+# Módulo 2 — VS Code e GitHub Copilot para Documentação
 
 > **Para quem é este módulo:** toda a equipe que vai escrever documentação no VS Code com apoio de IA.
+>
+> **Por que este módulo vem agora:** com o fluxo geral de Git já explicado, o próximo passo é preparar o ambiente real de trabalho. Aqui a equipe instala as ferramentas, abre o repositório e aprende a operar o dia a dia pela interface do VS Code.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
 
+    - Quais programas instalar primeiro para começar a trabalhar
     - Por que usar o VS Code como editor de documentação
-    - Como configurar o ambiente (extensões, preview, terminal)
+    - Como configurar o ambiente (Git, Python, VS Code, extensões, preview e terminal)
     - Todos os comandos Git pelo VS Code (sem terminal)
     - Os 4 modos do GitHub Copilot e quando usar cada um
     - Boas práticas para IA generativa em documentação
@@ -27,15 +30,41 @@ O VS Code (Visual Studio Code) é um editor de código gratuito da Microsoft, ma
 
 ## 2. Configuração inicial do ambiente
 
-### 2.1 Instalar o VS Code
+Este é o módulo de **setup** da trilha. Ao final desta seção, você deve ter tudo instalado e funcionando para conseguir clonar o repositório, abrir a documentação e visualizar o site localmente.
+
+### 2.1 Instalar o Git
+
+Baixe em [https://git-scm.com](https://git-scm.com) e instale com as opções padrão.
+
+Depois da instalação, abra um terminal e verifique:
+
+```bash
+git --version
+```
+
+Se um número de versão aparecer, o Git está pronto para uso.
+
+### 2.2 Instalar o Python
+
+Baixe em [https://www.python.org](https://www.python.org) a versão 3.10 ou superior.
+
+Durante a instalação no Windows, marque a opção para adicionar o Python ao `PATH`. Depois confirme no terminal:
+
+```bash
+python --version
+```
+
+Se sua máquina usar o Python Launcher, o comando também pode ser:
+
+```bash
+py --version
+```
+
+### 2.3 Instalar o VS Code
 
 Baixe em [https://code.visualstudio.com](https://code.visualstudio.com) e instale normalmente.
 
-### 2.2 Abrir o repositório
-
-No VS Code: `File → Open Folder` → selecione a pasta do repositório clonado (ex.: `visus_docs/`).
-
-### 2.3 Extensões recomendadas
+### 2.4 Instalar as extensões recomendadas
 
 Instale pelo painel de extensões (clique em ![Extensions](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/extensions.svg){: .vscode-icon} na Barra de Atividades, ou `Ctrl+Shift+X`):
 
@@ -48,6 +77,31 @@ Instale pelo painel de extensões (clique em ![Extensions](https://cdn.jsdelivr.
 | **Code Spell Checker** | `streetsidesoftware.code-spell-checker` | Verificação ortográfica |
 | **Brazilian Portuguese** | `streetsidesoftware.code-spell-checker-portuguese-brazilian` | Dicionário PT-BR |
 | **Git Graph** | `mhutchie.git-graph` | Visualização do histórico de branches |
+
+### 2.5 Clonar e abrir o repositório
+
+Se o repositório ainda não estiver na sua máquina, use `Ctrl+Shift+P` → **Git: Clone** e siga o fluxo descrito no Módulo 1.
+
+No VS Code: `File → Open Folder` → selecione a pasta do repositório clonado (ex.: `visus_docs/`).
+
+### 2.6 Instalar as dependências do projeto
+
+Com o repositório já aberto no VS Code, abra o terminal integrado e execute:
+
+```bash
+pip install -r requirements.txt
+```
+
+Isso instala o MkDocs e os plugins usados pelo projeto.
+
+!!! tip "Checklist rápido de setup"
+    Antes de seguir para os próximos tópicos, confirme:
+
+    - `git --version` funciona
+    - `python --version` ou `py --version` funciona
+    - o repositório está aberto no VS Code
+    - as extensões principais foram instaladas
+    - `pip install -r requirements.txt` terminou sem erro
 
 ---
 
@@ -392,12 +446,12 @@ Peça ao Copilot para:
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
-    O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente (extensões, preview e terminal), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **4 modos do GitHub Copilot** e quando usar cada um na documentação.
+    O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente completo (**Git, Python, VS Code, extensões e dependências do projeto**), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **4 modos do GitHub Copilot** e quando usar cada um na documentação.
 
 ---
 
-> **Módulo anterior:** [02 — Markdown e MkDocs](./02-markdown-e-mkdocs.md)  
-> **Próximo módulo:** [04 — Personalizando o Copilot](./04-copilot-customizacao.md)
+> **Módulo anterior:** [01 — Git para Documentação](./01-git-para-documentacao.md)  
+> **Próximo módulo:** [03 — Markdown e MkDocs](./03-markdown-e-mkdocs.md)

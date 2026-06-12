@@ -1,10 +1,10 @@
 nav:
   - index.md
   - 01-git-para-documentacao.md
-  - 02-markdown-e-mkdocs.md
-  - 03-vscode-e-copilot.md
-  - 04-copilot-customizacao.md
-  - 05-branches-e-pull-requests.md
-  - 06-publicacao-externa.md
-  - modulo-extra.md
-  - exercicios-praticos.md
+  - 02-vscode-e-copilot.md
+  - 03-markdown-e-mkdocs.md
+  - 04-branches-e-pull-requests.md
+  - 05-publicacao-externa.md
+  - 06-copilot-customizacao.md
+  - 07-instrucoes-especificas.md
+  - 08-exercicios-praticos.md

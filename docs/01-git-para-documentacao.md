@@ -1,39 +1,40 @@
 # Módulo 1 — Git para Documentação
 
 > **Para quem é este módulo:** equipes de Produto e Engenharia que mantêm documentação em repositórios Git — sem necessidade de saber programar.
+>
+> **Por que este módulo vem primeiro:** antes de instalar ferramentas e editar arquivos, a equipe precisa entender o fluxo mental do trabalho com documentação versionada. Este módulo apresenta o vocabulário e o raciocínio base que serão reutilizados em toda a trilha.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
 
-    - O que é Git e por que usá-lo para documentação
-    - Os conceitos de repositório, commit, clone, push e pull
+    - Como Git, GitHub e VS Code se conectam no trabalho com documentação
+    - Os conceitos de repositório, local/remoto, commit, clone, push e pull
     - O fluxo de trabalho diário (simplificado e completo)
     - Os comandos essenciais e quando usá-los
     - Como resolver situações comuns (conflitos, desfazer erros)
 
 ---
 
-## Git, GitHub e VS Code — qual é a diferença?
+## 0. Mapa do ecossistema
 
-Antes de começar, é importante entender que são **três ferramentas distintas** que trabalham juntas — e que você usará as três no dia a dia:
+Antes de entrar nos comandos, é importante entender quais ferramentas compõem o fluxo. As três peças centrais da trilha são **Git**, **GitHub** e **VS Code**. O **GitHub Desktop** pode ser usado como alternativa visual, mas não é o caminho principal deste curso.
 
 | Ferramenta | O que é | Para que serve neste contexto |
 |---|---|---|
 | **Git** | Sistema de controle de versão | O "motor" por baixo de tudo: rastreia cada mudança feita nos arquivos |
 | **GitHub** | Plataforma na nuvem | Armazena o repositório remoto e viabiliza a colaboração entre pessoas da equipe |
-| **GitHub Desktop** | Aplicativo visual para usar o Git | Permite fazer clone, commit e push sem precisar digitar comandos no terminal |
 | **VS Code** | Editor de texto | É onde você escreve e edita os arquivos de documentação (`.md`) |
+| **GitHub Desktop** | Aplicativo visual opcional | Alternativa para quem prefere uma ferramenta separada para operações Git |
 
 ```mermaid
 flowchart LR
-    A["✏️ VS Code\nEdita os arquivos"] --> B["🖥️ GitHub Desktop\nRegistra e envia as mudanças"]
-    B --> C["☁️ GitHub\nArmazena e compartilha"]
+    A["✏️ VS Code\nEditar a documentação"] --> B["🔀 Git\nRegistrar mudanças"] --> C["☁️ GitHub\nCompartilhar e revisar"]
     style A fill:#0c3322,stroke:#25CE7B,color:#dcfaea
     style B fill:#0e3d28,stroke:#3BE592,color:#e3fff1
     style C fill:#114e34,stroke:#25CE7B,color:#ffffff
 ```
 
-> **Em resumo:** você edita no **VS Code**, usa o **GitHub Desktop** para salvar e enviar as mudanças (com Git por baixo), e o resultado fica armazenado no **GitHub** — acessível para toda a equipe.
+> **Em resumo:** você edita no **VS Code**, o **Git** registra as mudanças e o **GitHub** armazena e compartilha o repositório. Ao longo desta trilha, o caminho principal será usar o Git integrado do VS Code; o GitHub Desktop fica como alternativa opcional.
 
 ---
 
@@ -82,22 +83,33 @@ Um commit é um **snapshot** — uma fotografia do estado dos arquivos em um mom
 
 **Clonar** um repositório significa baixar uma cópia completa dele (incluindo todo o histórico de commits) para a sua máquina. É a **primeira operação** que você faz — feita uma única vez por máquina.
 
-#### Como clonar pelo GitHub Desktop (recomendado)
+#### Como clonar pelo VS Code (recomendado na trilha)
 
-O GitHub Desktop é a forma mais direta de clonar um repositório — sem precisar abrir o terminal.
+O caminho mais coerente com esta trilha é clonar o repositório já pelo VS Code, porque você instala o editor, abre a pasta e continua todo o restante do trabalho no mesmo lugar.
 
-1. Abra o **GitHub Desktop**
-2. No canto superior esquerdo, clique na **seta** ao lado do nome do repositório atual para abrir o painel de repositórios
-3. Clique em **Add** → **Clone repository…**
-4. Na janela que se abre, selecione a aba **GitHub.com**
-5. Use o campo de busca para localizar o repositório desejado (ex.: `AltoQiTec/builder_docs`)
-6. Em **Local path**, defina onde o repositório será salvo — escolha uma pasta dedicada (ex.: `C:\Repos\`)
-7. Clique em **Clone**
+1. Abra o **VS Code**
+2. Pressione `Ctrl+Shift+P` para abrir a **Command Palette**
+3. Execute o comando **Git: Clone**
+4. Cole a URL do repositório (ex.: `https://github.com/AltoQiTec/builder_docs.git`)
+5. Escolha uma pasta dedicada para guardar seus repositórios (ex.: `C:\Repos\`)
+6. Aguarde o download e clique em **Open** para abrir o projeto no editor
 
-O GitHub Desktop vai baixar o repositório e abri-lo automaticamente. A partir daí, todas as operações de pull, commit e push podem ser feitas diretamente pelo aplicativo.
+Depois do clone, o VS Code já abre o repositório para que você siga com edição, preview e operações Git no mesmo ambiente.
 
 !!! tip "Dica"
-    Depois de clonar, abra a pasta do repositório no VS Code clicando em **Repository** → **Open in Visual Studio Code** no menu do GitHub Desktop.
+    Se o VS Code perguntar se você quer confiar na pasta aberta, escolha **Trust the authors** apenas quando estiver trabalhando em um repositório conhecido da equipe.
+
+#### Como clonar pelo GitHub Desktop (alternativa opcional)
+
+Se sua equipe preferir usar uma ferramenta separada para clone e sincronização, o GitHub Desktop também funciona bem:
+
+1. Abra o **GitHub Desktop**
+2. Clique em **Add** → **Clone repository…**
+3. Localize o repositório desejado
+4. Defina o **Local path**
+5. Clique em **Clone**
+
+Depois do clone, use **Repository** → **Open in Visual Studio Code** para continuar o trabalho no editor.
 
 #### Como clonar pelo terminal (alternativa)
 
@@ -181,7 +193,7 @@ flowchart LR
 
 **Quando usar:** equipe maior, conteúdo que precisa de revisão antes de publicar, trabalhos longos em paralelo (ex.: um redator documenta o módulo Planning enquanto outro atualiza o Collab), ou quando erros no main causariam problemas visíveis para usuários do site.
 
-O fluxo completo adiciona duas etapas entre o commit e a publicação: um **branch isolado** e um **Pull Request** com revisão. Para entender em detalhe o que são e como funcionam, veja o documento complementar: [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md).
+O fluxo completo adiciona duas etapas entre o commit e a publicação: um **branch isolado** e um **Pull Request** com revisão. Para entender em detalhe o que são e como funcionam, veja o documento complementar: [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md).
 
 ```mermaid
 flowchart LR
@@ -207,7 +219,7 @@ As etapas de editar, `git add`, `git commit` e `git push` são as mesmas do flux
 
 ## 4. Comandos Essenciais
 
-> **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./03-vscode-e-copilot.md#4-git-integrado-no-vs-code) do Módulo 3 para conhecer a interface visual.
+> **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./02-vscode-e-copilot.md#4-git-integrado-no-vs-code) do Módulo 2 para conhecer a interface visual.
 
 ---
 
@@ -274,7 +286,7 @@ No **fluxo simplificado** (direto no main):
 git push
 ```
 
-No **fluxo completo** (branch dedicado) — veja [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md):
+No **fluxo completo** (branch dedicado) — veja [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md):
 
 ```bash
 git push origin docs/guia-collab
@@ -434,17 +446,17 @@ git revert HEAD    # cria um novo commit que desfaz o último
     | **Push** | Enviar commits locais para o repositório remoto |
     | **Pull** | Baixar e integrar commits do repositório remoto |
     | **main** | Branch principal (produção) |
-    | **Branch / PR** | Conceitos do fluxo completo — ver [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) |
+    | **Branch / PR** | Conceitos do fluxo completo — ver [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md) |
 
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
-    Git versiona sua documentação e evita que o trabalho de uma pessoa sobrescreva o de outra. Você viu os conceitos de **repositório, commit, clone, push e pull**, o fluxo diário (`pull` → editar → `add` → `commit` → `push`) e como lidar com conflitos e desfazer erros. Na prática, a maior parte dessas ações é feita pelos botões do VS Code — o importante é entender *o que cada operação faz*.
+    Git versiona sua documentação e evita que o trabalho de uma pessoa sobrescreva o de outra. Você viu como **Git, GitHub e VS Code** se conectam, aprendeu os conceitos de **repositório, commit, clone, push e pull**, entendeu o fluxo diário (`pull` → editar → `add` → `commit` → `push`) e viu como lidar com conflitos e desfazer erros. Na prática, a trilha assume o **VS Code como ambiente principal** para executar esse fluxo.
 
 ---
 
-> **Leitura complementar:** [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) — aprofundamento do fluxo completo  
-> **Próximo módulo:** [02 — Markdown e MkDocs](./02-markdown-e-mkdocs.md)
+> **Leitura complementar:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md) — aprofundamento do fluxo completo  
+> **Próximo módulo:** [02 — VS Code e GitHub Copilot](./02-vscode-e-copilot.md)

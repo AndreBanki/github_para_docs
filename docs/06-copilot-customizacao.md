@@ -1,6 +1,8 @@
-# Módulo 4 — Personalizando o GitHub Copilot
+# Módulo 6 — Personalizando o GitHub Copilot
 
 > **Para quem é este módulo:** quem configura e mantém o ambiente de documentação — líderes de Produto, Engenharia e responsáveis pelo repositório.
+>
+> **Por que este módulo vem agora:** personalização do Copilot só gera valor real quando a equipe já entendeu o fluxo básico, a estrutura do repositório e o padrão de escrita esperado. Por isso ele aparece depois da trilha operacional principal, como camada de maturidade do processo.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
@@ -434,12 +436,12 @@ flowchart TD
 ---
 
 !!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
+    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     O Copilot pode ser moldado para o seu repositório por quatro mecanismos: **Instructions, Prompts, Agentes e Skills**. Você viu onde colocar cada arquivo, quando usar cada mecanismo (com tabela de decisão) e um exemplo prático de sessão de trabalho com um agente.
 
 ---
 
-> **Módulo anterior:** [03 — VS Code e GitHub Copilot](./03-vscode-e-copilot.md)  
-> **Índice:** [Início](./index.md)
+> **Módulo anterior:** [05 — Publicando para Acesso Externo](./05-publicacao-externa.md)  
+> **Próximo módulo:** [07 — Instruções Específicas](./07-instrucoes-especificas.md)

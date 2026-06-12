@@ -7,7 +7,7 @@ title: Início
   <h1>Documentação como <span class="hl">Código</span></h1>
   <p class="lead">Aprenda a colaborar em documentação de produto usando Git, Markdown, MkDocs e GitHub Copilot — mesmo que você nunca tenha usado Git na vida.</p>
   <div class="course-meta">
-    <span>📚 <b>7</b> módulos</span>
+    <span>📚 <b>8</b> módulos</span>
     <span>🎯 Nível <b>iniciante</b></span>
     <span>⏱️ ~<b>4h</b> de estudo</span>
     <span>💻 Prática guiada no VS Code</span>
@@ -31,47 +31,54 @@ title: Início
     <span class="mod-desc">Repositório, commit, push/pull e o fluxo de trabalho diário — simplificado e completo.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card" href="02-markdown-e-mkdocs.html">
-    <span class="mod-icon">📝</span>
-    <span class="mod-num">Módulo 02</span>
-    <span class="mod-title">Markdown e MkDocs</span>
-    <span class="mod-desc">Sintaxe Markdown, build/serve do MkDocs, temas e o plugin awesome-pages.</span>
-    <span class="mod-go">Iniciar →</span>
-  </a>
-  <a class="module-card" href="03-vscode-e-copilot.html">
+  <a class="module-card" href="02-vscode-e-copilot.html">
     <span class="mod-icon">🧩</span>
-    <span class="mod-num">Módulo 03</span>
+    <span class="mod-num">Módulo 02</span>
     <span class="mod-title">VS Code e GitHub Copilot</span>
-    <span class="mod-desc">Ambiente, extensões, Git visual e os modos de uso do Copilot no dia a dia.</span>
+    <span class="mod-desc">Instalação do ambiente, extensões, Git visual e os modos de uso do Copilot no dia a dia.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card" href="04-copilot-customizacao.html">
-    <span class="mod-icon">⚙️</span>
-    <span class="mod-num">Módulo 04</span>
-    <span class="mod-title">Personalizando o Copilot</span>
-    <span class="mod-desc">Instructions, prompts reutilizáveis, agentes e skills para documentação.</span>
+  <a class="module-card" href="03-markdown-e-mkdocs.html">
+    <span class="mod-icon">📝</span>
+    <span class="mod-num">Módulo 03</span>
+    <span class="mod-title">Markdown e MkDocs</span>
+    <span class="mod-desc">Sintaxe Markdown, preview local, build/serve do MkDocs, temas e o plugin awesome-pages.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card" href="05-branches-e-pull-requests.html">
+  <a class="module-card" href="04-branches-e-pull-requests.html">
     <span class="mod-icon">🌿</span>
-    <span class="mod-num">Módulo 05</span>
+    <span class="mod-num">Módulo 04</span>
     <span class="mod-title">Branches e Pull Requests</span>
-    <span class="mod-desc">Aprofundamento do fluxo completo: branches isolados e revisão por PR.</span>
+    <span class="mod-desc">Aprofundamento do fluxo completo: branches isolados, revisão por PR e resolução de conflitos.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card" href="06-publicacao-externa.html">
+  <a class="module-card" href="05-publicacao-externa.html">
     <span class="mod-icon">🌐</span>
-    <span class="mod-num">Módulo 06</span>
+    <span class="mod-num">Módulo 05</span>
     <span class="mod-title">Publicando para Acesso Externo</span>
     <span class="mod-desc">GitHub Pages, Render.com, Keycloak e CloudOps — como escolher e como atualizar o site.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card extra" href="modulo-extra.html">
+  <a class="module-card" href="06-copilot-customizacao.html">
+    <span class="mod-icon">⚙️</span>
+    <span class="mod-num">Módulo 06</span>
+    <span class="mod-title">Personalizando o Copilot</span>
+    <span class="mod-desc">Instructions, prompts reutilizáveis, agentes e skills para documentação.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card extra" href="07-instrucoes-especificas.html">
     <span class="mod-icon">⭐</span>
-    <span class="mod-num">Módulo Extra</span>
+    <span class="mod-num">Módulo 07</span>
     <span class="mod-title">Instruções Específicas</span>
     <span class="mod-desc">Padrões de repositórios reais: Targetprocess, espelhamento de épicos e pasta <code>raw/</code>.</span>
     <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card extra" href="08-exercicios-praticos.html">
+    <span class="mod-icon">🧪</span>
+    <span class="mod-num">Módulo 08</span>
+    <span class="mod-title">Exercícios Práticos</span>
+    <span class="mod-desc">Revisão final da trilha com exercícios organizados na mesma ordem dos módulos.</span>
+    <span class="mod-go">Praticar →</span>
   </a>
 </div>
 
