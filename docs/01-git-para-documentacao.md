@@ -15,7 +15,7 @@
 
 ---
 
-## 0. Mapa do ecossistema
+## 1. Mapa do ecossistema
 
 Antes de entrar nos comandos, é importante entender quais ferramentas compõem o fluxo. As três peças centrais da trilha são **Git**, **GitHub** e **VS Code**. O **GitHub Desktop** pode ser usado como alternativa visual, mas não é o caminho principal deste curso.
 
@@ -38,7 +38,7 @@ flowchart LR
 
 ---
 
-## 1. Por que usar Git para documentação?
+## 2. Por que usar Git para documentação?
 
 Git é um sistema de **controle de versão**: ele registra cada mudança feita em arquivos ao longo do tempo, permitindo que múltiplas pessoas colaborem sem sobrescrever o trabalho umas das outras.
 
@@ -53,7 +53,7 @@ Para documentação, isso significa:
 
 ---
 
-## 2. Conceitos Fundamentais
+## 3. Conceitos Fundamentais
 
 ### Repositório (repo)
 
@@ -158,7 +158,7 @@ C:\Dev\            (Windows)
 
 ---
 
-## 3. Fluxo de Trabalho Diário
+## 4. Fluxo de Trabalho Diário
 
 Existem dois fluxos possíveis. Comece pelo simplificado e migre para o completo quando a equipe crescer ou quando a documentação precisar de revisão antes de publicar.
 
@@ -217,7 +217,7 @@ As etapas de editar, `git add`, `git commit` e `git push` são as mesmas do flux
 
 ---
 
-## 4. Comandos Essenciais
+## 5. Comandos Essenciais
 
 > **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./02-vscode-e-copilot.md#4-git-integrado-no-vs-code) do Módulo 2 para conhecer a interface visual.
 
@@ -325,7 +325,7 @@ git log --oneline --graph
 
 ---
 
-## 5. Situações Comuns
+## 6. Situações Comuns
 
 !!! tip "Conflitos são raros"
     Se a equipe sempre faz `git pull` antes de começar a trabalhar, conflitos quase nunca acontecem. As situações abaixo são para quando eles ocorrem.
