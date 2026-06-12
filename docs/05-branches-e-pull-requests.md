@@ -202,67 +202,8 @@ git push origin docs/nome-da-tarefa       # enviar branch para o GitHub
 
 ---
 
-## Exercícios práticos
-
-??? example "Exercício 1 — Criar um branch e trabalhar isolado"
-    **Objetivo:** praticar o fluxo de branch sem afetar o main.
-
-    1. Certifique-se de estar no `main` e atualizado (`git pull`)
-    2. Crie um branch com seu nome:
-       ```bash
-       git checkout -b docs/pagina-seu-nome
-       ```
-    3. Crie o arquivo `docs/seu-nome-branch.md` com um título H1 e um parágrafo
-    4. Faça commit:
-       ```bash
-       git add docs/seu-nome-branch.md
-       git commit -m "docs: adiciona página de exercício de branch"
-       ```
-    5. Envie o branch para o GitHub:
-       ```bash
-       git push origin docs/pagina-seu-nome
-       ```
-    6. Verifique no GitHub que o branch existe mas o `main` ainda não tem o arquivo
-
-    ✅ **Resultado esperado:** o arquivo existe apenas no branch — o main está intacto.
-
-??? example "Exercício 2 — Abrir e revisar um Pull Request"
-    **Objetivo:** criar um PR e simular o fluxo de revisão.
-
-    1. Acesse o repositório no GitHub
-    2. Clique em **Compare & pull request** (o GitHub detecta o branch recém-enviado)
-    3. Preencha:
-       - **Título:** `docs: adiciona página de exercício – [seu nome]`
-       - **Descrição:** escreva em 2-3 linhas o que foi alterado
-    4. Solicite revisão de um colega (campo **Reviewers**)
-    5. O colega deve abrir o PR, ir em **Files changed** e adicionar um comentário inline em uma linha do arquivo
-    6. Responda ao comentário e faça a correção sugerida com um novo commit no mesmo branch
-    7. Após aprovação, clique em **Merge pull request** → **Confirm merge**
-    8. Delete o branch após o merge
-
-    ✅ **Resultado esperado:** a página chega ao main via PR revisado, com histórico de comentários.
-
-??? example "Exercício 3 — Resolver um conflito de merge entre branches"
-    **Objetivo:** reproduzir um conflito real entre dois branches e resolvê-lo.
-
-    1. No `main`, crie o arquivo `docs/conflito-branches.md` com o texto: `"Versão original"`
-    2. Crie dois branches a partir do main:
-       ```bash
-       git checkout -b docs/branch-a
-       # edite docs/conflito-branches.md → "Versão do branch A"
-       git add . ; git commit -m "docs: versão do branch A"
-
-       git checkout main
-       git checkout -b docs/branch-b
-       # edite docs/conflito-branches.md → "Versão do branch B"
-       git add . ; git commit -m "docs: versão do branch B"
-       ```
-    3. Faça merge do `branch-a` no `main` primeiro
-    4. Tente fazer merge do `branch-b` — o Git vai reportar conflito
-    5. Abra o VS Code, localize o arquivo conflitante no painel Source Control e resolva usando **Accept Both Changes**
-    6. Ajuste o texto final manualmente, faça stage e commit
-
-    ✅ **Resultado esperado:** o conflito é resolvido e o arquivo final contém o conteúdo correto.
+!!! info "Exercícios práticos"
+    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     **Branches** isolam um trabalho em andamento sem afetar o `main`, e o **Pull Request** permite revisar o conteúdo antes de publicar. Você viu como criar e navegar em branches, abrir e revisar um PR, resolver conflitos de merge e executar o fluxo completo passo a passo.

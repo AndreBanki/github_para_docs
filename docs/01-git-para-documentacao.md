@@ -438,65 +438,8 @@ git revert HEAD    # cria um novo commit que desfaz o último
 
 ---
 
-## Exercícios práticos
-
-??? example "Exercício 1 — Seu primeiro clone e commit"
-    **Objetivo:** executar o fluxo completo `clone → editar → commit → push` pela primeira vez.
-
-    **Pré-requisito:** ter o Git instalado e acesso ao repositório de exercícios do curso.
-
-    1. Abra o terminal (ou use `Ctrl+Shift+P` → `Git: Clone` no VS Code)
-    2. Clone o repositório de exercícios:
-       ```bash
-       git clone https://github.com/andrebanki/github_para_docs.git
-       ```
-    3. Navegue até a pasta `docs/` e crie um arquivo com seu nome: `seu-nome.md`
-    4. Escreva uma linha de texto qualquer no arquivo
-    5. Salve, faça stage (`git add docs/seu-nome.md`) e commite:
-       ```bash
-       git commit -m "docs: adiciona arquivo de seu-nome"
-       ```
-    6. Faça push:
-       ```bash
-       git push
-       ```
-    7. Verifique o resultado no GitHub:
-       - Acesse **[github.com/andrebanki/github_para_docs](https://github.com/andrebanki/github_para_docs)**
-       - Clique na pasta **`docs/`**
-       - Confirme que o arquivo `seu-nome.md` aparece na listagem
-       - Clique no arquivo para ver o conteúdo — e confira a mensagem do seu commit ao lado do nome do arquivo
-
-    ✅ **Resultado esperado:** seu arquivo aparece no repositório remoto no GitHub.
-
-??? example "Exercício 2 — Simular e resolver um conflito"
-    **Objetivo:** vivenciar um conflito de merge controlado e resolvê-lo no VS Code.
-
-    1. Abra o arquivo `docs/conflito-exercicio.md` (peça ao instrutor para criá-lo no repositório de exercícios com um parágrafo)
-    2. Antes de fazer `git pull`, edite o mesmo parágrafo localmente e commite
-    3. Agora faça `git pull` — o Git vai reportar um conflito
-    4. Abra o painel **Source Control** e localize o arquivo marcado com **C**
-    5. Use o botão **Accept Both Changes** e depois ajuste o texto manualmente
-    6. Faça stage, commite e push
-
-    ✅ **Resultado esperado:** o conflito é resolvido e o histórico mostra um commit de merge.
-
-??? example "Exercício 3 — Desfazer um commit"
-    **Objetivo:** usar `git revert` com segurança.
-
-    1. Faça uma edição pequena num arquivo qualquer e commite com a mensagem `"teste: commit para reverter"`
-    2. No terminal, execute:
-       ```bash
-       git log --oneline -5
-       ```
-       Anote o hash do commit que acabou de fazer.
-    3. Reverta esse commit:
-       ```bash
-       git revert HEAD
-       ```
-    4. Confirme a mensagem de commit gerada pelo Git (pode aceitar o padrão)
-    5. Execute `git log --oneline -5` novamente e observe o novo commit de reversão
-
-    ✅ **Resultado esperado:** o arquivo voltou ao estado anterior e o histórico registra a reversão — sem apagar nenhum commit.
+!!! info "Exercícios práticos"
+    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     Git versiona sua documentação e evita que o trabalho de uma pessoa sobrescreva o de outra. Você viu os conceitos de **repositório, commit, clone, push e pull**, o fluxo diário (`pull` → editar → `add` → `commit` → `push`) e como lidar com conflitos e desfazer erros. Na prática, a maior parte dessas ações é feita pelos botões do VS Code — o importante é entender *o que cada operação faz*.

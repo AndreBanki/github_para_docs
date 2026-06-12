@@ -555,51 +555,8 @@ Ou use o script do projeto:
 
 ---
 
-## Exercícios práticos
-
-??? example "Exercício 1 — Criar uma página Markdown completa"
-    **Objetivo:** escrever uma página usando todos os elementos essenciais de Markdown.
-
-    1. Crie o arquivo `docs/pagina-teste.md` no repositório
-    2. Escreva uma página que contenha:
-       - Um título H1 e pelo menos dois H2
-       - Um parágrafo com texto em **negrito** e *itálico*
-       - Uma lista não-ordenada com 3 itens
-       - Uma tabela com 2 colunas e 3 linhas
-       - Um bloco de código com a linguagem especificada (ex.: ` ```bash `)
-       - Uma admonition `!!! tip` com pelo menos duas linhas de conteúdo
-    3. Abra o preview no VS Code (`Ctrl+K V`) e verifique a renderização
-    4. Faça commit e push do arquivo
-
-    ✅ **Resultado esperado:** a página renderiza corretamente no preview e no site local.
-
-??? example "Exercício 2 — Rodar o MkDocs localmente"
-    **Objetivo:** gerar o site e visualizá-lo no navegador.
-
-    1. Abra o terminal integrado do VS Code (Ctrl+`)
-    2. Certifique-se de estar na raiz do repositório
-    3. Execute:
-       ```bash
-       mkdocs serve
-       ```
-    4. Abra `http://localhost:8000` no navegador
-    5. Enquanto o servidor roda, edite o arquivo `docs/pagina-teste.md` criado no exercício anterior — observe que o navegador atualiza automaticamente ao salvar
-    6. Pare o servidor com `Ctrl+C` no terminal
-
-    ✅ **Resultado esperado:** o site carrega com a página de teste aparecendo na navegação.
-
-??? example "Exercício 3 — Usar admonitions colapsáveis"
-    **Objetivo:** praticar os tipos `!!!` e `???` de admonitions.
-
-    1. No arquivo `docs/pagina-teste.md`, adicione:
-       - Uma admonition `!!! warning` com uma lista de 3 itens
-       - Uma admonition colapsável `??? note` com um parágrafo de texto
-       - Uma admonition `???+` (começa aberta) com código dentro
-    2. Visualize no preview e confirme que a versão `???` começa fechada
-    3. Tente intencionalmente colocar 2 espaços de indentação em uma delas — observe o resultado quebrado no preview
-    4. Corrija para 4 espaços
-
-    ✅ **Resultado esperado:** as três admonitions rendeizam corretamente, com a `???` colapsando ao clicar.
+!!! info "Exercícios práticos"
+    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     Markdown é texto simples com marcações leves, mais portável que Word ou Google Docs. Você aprendeu a sintaxe essencial (títulos, listas, tabelas, imagens e código) e como o **MkDocs** transforma arquivos `.md` em um site navegável — configurando o `mkdocs.yml` e visualizando tudo localmente com `mkdocs serve`.

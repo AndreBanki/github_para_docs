@@ -433,50 +433,8 @@ flowchart TD
 
 ---
 
-## Exercícios práticos
-
-??? example "Exercício 1 — Criar um copilot-instructions.md básico"
-    **Objetivo:** escrever o arquivo de instruções para um repositório fictício.
-
-    1. No repositório do curso, crie o arquivo `.github/copilot-instructions.md`
-    2. Escreva as seguintes seções:
-       - **Papel**: descreva o papel do agente (ex.: redator técnico do repositório X)
-       - **Estrutura de diretórios**: liste as pastas de `docs/` com uma linha explicando o que vai em cada uma
-       - **Estilo de escrita**: defina o tom (formal, direto, voz ativa) e 2 regras de terminologia
-       - **Restrições**: liste os arquivos que nunca devem ser modificados
-    3. Abra o Copilot Chat em **modo agente** e peça: `"Crie um arquivo index.md para a pasta docs/intro/"`
-    4. Observe se o agente seguiu as instruções que você escreveu
-
-    ✅ **Resultado esperado:** o agente cria o arquivo respeitando o estilo e a estrutura que você definiu.
-
-??? example "Exercício 2 — Criar um prompt reutilizável"
-    **Objetivo:** criar um arquivo `.prompt.md` para uma tarefa recorrente.
-
-    1. Crie o arquivo `.github/prompts/nova-pagina.prompt.md`
-    2. O prompt deve instruir o Copilot a criar uma nova página com:
-       - Frontmatter YAML com `title`, `created` e `updated`
-       - Um título H1 igual ao valor de `title`
-       - Uma seção `## Visão Geral` vazia
-       - Uma admonition `!!! abstract` com os objetivos da página (placeholder)
-    3. No Copilot Chat, invoque o prompt com `/nova-pagina` e peça para criar uma página sobre "Gestão de Permissões"
-    4. Verifique se o rascunho gerado segue o template do prompt
-
-    ✅ **Resultado esperado:** o Copilot gera uma página com a estrutura exata definida no prompt.
-
-??? example "Exercício 3 — Tabela de decisão na prática"
-    **Objetivo:** escolher o mecanismo correto para três cenários reais.
-
-    Para cada cenário abaixo, identifique qual mecanismo usar (Instructions, Prompt, Agente ou Skill) e justifique em uma frase:
-
-    | Cenário | Mecanismo | Por quê? |
-    |---|---|---|
-    | Toda página deve sempre ter frontmatter YAML | ? | ? |
-    | Criar uma nova página de tutorial quando solicitado | ? | ? |
-    | Ingerir um épico do TargetProcess, criar páginas e atualizar o índice | ? | ? |
-
-    Compare suas respostas com a tabela de decisão da seção 5 do módulo.
-
-    ✅ **Resultado esperado:** você consegue escolher o mecanismo certo sem consultar a tabela.
+!!! info "Exercícios práticos"
+    Os exercícios deste módulo foram reunidos no [Módulo Extra — Exercícios Práticos](./exercicios-praticos.md).
 
 !!! success "✅ Resumo do módulo"
     O Copilot pode ser moldado para o seu repositório por quatro mecanismos: **Instructions, Prompts, Agentes e Skills**. Você viu onde colocar cada arquivo, quando usar cada mecanismo (com tabela de decisão) e um exemplo prático de sessão de trabalho com um agente.
