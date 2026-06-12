@@ -32,7 +32,13 @@ Para documentação, isso significa:
 
 ### Repositório (repo)
 
-É a **pasta raiz do projeto**, controlada pelo Git. No caso da documentação do Visus, o repositório é `visus_docs/`. Tudo dentro dele — arquivos Markdown, imagens, configurações — é rastreado.
+É a **pasta raiz do projeto**, controlada pelo Git. Cada produto tem o seu repositório:
+
+- Visus → `visus_docs/`
+- Builder → `builder_docs/`
+- Eberick → `eberick_docs/`
+
+Tudo dentro dele — arquivos Markdown, imagens, configurações — é rastreado.
 
 Um repositório pode ser:
 - **Local**: a cópia que existe na sua máquina
@@ -53,7 +59,7 @@ Um commit é um **snapshot** — uma fotografia do estado dos arquivos em um mom
 
 #### O que acontece quando você clona
 
-O Git cria uma **nova pasta** com o nome do repositório dentro do diretório onde você executou o comando. Por exemplo, se você estiver em `C:\Projetos\` e clonar o repositório `visus-docs`, a estrutura resultante será:
+O Git cria uma **nova pasta** com o nome do repositório dentro do diretório onde você executou o comando. Por exemplo, se você estiver em `C:\Projetos\` e clonar o repositório `visus-docs` (o mesmo vale para `builder-docs` e `eberick-docs`), a estrutura resultante será:
 
 ```
 C:\Projetos\                  ← pasta onde você executou o clone
@@ -125,6 +131,12 @@ flowchart LR
     style E fill:#114e34,stroke:#25CE7B,color:#ffffff
 ```
 
+1. **git pull** — baixa as alterações mais recentes do repositório remoto para a sua máquina
+2. **Editar arquivos .md** — abre e edita os arquivos de documentação no VS Code
+3. **git add .** — marca todos os arquivos alterados para entrarem no próximo commit
+4. **git commit** — salva um snapshot das mudanças com uma mensagem descritiva
+5. **git push** — envia os commits locais para o repositório remoto (e aciona a publicação)
+
 !!! warning "Atenção"
     No fluxo simplificado, o que você faz `push` vai direto para produção. Revise bem antes de commitar.
 
@@ -151,6 +163,11 @@ flowchart LR
     style H fill:#155f3f,stroke:#3BE592,color:#ffffff
 ```
 
+As etapas de editar, `git add`, `git commit` e `git push` são as mesmas do fluxo simplificado. As duas etapas adicionais são:
+
+1. **checkout -b** — cria um branch isolado antes de começar a editar, para que as mudanças não afetem o `main` diretamente
+2. **Pull Request + Merge** — abre uma solicitação de revisão no GitHub; só após a aprovação o conteúdo é mesclado ao `main` e publicado
+
 ---
 
 ## 4. Comandos Essenciais
@@ -167,6 +184,8 @@ git pull
 
 > **Sempre faça isso antes de começar a trabalhar.** Garante que você está partindo da versão mais recente.
 
+**Alternativa no VS Code:** no painel **Source Control** (`Ctrl+Shift+G`), clique em **...** → **Pull**. Ou clique no ícone de sincronização (⇅) na barra de status inferior.
+
 ---
 
 ### `git status` — Ver o que foi alterado
@@ -176,6 +195,8 @@ git status
 ```
 
 Mostra os arquivos modificados, novos ou deletados desde o último commit.
+
+**Alternativa no VS Code:** abra o painel **Source Control** (`Ctrl+Shift+G`). Todos os arquivos alterados aparecem listados automaticamente em **Changes**, com ícones que indicam se foram modificados (M), adicionados (U) ou deletados (D).
 
 ---
 
@@ -187,6 +208,8 @@ git add docs/collab/                   # uma pasta inteira
 git add .                              # tudo que foi alterado
 ```
 
+**Alternativa no VS Code:** no painel **Source Control**, clique no **+** ao lado de um arquivo específico para fazer stage dele. Para adicionar tudo de uma vez, clique no **+** ao lado do título **Changes**.
+
 ---
 
 ### `git commit` — Registrar as alterações
@@ -194,6 +217,8 @@ git add .                              # tudo que foi alterado
 ```bash
 git commit -m "docs: adiciona introdução ao módulo Collab"
 ```
+
+**Alternativa no VS Code:** no painel **Source Control**, digite a mensagem do commit no campo de texto no topo e clique em **Commit** (✓).
 
 **Convenção de mensagens de commit** (recomendada):
 
@@ -220,6 +245,8 @@ No **fluxo completo** (branch dedicado) — veja [05 — Branches e Pull Request
 git push origin docs/guia-collab
 ```
 
+**Alternativa no VS Code:** no painel **Source Control**, clique em **...** → **Push**. O botão **Sync Changes** (⇅ na barra de status) faz `pull` + `push` em sequência, sendo a opção mais prática no dia a dia.
+
 ---
 
 ### `git log` — Ver o histórico de commits
@@ -227,6 +254,8 @@ git push origin docs/guia-collab
 ```bash
 git log --oneline --graph
 ```
+
+**Alternativa no VS Code:** abra o painel **Timeline** (visível na parte inferior do explorador de arquivos) para ver o histórico do arquivo aberto. Para o histórico completo do repositório, use **...** → **View History** no painel Source Control.
 
 ---
 

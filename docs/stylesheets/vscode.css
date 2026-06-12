@@ -11,6 +11,13 @@
   height: 18px !important;
   vertical-align: -4px;
   margin: 0 2px;
+  /* Codicons são SVGs pretos — inverte para branco em tema escuro */
+  filter: invert(1);
+}
+
+/* Em tema claro, mantém o ícone escuro */
+[data-md-color-scheme="default"] .vscode-icon {
+  filter: invert(0);
 }
 
 /* ───────────────────────────────────────────────
