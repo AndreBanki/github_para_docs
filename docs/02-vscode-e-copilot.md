@@ -462,9 +462,6 @@ Peça ao Copilot para:
 
 ---
 
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 !!! success "✅ Resumo do módulo"
     O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente completo (**Git, Python, VS Code, extensões e dependências do projeto**), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **4 modos do GitHub Copilot** e quando usar cada um na documentação.
 

@@ -144,9 +144,6 @@ Você nunca precisa publicar manualmente — basta que o conteúdo esteja no `ma
 
 ---
 
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 ---
 
 > **Módulo anterior:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md)  

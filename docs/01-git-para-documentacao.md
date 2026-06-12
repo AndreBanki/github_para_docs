@@ -451,9 +451,6 @@ git revert HEAD    # cria um novo commit que desfaz o último
 
 ---
 
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 !!! success "✅ Resumo do módulo"
     Git versiona sua documentação e evita que o trabalho de uma pessoa sobrescreva o de outra. Você viu como **Git, GitHub e VS Code** se conectam, aprendeu os conceitos de **repositório, commit, clone, push e pull**, entendeu o fluxo diário (`pull` → editar → `add` → `commit` → `push`) e viu como lidar com conflitos e desfazer erros. Na prática, a trilha assume o **VS Code como ambiente principal** para executar esse fluxo.
 

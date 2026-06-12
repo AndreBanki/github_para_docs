@@ -557,9 +557,6 @@ Ou use o script do projeto:
 
 ---
 
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 !!! success "✅ Resumo do módulo"
     Markdown é texto simples com marcações leves, mais portável que Word ou Google Docs. Você aprendeu a sintaxe essencial (títulos, listas, tabelas, imagens e código) e como o **MkDocs** transforma arquivos `.md` em um site navegável — configurando o `mkdocs.yml` e visualizando tudo localmente com `mkdocs serve`.
 

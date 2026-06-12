@@ -127,10 +127,6 @@ Sem a divisão `raw/wiki`, é comum que o repositório misture fontes e conteúd
 Em `produto_docs`, o `raw/` está organizado por produto (`produto_eberick/`, `produto_visus/`, etc.) e o conteúdo processado vai para `wiki/`. Em `cloudops_docs`, o `raw/` usa subpastas `conteudo_a_organizar/` e `conteudo_ja_importado/` para rastrear o status de cada fonte, e o conteúdo processado vai para `documentation/`.
 
 ---
-
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 ---
 
 > **Módulo anterior:** [06 — Personalizando o GitHub Copilot](./06-copilot-customizacao.md)  

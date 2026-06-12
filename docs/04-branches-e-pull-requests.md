@@ -204,9 +204,6 @@ git push origin docs/nome-da-tarefa       # enviar branch para o GitHub
 
 ---
 
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 !!! success "✅ Resumo do módulo"
     **Branches** isolam um trabalho em andamento sem afetar o `main`, e o **Pull Request** permite revisar o conteúdo antes de publicar. Você viu como criar e navegar em branches, abrir e revisar um PR, resolver conflitos de merge e executar o fluxo completo passo a passo.
 

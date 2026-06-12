@@ -435,9 +435,6 @@ flowchart TD
 
 ---
 
-!!! info "Exercícios práticos"
-    Os exercícios deste módulo foram reunidos no [Módulo 8 — Exercícios Práticos](./08-exercicios-praticos.md).
-
 !!! success "✅ Resumo do módulo"
     O Copilot pode ser moldado para o seu repositório por quatro mecanismos: **Instructions, Prompts, Agentes e Skills**. Você viu onde colocar cada arquivo, quando usar cada mecanismo (com tabela de decisão) e um exemplo prático de sessão de trabalho com um agente.
 
