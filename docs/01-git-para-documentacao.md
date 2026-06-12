@@ -13,6 +13,30 @@
 
 ---
 
+## Git, GitHub e VS Code — qual é a diferença?
+
+Antes de começar, é importante entender que são **três ferramentas distintas** que trabalham juntas — e que você usará as três no dia a dia:
+
+| Ferramenta | O que é | Para que serve neste contexto |
+|---|---|---|
+| **Git** | Sistema de controle de versão | O "motor" por baixo de tudo: rastreia cada mudança feita nos arquivos |
+| **GitHub** | Plataforma na nuvem | Armazena o repositório remoto e viabiliza a colaboração entre pessoas da equipe |
+| **GitHub Desktop** | Aplicativo visual para usar o Git | Permite fazer clone, commit e push sem precisar digitar comandos no terminal |
+| **VS Code** | Editor de texto | É onde você escreve e edita os arquivos de documentação (`.md`) |
+
+```mermaid
+flowchart LR
+    A["✏️ VS Code\nEdita os arquivos"] --> B["🖥️ GitHub Desktop\nRegistra e envia as mudanças"]
+    B --> C["☁️ GitHub\nArmazena e compartilha"]
+    style A fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style B fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style C fill:#114e34,stroke:#25CE7B,color:#ffffff
+```
+
+> **Em resumo:** você edita no **VS Code**, usa o **GitHub Desktop** para salvar e enviar as mudanças (com Git por baixo), e o resultado fica armazenado no **GitHub** — acessível para toda a equipe.
+
+---
+
 ## 1. Por que usar Git para documentação?
 
 Git é um sistema de **controle de versão**: ele registra cada mudança feita em arquivos ao longo do tempo, permitindo que múltiplas pessoas colaborem sem sobrescrever o trabalho umas das outras.
@@ -41,6 +65,7 @@ Para documentação, isso significa:
 Tudo dentro dele — arquivos Markdown, imagens, configurações — é rastreado.
 
 Um repositório pode ser:
+
 - **Local**: a cópia que existe na sua máquina
 - **Remoto**: a cópia oficial que fica no GitHub (ou GitLab, Azure DevOps, etc.)
 
@@ -57,12 +82,39 @@ Um commit é um **snapshot** — uma fotografia do estado dos arquivos em um mom
 
 **Clonar** um repositório significa baixar uma cópia completa dele (incluindo todo o histórico de commits) para a sua máquina. É a **primeira operação** que você faz — feita uma única vez por máquina.
 
+#### Como clonar pelo GitHub Desktop (recomendado)
+
+O GitHub Desktop é a forma mais direta de clonar um repositório — sem precisar abrir o terminal.
+
+1. Abra o **GitHub Desktop**
+2. No canto superior esquerdo, clique na **seta** ao lado do nome do repositório atual para abrir o painel de repositórios
+3. Clique em **Add** → **Clone repository…**
+4. Na janela que se abre, selecione a aba **GitHub.com**
+5. Use o campo de busca para localizar o repositório desejado (ex.: `AltoQiTec/builder_docs`)
+6. Em **Local path**, defina onde o repositório será salvo — escolha uma pasta dedicada (ex.: `C:\Repos\`)
+7. Clique em **Clone**
+
+O GitHub Desktop vai baixar o repositório e abri-lo automaticamente. A partir daí, todas as operações de pull, commit e push podem ser feitas diretamente pelo aplicativo.
+
+!!! tip "Dica"
+    Depois de clonar, abra a pasta do repositório no VS Code clicando em **Repository** → **Open in Visual Studio Code** no menu do GitHub Desktop.
+
+#### Como clonar pelo terminal (alternativa)
+
+Se preferir usar o terminal, navegue primeiro até a pasta onde quer salvar o repositório e execute:
+
+```bash
+cd C:\Repos
+git clone https://github.com/altoqi/visus-docs.git
+# resultado: C:\Repos\visus-docs\
+```
+
 #### O que acontece quando você clona
 
-O Git cria uma **nova pasta** com o nome do repositório dentro do diretório onde você executou o comando. Por exemplo, se você estiver em `C:\Projetos\` e clonar o repositório `visus-docs` (o mesmo vale para `builder-docs` e `eberick-docs`), a estrutura resultante será:
+Em ambos os casos, o Git cria uma **nova pasta** com o nome do repositório dentro do diretório escolhido. Por exemplo, se você escolher `C:\Repos\`, a estrutura resultante será:
 
 ```
-C:\Projetos\                  ← pasta onde você executou o clone
+C:\Repos\                     ← pasta que você escolheu
 └── visus-docs\               ← pasta criada pelo Git (o repositório local)
     ├── .git\                 ← histórico e metadados do Git (não mexa aqui)
     ├── docs\
@@ -70,30 +122,13 @@ C:\Projetos\                  ← pasta onde você executou o clone
     └── ...
 ```
 
-O comando:
-
-```bash
-git clone https://github.com/altoqi/visus-docs.git
-```
-
-deve ser executado **dentro da pasta onde você quer que o repositório fique** — não dentro de outra pasta de repositório já existente.
-
 #### Onde clonar — escolha uma pasta dedicada
 
-Crie uma pasta simples para guardar seus repositórios, por exemplo:
+Crie uma pasta simples para guardar todos os seus repositórios, por exemplo:
 
 ```
 C:\Repos\          (Windows)
 C:\Dev\            (Windows)
-~/repos/           (macOS/Linux)
-```
-
-Então navegue até ela antes de clonar:
-
-```bash
-cd C:\Repos
-git clone https://github.com/altoqi/visus-docs.git
-# resultado: C:\Repos\visus-docs\
 ```
 
 ??? warning "Nunca coloque um repositório dentro de outro"
@@ -251,7 +286,7 @@ git push origin docs/guia-collab
 
 Após executar o `push`, acesse o repositório no GitHub pelo navegador:
 
-1. Vá para **`github.com/<organização>/<repositório>`** (ex.: `github.com/andrebanki/github_para_docs`)
+1. Vá para **`github.com/<organização>/<repositório>`** (ex.: `github.com/AltoQiTec/builder_docs`)
 2. O branch em que você está trabalhando aparece no seletor de branches — certifique-se de que o branch correto está selecionado
 3. Navegue até a pasta/arquivo que você adicionou ou editou
 4. Confirme que:
@@ -261,7 +296,7 @@ Após executar o `push`, acesse o repositório no GitHub pelo navegador:
 
 > **Dica:** o terminal também confirma o sucesso do push com uma saída como:
 > ```
-> To https://github.com/andrebanki/github_para_docs.git
+> To https://github.com/AltoQiTec/builder_docs.git
 >    a1b2c3d..e4f5g6h  main -> main
 > ```
 > Se aparecer um erro (ex.: `rejected`), é sinal de que há commits remotos que você ainda não baixou — execute `git pull` antes de tentar o push novamente.
