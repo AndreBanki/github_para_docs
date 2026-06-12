@@ -17,24 +17,24 @@
 
 ## 1. Mapa do ecossistema
 
-Antes de entrar nos comandos, é importante entender quais ferramentas compõem o fluxo. As três peças centrais da trilha são **Git**, **GitHub** e **VS Code**. O **GitHub Desktop** pode ser usado como alternativa visual, mas não é o caminho principal deste curso.
+Antes de entrar nos comandos, é importante entender quais ferramentas compõem o fluxo. Neste módulo, o caminho principal combina **VS Code** para edição com **GitHub Desktop** para as operações visuais de Git, enquanto o **GitHub** funciona como repositório remoto da equipe.
 
 | Ferramenta | O que é | Para que serve neste contexto |
 |---|---|---|
 | **Git** | Sistema de controle de versão | O "motor" por baixo de tudo: rastreia cada mudança feita nos arquivos |
 | **GitHub** | Plataforma na nuvem | Armazena o repositório remoto e viabiliza a colaboração entre pessoas da equipe |
 | **VS Code** | Editor de texto | É onde você escreve e edita os arquivos de documentação (`.md`) |
-| **GitHub Desktop** | Aplicativo visual opcional | Alternativa para quem prefere uma ferramenta separada para operações Git |
+| **GitHub Desktop** | Aplicativo visual para usar Git | É a forma principal apresentada neste módulo para clonar, sincronizar e enviar mudanças sem depender do terminal |
 
 ```mermaid
 flowchart LR
-    A["✏️ VS Code\nEditar a documentação"] --> B["🔀 Git\nRegistrar mudanças"] --> C["☁️ GitHub\nCompartilhar e revisar"]
+    A["✏️ VS Code\nEditar a documentação"] --> B["🖥️ GitHub Desktop\nClonar, commitar e sincronizar"] --> C["☁️ GitHub\nCompartilhar e revisar"]
     style A fill:#0c3322,stroke:#25CE7B,color:#dcfaea
     style B fill:#0e3d28,stroke:#3BE592,color:#e3fff1
     style C fill:#114e34,stroke:#25CE7B,color:#ffffff
 ```
 
-> **Em resumo:** você edita no **VS Code**, o **Git** registra as mudanças e o **GitHub** armazena e compartilha o repositório. Ao longo desta trilha, o caminho principal será usar o Git integrado do VS Code; o GitHub Desktop fica como alternativa opcional.
+> **Em resumo:** você edita no **VS Code**, usa o **GitHub Desktop** para executar as operações visuais de Git, e o resultado fica armazenado no **GitHub** para compartilhamento e revisão.
 
 ---
 
@@ -83,33 +83,34 @@ Um commit é um **snapshot** — uma fotografia do estado dos arquivos em um mom
 
 **Clonar** um repositório significa baixar uma cópia completa dele (incluindo todo o histórico de commits) para a sua máquina. É a **primeira operação** que você faz — feita uma única vez por máquina.
 
-#### Como clonar pelo VS Code (recomendado na trilha)
+#### Como clonar pelo GitHub Desktop (recomendado neste módulo)
 
-O caminho mais coerente com esta trilha é clonar o repositório já pelo VS Code, porque você instala o editor, abre a pasta e continua todo o restante do trabalho no mesmo lugar.
+O GitHub Desktop é a forma principal apresentada neste módulo para clonar um repositório sem depender do terminal. Ele deixa o fluxo inicial mais visual para quem está começando.
 
-1. Abra o **VS Code**
-2. Pressione `Ctrl+Shift+P` para abrir a **Command Palette**
-3. Execute o comando **Git: Clone**
-4. Cole a URL do repositório (ex.: `https://github.com/AltoQiTec/builder_docs.git`)
-5. Escolha uma pasta dedicada para guardar seus repositórios (ex.: `C:\Repos\`)
-6. Aguarde o download e clique em **Open** para abrir o projeto no editor
+1. Abra o **GitHub Desktop**
+2. Clique em **Add** → **Clone repository…**
+3. Localize o repositório desejado (ex.: `AltoQiTec/builder_docs`)
+4. Defina a pasta local onde o repositório será salvo (ex.: `C:\Repos\`)
+5. Clique em **Clone**
+6. Depois do download, use **Repository** → **Open in Visual Studio Code**
 
-Depois do clone, o VS Code já abre o repositório para que você siga com edição, preview e operações Git no mesmo ambiente.
+Depois do clone, o GitHub Desktop entrega o repositório pronto para ser aberto no VS Code e continuar o trabalho de edição.
 
 !!! tip "Dica"
     Se o VS Code perguntar se você quer confiar na pasta aberta, escolha **Trust the authors** apenas quando estiver trabalhando em um repositório conhecido da equipe.
 
-#### Como clonar pelo GitHub Desktop (alternativa opcional)
+#### Como clonar pelo VS Code (alternativa dentro do editor)
 
-Se sua equipe preferir usar uma ferramenta separada para clone e sincronização, o GitHub Desktop também funciona bem:
+Se você preferir fazer tudo dentro do editor, também é possível clonar diretamente pelo VS Code:
 
-1. Abra o **GitHub Desktop**
-2. Clique em **Add** → **Clone repository…**
-3. Localize o repositório desejado
-4. Defina o **Local path**
-5. Clique em **Clone**
+1. Abra o **VS Code**
+2. Pressione `Ctrl+Shift+P` para abrir a **Command Palette**
+3. Execute o comando **Git: Clone**
+4. Cole a URL do repositório
+5. Escolha a pasta local onde ele será salvo
+6. Aguarde o download e clique em **Open**
 
-Depois do clone, use **Repository** → **Open in Visual Studio Code** para continuar o trabalho no editor.
+Depois do clone, o próprio VS Code abre o repositório para continuar o trabalho.
 
 #### Como clonar pelo terminal (alternativa)
 

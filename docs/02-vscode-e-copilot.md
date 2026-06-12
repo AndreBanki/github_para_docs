@@ -377,6 +377,23 @@ O **Modo Agente** (Agent Mode) é a forma mais poderosa do Copilot: ele executa 
 
 Para ativar: no painel de Chat, troque o modo de `Ask` para `Agent` no seletor.
 
+#### Controles principais do painel do agente
+
+Na interface do chat, alguns controles aparecem com frequência:
+
+- **`+`**: adiciona contexto extra à conversa, como arquivos, imagens, seleção atual do editor ou outros anexos úteis.
+- **`Agent`**: indica que o chat está no modo agente, com permissão para planejar e executar tarefas de múltiplos passos.
+- **Modelo (`GPT-5.4`, por exemplo)**: define qual modelo será usado na resposta.
+- **Nível como `High`**: indica um modo de raciocínio mais intenso, normalmente melhor para tarefas complexas, mas potencialmente mais lento e mais caro.
+- **Janela como `72K`**: indica a faixa de contexto disponível para o chat, ou seja, quanto conteúdo o modelo consegue considerar na conversa.
+- **`Default Approvals`**: controla como o agente pede confirmação antes de editar arquivos, rodar comandos ou executar ações potencialmente sensíveis.
+
+!!! warning "Custo e desempenho dos modelos"
+    Modelos mais fortes, modos como **High** e contextos maiores tendem a consumir mais créditos e podem responder mais lentamente. Use essas opções quando a tarefa realmente exigir análise mais profunda.
+
+!!! warning "Cuidado ao relaxar aprovações"
+    Se você reduzir ou desabilitar aprovações, o agente pode executar edições e comandos com menos confirmações intermediárias. Isso acelera o fluxo, mas aumenta o risco de mudanças indesejadas. Para a maior parte do trabalho em documentação, mantenha o modo padrão de aprovações.
+
 **Exemplo de tarefa para o Agente:**
 
 ```
