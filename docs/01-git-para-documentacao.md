@@ -247,6 +247,25 @@ git push origin docs/guia-collab
 
 **Alternativa no VS Code:** no painel **Source Control**, clique em **...** → **Push**. O botão **Sync Changes** (⇅ na barra de status) faz `pull` + `push` em sequência, sendo a opção mais prática no dia a dia.
 
+#### Como verificar que o push foi bem-sucedido
+
+Após executar o `push`, acesse o repositório no GitHub pelo navegador:
+
+1. Vá para **`github.com/<organização>/<repositório>`** (ex.: `github.com/andrebanki/github_para_docs`)
+2. O branch em que você está trabalhando aparece no seletor de branches — certifique-se de que o branch correto está selecionado
+3. Navegue até a pasta/arquivo que você adicionou ou editou
+4. Confirme que:
+   - o arquivo aparece na listagem de arquivos
+   - a **mensagem do seu commit** aparece ao lado do nome do arquivo
+   - a **data/hora** corresponde ao seu push mais recente
+
+> **Dica:** o terminal também confirma o sucesso do push com uma saída como:
+> ```
+> To https://github.com/andrebanki/github_para_docs.git
+>    a1b2c3d..e4f5g6h  main -> main
+> ```
+> Se aparecer um erro (ex.: `rejected`), é sinal de que há commits remotos que você ainda não baixou — execute `git pull` antes de tentar o push novamente.
+
 ---
 
 ### `git log` — Ver o histórico de commits
@@ -406,6 +425,11 @@ git revert HEAD    # cria um novo commit que desfaz o último
        ```bash
        git push
        ```
+    7. Verifique o resultado no GitHub:
+       - Acesse **[github.com/andrebanki/github_para_docs](https://github.com/andrebanki/github_para_docs)**
+       - Clique na pasta **`docs/`**
+       - Confirme que o arquivo `seu-nome.md` aparece na listagem
+       - Clique no arquivo para ver o conteúdo — e confira a mensagem do seu commit ao lado do nome do arquivo
 
     ✅ **Resultado esperado:** seu arquivo aparece no repositório remoto no GitHub.
 
