@@ -365,26 +365,39 @@ O Claude Code gera a edição, apresenta o diff para aprovação e só aplica ap
 
 ---
 
-### 6.3 Modo Agente
+### 6.3 Modo Agente (aba CLAUDE CODE)
 
 O **Modo Agente** é a forma mais poderosa do Claude Code: ele executa tarefas de múltiplos passos de forma autônoma, lendo e escrevendo arquivos, rodando comandos no terminal e tomando decisões com base no contexto do repositório.
 
-Para ativar: no painel de Chat, troque o modo para **Agent** no seletor.
+Para ativar: clique na aba **CLAUDE CODE** (não na aba **CHAT**) no topo do painel. A aba CLAUDE CODE é o modo agente — ela tem acesso total ao repositório e pode planejar e executar sequências de ações sem intervenção manual a cada passo.
 
-#### Controles principais do painel do agente
+#### Controles principais da aba CLAUDE CODE
 
-Na interface do chat, alguns controles aparecem com frequência:
+Na barra inferior do painel, alguns controles aparecem com frequência:
 
 - **`+`**: adiciona contexto extra à conversa — arquivos, seleção atual do editor, imagens ou outros anexos úteis.
-- **`Agent`**: indica que o chat está no modo agente, com permissão para planejar e executar tarefas de múltiplos passos.
-- **Modelo** (`claude-sonnet-4-6`, por exemplo): define qual modelo Claude será usado na resposta.
-- **`Default Approvals`**: controla como o agente pede confirmação antes de editar arquivos, rodar comandos ou executar ações potencialmente sensíveis.
+- **`/`**: abre um menu de ações rápidas organizado em seis seções:
+    - **Context** — anexar um arquivo (`Attach file...`), mencionar um arquivo do projeto (`Mention file from this project...`), limpar a conversa (`Clear conversation`) ou desfazer até um ponto anterior (`Rewind`).
+    - **Model** — trocar o modelo em uso (`Switch model...`, exibe o atual, ex.: Sonnet 4.6), ativar o modo de raciocínio estendido (`Thinking`) e configurar troca automática de modelo quando uma mensagem for sinalizada. Ao clicar em `Switch model`, as opções disponíveis são:
 
-!!! warning "Custo e desempenho dos modelos"
-    Modelos mais fortes (como Opus) e contextos maiores tendem a consumir mais créditos e podem responder mais lentamente. Use essas opções quando a tarefa realmente exigir análise mais profunda; para tarefas rotineiras, Sonnet é suficiente.
+        | Modelo | Versão | Indicado para |
+        |---|---|---|
+        | **Default (recommended)** | Opus 4.8 · 1M contexto | Alias para o Opus; escolha automática da Anthropic para uso geral |
+        | **Opus** | Opus 4.8 · 1M contexto | Raciocínio profundo, análises longas e tarefas complexas |
+        | **Sonnet** | Sonnet 4.6 | Equilíbrio entre capacidade e velocidade; suficiente para a maioria das tarefas |
+        | **Haiku** | Haiku 4.5 | O mais rápido; ideal para perguntas curtas e diretas |
+        | **Fable** | Claude Fable 5 | Modelo novo em acesso restrito — pode aparecer como desabilitado |
+
+        O modelo atualmente ativo é indicado com um ✓. Deixar no **Default** já usa o Opus, o modelo mais capaz. Para documentação rotineira, **Sonnet** é suficiente e consome menos créditos.
+    - **Customize** — gerenciar plugins (`Manage plugins`) e abrir o Claude Code no terminal integrado (`Open Claude in Terminal`).
+    - **Slash Commands** — lista os slash commands disponíveis no projeto (ex.: `/remote-control`).
+    - **Settings** — trocar de conta (`Switch account`) e abrir as configurações gerais (`General config...`).
+    - **Support** — acessar a documentação de ajuda (`View help docs`) e reportar um problema (`Report a problem`). A versão instalada da extensão também é exibida aqui (ex.: v2.1.183).
+- **Indicador de seleção** (ex.: `105 lines selected`): mostra o trecho de código ou texto atualmente selecionado no editor que será enviado como contexto.
+- **`Ask before edits`**: controla como o agente pede confirmação antes de editar arquivos, rodar comandos ou executar ações potencialmente sensíveis.
 
 !!! warning "Cuidado ao relaxar aprovações"
-    Se você reduzir ou desabilitar aprovações, o agente pode executar edições e comandos com menos confirmações intermediárias. Isso acelera o fluxo, mas aumenta o risco de mudanças indesejadas. Para a maior parte do trabalho em documentação, mantenha o modo padrão de aprovações.
+    Se você alterar o modo de **Ask before edits**, o agente pode executar edições e comandos com menos confirmações intermediárias. Isso acelera o fluxo, mas aumenta o risco de mudanças indesejadas. Para a maior parte do trabalho em documentação, mantenha o modo padrão.
 
 **Exemplo de tarefa para o Agente:**
 
