@@ -4,7 +4,7 @@ no projeto AltoQi Treinamento (Id=75718) do TargetProcess.
 
 Estrutura criada:
   1. Request (Template) — com Objetivo, Público alvo, Trilha, Detalhamento, Resultados
-  2. 7 UserStories (um por módulo: 6 + módulo extra)
+  2. 9 UserStories (um por módulo da trilha)
   3. Relations ligando cada UserStory ao Template (RelationType=Relation)
 
 Uso:
@@ -32,14 +32,27 @@ SITE_URL = "https://andrebanki.github.io/github_para_docs"
 # ---------------------------------------------------------------------------
 MODULOS = [
     {
-        "nome": "Módulo 01 — Git para Documentação",
-        "url": f"{SITE_URL}/01-git-para-documentacao.html",
+        "nome": "Módulo 01 — VS Code e Configuração do Ambiente",
+        "url": f"{SITE_URL}/01-setup-ambiente.html",
         "descricao": (
-            "<p>Neste módulo você vai aprender a usar o Git como sistema de controle de versão "
-            "para documentação técnica, sem precisar saber programar.</p>"
+            "<p>Prepare o ambiente de trabalho: instale as ferramentas, abra o "
+            "repositório e aprenda a operar o Git pela interface visual do VS Code.</p>"
             "<ul>"
-            "<li>O que é Git e por que usá-lo para documentação</li>"
-            "<li>Conceitos de repositório, commit, clone, push e pull</li>"
+            "<li>Quais programas instalar primeiro (Git, Python, VS Code e extensões)</li>"
+            "<li>Por que usar o VS Code como editor de documentação</li>"
+            "<li>Todas as operações de Git pela interface visual — sem terminal</li>"
+            "<li>Preview de Markdown e terminal integrado</li>"
+            "</ul>"
+        ),
+    },
+    {
+        "nome": "Módulo 02 — Git para Documentação",
+        "url": f"{SITE_URL}/02-git-para-documentacao.html",
+        "descricao": (
+            "<p>Entenda o raciocínio do trabalho com documentação versionada e o "
+            "vocabulário do Git, sem precisar saber programar.</p>"
+            "<ul>"
+            "<li>O que é repositório, commit, branch e Pull Request</li>"
             "<li>O fluxo de trabalho diário (simplificado e completo)</li>"
             "<li>Os comandos essenciais e quando usá-los</li>"
             "<li>Como resolver conflitos e desfazer erros</li>"
@@ -47,8 +60,8 @@ MODULOS = [
         ),
     },
     {
-        "nome": "Módulo 02 — Markdown e MkDocs",
-        "url": f"{SITE_URL}/02-markdown-e-mkdocs.html",
+        "nome": "Módulo 03 — Markdown e MkDocs",
+        "url": f"{SITE_URL}/03-markdown-e-mkdocs.html",
         "descricao": (
             "<p>Aprenda a escrever em Markdown e a publicar um site de documentação "
             "navegável com MkDocs.</p>"
@@ -61,31 +74,16 @@ MODULOS = [
         ),
     },
     {
-        "nome": "Módulo 03 — VS Code e Claude Code",
-        "url": f"{SITE_URL}/02-vscode-e-claude-code.html",
+        "nome": "Módulo 04 — Claude Code",
+        "url": f"{SITE_URL}/04-claude-code.html",
         "descricao": (
-            "<p>Configure o VS Code como ambiente de documentação e use o Claude Code "
-            "para acelerar a escrita com IA.</p>"
+            "<p>Use o Claude Code como redator técnico assistente dentro do VS Code "
+            "para acelerar a escrita e a revisão com IA.</p>"
             "<ul>"
-            "<li>Por que usar o VS Code para documentação</li>"
-            "<li>Extensões, preview de Markdown e terminal integrado</li>"
-            "<li>Todos os comandos Git pelo VS Code (sem terminal)</li>"
-            "<li>Os modos do Claude Code: Chat, Edição, Agente e CLI</li>"
+            "<li>O que é o Claude Code e o que ele pode fazer</li>"
+            "<li>Os modos de uso: Chat, Edição pelo Chat, Modo Agente e CLI</li>"
+            "<li>Quando usar cada modo no fluxo diário</li>"
             "<li>Boas práticas para IA generativa em documentação</li>"
-            "</ul>"
-        ),
-    },
-    {
-        "nome": "Módulo 04 — Personalizando o Claude Code",
-        "url": f"{SITE_URL}/06-claude-code-customizacao.html",
-        "descricao": (
-            "<p>Configure o Claude Code para trabalhar com as convenções e padrões do seu "
-            "repositório de documentação.</p>"
-            "<ul>"
-            "<li>Os 4 mecanismos: CLAUDE.md, Comandos Personalizados, Agente e Skills</li>"
-            "<li>Onde colocar cada arquivo e como configurá-lo</li>"
-            "<li>Tabela de decisão: quando usar cada mecanismo</li>"
-            "<li>Exemplo prático de sessão de trabalho com agente</li>"
             "</ul>"
         ),
     },
@@ -110,15 +108,29 @@ MODULOS = [
             "<p>Publique a documentação gerada pelo MkDocs para acesso externo, "
             "escolhendo a opção certa para cada contexto.</p>"
             "<ul>"
-            "<li>Opções disponíveis: GitHub Pages, servidores internos, plataformas pagas</li>"
+            "<li>Opções disponíveis: GitHub Pages, Render.com, Keycloak e CloudOps</li>"
             "<li>Como escolher entre conteúdo público e privado</li>"
             "<li>Como funciona a atualização automática via GitHub Actions</li>"
             "</ul>"
         ),
     },
     {
-        "nome": "Módulo Extra — Instruções Específicas (Repositórios Reais)",
-        "url": f"{SITE_URL}/modulo-extra.html",
+        "nome": "Módulo 07 — Personalizando o Claude Code",
+        "url": f"{SITE_URL}/07-claude-code-customizacao.html",
+        "descricao": (
+            "<p>Configure o Claude Code para trabalhar com as convenções e padrões do seu "
+            "repositório de documentação.</p>"
+            "<ul>"
+            "<li>Os 4 mecanismos: CLAUDE.md, Comandos Personalizados, Agente e Skills</li>"
+            "<li>Onde colocar cada arquivo e como configurá-lo</li>"
+            "<li>Tabela de decisão: quando usar cada mecanismo</li>"
+            "<li>Exemplo prático de sessão de trabalho com agente</li>"
+            "</ul>"
+        ),
+    },
+    {
+        "nome": "Módulo 08 — Instruções Específicas (Repositórios Reais)",
+        "url": f"{SITE_URL}/08-instrucoes-especificas.html",
         "descricao": (
             "<p>Padrões práticos encontrados nos repositórios reais da AltoQi: "
             "como documentar a partir do TargetProcess, espelhar épicos e organizar "
@@ -127,6 +139,19 @@ MODULOS = [
             "<li>Dica 1 — Documentar features a partir do TargetProcess</li>"
             "<li>Dica 2 — Espelhar épicos do TargetProcess como páginas wiki</li>"
             "<li>Dica 3 — Pasta <code>raw/</code> como zona de entrada de fontes</li>"
+            "</ul>"
+        ),
+    },
+    {
+        "nome": "Módulo 09 — Exercícios Práticos",
+        "url": f"{SITE_URL}/09-exercicios-praticos.html",
+        "descricao": (
+            "<p>Revisão final da trilha com 10 exercícios focados, na ordem natural do "
+            "fluxo de trabalho — do setup à documentação a partir do TargetProcess.</p>"
+            "<ul>"
+            "<li>Exercícios práticos com foco no uso do Claude Code</li>"
+            "<li>O ciclo Git completo: do commit à publicação</li>"
+            "<li>Cada exercício indica o módulo que reforça e o resultado esperado</li>"
             "</ul>"
         ),
     },
