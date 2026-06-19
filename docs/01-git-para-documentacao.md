@@ -23,7 +23,7 @@ Antes de entrar nos comandos, é importante entender quais ferramentas compõem 
 |---|---|---|
 | **Git** | Sistema de controle de versão | O "motor" por baixo de tudo: rastreia cada mudança feita nos arquivos |
 | **GitHub** | Plataforma na nuvem | Armazena o repositório remoto e viabiliza a colaboração entre pessoas da equipe |
-| **VS Code** | Editor de texto | É onde você escreve e edita os arquivos de documentação (`.md`) |
+| **VS Code** | Editor de texto | É onde você escreve e edita os arquivos de documentação (`.md`); também permite fazer pull e push diretamente pelo painel Source Control |
 | **GitHub Desktop** | Aplicativo visual para usar Git | É a forma principal apresentada neste módulo para clonar, sincronizar e enviar mudanças sem depender do terminal |
 
 ```mermaid
@@ -185,6 +185,14 @@ flowchart LR
 4. **git commit** — salva um snapshot das mudanças com uma mensagem descritiva
 5. **git push** — envia os commits locais para o repositório remoto (e aciona a publicação)
 
+!!! tip "Tudo isso pode ser feito direto no VS Code"
+    Na prática do dia a dia, você não precisa digitar esses comandos no terminal. O VS Code executa todas essas operações visualmente pelo painel **Source Control** (`Ctrl+Shift+G`):
+    
+    - **Pull** → clique em **...** → **Pull**, ou use o ícone ⇅ na barra de status
+    - **Stage (add)** → clique no **+** ao lado do arquivo em **Changes**
+    - **Commit** → escreva a mensagem no campo de texto e clique em **Commit** (✓)
+    - **Push / Sincronizar** → clique em **Sync Changes** (⇅) na barra de status — faz pull + push em sequência
+
 !!! warning "Atenção"
     No fluxo simplificado, o que você faz `push` vai direto para produção. Revise bem antes de commitar.
 
@@ -215,6 +223,17 @@ As etapas de editar, `git add`, `git commit` e `git push` são as mesmas do flux
 
 1. **checkout -b** — cria um branch isolado antes de começar a editar, para que as mudanças não afetem o `main` diretamente
 2. **Pull Request + Merge** — abre uma solicitação de revisão no GitHub; só após a aprovação o conteúdo é mesclado ao `main` e publicado
+
+!!! tip "Quase tudo pode ser feito direto no VS Code"
+    As operações de pull, stage, commit e push seguem o mesmo caminho do fluxo simplificado pelo painel **Source Control** (`Ctrl+Shift+G`). A criação do branch também pode ser feita no VS Code:
+
+    - **Criar branch** → clique no nome do branch atual na barra de status (canto inferior esquerdo) → **Create new branch…** → dê um nome e pressione Enter
+    - **Pull** → **...** → **Pull**, ou ícone ⇅ na barra de status
+    - **Stage (add)** → clique no **+** ao lado do arquivo em **Changes**
+    - **Commit** → escreva a mensagem e clique em **Commit** (✓)
+    - **Push do branch** → **Sync Changes** (⇅) — o VS Code detecta que o branch ainda não existe no remoto e pergunta se deseja publicá-lo
+
+    A única etapa que sai do VS Code é o **Pull Request**, que é criado diretamente no GitHub pelo navegador.
 
 ---
 

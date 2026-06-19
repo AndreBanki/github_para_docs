@@ -217,7 +217,7 @@ git checkout -b docs/nome-da-tarefa
 
 Cria um novo branch a partir do estado atual e já muda para ele. Usado no início do **fluxo completo** para isolar o trabalho do `main`. O nome deve descrever a tarefa (ex.: `docs/modulo-bid`, `fix/link-quebrado-collab`).
 
-**No VS Code:** clique em ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-branch.svg){: .vscode-icon} **nome do branch** na barra de status inferior (canto esquerdo) → selecione **Create new branch...** → digite o nome.
+**No VS Code:** clique em ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} **nome do branch** na barra de status inferior (canto esquerdo) → selecione **Create new branch...** → digite o nome.
 
 ---
 
@@ -282,7 +282,7 @@ Após resolver todos os conflitos, faça `git add` nos arquivos resolvidos e dep
 | `git add` | Prepara para commit | ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} ao lado do arquivo | — |
 | `git commit -m` | Salva o snapshot | ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg){: .vscode-icon} Commit | `Ctrl+Enter` |
 | `git push` | Envia ao remoto | ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg){: .vscode-icon} Sync Changes | ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg){: .vscode-icon} → Push |
-| `git checkout -b` | Cria branch | ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-branch.svg){: .vscode-icon} barra de status | — |
+| `git checkout -b` | Cria branch | ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} barra de status | — |
 | `git log` | Histórico de commits | ![Git Commit](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-commit.svg){: .vscode-icon} Git Graph | barra de status |
 | `git checkout -- arquivo` | Descarta mudanças | — | Discard Changes (botão direito) |
 | `git revert HEAD` | Desfaz último commit | — | Git Graph → Revert |
