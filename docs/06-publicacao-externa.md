@@ -1,4 +1,4 @@
-# Módulo 5 — Publicando para Acesso Externo
+# Módulo 6 — Publicando para Acesso Externo
 
 > **Para quem é este módulo:** quem precisa entender como a documentação sai do repositório e chega a um ambiente acessível para outras pessoas.
 >
@@ -146,5 +146,5 @@ Você nunca precisa publicar manualmente — basta que o conteúdo esteja no `ma
 
 ---
 
-> **Módulo anterior:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md)  
-> **Próximo módulo:** [06 — Personalizando o Claude Code](./06-claude-code-customizacao.md)
+> **Módulo anterior:** [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md)  
+> **Próximo módulo:** [07 — Personalizando o Claude Code](./07-claude-code-customizacao.md)

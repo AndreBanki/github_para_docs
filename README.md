@@ -26,21 +26,32 @@ curso_github/
 ├── README.md
 └── docs/
   ├── index.md
-  ├── 01-git-para-documentacao.md   ← fundamentos de Git aplicados a docs
-  ├── 02-vscode-e-claude-code.md     ← ambiente, extensões, Git visual e IA
-  ├── 03-markdown-e-mkdocs.md       ← escrita em Markdown e preview/build local
-  ├── 04-branches-e-pull-requests.md ← colaboração avançada com revisão
-  ├── 05-publicacao-externa.md      ← publicação e atualização do site
-  ├── 06-claude-code-customizacao.md ← CLAUDE.md, comandos, agente e skills
-  ├── 07-instrucoes-especificas.md  ← padrões específicos de repositórios reais
-  └── 08-exercicios-praticos.md     ← revisão prática ao final da trilha
+  ├── 01-setup-ambiente.md           ← ambiente, extensões, preview e Git visual
+  ├── 02-git-para-documentacao.md     ← fundamentos de Git aplicados a docs
+  ├── 03-markdown-e-mkdocs.md         ← escrita em Markdown e preview/build local
+  ├── 04-claude-code.md               ← modos de uso do Claude Code e boas práticas de IA
+  ├── 05-branches-e-pull-requests.md  ← colaboração avançada com revisão
+  ├── 06-publicacao-externa.md        ← publicação e atualização do site
+  ├── 07-claude-code-customizacao.md  ← CLAUDE.md, comandos, agente e skills
+  ├── 08-instrucoes-especificas.md    ← padrões específicos de repositórios reais
+  └── 09-exercicios-praticos.md       ← revisão prática ao final da trilha
 ```
 
 ---
 
 ## Módulos
 
-### [Módulo 1 — Git para Documentação](./docs/01-git-para-documentacao.md)
+### [Módulo 1 — VS Code e Configuração do Ambiente](./docs/01-setup-ambiente.md)
+
+O que você vai aprender:
+- Quais programas instalar primeiro (Git, Python, VS Code e extensões)
+- Por que usar o VS Code como editor de documentação
+- Como executar todas as operações de Git pela interface visual — sem terminal
+- Como usar o preview de Markdown e o terminal integrado
+
+---
+
+### [Módulo 2 — Git para Documentação](./docs/02-git-para-documentacao.md)
 
 O que você vai aprender:
 - O que é um repositório, commit, branch e Pull Request
@@ -48,16 +59,6 @@ O que você vai aprender:
 - Comandos essenciais do Git com exemplos práticos
 - Como resolver conflitos de merge
 - Convenções de nomenclatura de branches e mensagens de commit
-
----
-
-### [Módulo 2 — VS Code e Claude Code](./docs/02-vscode-e-claude-code.md)
-
-O que você vai aprender:
-- Como instalar e configurar o VS Code para trabalhar com documentação
-- Quais extensões a equipe deve instalar logo no início
-- Como usar o Git pelo painel visual do VS Code
-- Como usar o Claude Code no fluxo diário de escrita e revisão
 
 ---
 
@@ -73,7 +74,17 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 4 — Branches e Pull Requests](./docs/04-branches-e-pull-requests.md)
+### [Módulo 4 — Claude Code](./docs/04-claude-code.md)
+
+O que você vai aprender:
+- O que é o Claude Code e o que ele pode fazer
+- Os modos de uso: Chat, Edição pelo Chat, Modo Agente e CLI
+- Quando usar cada modo no fluxo diário de escrita e revisão
+- Boas práticas para IA generativa em documentação
+
+---
+
+### [Módulo 5 — Branches e Pull Requests](./docs/05-branches-e-pull-requests.md)
 
 O que você vai aprender:
 - Como isolar trabalho em branches antes de publicar
@@ -82,7 +93,7 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 5 — Publicando para Acesso Externo](./docs/05-publicacao-externa.md)
+### [Módulo 6 — Publicando para Acesso Externo](./docs/06-publicacao-externa.md)
 
 O que você vai aprender:
 - Como escolher a melhor opção de publicação para conteúdo público ou privado
@@ -91,7 +102,7 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 6 — Personalizando o Claude Code](./docs/06-claude-code-customizacao.md)
+### [Módulo 7 — Personalizando o Claude Code](./docs/07-claude-code-customizacao.md)
 
 O que você vai aprender:
 - O que é o `CLAUDE.md` e por que ele é o "manual do agente"
@@ -103,7 +114,7 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 7 — Instruções Específicas](./docs/07-instrucoes-especificas.md)
+### [Módulo 8 — Instruções Específicas](./docs/08-instrucoes-especificas.md)
 
 O que você vai aprender:
 - Padrões usados em repositórios reais além da trilha básica
@@ -112,7 +123,7 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 8 — Exercícios Práticos](./docs/08-exercicios-praticos.md)
+### [Módulo 9 — Exercícios Práticos](./docs/09-exercicios-praticos.md)
 
 O que você vai aprender:
 - Como revisar a trilha inteira com exercícios na mesma ordem do curso

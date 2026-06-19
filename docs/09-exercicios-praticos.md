@@ -1,4 +1,4 @@
-# Módulo 8 — Exercícios Práticos
+# Módulo 9 — Exercícios Práticos
 
 > Este módulo reúne todos os exercícios práticos do curso, organizados na mesma ordem da trilha principal. Use-o como revisão ao final do curso ou volte ao exercício correspondente após cada módulo.
 >
@@ -11,7 +11,7 @@
 
 ## Módulo 1 — Git para Documentação
 
-> [← Voltar ao módulo](./01-git-para-documentacao.md)
+> [← Voltar ao módulo](./02-git-para-documentacao.md)
 
 !!! note "Quando fazer estes exercícios"
      Embora estejam agrupados no Módulo 1 por assunto, estes exercícios dependem do ambiente configurado no Módulo 2. Se ainda não instalou Git, Python e VS Code, faça primeiro o exercício inicial do Módulo 2.
@@ -86,7 +86,7 @@
     3. Instale as extensões recomendadas listadas na seção 2.4 (use `Ctrl+Shift+X` para abrir o painel)
     4. Abra o repositório do curso no VS Code (`File → Open Folder`)
     5. Abra o terminal integrado (Ctrl+`) e execute `pip install -r requirements.txt`, se ainda não tiver feito isso
-    6. Abra o arquivo `docs/01-git-para-documentacao.md` e pressione `Ctrl+K V` para o preview ao lado
+    6. Abra o arquivo `docs/02-git-para-documentacao.md` e pressione `Ctrl+K V` para o preview ao lado
     7. Execute `mkdocs serve`
     8. Acesse `http://localhost:8000` e confirme que o site carrega
 
@@ -170,7 +170,7 @@
 
 ## Módulo 4 — Branches e Pull Requests
 
-> [← Voltar ao módulo](./04-branches-e-pull-requests.md)
+> [← Voltar ao módulo](./05-branches-e-pull-requests.md)
 
 ??? example "Exercício 1 — Criar um branch e trabalhar isolado"
     **Objetivo:** praticar o fluxo de branch sem afetar o main.
@@ -236,7 +236,7 @@
 
 ## Módulo 5 — Publicando para Acesso Externo
 
-> [← Voltar ao módulo](./05-publicacao-externa.md)
+> [← Voltar ao módulo](./06-publicacao-externa.md)
 
 ??? example "Exercício 1 — Publicar no GitHub Pages"
     **Objetivo:** ativar o GitHub Pages e verificar o deploy automático.
@@ -336,7 +336,7 @@
 
 ## Módulo 7 — Instruções Específicas
 
-> [← Voltar ao módulo](./07-instrucoes-especificas.md)
+> [← Voltar ao módulo](./08-instrucoes-especificas.md)
 
 ??? example "Exercício 1 — Simular a ingestão de uma feature do TargetProcess"
     **Objetivo:** praticar o fluxo da Dica 1 com um card fictício.
@@ -400,5 +400,5 @@
 
 ---
 
-> **Módulo anterior:** [07 — Instruções Específicas](./07-instrucoes-especificas.md)  
+> **Módulo anterior:** [08 — Instruções Específicas](./08-instrucoes-especificas.md)  
 > **Índice:** [Início](./index.md)

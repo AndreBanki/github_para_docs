@@ -349,7 +349,7 @@ tags: [collab, CDE, modelos-bim]
 Este bloco é invisível para o leitor final, mas é usado pelo MkDocs para gerar títulos, metadados de SEO e navegação.
 
 !!! tip "Não precisa decorar"
-    O comando `/nova-pagina` (ver [Módulo 6](./06-claude-code-customizacao.md)) preenche o frontmatter automaticamente. Basta saber que ele existe e para que serve.
+    O comando `/nova-pagina` (ver [Módulo 7](./07-claude-code-customizacao.md)) preenche o frontmatter automaticamente. Basta saber que ele existe e para que serve.
 
 ---
 
@@ -562,5 +562,5 @@ Ou use o script do projeto:
 
 ---
 
-> **Módulo anterior:** [02 — VS Code e Claude Code](./02-vscode-e-claude-code.md)  
-> **Próximo módulo:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md)
+> **Módulo anterior:** [02 — Git para Documentação](./02-git-para-documentacao.md)  
+> **Próximo módulo:** [04 — Claude Code](./04-claude-code.md)

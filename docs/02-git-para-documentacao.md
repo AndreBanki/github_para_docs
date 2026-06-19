@@ -1,8 +1,8 @@
-# Módulo 1 — Git para Documentação
+# Módulo 2 — Git para Documentação
 
 > **Para quem é este módulo:** equipes de Produto e Engenharia que mantêm documentação em repositórios Git — sem necessidade de saber programar.
 >
-> **Por que este módulo vem primeiro:** antes de instalar ferramentas e editar arquivos, a equipe precisa entender o fluxo mental do trabalho com documentação versionada. Este módulo apresenta o vocabulário e o raciocínio base que serão reutilizados em toda a trilha.
+> **Por que este módulo vem agora:** com o ambiente já instalado, o próximo passo é entender o fluxo mental do trabalho com documentação versionada. Este módulo apresenta o vocabulário e o raciocínio base (repositório, commit, push, pull) que serão reutilizados em toda a trilha.
 
 !!! abstract "🎯 Objetivos de aprendizagem"
     Neste módulo você vai aprender:
@@ -202,7 +202,7 @@ flowchart LR
 
 **Quando usar:** equipe maior, conteúdo que precisa de revisão antes de publicar, trabalhos longos em paralelo (ex.: um redator documenta o módulo Planning enquanto outro atualiza o Collab), ou quando erros no main causariam problemas visíveis para usuários do site.
 
-O fluxo completo adiciona duas etapas entre o commit e a publicação: um **branch isolado** e um **Pull Request** com revisão. Para entender em detalhe o que são e como funcionam, veja o documento complementar: [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md).
+O fluxo completo adiciona duas etapas entre o commit e a publicação: um **branch isolado** e um **Pull Request** com revisão. Para entender em detalhe o que são e como funcionam, veja o documento complementar: [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md).
 
 ```mermaid
 flowchart LR
@@ -239,7 +239,7 @@ As etapas de editar, `git add`, `git commit` e `git push` são as mesmas do flux
 
 ## 5. Comandos Essenciais
 
-> **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./02-vscode-e-claude-code.md#4-git-integrado-no-vs-code) do Módulo 2 para conhecer a interface visual.
+> **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./01-setup-ambiente.md#4-git-integrado-no-vs-code) do Módulo 1 para conhecer a interface visual.
 
 ---
 
@@ -306,7 +306,7 @@ No **fluxo simplificado** (direto no main):
 git push
 ```
 
-No **fluxo completo** (branch dedicado) — veja [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md):
+No **fluxo completo** (branch dedicado) — veja [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md):
 
 ```bash
 git push origin docs/guia-collab
@@ -466,7 +466,7 @@ git revert HEAD    # cria um novo commit que desfaz o último
     | **Push** | Enviar commits locais para o repositório remoto |
     | **Pull** | Baixar e integrar commits do repositório remoto |
     | **main** | Branch principal (produção) |
-    | **Branch / PR** | Conceitos do fluxo completo — ver [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md) |
+    | **Branch / PR** | Conceitos do fluxo completo — ver [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) |
 
 ---
 
@@ -475,5 +475,6 @@ git revert HEAD    # cria um novo commit que desfaz o último
 
 ---
 
-> **Leitura complementar:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md) — aprofundamento do fluxo completo  
-> **Próximo módulo:** [02 — VS Code e Claude Code](./02-vscode-e-claude-code.md)
+> **Leitura complementar:** [05 — Branches e Pull Requests](./05-branches-e-pull-requests.md) — aprofundamento do fluxo completo  
+> **Módulo anterior:** [01 — VS Code e Configuração do Ambiente](./01-setup-ambiente.md)  
+> **Próximo módulo:** [03 — Markdown e MkDocs](./03-markdown-e-mkdocs.md)

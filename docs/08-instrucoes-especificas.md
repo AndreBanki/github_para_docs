@@ -1,4 +1,4 @@
-# Módulo 7 — Instruções Específicas
+# Módulo 8 — Instruções Específicas
 
 > Este módulo reúne dicas práticas encontradas em repositórios reais da AltoQi. Cada dica descreve um padrão de instrução e como ele é usado no dia a dia.
 >
@@ -129,5 +129,5 @@ Em `produto_docs`, o `raw/` está organizado por produto (`produto_eberick/`, `p
 ---
 ---
 
-> **Módulo anterior:** [06 — Personalizando o Claude Code](./06-claude-code-customizacao.md)  
-> **Próximo módulo:** [08 — Exercícios Práticos](./08-exercicios-praticos.md)
+> **Módulo anterior:** [07 — Personalizando o Claude Code](./07-claude-code-customizacao.md)  
+> **Próximo módulo:** [09 — Exercícios Práticos](./09-exercicios-praticos.md)

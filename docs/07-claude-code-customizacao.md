@@ -1,4 +1,4 @@
-# Módulo 6 — Personalizando o Claude Code
+# Módulo 7 — Personalizando o Claude Code
 
 > **Para quem é este módulo:** quem configura e mantém o ambiente de documentação — líderes de Produto, Engenharia e responsáveis pelo repositório.
 >
@@ -415,5 +415,5 @@ flowchart TD
 
 ---
 
-> **Módulo anterior:** [05 — Publicando para Acesso Externo](./05-publicacao-externa.md)  
-> **Próximo módulo:** [07 — Instruções Específicas](./07-instrucoes-especificas.md)
+> **Módulo anterior:** [06 — Publicando para Acesso Externo](./06-publicacao-externa.md)  
+> **Próximo módulo:** [08 — Instruções Específicas](./08-instrucoes-especificas.md)
