@@ -1,10 +1,10 @@
 nav:
   - index.md
   - 01-git-para-documentacao.md
-  - 02-vscode-e-copilot.md
+  - 02-vscode-e-claude-code.md
   - 03-markdown-e-mkdocs.md
   - 04-branches-e-pull-requests.md
   - 05-publicacao-externa.md
-  - 06-copilot-customizacao.md
+  - 06-claude-code-customizacao.md
   - 07-instrucoes-especificas.md
   - 08-exercicios-praticos.md

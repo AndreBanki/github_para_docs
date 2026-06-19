@@ -56,7 +56,7 @@ O agente lê o `instructions.md` antes de decidir o destino do conteúdo — sem
 
 ### Onde as instruções vivem
 
-O comportamento do agente é definido em `.github/ingest-targetprocess.md`, referenciado pelo `copilot-instructions.md` do repositório.
+O comportamento do agente é definido em `.github/ingest-targetprocess.md`, referenciado pelo `CLAUDE.md` do repositório.
 
 ---
 
@@ -87,7 +87,7 @@ O agente lista os épicos do produto no Targetprocess, identifica quais ainda n�
 
 ### Onde a instrução vive
 
-O comportamento do agente é definido em `.github/prompts/atualizar-epicos.prompt.md`. A regra de nunca reescrever ou resumir o conteúdo — e de sempre baixar as imagens junto — está no `copilot-instructions.md` do repositório.
+O comportamento do agente é definido em `.claude/commands/atualizar-epicos.md`. A regra de nunca reescrever ou resumir o conteúdo — e de sempre baixar as imagens junto — está no `CLAUDE.md` do repositório.
 
 ---
 
@@ -129,5 +129,5 @@ Em `produto_docs`, o `raw/` está organizado por produto (`produto_eberick/`, `p
 ---
 ---
 
-> **Módulo anterior:** [06 — Personalizando o GitHub Copilot](./06-copilot-customizacao.md)  
+> **Módulo anterior:** [06 — Personalizando o Claude Code](./06-claude-code-customizacao.md)  
 > **Próximo módulo:** [08 — Exercícios Práticos](./08-exercicios-praticos.md)

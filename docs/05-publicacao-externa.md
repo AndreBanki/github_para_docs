@@ -147,4 +147,4 @@ Você nunca precisa publicar manualmente — basta que o conteúdo esteja no `ma
 ---
 
 > **Módulo anterior:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md)  
-> **Próximo módulo:** [06 — Personalizando o GitHub Copilot](./06-copilot-customizacao.md)
+> **Próximo módulo:** [06 — Personalizando o Claude Code](./06-claude-code-customizacao.md)

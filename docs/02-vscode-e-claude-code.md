@@ -1,4 +1,4 @@
-# Módulo 2 — VS Code e GitHub Copilot para Documentação
+# Módulo 2 — VS Code e Claude Code para Documentação
 
 > **Para quem é este módulo:** toda a equipe que vai escrever documentação no VS Code com apoio de IA.
 >
@@ -11,7 +11,7 @@
     - Por que usar o VS Code como editor de documentação
     - Como configurar o ambiente (Git, Python, VS Code, extensões, preview e terminal)
     - Todos os comandos Git pelo VS Code (sem terminal)
-    - Os 4 modos do GitHub Copilot e quando usar cada um
+    - Os modos de uso do Claude Code e quando usar cada um
     - Boas práticas para IA generativa em documentação
 
 ---
@@ -22,7 +22,7 @@ O VS Code (Visual Studio Code) é um editor de código gratuito da Microsoft, ma
 
 - **Preview de Markdown em tempo real** — você vê o resultado enquanto escreve
 - **Integração nativa com Git** — commit, push, pull, resolução de conflitos sem usar terminal
-- **GitHub Copilot integrado** — IA que sugere, revisa e gera conteúdo
+- **Claude Code integrado** — IA que sugere, revisa e gera conteúdo
 - **Extensões úteis** — spell check, formatação automática, preview do MkDocs
 - **Terminal embutido** — para rodar `mkdocs serve` sem sair do editor
 
@@ -70,8 +70,7 @@ Instale pelo painel de extensões (clique em ![Extensions](https://cdn.jsdelivr.
 
 | Extensão | ID | Para que serve |
 |---|---|---|
-| **GitHub Copilot** | `GitHub.copilot` | Sugestões inline de IA |
-| **GitHub Copilot Chat** | `GitHub.copilot-chat` | Chat de IA (painel lateral e agente) |
+| **Claude Code** | `Anthropic.claude-code` | Chat de IA, edição guiada e modo agente |
 | **Markdown All in One** | `yzhang.markdown-all-in-one` | Atalhos, preview, sumário automático |
 | **markdownlint** | `DavidAnson.vscode-markdownlint` | Valida a formatação do Markdown |
 | **Code Spell Checker** | `streetsidesoftware.code-spell-checker` | Verificação ortográfica |
@@ -289,69 +288,50 @@ Após resolver todos os conflitos, faça `git add` nos arquivos resolvidos e dep
 
 ---
 
-## 5. O que é o GitHub Copilot?
+## 5. O que é o Claude Code?
 
-!!! warning "Licença necessária"
-    O GitHub Copilot requer licença paga (individual ou via organização). Consulte seu gestor para verificar se sua conta já tem acesso.
+!!! warning "Acesso necessário"
+    O Claude Code requer acesso ao serviço Anthropic (via API key individual ou configurada pela organização). Consulte seu gestor para verificar se sua conta já tem acesso configurado.
 
-O GitHub Copilot é um **assistente de IA integrado ao editor**. Ele foi treinado em bilhões de linhas de código e documentação e pode:
+O Claude Code é um **assistente de IA desenvolvido pela Anthropic**, disponível como extensão do VS Code e como ferramenta de linha de comando (CLI). Diferente de IAs de sugestão inline, o Claude Code opera como um **agente**: ele lê o contexto completo do repositório, edita arquivos diretamente e executa tarefas de múltiplos passos de forma autônoma.
 
-- **Completar frases e parágrafos** enquanto você digita (sugestões inline)
-- **Responder perguntas** sobre o conteúdo do repositório
+O Claude Code pode:
+
+- **Entender o repositório inteiro** antes de responder — lê estrutura, histórico e conteúdo
 - **Gerar rascunhos** de páginas de documentação a partir de uma instrução
-- **Revisar e melhorar** textos existentes
-- **Responder dúvidas** sobre Git, MkDocs, Markdown
+- **Editar arquivos diretamente**, com confirmação explícita do usuário antes de cada alteração
+- **Revisar e melhorar** textos existentes para clareza, consistência e tom
+- **Responder dúvidas** sobre Git, MkDocs, Markdown e o conteúdo do repositório
+- **Executar tarefas autônomas de múltiplos passos** no modo agente
 
-O Copilot lê o contexto dos arquivos abertos e do repositório inteiro para gerar respostas relevantes ao seu projeto específico.
+O Claude Code usa o contexto dos arquivos abertos e do repositório inteiro para gerar respostas relevantes ao seu projeto específico.
 
 ---
 
-## 6. Modos de uso do Copilot
+## 6. Modos de uso do Claude Code
 
 Use o diagrama abaixo para decidir qual modo usar:
 
 ```mermaid
 flowchart TD
-    A{"O que você quer fazer?"} -->|Completar uma frase\nenquanto digita| B["Sugestões Inline\nTab para aceitar"]
-    A -->|Inserir ou editar\num trecho específico| C["Chat Inline\nCtrl+I"]
-    A -->|Fazer uma pergunta\nou pedir análise| D["Painel de Chat\nCtrl+Alt+I"]
-    A -->|Tarefa de múltiplos passos\ncom leitura/escrita de arquivos| E["Modo Agente\nChat → Agent"]
+    A{"O que você quer fazer?"} -->|Conversar, perguntar\nou pedir análise| B["Chat no VS Code\nÍcone Claude na Barra de Atividades"]
+    A -->|Editar um trecho\nou arquivo específico| C["Edição pelo Chat\nReferencie o arquivo no chat"]
+    A -->|Tarefa autônoma com\nleitura e escrita de arquivos| D["Modo Agente\nChat → modo Agent"]
+    A -->|Usar pelo terminal\ncom controle total| E["CLI\n`claude` no terminal"]
     style B fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
     style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
     style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
     style E fill:#0e3a30,stroke:#34d399,color:#dafff2
 ```
 
-### 6.1 Sugestões inline (Completions)
+### 6.1 Chat no VS Code
 
-Enquanto você digita, o Copilot sugere o texto seguinte em cinza. Pressione `Tab` para aceitar ou `Esc` para ignorar.
+Clique no ícone **Claude** na Barra de Atividades para abrir o painel de chat ao lado do editor. Ideal para:
 
-**Exemplo:** você digita:
-```
-## Acessando o módulo Collab pela primeira vez
-```
-O Copilot pode sugerir automaticamente o próximo parágrafo com base no contexto do arquivo.
-
----
-
-### 6.2 Chat Inline (`Ctrl+I`)
-
-Posicione o cursor onde quer inserir conteúdo e pressione `Ctrl+I` — ou clique com o botão direito → **Copilot → Start Inline Chat**. Um campo de input aparece diretamente no editor:
-
-```
-/doc Escreva uma introdução para esta seção sobre o módulo de Cotações
-```
-
-O Copilot gera o conteúdo e insere diretamente no arquivo. Você aceita ou rejeita.
-
----
-
-### 6.3 Painel de Chat (`Ctrl+Alt+I`)
-
-Clique em ![Copilot Chat](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/comment-discussion.svg){: .vscode-icon} na Barra de Atividades (ou pressione `Ctrl+Alt+I`) para abrir o painel de conversação ao lado do editor. Ideal para:
 - Fazer perguntas sobre o conteúdo do repositório
 - Pedir análises de estrutura
-- Trabalhar em tarefas mais longas com múltiplos arquivos
+- Solicitar rascunhos de conteúdo sem editar arquivos imediatamente
+- Tirar dúvidas sobre Markdown, MkDocs ou Git
 
 **Exemplos de uso:**
 
@@ -371,25 +351,37 @@ frontmatter YAML seguindo o padrão do projeto.
 
 ---
 
-### 6.4 Modo Agente
+### 6.2 Edição pelo Chat
 
-O **Modo Agente** (Agent Mode) é a forma mais poderosa do Copilot: ele executa tarefas de múltiplos passos de forma autônoma, lendo e escrevendo arquivos, rodando comandos no terminal e tomando decisões.
+No painel de chat, referencie um arquivo específico digitando `#` seguido do nome do arquivo e peça ao Claude Code para fazer alterações. O Claude Code vai propor as edições — você revisa o diff e aceita ou rejeita cada mudança antes que ela seja aplicada.
 
-Para ativar: no painel de Chat, troque o modo de `Ask` para `Agent` no seletor.
+**Exemplo:**
+
+```
+#introducao.md Reescreva o primeiro parágrafo para um tom mais direto e técnico.
+```
+
+O Claude Code gera a edição, apresenta o diff para aprovação e só aplica após sua confirmação. Nada é alterado sem que você confirme.
+
+---
+
+### 6.3 Modo Agente
+
+O **Modo Agente** é a forma mais poderosa do Claude Code: ele executa tarefas de múltiplos passos de forma autônoma, lendo e escrevendo arquivos, rodando comandos no terminal e tomando decisões com base no contexto do repositório.
+
+Para ativar: no painel de Chat, troque o modo para **Agent** no seletor.
 
 #### Controles principais do painel do agente
 
 Na interface do chat, alguns controles aparecem com frequência:
 
-- **`+`**: adiciona contexto extra à conversa, como arquivos, imagens, seleção atual do editor ou outros anexos úteis.
+- **`+`**: adiciona contexto extra à conversa — arquivos, seleção atual do editor, imagens ou outros anexos úteis.
 - **`Agent`**: indica que o chat está no modo agente, com permissão para planejar e executar tarefas de múltiplos passos.
-- **Modelo (`GPT-5.4`, por exemplo)**: define qual modelo será usado na resposta.
-- **Nível como `High`**: indica um modo de raciocínio mais intenso, normalmente melhor para tarefas complexas, mas potencialmente mais lento e mais caro.
-- **Janela como `72K`**: indica a faixa de contexto disponível para o chat, ou seja, quanto conteúdo o modelo consegue considerar na conversa.
+- **Modelo** (`claude-sonnet-4-6`, por exemplo): define qual modelo Claude será usado na resposta.
 - **`Default Approvals`**: controla como o agente pede confirmação antes de editar arquivos, rodar comandos ou executar ações potencialmente sensíveis.
 
 !!! warning "Custo e desempenho dos modelos"
-    Modelos mais fortes, modos como **High** e contextos maiores tendem a consumir mais créditos e podem responder mais lentamente. Use essas opções quando a tarefa realmente exigir análise mais profunda.
+    Modelos mais fortes (como Opus) e contextos maiores tendem a consumir mais créditos e podem responder mais lentamente. Use essas opções quando a tarefa realmente exigir análise mais profunda; para tarefas rotineiras, Sonnet é suficiente.
 
 !!! warning "Cuidado ao relaxar aprovações"
     Se você reduzir ou desabilitar aprovações, o agente pode executar edições e comandos com menos confirmações intermediárias. Isso acelera o fluxo, mas aumenta o risco de mudanças indesejadas. Para a maior parte do trabalho em documentação, mantenha o modo padrão de aprovações.
@@ -406,11 +398,27 @@ O agente vai ler cada arquivo, extrair o título e resumo, e criar o `index.md` 
 
 ---
 
-## 7. Boas práticas ao usar Copilot para documentação
+### 6.4 CLI (`claude` no terminal)
+
+Abra o terminal integrado do VS Code e execute `claude` para iniciar uma sessão completa pela linha de comando. Ideal para:
+
+- Operações complexas com controle passo a passo
+- Uso com flags específicas (`--model`, `--allowedTools`, etc.)
+- Integração com scripts de automação
+
+```bash
+claude
+```
+
+Na CLI, o Claude Code opera em modo agente por padrão, com acesso completo ao repositório e confirmação explícita antes de cada alteração.
+
+---
+
+## 7. Boas práticas ao usar Claude Code para documentação
 
 ### Dê contexto suficiente
 
-O Copilot responde muito melhor quando você fornece contexto claro:
+O Claude Code responde muito melhor quando você fornece contexto claro:
 
 ❌ Ruim:
 ```
@@ -428,16 +436,16 @@ frontmatter YAML do projeto (title, type, created, updated, sources, tags).
 
 ### Não publique sem revisar
 
-O Copilot pode gerar informações incorretas (chamado de "alucinação"). **Toda saída gerada por IA deve ser revisada** antes de entrar em um commit.
+O Claude Code pode gerar informações incorretas (chamado de "alucinação"). **Toda saída gerada por IA deve ser revisada** antes de entrar em um commit.
 
 Regra de ouro do projeto Visus:
 > **Nunca invente conteúdo — toda informação deve ter origem em uma fonte fornecida pelo usuário.**
 
 ---
 
-### Use o Copilot para consistência
+### Use o Claude Code para consistência
 
-Peça ao Copilot para:
+Peça ao Claude Code para:
 - Verificar se a terminologia está consistente com outras páginas do repositório
 - Garantir que o tom e estilo seguem o padrão estabelecido
 - Identificar links internos quebrados ou páginas referenciadas que não existem
@@ -448,22 +456,19 @@ Peça ao Copilot para:
 
 | Ação | Ícone / Onde Clicar | Atalho |
 |---|---|---|
-| Abrir painel de Chat do Copilot | ![Copilot Chat](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/comment-discussion.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Alt+I` |
-| Inline Chat | Botão direito → Copilot → Start Inline Chat | `Ctrl+I` |
-| Aceitar sugestão inline | Sugestão em cinza → aceitar | `Tab` |
-| Rejeitar sugestão inline | Sugestão em cinza → ignorar | `Esc` |
+| Abrir Claude Code (chat) | Ícone Claude na Barra de Atividades | — |
+| Terminal integrado (para `claude` CLI) | ![Terminal](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/terminal.svg){: .vscode-icon} menu View → Terminal | Ctrl+` |
 | Preview de Markdown | ![Open Preview](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg){: .vscode-icon} canto superior direito do editor | `Ctrl+Shift+V` |
 | Preview ao lado | ![Open Preview](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg){: .vscode-icon} (abre em coluna separada) | `Ctrl+K V` |
 | Source Control (Git) | ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+G` |
 | Extensões | ![Extensions](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/extensions.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+X` |
-| Terminal integrado | ![Terminal](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/terminal.svg){: .vscode-icon} menu View → Terminal | Ctrl+` |
 | Paleta de comandos | — | `Ctrl+Shift+P` |
 | Buscar em todos os arquivos | ![Search](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/search.svg){: .vscode-icon} Barra de Atividades | `Ctrl+Shift+F` |
 
 ---
 
 !!! success "✅ Resumo do módulo"
-    O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente completo (**Git, Python, VS Code, extensões e dependências do projeto**), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **4 modos do GitHub Copilot** e quando usar cada um na documentação.
+    O **VS Code** concentra edição, preview e Git em um só lugar. Você configurou o ambiente completo (**Git, Python, VS Code, extensões e dependências do projeto**), aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos — e conheceu os **modos de uso do Claude Code** — Chat, Edição pelo Chat, Modo Agente e CLI — e quando usar cada um na documentação.
 
 ---
 

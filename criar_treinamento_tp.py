@@ -61,28 +61,28 @@ MODULOS = [
         ),
     },
     {
-        "nome": "Módulo 03 — VS Code e GitHub Copilot",
-        "url": f"{SITE_URL}/03-vscode-e-copilot.html",
+        "nome": "Módulo 03 — VS Code e Claude Code",
+        "url": f"{SITE_URL}/02-vscode-e-claude-code.html",
         "descricao": (
-            "<p>Configure o VS Code como ambiente de documentação e use o GitHub Copilot "
+            "<p>Configure o VS Code como ambiente de documentação e use o Claude Code "
             "para acelerar a escrita com IA.</p>"
             "<ul>"
             "<li>Por que usar o VS Code para documentação</li>"
             "<li>Extensões, preview de Markdown e terminal integrado</li>"
             "<li>Todos os comandos Git pelo VS Code (sem terminal)</li>"
-            "<li>Os 4 modos do GitHub Copilot e quando usar cada um</li>"
+            "<li>Os modos do Claude Code: Chat, Edição, Agente e CLI</li>"
             "<li>Boas práticas para IA generativa em documentação</li>"
             "</ul>"
         ),
     },
     {
-        "nome": "Módulo 04 — Personalizando o GitHub Copilot",
-        "url": f"{SITE_URL}/04-copilot-customizacao.html",
+        "nome": "Módulo 04 — Personalizando o Claude Code",
+        "url": f"{SITE_URL}/06-claude-code-customizacao.html",
         "descricao": (
-            "<p>Configure o Copilot para trabalhar com as convenções e padrões do seu "
+            "<p>Configure o Claude Code para trabalhar com as convenções e padrões do seu "
             "repositório de documentação.</p>"
             "<ul>"
-            "<li>Os 4 mecanismos: Instructions, Prompts, Agentes e Skills</li>"
+            "<li>Os 4 mecanismos: CLAUDE.md, Comandos Personalizados, Agente e Skills</li>"
             "<li>Onde colocar cada arquivo e como configurá-lo</li>"
             "<li>Tabela de decisão: quando usar cada mecanismo</li>"
             "<li>Exemplo prático de sessão de trabalho com agente</li>"
@@ -151,7 +151,7 @@ TEMPLATE_DESC = f"""
 <h3>1. Objetivo</h3>
 <p>
 Capacitar equipes de Produto e Engenharia a colaborar em documentação técnica
-usando Git, Markdown, MkDocs e GitHub Copilot — mesmo sem experiência prévia com
+usando Git, Markdown, MkDocs e Claude Code — mesmo sem experiência prévia com
 ferramentas de desenvolvimento. Ao final da trilha, o participante consegue criar,
 revisar e publicar documentação como um profissional.
 </p>
@@ -185,7 +185,7 @@ Ao final da trilha, os participantes serão capazes de:
 <li>Usar Git no dia a dia para documentação (commit, push, pull, branch, PR)</li>
 <li>Escrever e formatar documentação em Markdown</li>
 <li>Publicar e manter um site de documentação com MkDocs</li>
-<li>Usar o GitHub Copilot para acelerar e padronizar a escrita</li>
+<li>Usar o Claude Code para acelerar e padronizar a escrita</li>
 <li>Configurar agentes e prompts personalizados para o contexto da equipe</li>
 <li>Aplicar padrões dos repositórios reais da AltoQi (TP, épicos, raw/)</li>
 </ul>

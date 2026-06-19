@@ -61,7 +61,7 @@ git checkout -b docs/nome-da-tarefa
 
 Esse comando cria o branch a partir do estado atual do `main` e já muda para ele.
 
-**No VS Code:** clique em ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-branch.svg){: .vscode-icon} **nome do branch** na barra de status inferior → **Create new branch...** → digite o nome.
+**No VS Code:** clique em ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/git-branch.svg){: .vscode-icon} **nome do branch** na barra de status inferior → **Create new branch...** → digite o nome.
 
 **Convenção de nomes:**
 
@@ -80,7 +80,7 @@ git checkout main              # voltar para o main
 git checkout docs/guia-collab  # ir para um branch existente
 ```
 
-**No VS Code:** clique em ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-branch.svg){: .vscode-icon} **nome do branch** na barra de status inferior → selecione o branch desejado na lista.
+**No VS Code:** clique em ![Git Branch](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/git-branch.svg){: .vscode-icon} **nome do branch** na barra de status inferior → selecione o branch desejado na lista.
 
 ---
 
@@ -102,7 +102,7 @@ git commit -m "docs: adiciona introdução ao módulo Collab"
 git push origin docs/guia-collab
 ```
 
-**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control → clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} para fazer stage → escreva a mensagem → ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg){: .vscode-icon} **Commit** → ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg){: .vscode-icon} **Sync Changes** (ou ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg){: .vscode-icon} → **Push**).
+**No VS Code:** Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/source-control.svg){: .vscode-icon} Source Control → clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/add.svg){: .vscode-icon} para fazer stage → escreva a mensagem → ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/check.svg){: .vscode-icon} **Commit** → ![Sync](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/sync.svg){: .vscode-icon} **Sync Changes** (ou ![Ellipsis](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/ellipsis.svg){: .vscode-icon} → **Push**).
 
 Você pode fazer quantos commits quiser no branch. Enquanto não abrir o PR e ele não for mesclado, o `main` não é afetado.
 
@@ -155,14 +155,14 @@ Texto que está no main
 
 ### Resolver no VS Code
 
-O VS Code detecta o conflito e exibe botões acima do trecho no Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg){: .vscode-icon} Source Control:
+O VS Code detecta o conflito e exibe botões acima do trecho no Painel ![Source Control](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/source-control.svg){: .vscode-icon} Source Control:
 
 - **Accept Current Change** — mantém o que está no seu branch
 - **Accept Incoming Change** — mantém o que veio do main
 - **Accept Both Changes** — mantém os dois trechos
 - **Compare Changes** — mostra o diff lado a lado
 
-Após resolver, salve o arquivo, clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg){: .vscode-icon} para fazer stage e depois em ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg){: .vscode-icon} **Commit**.
+Após resolver, salve o arquivo, clique em ![Add](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/add.svg){: .vscode-icon} para fazer stage e depois em ![Check](https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/check.svg){: .vscode-icon} **Commit**.
 
 ---
 

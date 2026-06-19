@@ -5,7 +5,7 @@ title: Início
 <div class="course-hero" markdown="0">
   <span class="eyebrow">Curso AltoQi · Produto &amp; Engenharia</span>
   <h1>Documentação como <span class="hl">Código</span></h1>
-  <p class="lead">Aprenda a colaborar em documentação de produto usando Git, Markdown, MkDocs e GitHub Copilot — mesmo que você nunca tenha usado Git na vida.</p>
+  <p class="lead">Aprenda a colaborar em documentação de produto usando Git, Markdown, MkDocs e Claude Code — mesmo que você nunca tenha usado Git na vida.</p>
   <div class="course-meta">
     <span>📚 <b>8</b> módulos</span>
     <span>🎯 Nível <b>iniciante</b></span>
@@ -31,11 +31,11 @@ title: Início
     <span class="mod-desc">Repositório, commit, push/pull e o fluxo de trabalho diário — simplificado e completo.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card" href="02-vscode-e-copilot.html">
+  <a class="module-card" href="02-vscode-e-claude-code.html">
     <span class="mod-icon">🧩</span>
     <span class="mod-num">Módulo 02</span>
-    <span class="mod-title">VS Code e GitHub Copilot</span>
-    <span class="mod-desc">Instalação do ambiente, extensões, Git visual e os modos de uso do Copilot no dia a dia.</span>
+    <span class="mod-title">VS Code e Claude Code</span>
+    <span class="mod-desc">Instalação do ambiente, extensões, Git visual e os modos de uso do Claude Code no dia a dia.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
   <a class="module-card" href="03-markdown-e-mkdocs.html">
@@ -59,11 +59,11 @@ title: Início
     <span class="mod-desc">GitHub Pages, Render.com, Keycloak e CloudOps — como escolher e como atualizar o site.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
-  <a class="module-card" href="06-copilot-customizacao.html">
+  <a class="module-card" href="06-claude-code-customizacao.html">
     <span class="mod-icon">⚙️</span>
     <span class="mod-num">Módulo 06</span>
-    <span class="mod-title">Personalizando o Copilot</span>
-    <span class="mod-desc">Instructions, prompts reutilizáveis, agentes e skills para documentação.</span>
+    <span class="mod-title">Personalizando o Claude Code</span>
+    <span class="mod-desc">CLAUDE.md, comandos personalizados, agente e skills para documentação.</span>
     <span class="mod-go">Iniciar →</span>
   </a>
   <a class="module-card extra" href="07-instrucoes-especificas.html">
@@ -110,6 +110,6 @@ flowchart LR
   </div>
   <div class="prereq-item">
     <span class="pi-icon">🤖</span>
-    <div><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">GitHub Copilot</a><small>extensão do VS Code</small></div>
+    <div><a href="https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code">Claude Code</a><small>extensão do VS Code</small></div>
   </div>
 </div>

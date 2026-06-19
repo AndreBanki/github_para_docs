@@ -1,6 +1,6 @@
 # Documentação como Código — Guia para Equipes de Produto e Engenharia
 
-> Material de estudo para trabalhar com documentação de produto usando Git, Markdown, MkDocs e GitHub Copilot — da forma que a equipe técnica já trabalha com código.
+> Material de estudo para trabalhar com documentação de produto usando Git, Markdown, MkDocs e Claude Code — da forma que a equipe técnica já trabalha com código.
 
 ---
 
@@ -13,7 +13,7 @@ A documentação de produto do AltoQi Visus segue o mesmo modelo — chamado de 
 - A documentação vive em um repositório Git, versionada como qualquer software
 - Você escreve em **Markdown** (texto simples), não em Word ou Notion
 - O site de documentação é **gerado automaticamente** a partir dos arquivos `.md` usando MkDocs
-- O **GitHub Copilot** atua como redator técnico assistente dentro do VS Code
+- O **Claude Code** atua como redator técnico assistente dentro do VS Code
 
 Este guia prepara você para trabalhar com este fluxo, mesmo sem experiência prévia com desenvolvimento de software.
 
@@ -27,11 +27,11 @@ curso_github/
 └── docs/
   ├── index.md
   ├── 01-git-para-documentacao.md   ← fundamentos de Git aplicados a docs
-  ├── 02-vscode-e-copilot.md        ← ambiente, extensões, Git visual e IA
+  ├── 02-vscode-e-claude-code.md     ← ambiente, extensões, Git visual e IA
   ├── 03-markdown-e-mkdocs.md       ← escrita em Markdown e preview/build local
   ├── 04-branches-e-pull-requests.md ← colaboração avançada com revisão
   ├── 05-publicacao-externa.md      ← publicação e atualização do site
-  ├── 06-copilot-customizacao.md    ← instructions, prompts, agentes e skills
+  ├── 06-claude-code-customizacao.md ← CLAUDE.md, comandos, agente e skills
   ├── 07-instrucoes-especificas.md  ← padrões específicos de repositórios reais
   └── 08-exercicios-praticos.md     ← revisão prática ao final da trilha
 ```
@@ -51,13 +51,13 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 2 — VS Code e GitHub Copilot](./docs/02-vscode-e-copilot.md)
+### [Módulo 2 — VS Code e Claude Code](./docs/02-vscode-e-claude-code.md)
 
 O que você vai aprender:
 - Como instalar e configurar o VS Code para trabalhar com documentação
 - Quais extensões a equipe deve instalar logo no início
 - Como usar o Git pelo painel visual do VS Code
-- Como usar o GitHub Copilot no fluxo diário de escrita e revisão
+- Como usar o Claude Code no fluxo diário de escrita e revisão
 
 ---
 
@@ -91,13 +91,13 @@ O que você vai aprender:
 
 ---
 
-### [Módulo 6 — Personalizando o GitHub Copilot](./docs/06-copilot-customizacao.md)
+### [Módulo 6 — Personalizando o Claude Code](./docs/06-claude-code-customizacao.md)
 
 O que você vai aprender:
-- O que é o `copilot-instructions.md` e por que ele é o "manual do agente"
-- Como criar instruções contextuais por seção com `.instructions.md`
-- Como salvar prompts reutilizáveis em arquivos `.prompt.md`
-- Como definir agentes especializados com `.agent.md`
+- O que é o `CLAUDE.md` e por que ele é o "manual do agente"
+- Como criar instruções contextuais por seção com `CLAUDE.md` em subpastas
+- Como salvar comandos reutilizáveis em `.claude/commands/`
+- Como usar o modo agente com perfis especializados
 - O que são Skills e quando usá-las
 - Como todos esses mecanismos se encaixam num fluxo de trabalho real
 
@@ -136,7 +136,7 @@ INÍCIO DE CADA SESSÃO
   git checkout -b docs/nome-tarefa   ← criar branch isolado
 
 ESCREVER/EDITAR
-  VS Code + GitHub Copilot           ← escrever em Markdown
+  VS Code + Claude Code              ← escrever em Markdown
   mkdocs serve                       ← visualizar em http://localhost:8000
 
 SALVAR PROGRESSO
@@ -162,8 +162,7 @@ PUBLICAR
 | Git | 2.x | https://git-scm.com |
 | Python | 3.10 | https://www.python.org |
 | VS Code | mais recente | https://code.visualstudio.com |
-| Extensão GitHub Copilot | — | Marketplace VS Code |
-| Extensão GitHub Copilot Chat | — | Marketplace VS Code |
+| Extensão Claude Code | — | Marketplace VS Code |
 
 ---
 
@@ -174,7 +173,7 @@ O repositório `visus_docs` é o exemplo real que este curso usa como referênci
 ```
 visus_docs/
 ├── .github/
-│   └── copilot-instructions.md   ← manual do agente de IA
+├── CLAUDE.md                     ← manual do agente de IA
 ├── .vscode/
 │   └── settings.json             ← configurações do workspace
 ├── docs/                         ← todo o conteúdo em Markdown

@@ -239,7 +239,7 @@ As etapas de editar, `git add`, `git commit` e `git push` são as mesmas do flux
 
 ## 5. Comandos Essenciais
 
-> **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./02-vscode-e-copilot.md#4-git-integrado-no-vs-code) do Módulo 2 para conhecer a interface visual.
+> **Não é preciso decorar os comandos.** O que importa é entender o *conceito* de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção [4. Git integrado no VS Code](./02-vscode-e-claude-code.md#4-git-integrado-no-vs-code) do Módulo 2 para conhecer a interface visual.
 
 ---
 
@@ -476,4 +476,4 @@ git revert HEAD    # cria um novo commit que desfaz o último
 ---
 
 > **Leitura complementar:** [04 — Branches e Pull Requests](./04-branches-e-pull-requests.md) — aprofundamento do fluxo completo  
-> **Próximo módulo:** [02 — VS Code e GitHub Copilot](./02-vscode-e-copilot.md)
+> **Próximo módulo:** [02 — VS Code e Claude Code](./02-vscode-e-claude-code.md)
