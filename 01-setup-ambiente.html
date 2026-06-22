@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/01-setup-ambiente.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 1 — VS Code e Configuração do Ambiente - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 1 \u2014 VS Code e Configura\u00e7\u00e3o do Ambiente";
+        var mkdocs_page_input_path = "01-setup-ambiente.md";
+        var mkdocs_page_url = "/github_para_docs/01-setup-ambiente.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 1 — VS Code e Configuração do Ambiente</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-por-que-vs-code-para-documentacao">1. Por que VS Code para documentação?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-configuracao-inicial-do-ambiente">2. Configuração inicial do ambiente</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-instalar-o-git">2.1 Instalar o Git</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-instalar-o-python">2.2 Instalar o Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-instalar-o-vs-code">2.3 Instalar o VS Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24-instalar-as-extensoes-recomendadas">2.4 Instalar as extensões recomendadas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#25-clonar-e-abrir-o-repositorio">2.5 Clonar e abrir o repositório</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#26-instalar-as-dependencias-do-projeto">2.6 Instalar as dependências do projeto</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-preview-de-markdown">3. Preview de Markdown</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-git-integrado-no-vs-code">4. Git integrado no VS Code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#git-clone-baixar-o-repositorio-pela-primeira-vez">git clone — Baixar o repositório pela primeira vez</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-pull-atualizar-seu-repositorio-local">git pull — Atualizar seu repositório local</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-status-ver-o-que-foi-alterado">git status — Ver o que foi alterado</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-add-preparar-arquivos-para-o-commit">git add — Preparar arquivos para o commit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-commit-registrar-as-alteracoes">git commit — Registrar as alterações</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-push-enviar-para-o-repositorio-remoto">git push — Enviar para o repositório remoto</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-checkout-b-criar-e-entrar-em-um-novo-branch">git checkout -b — Criar e entrar em um novo branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-log-ver-o-historico-de-commits">git log — Ver o histórico de commits</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-checkout-arquivo-descartar-mudancas-nao-commitadas">git checkout -- arquivo — Descartar mudanças não commitadas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-revert-desfazer-um-commit-ja-registrado">git revert — Desfazer um commit já registrado</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resolver-conflitos-visualmente">Resolver conflitos visualmente</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resumo-comandos-vs-code">Resumo: comandos × VS Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-atalhos-essenciais-no-vs-code">5. Atalhos Essenciais no VS Code</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 1 — VS Code e Configuração do Ambiente</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-1-vs-code-e-configuracao-do-ambiente">Módulo 1 — VS Code e Configuração do Ambiente<a class="headerlink" href="#modulo-1-vs-code-e-configuracao-do-ambiente" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Para quem é este módulo:</strong> toda a equipe que vai escrever documentação no VS Code.</p>
+<p><strong>Por que este módulo vem primeiro:</strong> antes de entender o fluxo de versionamento e escrever conteúdo, você precisa ter o ambiente pronto — ferramentas instaladas, repositório aberto e o site rodando localmente. Este módulo prepara a base prática usada em toda a trilha.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Objetivos de aprendizagem</p>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>Quais programas instalar primeiro para começar a trabalhar</li>
+<li>Por que usar o VS Code como editor de documentação</li>
+<li>Como configurar o ambiente (Git, Python, VS Code, extensões, preview e terminal)</li>
+<li>Todos os comandos Git pelo VS Code (sem terminal)</li>
+</ul>
+</div>
+<hr />
+<h2 id="1-por-que-vs-code-para-documentacao">1. Por que VS Code para documentação?<a class="headerlink" href="#1-por-que-vs-code-para-documentacao" title="Permanent link">&para;</a></h2>
+<p>O VS Code (Visual Studio Code) é um editor de código gratuito da Microsoft, mas funciona igualmente bem para escrever documentação em Markdown. As vantagens para equipes de documentação:</p>
+<ul>
+<li><strong>Preview de Markdown em tempo real</strong> — você vê o resultado enquanto escreve</li>
+<li><strong>Integração nativa com Git</strong> — commit, push, pull, resolução de conflitos sem usar terminal</li>
+<li><strong>Claude Code integrado</strong> — IA que sugere, revisa e gera conteúdo (ver <a href="04-claude-code.html">Módulo 4</a>)</li>
+<li><strong>Extensões úteis</strong> — spell check, formatação automática, preview do MkDocs</li>
+<li><strong>Terminal embutido</strong> — para rodar <code>mkdocs serve</code> sem sair do editor</li>
+</ul>
+<hr />
+<h2 id="2-configuracao-inicial-do-ambiente">2. Configuração inicial do ambiente<a class="headerlink" href="#2-configuracao-inicial-do-ambiente" title="Permanent link">&para;</a></h2>
+<p>Este é o módulo de <strong>setup</strong> da trilha. Ao final desta seção, você deve ter tudo instalado e funcionando para conseguir clonar o repositório, abrir a documentação e visualizar o site localmente.</p>
+<h3 id="21-instalar-o-git">2.1 Instalar o Git<a class="headerlink" href="#21-instalar-o-git" title="Permanent link">&para;</a></h3>
+<p>Baixe em <a href="https://git-scm.com">https://git-scm.com</a> e instale com as opções padrão.</p>
+<p>Depois da instalação, abra um terminal e verifique:</p>
+<pre class="highlight"><code class="language-bash">git --version</code></pre>
+<p>Se um número de versão aparecer, o Git está pronto para uso.</p>
+<h3 id="22-instalar-o-python">2.2 Instalar o Python<a class="headerlink" href="#22-instalar-o-python" title="Permanent link">&para;</a></h3>
+<p>Baixe em <a href="https://www.python.org">https://www.python.org</a> a versão 3.10 ou superior.</p>
+<p>Durante a instalação no Windows, marque a opção para adicionar o Python ao <code>PATH</code>. Depois confirme no terminal:</p>
+<pre class="highlight"><code class="language-bash">python --version</code></pre>
+<p>Se sua máquina usar o Python Launcher, o comando também pode ser:</p>
+<pre class="highlight"><code class="language-bash">py --version</code></pre>
+<h3 id="23-instalar-o-vs-code">2.3 Instalar o VS Code<a class="headerlink" href="#23-instalar-o-vs-code" title="Permanent link">&para;</a></h3>
+<p>Baixe em <a href="https://code.visualstudio.com">https://code.visualstudio.com</a> e instale normalmente.</p>
+<h3 id="24-instalar-as-extensoes-recomendadas">2.4 Instalar as extensões recomendadas<a class="headerlink" href="#24-instalar-as-extensoes-recomendadas" title="Permanent link">&para;</a></h3>
+<p>Instale pelo painel de extensões (clique em <img alt="Extensions" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/extensions.svg" /> na Barra de Atividades, ou <code>Ctrl+Shift+X</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Extensão</th>
+<th>ID</th>
+<th>Para que serve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude Code</strong></td>
+<td><code>Anthropic.claude-code</code></td>
+<td>Chat de IA, edição guiada e modo agente</td>
+</tr>
+<tr>
+<td><strong>Markdown All in One</strong></td>
+<td><code>yzhang.markdown-all-in-one</code></td>
+<td>Atalhos, preview, sumário automático</td>
+</tr>
+<tr>
+<td><strong>markdownlint</strong></td>
+<td><code>DavidAnson.vscode-markdownlint</code></td>
+<td>Valida a formatação do Markdown</td>
+</tr>
+<tr>
+<td><strong>Code Spell Checker</strong></td>
+<td><code>streetsidesoftware.code-spell-checker</code></td>
+<td>Verificação ortográfica</td>
+</tr>
+<tr>
+<td><strong>Brazilian Portuguese</strong></td>
+<td><code>streetsidesoftware.code-spell-checker-portuguese-brazilian</code></td>
+<td>Dicionário PT-BR</td>
+</tr>
+<tr>
+<td><strong>Git Graph</strong></td>
+<td><code>mhutchie.git-graph</code></td>
+<td>Visualização do histórico de branches</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25-clonar-e-abrir-o-repositorio">2.5 Clonar e abrir o repositório<a class="headerlink" href="#25-clonar-e-abrir-o-repositorio" title="Permanent link">&para;</a></h3>
+<p>Se o repositório ainda não estiver na sua máquina, use <code>Ctrl+Shift+P</code> → <strong>Git: Clone</strong>, cole a URL do repositório, escolha a pasta de destino e aguarde o download.</p>
+<p>No VS Code: <code>File → Open Folder</code> → selecione a pasta do repositório clonado (ex.: <code>visus_docs/</code>).</p>
+<h3 id="26-instalar-as-dependencias-do-projeto">2.6 Instalar as dependências do projeto<a class="headerlink" href="#26-instalar-as-dependencias-do-projeto" title="Permanent link">&para;</a></h3>
+<p>Com o repositório já aberto no VS Code, abra o terminal integrado e execute:</p>
+<pre class="highlight"><code class="language-bash">pip install -r requirements.txt</code></pre>
+<p>Isso instala o MkDocs e os plugins usados pelo projeto.</p>
+<div class="admonition tip">
+<p class="admonition-title">Checklist rápido de setup</p>
+<p>Antes de seguir para os próximos tópicos, confirme:</p>
+<ul>
+<li><code>git --version</code> funciona</li>
+<li><code>python --version</code> ou <code>py --version</code> funciona</li>
+<li>o repositório está aberto no VS Code</li>
+<li>as extensões principais foram instaladas</li>
+<li><code>pip install -r requirements.txt</code> terminou sem erro</li>
+</ul>
+</div>
+<hr />
+<h2 id="3-preview-de-markdown">3. Preview de Markdown<a class="headerlink" href="#3-preview-de-markdown" title="Permanent link">&para;</a></h2>
+<p>Clique no ícone <img alt="Open Preview" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg" /> no canto superior direito do editor para abrir o preview ao lado, ou pressione <code>Ctrl+Shift+V</code>.</p>
+<p><strong>Dica:</strong> use <code>Ctrl+K V</code> para abrir o preview em coluna separada, editando e visualizando ao mesmo tempo.</p>
+<hr />
+<h2 id="4-git-integrado-no-vs-code">4. Git integrado no VS Code<a class="headerlink" href="#4-git-integrado-no-vs-code" title="Permanent link">&para;</a></h2>
+<p>O VS Code tem uma interface visual completa para Git — sem precisar do terminal para operações do dia a dia. Esta seção explica cada comando Git apresentado no <a href="02-git-para-documentacao.html">Módulo 2</a>, mostrando tanto o comando de terminal quanto o equivalente visual no VS Code.</p>
+<hr />
+<h3 id="git-clone-baixar-o-repositorio-pela-primeira-vez"><code>git clone</code> — Baixar o repositório pela primeira vez<a class="headerlink" href="#git-clone-baixar-o-repositorio-pela-primeira-vez" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git clone https://github.com/altoqi/visus-docs.git</code></pre>
+<p>Cria uma cópia local completa do repositório remoto, incluindo todo o histórico de commits. É feito <strong>uma única vez por máquina</strong>.</p>
+<p><strong>No VS Code:</strong> <code>Ctrl+Shift+P</code> → <code>Git: Clone</code> → cole a URL do repositório → escolha a pasta de destino.</p>
+<hr />
+<h3 id="git-pull-atualizar-seu-repositorio-local"><code>git pull</code> — Atualizar seu repositório local<a class="headerlink" href="#git-pull-atualizar-seu-repositorio-local" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git pull</code></pre>
+<p>Baixa os commits mais recentes do repositório remoto e integra ao seu branch local. <strong>Sempre execute antes de começar a trabalhar</strong> para evitar conflitos desnecessários.</p>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control (<code>Ctrl+Shift+G</code>) → menu <img alt="Ellipsis" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg" /> → <strong>Pull</strong>.<br />
+Ou clique em <img alt="Sync" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg" /> <strong>Sync Changes</strong> na barra de status inferior (sincroniza pull + push).</p>
+<hr />
+<h3 id="git-status-ver-o-que-foi-alterado"><code>git status</code> — Ver o que foi alterado<a class="headerlink" href="#git-status-ver-o-que-foi-alterado" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git status</code></pre>
+<p>Lista os arquivos modificados, adicionados ou deletados desde o último commit, indicando o que está preparado para commit e o que ainda não está.</p>
+<p><strong>No VS Code:</strong> o Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control (<code>Ctrl+Shift+G</code>) exibe isso continuamente e de forma visual — arquivos com <code>M</code> (modified), <code>U</code> (untracked), <code>D</code> (deleted) ao lado de cada nome.</p>
+<hr />
+<h3 id="git-add-preparar-arquivos-para-o-commit"><code>git add</code> — Preparar arquivos para o commit<a class="headerlink" href="#git-add-preparar-arquivos-para-o-commit" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git add docs/collab/introducao.md      # arquivo específico
+git add docs/collab/                   # uma pasta inteira
+git add .                              # tudo que foi alterado</code></pre>
+<p>Move os arquivos para a <strong>staging area</strong>: uma área intermediária onde você decide exatamente o que vai entrar no próximo commit. Um commit só inclui o que foi adicionado com <code>git add</code>.</p>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control → clique em <img alt="Add" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg" /> ao lado de cada arquivo em "Changes" para fazer stage. Para adicionar tudo de uma vez, clique em <img alt="Add" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg" /> ao lado do título "Changes".</p>
+<hr />
+<h3 id="git-commit-registrar-as-alteracoes"><code>git commit</code> — Registrar as alterações<a class="headerlink" href="#git-commit-registrar-as-alteracoes" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git commit -m "docs: adiciona introdução ao módulo Collab"</code></pre>
+<p>Cria um snapshot permanente dos arquivos que estão na staging area, com uma mensagem descritiva. O commit existe apenas no repositório <strong>local</strong> até que você faça <code>git push</code>.</p>
+<p><strong>Convenção de mensagens:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Prefixo</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs:</code></td>
+<td>Criação ou atualização de conteúdo</td>
+</tr>
+<tr>
+<td><code>fix:</code></td>
+<td>Correção de erro (link quebrado, informação errada)</td>
+</tr>
+<tr>
+<td><code>refactor:</code></td>
+<td>Reorganização sem mudar conteúdo</td>
+</tr>
+<tr>
+<td><code>chore:</code></td>
+<td>Alterações de configuração (mkdocs.yml, etc.)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control → escreva a mensagem no campo de texto → pressione <code>Ctrl+Enter</code> ou clique em <img alt="Check" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg" /> <strong>Commit</strong>.</p>
+<hr />
+<h3 id="git-push-enviar-para-o-repositorio-remoto"><code>git push</code> — Enviar para o repositório remoto<a class="headerlink" href="#git-push-enviar-para-o-repositorio-remoto" title="Permanent link">&para;</a></h3>
+<p>No <strong>fluxo simplificado</strong> (direto no <code>main</code>):
+<pre class="highlight"><code class="language-bash">git push</code></pre></p>
+<p>No <strong>fluxo completo</strong> (branch dedicado):
+<pre class="highlight"><code class="language-bash">git push origin docs/guia-collab</code></pre></p>
+<p>Envia seus commits locais para o repositório remoto. No fluxo simplificado, isso publica diretamente. No fluxo completo, apenas sobe o branch — a publicação acontece só após o merge do Pull Request.</p>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control → clique em <img alt="Sync" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg" /> <strong>Sync Changes</strong> (faz pull + push) ou menu <img alt="Ellipsis" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg" /> → <strong>Push</strong>.</p>
+<hr />
+<h3 id="git-checkout-b-criar-e-entrar-em-um-novo-branch"><code>git checkout -b</code> — Criar e entrar em um novo branch<a class="headerlink" href="#git-checkout-b-criar-e-entrar-em-um-novo-branch" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git checkout -b docs/nome-da-tarefa</code></pre>
+<p>Cria um novo branch a partir do estado atual e já muda para ele. Usado no início do <strong>fluxo completo</strong> para isolar o trabalho do <code>main</code>. O nome deve descrever a tarefa (ex.: <code>docs/modulo-bid</code>, <code>fix/link-quebrado-collab</code>).</p>
+<p><strong>No VS Code:</strong> clique em <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> <strong>nome do branch</strong> na barra de status inferior (canto esquerdo) → selecione <strong>Create new branch...</strong> → digite o nome.</p>
+<hr />
+<h3 id="git-log-ver-o-historico-de-commits"><code>git log</code> — Ver o histórico de commits<a class="headerlink" href="#git-log-ver-o-historico-de-commits" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git log --oneline --graph</code></pre>
+<p>Exibe o histórico de commits em formato compacto (uma linha por commit) com um grafo ASCII mostrando a estrutura de branches. Útil para entender o que foi feito e por quem.</p>
+<p><strong>No VS Code:</strong> com a extensão <strong>Git Graph</strong> instalada, clique em <img alt="Git Commit" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-commit.svg" /> <strong>Git Graph</strong> na barra de status inferior para ver o histórico de forma visual, com branches coloridos e detalhes de cada commit ao clicar.</p>
+<hr />
+<h3 id="git-checkout-arquivo-descartar-mudancas-nao-commitadas"><code>git checkout -- arquivo</code> — Descartar mudanças não commitadas<a class="headerlink" href="#git-checkout-arquivo-descartar-mudancas-nao-commitadas" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git checkout -- docs/arquivo-errado.md</code></pre>
+<p>Descarta todas as alterações feitas no arquivo desde o último commit, restaurando-o para o estado salvo. <strong>Atenção: irreversível</strong> — o que foi alterado e não commitado é perdido.</p>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control → clique com o botão direito no arquivo → <strong>Discard Changes</strong>.</p>
+<hr />
+<h3 id="git-revert-desfazer-um-commit-ja-registrado"><code>git revert</code> — Desfazer um commit já registrado<a class="headerlink" href="#git-revert-desfazer-um-commit-ja-registrado" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git revert HEAD</code></pre>
+<p>Cria um <strong>novo commit</strong> que desfaz as mudanças do commit anterior. É a forma segura de reverter algo que já foi commitado, porque preserva o histórico.</p>
+<blockquote>
+<p>Prefira <code>git revert</code> a <code>git reset --hard</code>, que apaga commits de forma irreversível e pode causar problemas para outros colaboradores.</p>
+</blockquote>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control → extensão <strong>Git Graph</strong> → clique com o botão direito no commit que quer desfazer → <strong>Revert</strong>.</p>
+<hr />
+<h3 id="resolver-conflitos-visualmente">Resolver conflitos visualmente<a class="headerlink" href="#resolver-conflitos-visualmente" title="Permanent link">&para;</a></h3>
+<p>Quando dois colaboradores editam o mesmo trecho de um arquivo, o Git gera um <strong>conflito de merge</strong>. O VS Code exibe os dois lados com botões de resolução:</p>
+<ul>
+<li><strong>Accept Current Change</strong> — mantém o que está no seu branch</li>
+<li><strong>Accept Incoming Change</strong> — mantém o que veio do remoto</li>
+<li><strong>Accept Both Changes</strong> — mantém os dois trechos</li>
+<li><strong>Compare Changes</strong> — mostra o diff lado a lado</li>
+</ul>
+<p>Após resolver todos os conflitos, faça <code>git add</code> nos arquivos resolvidos e depois <code>git commit</code> para finalizar o merge.</p>
+<hr />
+<h3 id="resumo-comandos-vs-code">Resumo: comandos × VS Code<a class="headerlink" href="#resumo-comandos-vs-code" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>O que faz</th>
+<th>Ícone / Botão no VS Code</th>
+<th>Atalho / Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git clone</code></td>
+<td>Baixa o repositório</td>
+<td>—</td>
+<td><code>Ctrl+Shift+P</code> → Git: Clone</td>
+</tr>
+<tr>
+<td><code>git pull</code></td>
+<td>Atualiza do remoto</td>
+<td><img alt="Sync" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg" /> Sync Changes</td>
+<td><img alt="Ellipsis" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg" /> → Pull</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>Lista arquivos alterados</td>
+<td><img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Source Control</td>
+<td><code>Ctrl+Shift+G</code></td>
+</tr>
+<tr>
+<td><code>git add</code></td>
+<td>Prepara para commit</td>
+<td><img alt="Add" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg" /> ao lado do arquivo</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>git commit -m</code></td>
+<td>Salva o snapshot</td>
+<td><img alt="Check" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg" /> Commit</td>
+<td><code>Ctrl+Enter</code></td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>Envia ao remoto</td>
+<td><img alt="Sync" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/sync.svg" /> Sync Changes</td>
+<td><img alt="Ellipsis" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/ellipsis.svg" /> → Push</td>
+</tr>
+<tr>
+<td><code>git checkout -b</code></td>
+<td>Cria branch</td>
+<td><img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> barra de status</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>git log</code></td>
+<td>Histórico de commits</td>
+<td><img alt="Git Commit" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/git-commit.svg" /> Git Graph</td>
+<td>barra de status</td>
+</tr>
+<tr>
+<td><code>git checkout -- arquivo</code></td>
+<td>Descarta mudanças</td>
+<td>—</td>
+<td>Discard Changes (botão direito)</td>
+</tr>
+<tr>
+<td><code>git revert HEAD</code></td>
+<td>Desfaz último commit</td>
+<td>—</td>
+<td>Git Graph → Revert</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-atalhos-essenciais-no-vs-code">5. Atalhos Essenciais no VS Code<a class="headerlink" href="#5-atalhos-essenciais-no-vs-code" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Ícone / Onde Clicar</th>
+<th>Atalho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abrir Claude Code (chat)</td>
+<td>Ícone Claude na Barra de Atividades</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Terminal integrado (para <code>claude</code> CLI)</td>
+<td><img alt="Terminal" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/terminal.svg" /> menu View → Terminal</td>
+<td>Ctrl+`</td>
+</tr>
+<tr>
+<td>Preview de Markdown</td>
+<td><img alt="Open Preview" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg" /> canto superior direito do editor</td>
+<td><code>Ctrl+Shift+V</code></td>
+</tr>
+<tr>
+<td>Preview ao lado</td>
+<td><img alt="Open Preview" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/open-preview.svg" /> (abre em coluna separada)</td>
+<td><code>Ctrl+K V</code></td>
+</tr>
+<tr>
+<td>Source Control (Git)</td>
+<td><img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/source-control.svg" /> Barra de Atividades</td>
+<td><code>Ctrl+Shift+G</code></td>
+</tr>
+<tr>
+<td>Extensões</td>
+<td><img alt="Extensions" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/extensions.svg" /> Barra de Atividades</td>
+<td><code>Ctrl+Shift+X</code></td>
+</tr>
+<tr>
+<td>Paleta de comandos</td>
+<td>—</td>
+<td><code>Ctrl+Shift+P</code></td>
+</tr>
+<tr>
+<td>Buscar em todos os arquivos</td>
+<td><img alt="Search" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/search.svg" /> Barra de Atividades</td>
+<td><code>Ctrl+Shift+F</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Resumo do módulo</p>
+<p>O <strong>VS Code</strong> concentra edição, preview e Git em um só lugar. Você configurou o ambiente completo (<strong>Git, Python, VS Code, extensões e dependências do projeto</strong>) e aprendeu a executar todas as operações Git pela interface visual — sem digitar comandos no terminal. Com a base pronta, a trilha segue para o raciocínio de versionamento e a produção de conteúdo.</p>
+</div>
+<hr />
+<blockquote>
+<p><strong>Próximo módulo:</strong> <a href="02-git-para-documentacao.html">02 — Git para Documentação</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Início"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="02-git-para-documentacao.html" class="btn btn-neutral float-right" title="Módulo 2 — Git para Documentação">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="02-git-para-documentacao.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

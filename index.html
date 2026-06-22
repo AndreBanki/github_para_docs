@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Material de estudo para equipes de Produto e Engenharia trabalharem com documentação usando Git, Markdown, MkDocs e Claude Code" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/index.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "In\u00edcio";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/github_para_docs/index.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Início</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="course-hero" markdown="0">
+  <span class="eyebrow">Curso AltoQi · Produto &amp; Engenharia</span>
+  <h1>Documentação como <span class="hl">Código</span></h1>
+  <p class="lead">Aprenda a colaborar em documentação de produto usando Git, Markdown, MkDocs e Claude Code — mesmo que você nunca tenha usado Git na vida.</p>
+  <div class="course-meta">
+    <span>📚 <b>9</b> módulos</span>
+    <span>🎯 Nível <b>iniciante</b></span>
+    <span>⏱️ ~<b>4h</b> de estudo</span>
+    <span>💻 Prática guiada no VS Code</span>
+  </div>
+  <div class="cta-row">
+    <a class="cta-btn primary" href="01-setup-ambiente.html">Começar o curso →</a>
+    <a class="cta-btn ghost" href="#modulos">Ver módulos</a>
+  </div>
+</div>
+
+<div class="admonition tip">
+<p class="admonition-title">Primeira vez aqui?</p>
+<p>Este material foi feito para quem <strong>nunca usou Git</strong>. Siga os módulos em ordem — cada um constrói sobre o anterior. Ao final, você vai conseguir colaborar em documentação como um profissional.</p>
+</div>
+<p class="home-section-title" id="modulos">Trilha do curso</p>
+
+<div class="module-grid" markdown="0">
+  <a class="module-card" href="01-setup-ambiente.html">
+    <span class="mod-icon">🧩</span>
+    <span class="mod-num">Módulo 01</span>
+    <span class="mod-title">VS Code e Configuração do Ambiente</span>
+    <span class="mod-desc">Instalação do ambiente, extensões, preview de Markdown e todas as operações de Git pela interface visual.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="02-git-para-documentacao.html">
+    <span class="mod-icon">🔀</span>
+    <span class="mod-num">Módulo 02</span>
+    <span class="mod-title">Git para Documentação</span>
+    <span class="mod-desc">Repositório, commit, push/pull e o fluxo de trabalho diário — simplificado e completo.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="03-markdown-e-mkdocs.html">
+    <span class="mod-icon">📝</span>
+    <span class="mod-num">Módulo 03</span>
+    <span class="mod-title">Markdown e MkDocs</span>
+    <span class="mod-desc">Sintaxe Markdown, preview local, build/serve do MkDocs, temas e o plugin awesome-pages.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="04-claude-code.html">
+    <span class="mod-icon">🤖</span>
+    <span class="mod-num">Módulo 04</span>
+    <span class="mod-title">Claude Code</span>
+    <span class="mod-desc">Os modos de uso do Claude Code — Chat, Edição, Agente e CLI — e boas práticas de IA para documentação.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="05-branches-e-pull-requests.html">
+    <span class="mod-icon">🌿</span>
+    <span class="mod-num">Módulo 05</span>
+    <span class="mod-title">Branches e Pull Requests</span>
+    <span class="mod-desc">Aprofundamento do fluxo completo: branches isolados, revisão por PR e resolução de conflitos.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="06-publicacao-externa.html">
+    <span class="mod-icon">🌐</span>
+    <span class="mod-num">Módulo 06</span>
+    <span class="mod-title">Publicando para Acesso Externo</span>
+    <span class="mod-desc">GitHub Pages, Render.com, Keycloak e CloudOps — como escolher e como atualizar o site.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card" href="07-claude-code-customizacao.html">
+    <span class="mod-icon">⚙️</span>
+    <span class="mod-num">Módulo 07</span>
+    <span class="mod-title">Personalizando o Claude Code</span>
+    <span class="mod-desc">CLAUDE.md, comandos personalizados, agente e skills para documentação.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card extra" href="08-instrucoes-especificas.html">
+    <span class="mod-icon">⭐</span>
+    <span class="mod-num">Módulo 08</span>
+    <span class="mod-title">Instruções Específicas</span>
+    <span class="mod-desc">Padrões de repositórios reais: Targetprocess, espelhamento de épicos e pasta <code>raw/</code>.</span>
+    <span class="mod-go">Iniciar →</span>
+  </a>
+  <a class="module-card extra" href="09-exercicios-praticos.html">
+    <span class="mod-icon">🧪</span>
+    <span class="mod-num">Módulo 09</span>
+    <span class="mod-title">Exercícios Práticos</span>
+    <span class="mod-desc">Revisão final da trilha com exercícios organizados na mesma ordem dos módulos.</span>
+    <span class="mod-go">Praticar →</span>
+  </a>
+</div>
+
+<p class="home-section-title">Fluxo de trabalho que você vai dominar</p>
+
+<div class="mermaid">flowchart LR
+    A["🔄 git pull\nAtualizar"] --&gt; B["✏️ Editar\narquivos .md"] --&gt; C["📦 git add + commit\nRegistrar"] --&gt; D["🚀 git push\nPublicar"]
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style C fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style D fill:#114e34,stroke:#25CE7B,color:#ffffff</div>
+<p class="home-section-title">Pré-requisitos</p>
+
+<div class="prereq-grid" markdown="0">
+  <div class="prereq-item">
+    <span class="pi-icon">🟧</span>
+    <div><a href="https://git-scm.com">Git</a><small>controle de versão</small></div>
+  </div>
+  <div class="prereq-item">
+    <span class="pi-icon">🐍</span>
+    <div><a href="https://www.python.org">Python 3.10+</a><small>roda o MkDocs</small></div>
+  </div>
+  <div class="prereq-item">
+    <span class="pi-icon">🔷</span>
+    <div><a href="https://code.visualstudio.com">VS Code</a><small>editor</small></div>
+  </div>
+  <div class="prereq-item">
+    <span class="pi-icon">🤖</span>
+    <div><a href="https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code">Claude Code</a><small>extensão do VS Code</small></div>
+  </div>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="01-setup-ambiente.html" class="btn btn-neutral float-right" title="Módulo 1 — VS Code e Configuração do Ambiente">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="01-setup-ambiente.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-06-22 14:21:34.977307+00:00
+-->

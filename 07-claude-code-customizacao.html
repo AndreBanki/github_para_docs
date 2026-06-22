@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/07-claude-code-customizacao.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 7 — Personalizando o Claude Code - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 7 \u2014 Personalizando o Claude Code";
+        var mkdocs_page_input_path = "07-claude-code-customizacao.md";
+        var mkdocs_page_url = "/github_para_docs/07-claude-code-customizacao.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 7 — Personalizando o Claude Code</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-por-que-personalizar-o-claude-code">1. Por que personalizar o Claude Code?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-claudemd-o-manual-do-agente">2. CLAUDE.md — O Manual do Agente</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-e">O que é</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#onde-fica">Onde fica</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-colocar">O que colocar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-real-do-projeto-visus">Exemplo real (do projeto Visus)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#como-o-claude-code-usa-este-arquivo">Como o Claude Code usa este arquivo</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-claudemd-em-subpastas-instrucoes-contextuais">3. CLAUDE.md em Subpastas — Instruções Contextuais</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-sao">O que são</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#onde-ficam">Onde ficam</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-claudemd-contextual">Exemplo de CLAUDE.md contextual</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-comandos-personalizados-claudecommands-reutilizaveis">4. Comandos Personalizados (.claude/commands/) — Reutilizáveis</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-sao_1">O que são</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#onde-ficam_1">Onde ficam</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#estrutura-de-um-comando">Estrutura de um comando</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#como-usar">Como usar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplos-de-comandos-uteis-para-documentacao">Exemplos de comandos úteis para documentação</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-agente-fluxos-de-trabalho-autonomos">5. Agente — Fluxos de Trabalho Autônomos</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-e_1">O que é</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quando-usar-o-modo-agente">Quando usar o modo agente</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#cenarios-tipicos-para-equipes-de-documentacao">Cenários típicos para equipes de documentação</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#como-invocar-o-agente">Como invocar o agente</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ferramentas-disponiveis-no-agente">Ferramentas disponíveis no agente</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#claude-code-vs-uso-sem-personalizacao">Claude Code vs. uso sem personalização</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-skills-conhecimento-especializado">6. Skills — Conhecimento Especializado</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-sao_2">O que são</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skills-integradas-do-claude-code">Skills integradas do Claude Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skills-personalizadas-para-documentacao">Skills personalizadas para documentação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quando-usar-skills-vs-comandos">Quando usar Skills vs. Comandos</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-visao-geral-como-os-mecanismos-se-encaixam">7. Visão Geral: como os mecanismos se encaixam</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-exemplo-pratico-sessao-de-trabalho-do-redator">8. Exemplo prático: sessão de trabalho do redator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-checklist-de-configuracao-do-repositorio">9. Checklist de configuração do repositório</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 7 — Personalizando o Claude Code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-7-personalizando-o-claude-code">Módulo 7 — Personalizando o Claude Code<a class="headerlink" href="#modulo-7-personalizando-o-claude-code" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Para quem é este módulo:</strong> quem configura e mantém o ambiente de documentação — líderes de Produto, Engenharia e responsáveis pelo repositório.</p>
+<p><strong>Por que este módulo vem agora:</strong> a personalização do Claude Code só gera valor real quando a equipe já entendeu o fluxo básico, a estrutura do repositório e o padrão de escrita esperado. Por isso ele aparece depois da trilha operacional principal, como camada de maturidade do processo.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Objetivos de aprendizagem</p>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>Os 4 mecanismos de personalização: CLAUDE.md, Comandos Personalizados, Agente e Skills</li>
+<li>Onde colocar cada arquivo e como configurá-lo</li>
+<li>Quando usar cada mecanismo (tabela de decisão)</li>
+<li>Exemplo prático de sessão de trabalho com agente</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Dica para PMs e redatores</p>
+<p>Se você não vai configurar o ambiente, foque nas <strong>seções 2 e 4</strong> (CLAUDE.md e Comandos Personalizados) — são as que você vai usar no dia a dia. As seções 5 e 6 (Agente e Skills) são para quem monta o ambiente.</p>
+</div>
+<hr />
+<h2 id="1-por-que-personalizar-o-claude-code">1. Por que personalizar o Claude Code?<a class="headerlink" href="#1-por-que-personalizar-o-claude-code" title="Permanent link">&para;</a></h2>
+<p>O Claude Code é um modelo de linguagem de propósito geral. Sem personalização, ele responde com base em seu treinamento genérico. Com personalização, ele passa a:</p>
+<ul>
+<li>Conhecer a <strong>estrutura específica</strong> do seu repositório</li>
+<li>Usar a <strong>terminologia correta</strong> do domínio (BIM, Engenharia Civil, AltoQi Visus)</li>
+<li>Seguir as <strong>convenções de estilo</strong> estabelecidas pela equipe</li>
+<li>Evitar erros de localização de conteúdo (criar arquivos no lugar errado)</li>
+<li>Agir como um <strong>redator técnico especializado</strong>, não como um assistente genérico</li>
+</ul>
+<p>O Claude Code oferece quatro mecanismos de personalização: <strong>CLAUDE.md</strong>, <strong>Comandos Personalizados</strong>, <strong>Agente</strong> e <strong>Skills</strong>.</p>
+<hr />
+<h2 id="2-claudemd-o-manual-do-agente">2. <code>CLAUDE.md</code> — O Manual do Agente<a class="headerlink" href="#2-claudemd-o-manual-do-agente" title="Permanent link">&para;</a></h2>
+<h3 id="o-que-e">O que é<a class="headerlink" href="#o-que-e" title="Permanent link">&para;</a></h3>
+<p>O arquivo <code>CLAUDE.md</code> na raiz do repositório é o <strong>manual operacional</strong> do agente de IA. Ele é lido automaticamente pelo Claude Code em toda sessão iniciada no contexto deste repositório — tanto via CLI quanto via VS Code.</p>
+<p>Pense nele como a "onboarding" que você daria a um novo redator técnico: estrutura do projeto, onde cada coisa vai, tom de escrita, regras de decisão.</p>
+<h3 id="onde-fica">Onde fica<a class="headerlink" href="#onde-fica" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code>seu-repositorio/
+└── CLAUDE.md   ← aqui (raiz do repositório)</code></pre>
+<h3 id="o-que-colocar">O que colocar<a class="headerlink" href="#o-que-colocar" title="Permanent link">&para;</a></h3>
+<p>Um bom <code>CLAUDE.md</code> contém:</p>
+<ol>
+<li><strong>Papel e responsabilidades</strong> — o que o agente deve e não deve fazer</li>
+<li><strong>Estrutura de diretórios</strong> — mapa de onde cada tipo de conteúdo vai</li>
+<li><strong>Formato padrão de página</strong> — frontmatter YAML, estrutura de seções</li>
+<li><strong>Estilo de escrita</strong> — tom, terminologia, público-alvo</li>
+<li><strong>Regras de decisão</strong> — como escolher onde inserir conteúdo ambíguo</li>
+<li><strong>Restrições</strong> — arquivos que nunca devem ser modificados</li>
+</ol>
+<h3 id="exemplo-real-do-projeto-visus">Exemplo real (do projeto Visus)<a class="headerlink" href="#exemplo-real-do-projeto-visus" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown"># AltoQi Visus Workflow — Documentação de Usuário
+
+## Papel
+Você é o redator técnico responsável pela documentação do AltoQi Visus.
+Seu trabalho é receber fontes e extrair conteúdo estruturado em páginas
+de documentação.
+
+## Estilo de Escrita
+- **Tom**: redator técnico especializado em software para Construção Civil
+- **Terminologia**: sempre usar terminologia BIM em português brasileiro
+- **Regra de ouro**: nunca inventar conteúdo — toda informação deve ter
+  origem em uma fonte fornecida pelo usuário
+
+## Estrutura de Diretórios
+docs/
+  plataforma/    ← infraestrutura compartilhada (login, API)
+  workflow/      ← gestão comercial e operacional
+  collab/        ← CDE, gestão documental, modelos BIM
+  ...
+
+## Formato de Página
+Toda página deve começar com frontmatter YAML:
+---
+title: &lt;título&gt;
+type: visao-geral | funcionalidade | conceito | referencia | tutorial
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+sources: [lista de fontes]
+tags: [tags relevantes]
+---</code></pre>
+<h3 id="como-o-claude-code-usa-este-arquivo">Como o Claude Code usa este arquivo<a class="headerlink" href="#como-o-claude-code-usa-este-arquivo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Via CLI</strong>: lido automaticamente ao iniciar <code>claude</code> na pasta do repositório</li>
+<li><strong>No VS Code</strong>: carregado automaticamente em toda sessão de chat no contexto do repositório</li>
+<li>Define o comportamento padrão de toda interação neste repositório</li>
+</ul>
+<hr />
+<h2 id="3-claudemd-em-subpastas-instrucoes-contextuais">3. <code>CLAUDE.md</code> em Subpastas — Instruções Contextuais<a class="headerlink" href="#3-claudemd-em-subpastas-instrucoes-contextuais" title="Permanent link">&para;</a></h2>
+<h3 id="o-que-sao">O que são<a class="headerlink" href="#o-que-sao" title="Permanent link">&para;</a></h3>
+<p>Além do arquivo global na raiz, você pode criar arquivos <code>CLAUDE.md</code> em qualquer subpasta do repositório. Eles fornecem instruções específicas para aquela seção, combinadas com as instruções globais.</p>
+<h3 id="onde-ficam">Onde ficam<a class="headerlink" href="#onde-ficam" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code>seu-repositorio/
+├── CLAUDE.md                    ← instruções globais do repositório
+└── docs/
+    ├── collab/
+    │   └── CLAUDE.md            ← instruções específicas para collab/
+    └── cost_management/
+        └── CLAUDE.md            ← instruções específicas para cost_management/</code></pre>
+<h3 id="exemplo-de-claudemd-contextual">Exemplo de CLAUDE.md contextual<a class="headerlink" href="#exemplo-de-claudemd-contextual" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown"># Instruções para o módulo Collab
+
+Este módulo documenta o Ambiente Comum de Dados (CDE) do Visus.
+Toda página deve referenciar a norma ISO 19650 quando relevante.
+Use o termo "CDE" em vez de "repositório de documentos".
+
+Páginas desta seção seguem a estrutura:
+1. Visão geral do recurso
+2. Pré-requisitos e permissões necessárias
+3. Passo a passo ilustrado
+4. Casos de uso comuns</code></pre>
+<p>O Claude Code aplica automaticamente as instruções da subpasta mais próxima ao arquivo que está sendo trabalhado, em combinação com as instruções globais da raiz.</p>
+<hr />
+<h2 id="4-comandos-personalizados-claudecommands-reutilizaveis">4. Comandos Personalizados (<code>.claude/commands/</code>) — Reutilizáveis<a class="headerlink" href="#4-comandos-personalizados-claudecommands-reutilizaveis" title="Permanent link">&para;</a></h2>
+<h3 id="o-que-sao_1">O que são<a class="headerlink" href="#o-que-sao_1" title="Permanent link">&para;</a></h3>
+<p>Arquivos <code>.md</code> na pasta <code>.claude/commands/</code> são <strong>comandos salvos</strong> que você pode invocar pelo nome com <code>/</code> em qualquer chat do Claude Code. Funcionam como templates de instrução reutilizáveis — evitam repetir prompts longos toda vez.</p>
+<h3 id="onde-ficam_1">Onde ficam<a class="headerlink" href="#onde-ficam_1" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code>.claude/
+└── commands/
+    ├── nova-pagina.md
+    ├── revisar-pagina.md
+    └── gerar-indice.md</code></pre>
+<h3 id="estrutura-de-um-comando">Estrutura de um comando<a class="headerlink" href="#estrutura-de-um-comando" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown">---
+description: Cria uma nova página de documentação seguindo o padrão do projeto
+allowed-tools: Read, Write, Edit
+---
+
+Crie uma nova página de documentação em $ARGUMENTS.
+
+Siga estritamente:
+1. O frontmatter YAML padrão do projeto (title, type, created, updated, sources, tags)
+2. O estilo de escrita definido no CLAUDE.md do repositório
+3. A estrutura: resumo de uma linha → corpo com H2 e H3 → links relacionados
+
+Verifique o conteúdo existente na seção relevante para manter
+consistência de terminologia e referências cruzadas.</code></pre>
+<h3 id="como-usar">Como usar<a class="headerlink" href="#como-usar" title="Permanent link">&para;</a></h3>
+<p>No painel de Chat, digite <code>/</code> e selecione o comando da lista:</p>
+<pre class="highlight"><code>/nova-pagina docs/bid/fornecedores.md</code></pre>
+<p>O valor passado após o nome do comando fica disponível como <code>$ARGUMENTS</code> dentro do arquivo de comando.</p>
+<h3 id="exemplos-de-comandos-uteis-para-documentacao">Exemplos de comandos úteis para documentação<a class="headerlink" href="#exemplos-de-comandos-uteis-para-documentacao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nova-pagina.md</code></td>
+<td>Gera rascunho de página seguindo o padrão</td>
+</tr>
+<tr>
+<td><code>revisar-pagina.md</code></td>
+<td>Revisa clareza, terminologia e estrutura</td>
+</tr>
+<tr>
+<td><code>atualizar-indice.md</code></td>
+<td>Atualiza o <code>index.md</code> de uma seção</td>
+</tr>
+<tr>
+<td><code>lint-documentacao.md</code></td>
+<td>Identifica contradições, links quebrados, páginas órfãs</td>
+</tr>
+<tr>
+<td><code>ingerir-fonte.md</code></td>
+<td>Processa um link ou PDF e extrai conteúdo estruturado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-agente-fluxos-de-trabalho-autonomos">5. Agente — Fluxos de Trabalho Autônomos<a class="headerlink" href="#5-agente-fluxos-de-trabalho-autonomos" title="Permanent link">&para;</a></h2>
+<h3 id="o-que-e_1">O que é<a class="headerlink" href="#o-que-e_1" title="Permanent link">&para;</a></h3>
+<p>No Claude Code, <strong>não há um arquivo <code>.agent.md</code></strong> separado — o próprio Claude Code já é um agente por padrão: ele tem acesso a ferramentas de leitura e escrita de arquivos, busca no repositório e execução de comandos.</p>
+<p>O comportamento do agente é definido pela combinação de:
+- O <code>CLAUDE.md</code> do repositório (papel, regras, estrutura)
+- Os comandos personalizados em <code>.claude/commands/</code> (fluxos de trabalho específicos)</p>
+<p>Para criar um "perfil de agente" especializado, crie um comando que define o contexto e as instruções do papel:</p>
+<pre class="highlight"><code>.claude/
+└── commands/
+    └── redator-tecnico.md   ← invocado com /redator-tecnico</code></pre>
+<h3 id="quando-usar-o-modo-agente">Quando usar o modo agente<a class="headerlink" href="#quando-usar-o-modo-agente" title="Permanent link">&para;</a></h3>
+<p>Use o modo agente quando a tarefa envolve <strong>múltiplos passos sequenciais</strong> com acesso a arquivos e decisões. Compare com os outros mecanismos:</p>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Mecanismo ideal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regra que deve valer em toda conversa ("nunca invente conteúdo")</td>
+<td><code>CLAUDE.md</code></td>
+</tr>
+<tr>
+<td>Tarefa pontual que você dispara manualmente ("cria a página X")</td>
+<td>Comando em <code>.claude/commands/</code></td>
+</tr>
+<tr>
+<td>Tarefa com múltiplos passos + leitura/escrita de arquivos + decisões</td>
+<td>Modo Agente + <code>CLAUDE.md</code></td>
+</tr>
+<tr>
+<td>Conhecimento especializado para um tipo de conteúdo</td>
+<td>Skill (seção 6)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cenarios-tipicos-para-equipes-de-documentacao">Cenários típicos para equipes de documentação<a class="headerlink" href="#cenarios-tipicos-para-equipes-de-documentacao" title="Permanent link">&para;</a></h4>
+<p><strong>Use o modo agente quando você precisa:</strong></p>
+<ul>
+<li><strong>Ingerir uma fonte externa</strong> — o agente lê o link/PDF, identifica onde o conteúdo se encaixa na estrutura, cria ou atualiza páginas e registra a fonte, tudo em sequência</li>
+<li><strong>Revisar uma seção inteira</strong> — varre múltiplos arquivos, detecta inconsistências de terminologia, links quebrados e páginas sem frontmatter</li>
+<li><strong>Refatorar um módulo</strong> — move páginas, atualiza referências cruzadas, reescreve o índice da seção</li>
+<li><strong>Fazer onboarding de um novo módulo</strong> — cria a estrutura de pastas, os arquivos iniciais e o índice a partir de um briefing</li>
+</ul>
+<p><strong>Não use o modo agente quando:</strong></p>
+<ul>
+<li>A tarefa é um único arquivo com uma instrução simples → use um comando <code>/prompt</code></li>
+<li>A tarefa não precisa acessar o sistema de arquivos → use o chat normal</li>
+</ul>
+<h3 id="como-invocar-o-agente">Como invocar o agente<a class="headerlink" href="#como-invocar-o-agente" title="Permanent link">&para;</a></h3>
+<p>Ative o modo Agent no painel de Chat do VS Code e execute o comando especializado:</p>
+<pre class="highlight"><code>/redator-tecnico ingira este artigo: https://...</code></pre>
+<p>Ou inicie diretamente via CLI:</p>
+<pre class="highlight"><code class="language-bash">claude --model claude-opus-4-8</code></pre>
+<p>O Claude Code vai carregar o <code>CLAUDE.md</code> e executar a tarefa com confirmações intermediárias. Você verá as ferramentas sendo chamadas em tempo real no painel de chat.</p>
+<h3 id="ferramentas-disponiveis-no-agente">Ferramentas disponíveis no agente<a class="headerlink" href="#ferramentas-disponiveis-no-agente" title="Permanent link">&para;</a></h3>
+<p>O Claude Code tem acesso por padrão a:</p>
+<table>
+<thead>
+<tr>
+<th>Ferramenta</th>
+<th>O que permite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Read</code></td>
+<td>Ler arquivos do repositório</td>
+</tr>
+<tr>
+<td><code>Write</code> / <code>Edit</code></td>
+<td>Criar e editar arquivos</td>
+</tr>
+<tr>
+<td><code>Grep</code> / <code>Glob</code></td>
+<td>Buscar conteúdo e padrões em arquivos</td>
+</tr>
+<tr>
+<td><code>Bash</code></td>
+<td>Executar comandos no terminal (ex.: <code>mkdocs build</code>)</td>
+</tr>
+<tr>
+<td><code>WebFetch</code></td>
+<td>Buscar conteúdo de URLs externas</td>
+</tr>
+</tbody>
+</table>
+<p>Para restringir o que o agente pode usar em um comando específico, use o campo <code>allowed-tools</code> no frontmatter do arquivo de comando.</p>
+<h3 id="claude-code-vs-uso-sem-personalizacao">Claude Code vs. uso sem personalização<a class="headerlink" href="#claude-code-vs-uso-sem-personalizacao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sem personalização</th>
+<th>Com CLAUDE.md + Comandos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instruções</td>
+<td>Genéricas do Claude</td>
+<td>Específicas do seu repositório</td>
+</tr>
+<tr>
+<td>Ferramentas</td>
+<td>Todas as padrão disponíveis</td>
+<td>Você define quais habilitar por comando</td>
+</tr>
+<tr>
+<td>Invocação</td>
+<td>Prompt manual toda vez</td>
+<td><code>/comando-especifico</code> reutilizável</td>
+</tr>
+<tr>
+<td>Consistência</td>
+<td>Varia conforme o prompt</td>
+<td>Sempre o mesmo papel e regras</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-skills-conhecimento-especializado">6. Skills — Conhecimento Especializado<a class="headerlink" href="#6-skills-conhecimento-especializado" title="Permanent link">&para;</a></h2>
+<h3 id="o-que-sao_2">O que são<a class="headerlink" href="#o-que-sao_2" title="Permanent link">&para;</a></h3>
+<p><strong>Skills</strong> são instruções que encapsulam conhecimento especializado sobre um domínio ou tarefa específica. O Claude Code possui skills integradas (como <code>/review</code>, <code>/fix</code>, <code>/test</code>) e você pode criar skills personalizadas como comandos em <code>.claude/commands/</code>.</p>
+<h3 id="skills-integradas-do-claude-code">Skills integradas do Claude Code<a class="headerlink" href="#skills-integradas-do-claude-code" title="Permanent link">&para;</a></h3>
+<p>O Claude Code vem com skills prontas que podem ser invocadas diretamente:</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Invocação</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code Review</td>
+<td><code>/code-review</code></td>
+<td>Revisa código ou documentação e aponta melhorias</td>
+</tr>
+<tr>
+<td>Security Review</td>
+<td><code>/security-review</code></td>
+<td>Analisa vulnerabilidades e problemas de segurança</td>
+</tr>
+<tr>
+<td>Run</td>
+<td><code>/run</code></td>
+<td>Executa e testa o projeto atual</td>
+</tr>
+<tr>
+<td>Simplify</td>
+<td><code>/simplify</code></td>
+<td>Simplifica e otimiza o conteúdo selecionado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="skills-personalizadas-para-documentacao">Skills personalizadas para documentação<a class="headerlink" href="#skills-personalizadas-para-documentacao" title="Permanent link">&para;</a></h3>
+<p>Crie skills específicas do projeto como comandos em <code>.claude/commands/</code>:</p>
+<pre class="highlight"><code>.claude/
+└── commands/
+    └── gerar-tutorial.md</code></pre>
+<pre class="highlight"><code class="language-markdown">---
+description: Escreve tutoriais passo a passo para funcionalidades do AltoQi Visus.
+  Use quando precisar documentar "como fazer" algo no produto.
+allowed-tools: Read, Write, Edit
+---
+
+Crie um tutorial para $ARGUMENTS seguindo esta estrutura:
+
+## Objetivo
+[Uma frase: o que o usuário vai conseguir fazer]
+
+## Pré-requisitos
+- [item]
+
+## Passo a passo
+1. [ação imperativa: "Clique em...", "Selecione...", "Digite..."]
+
+## Resultado esperado
+[O que o usuário vê ao final]
+
+## Próximos passos
+[Links relacionados]</code></pre>
+<h3 id="quando-usar-skills-vs-comandos">Quando usar Skills vs. Comandos<a class="headerlink" href="#quando-usar-skills-vs-comandos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mecanismo</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CLAUDE.md</strong></td>
+<td>Regras permanentes que sempre se aplicam</td>
+</tr>
+<tr>
+<td><strong>Comandos</strong></td>
+<td>Tarefas recorrentes que você invoca manualmente</td>
+</tr>
+<tr>
+<td><strong>Agente</strong></td>
+<td>Perfis completos de trabalho com múltiplos passos</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>Conhecimento especializado para tipos específicos de conteúdo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-visao-geral-como-os-mecanismos-se-encaixam">7. Visão Geral: como os mecanismos se encaixam<a class="headerlink" href="#7-visao-geral-como-os-mecanismos-se-encaixam" title="Permanent link">&para;</a></h2>
+<div class="mermaid">flowchart TD
+    subgraph sempre ["Sempre ativos"]
+        A["CLAUDE.md\n📚 Manual do agente"]
+        B["CLAUDE.md em subpastas\n📂 Regras por seção"]
+    end
+    subgraph invocados ["Invocados pelo usuário"]
+        C[".claude/commands/\n⚡ /nome-do-comando"]
+        D["Modo Agente\n🤖 Chat → Agent"]
+    end
+    subgraph integrado ["Capacidades integradas"]
+        E["Skills integradas\n🧠 /review, /fix, ..."]
+    end
+    A --&gt; B
+    C --&gt; D
+    D --&gt; E
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style D fill:#0e3a30,stroke:#34d399,color:#dafff2
+    style E fill:#0e3d28,stroke:#3BE592,color:#e3fff1</div>
+<hr />
+<h2 id="8-exemplo-pratico-sessao-de-trabalho-do-redator">8. Exemplo prático: sessão de trabalho do redator<a class="headerlink" href="#8-exemplo-pratico-sessao-de-trabalho-do-redator" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>1. Abrir repositório no VS Code
+
+2. Fazer git pull para atualizar
+
+3. Abrir Claude Code (ícone na Barra de Atividades) ou terminal com `claude`
+
+4. Colar o link ou PDF da fonte:
+   "/redator-tecnico ingira este artigo do suporte AltoQi sobre o módulo de
+   Rastreamento: [link]"
+
+5. O agente vai:
+   a. Ler o conteúdo do link
+   b. Consultar CLAUDE.md do repositório e CLAUDE.md da subpasta
+   c. Determinar onde o conteúdo vai (ex.: docs/tracking/)
+   d. Criar ou atualizar a página com frontmatter correto
+   e. Registrar a fonte em source/ingested.md
+
+6. Revisar o rascunho gerado
+
+7. git add → git commit → git push → abrir Pull Request</code></pre>
+<hr />
+<h2 id="9-checklist-de-configuracao-do-repositorio">9. Checklist de configuração do repositório<a class="headerlink" href="#9-checklist-de-configuracao-do-repositorio" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> <code>CLAUDE.md</code> criado e atualizado na raiz do repositório</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Estrutura de diretórios documentada no CLAUDE.md</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Frontmatter YAML padrão definido</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Estilo de escrita e terminologia documentados</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Comandos básicos criados em <code>.claude/commands/</code> (<code>nova-pagina</code>, <code>revisar</code>, <code>lint</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Comando principal do redator configurado (ex.: <code>redator-tecnico.md</code>)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>.vscode/settings.json</code> com auto-approve para <code>git commit</code> (opcional)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>requirements.txt</code> atualizado e commitado</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>.gitignore</code> incluindo <code>site/</code>, <code>.env</code>, <code>__pycache__</code></li>
+</ul>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Resumo do módulo</p>
+<p>O Claude Code pode ser moldado para o seu repositório por quatro mecanismos: <strong>CLAUDE.md, Comandos Personalizados, Agente e Skills</strong>. Você viu onde colocar cada arquivo, quando usar cada mecanismo (com tabela de decisão) e um exemplo prático de sessão de trabalho com um agente.</p>
+</div>
+<hr />
+<blockquote>
+<p><strong>Módulo anterior:</strong> <a href="06-publicacao-externa.html">06 — Publicando para Acesso Externo</a><br />
+<strong>Próximo módulo:</strong> <a href="08-instrucoes-especificas.html">08 — Instruções Específicas</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="06-publicacao-externa.html" class="btn btn-neutral float-left" title="Módulo 6 — Publicando para Acesso Externo"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="08-instrucoes-especificas.html" class="btn btn-neutral float-right" title="Módulo 8 — Instruções Específicas">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="06-publicacao-externa.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="08-instrucoes-especificas.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

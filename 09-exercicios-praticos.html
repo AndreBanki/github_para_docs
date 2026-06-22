@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/09-exercicios-praticos.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 9 — Exercícios Práticos - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 9 \u2014 Exerc\u00edcios Pr\u00e1ticos";
+        var mkdocs_page_input_path = "09-exercicios-praticos.md";
+        var mkdocs_page_url = "/github_para_docs/09-exercicios-praticos.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 9 — Exercícios Práticos</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mapa-dos-exercicios">Mapa dos exercícios</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercicio-1-preparar-o-ambiente-e-rodar-o-site-localmente">Exercício 1 — Preparar o ambiente e rodar o site localmente</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercicio-2-o-ciclo-diario-no-vs-code-sem-terminal">Exercício 2 — O ciclo diário no VS Code, sem terminal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercicio-3-deixe-a-ia-escrever-o-markdown">Exercício 3 — Deixe a IA escrever o Markdown</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercicio-4-revisar-e-reescrever-uma-pagina-com-o-claude-code">Exercício 4 — Revisar e reescrever uma página com o Claude Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercicio-5-tarefa-autonoma-no-modo-agente">Exercício 5 — Tarefa autônoma no Modo Agente</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 9 — Exercícios Práticos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-9-exercicios-praticos">Módulo 9 — Exercícios Práticos<a class="headerlink" href="#modulo-9-exercicios-praticos" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Este módulo reúne os exercícios práticos do curso, organizados na ordem natural do fluxo de trabalho. Use-o como revisão ao final da trilha ou faça cada exercício logo após o módulo correspondente.</p>
+<p><strong>Por que este módulo vem por último:</strong> o fechamento consolida a trilha inteira em prática guiada, sem interromper o fluxo de aprendizagem dos módulos principais. A ideia é praticar depois que o caminho completo já fez sentido.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Como usar este módulo</p>
+<p>São <strong>5 exercícios</strong> focados no que você realmente vai fazer no dia a dia. Como na prática a escrita de Markdown é feita <strong>com a ajuda do Claude Code</strong>, não há exercícios de sintaxe — o foco está no fluxo Git e no uso da IA. Cada exercício indica o módulo que reforça e o resultado esperado, para você saber se está no caminho certo.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Pré-requisitos</p>
+<p>A maioria dos exercícios depende do ambiente configurado no <strong>Módulo 1</strong> e de <strong>acesso ao repositório de exercícios</strong> do curso. Se ainda não instalou Git, Python e VS Code, comece pelo Exercício 1.</p>
+<p>Repositório de exercícios: <code>https://github.com/andrebanki/github_para_docs.git</code></p>
+</div>
+<hr />
+<h2 id="mapa-dos-exercicios">Mapa dos exercícios<a class="headerlink" href="#mapa-dos-exercicios" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Exercício</th>
+<th>Reforça</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Preparar o ambiente e rodar o site localmente</td>
+<td><a href="01-setup-ambiente.html">Módulo 1</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>O ciclo diário no VS Code (sem terminal)</td>
+<td><a href="02-git-para-documentacao.html">Módulo 2</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Deixe a IA escrever o Markdown</td>
+<td><a href="03-markdown-e-mkdocs.html">Módulos 3</a> e <a href="04-claude-code.html">4</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Revisar e reescrever uma página com o Claude Code</td>
+<td><a href="04-claude-code.html">Módulo 4</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tarefa autônoma no Modo Agente</td>
+<td><a href="04-claude-code.html">Módulo 4</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exercicio-1-preparar-o-ambiente-e-rodar-o-site-localmente">Exercício 1 — Preparar o ambiente e rodar o site localmente<a class="headerlink" href="#exercicio-1-preparar-o-ambiente-e-rodar-o-site-localmente" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Reforça o <strong><a href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a></strong></p>
+</blockquote>
+<details class="example">
+<summary>Abrir exercício</summary>
+<p><strong>Objetivo:</strong> ter o ambiente completo funcionando e ver a documentação rodando no navegador.</p>
+<ol>
+<li>Instale <strong>Git</strong>, <strong>Python 3.10+</strong> e <strong>VS Code</strong> (links no Módulo 1)</li>
+<li>No VS Code, pressione <code>Ctrl+Shift+P</code> → <strong>Git: Clone</strong>, cole a URL do repositório de exercícios, escolha uma pasta e clique em <strong>Open</strong></li>
+<li>Instale as extensões recomendadas (<code>Ctrl+Shift+X</code>): <strong>Claude Code</strong>, <strong>Markdown All in One</strong>, <strong>markdownlint</strong>, <strong>Code Spell Checker</strong> (+ dicionário PT-BR) e <strong>Git Graph</strong></li>
+<li>Abra o terminal integrado (`Ctrl+``) e execute:
+    <pre class="highlight"><code class="language-bash">pip install -r requirements.txt</code></pre></li>
+<li>Ainda no terminal, rode o site localmente:
+    <pre class="highlight"><code class="language-bash">mkdocs serve</code></pre></li>
+<li>Abra <code>http://localhost:8000</code> no navegador e navegue pelo material</li>
+</ol>
+<p>✅ <strong>Resultado esperado:</strong> <code>git --version</code> e <code>python --version</code> (ou <code>py --version</code>) funcionam, o repositório está aberto no VS Code e o site carrega localmente.</p>
+</details>
+<hr />
+<h2 id="exercicio-2-o-ciclo-diario-no-vs-code-sem-terminal">Exercício 2 — O ciclo diário no VS Code, sem terminal<a class="headerlink" href="#exercicio-2-o-ciclo-diario-no-vs-code-sem-terminal" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Reforça o <strong><a href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a></strong></p>
+</blockquote>
+<details class="example">
+<summary>Abrir exercício</summary>
+<p><strong>Objetivo:</strong> executar o ciclo <code>pull → editar → commit → push</code> pela interface visual e saber desfazer com segurança.</p>
+<ol>
+<li>Abra o painel <strong>Source Control</strong> (<code>Ctrl+Shift+G</code>) e faça <strong>Pull</strong> (menu <strong>...</strong> → <strong>Pull</strong>, ou <strong>Sync Changes</strong>)</li>
+<li>Crie o arquivo <code>docs/seu-nome.md</code> com um título e uma linha de texto</li>
+<li>Clique em <strong>+</strong> ao lado do arquivo para fazer <strong>stage</strong>, escreva a mensagem <code>docs: adiciona pagina de seu-nome</code> e clique em <strong>Commit</strong> (✓)</li>
+<li>Clique em <strong>Sync Changes</strong> para enviar ao remoto</li>
+<li>No GitHub, confirme que o arquivo e a <strong>mensagem do commit</strong> aparecem na pasta <code>docs/</code></li>
+<li><strong>Desfazer mudanças não commitadas:</strong> edite o arquivo, salve e, no Source Control, clique com o botão direito → <strong>Discard Changes</strong></li>
+<li><strong>Desfazer um commit já feito:</strong> faça um commit qualquer e reverta com a extensão <strong>Git Graph</strong> → botão direito no commit → <strong>Revert</strong> (equivale a <code>git revert HEAD</code>)</li>
+</ol>
+<p>✅ <strong>Resultado esperado:</strong> seu arquivo aparece no repositório remoto e você consegue desfazer alterações tanto antes quanto depois de commitar — sem usar o terminal.</p>
+</details>
+<hr />
+<h2 id="exercicio-3-deixe-a-ia-escrever-o-markdown">Exercício 3 — Deixe a IA escrever o Markdown<a class="headerlink" href="#exercicio-3-deixe-a-ia-escrever-o-markdown" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Reforça os <strong><a href="03-markdown-e-mkdocs.html">Módulos 3</a> e <a href="04-claude-code.html">4</a></strong></p>
+</blockquote>
+<details class="example">
+<summary>Abrir exercício</summary>
+<p><strong>Objetivo:</strong> gerar uma página completa com o Claude Code e conferir o resultado no preview — sem digitar sintaxe Markdown na mão.</p>
+<ol>
+<li>Abra o <strong>Claude Code</strong> (ícone na Barra de Atividades)</li>
+<li>Peça, dando contexto claro:
+    <pre class="highlight"><code>Crie a página docs/exemplo-funcionalidade.md documentando uma
+funcionalidade fictícia de relatórios do AltoQi Visus, para um público
+de engenheiros civis que usam BIM. Inclua: frontmatter YAML (title, type,
+created, updated), títulos H2/H3, uma tabela, uma lista e uma admonition
+!!! tip.</code></pre></li>
+<li>Revise o <strong>diff</strong> proposto e aceite a criação do arquivo</li>
+<li>Abra o <strong>preview</strong> (<code>Ctrl+K V</code>) e confira se títulos, tabela e admonition renderizam corretamente</li>
+<li>Veja também a página no <code>mkdocs serve</code> (<code>http://localhost:8000</code>)</li>
+</ol>
+<p>✅ <strong>Resultado esperado:</strong> uma página bem formatada, gerada pela IA, renderizando corretamente — sem que você precise lembrar a sintaxe de tabelas, admonitions ou frontmatter.</p>
+</details>
+<hr />
+<h2 id="exercicio-4-revisar-e-reescrever-uma-pagina-com-o-claude-code">Exercício 4 — Revisar e reescrever uma página com o Claude Code<a class="headerlink" href="#exercicio-4-revisar-e-reescrever-uma-pagina-com-o-claude-code" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Reforça o <strong><a href="04-claude-code.html">Módulo 4 — Claude Code</a></strong></p>
+</blockquote>
+<details class="example">
+<summary>Abrir exercício</summary>
+<p><strong>Objetivo:</strong> usar a <strong>Edição pelo Chat</strong>, referenciando um arquivo com <code>#</code>, e aprovar mudança a mudança.</p>
+<ol>
+<li>No painel de chat, digite <code>#</code> e selecione a página criada no exercício anterior:
+    <pre class="highlight"><code>#exemplo-funcionalidade.md Reescreva a introdução em um tom mais direto e
+técnico e padronize a terminologia BIM ao longo da página.</code></pre></li>
+<li>Revise o <strong>diff</strong> e aceite ou rejeite <strong>cada trecho</strong> — nada é alterado sem sua confirmação</li>
+<li>Em seguida, peça uma verificação de qualidade:
+    <pre class="highlight"><code>Verifique se há links internos quebrados, seções vazias ou termos
+inconsistentes nesta página.</code></pre></li>
+<li>Aplique as correções sugeridas que fizerem sentido</li>
+</ol>
+<p>✅ <strong>Resultado esperado:</strong> a página foi melhorada com a sua aprovação explícita, e você consegue distinguir entre "pedir uma análise" e "pedir uma edição".</p>
+</details>
+<hr />
+<h2 id="exercicio-5-tarefa-autonoma-no-modo-agente">Exercício 5 — Tarefa autônoma no Modo Agente<a class="headerlink" href="#exercicio-5-tarefa-autonoma-no-modo-agente" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Reforça o <strong><a href="04-claude-code.html">Módulo 4 — Claude Code</a></strong></p>
+</blockquote>
+<details class="example">
+<summary>Abrir exercício</summary>
+<p><strong>Objetivo:</strong> executar uma tarefa de <strong>múltiplos passos</strong> no Modo Agente (aba <strong>CLAUDE CODE</strong>).</p>
+<ol>
+<li>Abra a aba <strong>CLAUDE CODE</strong> (não a aba CHAT) no topo do painel — esse é o modo agente</li>
+<li>Peça uma tarefa que exija ler e escrever vários arquivos:
+    <pre class="highlight"><code>Leia todas as páginas .md de docs/ e crie docs/indice-exercicios.md
+listando cada página com seu título e uma linha de resumo.</code></pre></li>
+<li>Acompanhe as ferramentas sendo chamadas em tempo real (leitura, escrita) e <strong>confirme</strong> as edições quando solicitado</li>
+<li>Abra <code>docs/indice-exercicios.md</code> no preview e confira o resultado</li>
+</ol>
+<p>✅ <strong>Resultado esperado:</strong> o agente leu múltiplas páginas e produziu um índice coerente em sequência, com a sua confirmação a cada passo sensível.</p>
+</details>
+<hr />
+<blockquote>
+<p><strong>Módulo anterior:</strong> <a href="08-instrucoes-especificas.html">08 — Instruções Específicas</a><br />
+<strong>Índice:</strong> <a href="index.html">Início</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="08-instrucoes-especificas.html" class="btn btn-neutral float-left" title="Módulo 8 — Instruções Específicas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="08-instrucoes-especificas.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

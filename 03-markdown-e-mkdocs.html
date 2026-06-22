@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/03-markdown-e-mkdocs.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 3 — Markdown e MkDocs - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 3 \u2014 Markdown e MkDocs";
+        var mkdocs_page_input_path = "03-markdown-e-mkdocs.md";
+        var mkdocs_page_url = "/github_para_docs/03-markdown-e-mkdocs.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 3 — Markdown e MkDocs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-o-que-e-markdown">1. O que é Markdown?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#por-que-markdown-para-documentacao-tecnica">Por que Markdown para documentação técnica?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-sintaxe-markdown-essencial">2. Sintaxe Markdown Essencial</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#titulos">Títulos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#paragrafos-e-quebras-de-linha">Parágrafos e quebras de linha</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enfase">Ênfase</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#listas">Listas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#links">Links</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#imagens">Imagens</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#convencao-de-pastas-para-imagens">Convenção de pastas para imagens</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#por-que-caminhos-relativos">Por que caminhos relativos?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#boas-praticas">Boas práticas</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tabelas">Tabelas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blocos-de-codigo">Blocos de código</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#citacoes-blockquote">Citações (blockquote)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#admonitions-extensao-admonition">Admonitions (extensão admonition)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#sintaxe-basica">Sintaxe básica</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#veja-como-ficam-renderizados">Veja como ficam renderizados</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#todos-os-tipos-disponiveis-no-tema-readthedocs">Todos os tipos disponíveis no tema ReadTheDocs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#conteudo-dentro-de-admonitions">Conteúdo dentro de admonitions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#admonition-colapsavel">Admonition colapsável (???)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#erros-comuns-de-indentacao">Erros comuns de indentação</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#frontmatter-yaml">Frontmatter YAML</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-o-que-e-mkdocs">3. O que é MkDocs?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#como-funciona">Como funciona?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#estrutura-de-pastas-no-repositorio">Estrutura de pastas no repositório</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-o-arquivo-mkdocsyml">4. O arquivo mkdocs.yml</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-tema-readthedocs">5. Tema ReadTheDocs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-plugin-awesome-pages">6. Plugin awesome-pages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#controlar-ordem-e-definir-titulo-no-pages">Controlar ordem e definir título no .pages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#definir-o-titulo-via-frontmatter-do-md">Definir o título via frontmatter do .md</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quando-usar-cada-abordagem">Quando usar cada abordagem</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-pre-requisitos-e-instalacao">7. Pré-requisitos e instalação</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-gerar-o-site-estatico-mkdocs-build">8. Gerar o site estático (mkdocs build)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-visualizar-localmente-mkdocs-serve">9. Visualizar localmente (mkdocs serve)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10-referencia-rapida-de-markdown">10. Referência Rápida de Markdown</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 3 — Markdown e MkDocs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-3-markdown-e-mkdocs">Módulo 3 — Markdown e MkDocs<a class="headerlink" href="#modulo-3-markdown-e-mkdocs" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Para quem é este módulo:</strong> quem vai escrever e publicar documentação — redatores técnicos, PMs e Engenheiros.</p>
+<p><strong>Por que este módulo vem agora:</strong> com o ambiente já pronto, a atenção passa para a produção do conteúdo. Este módulo ensina a escrever em Markdown e a validar localmente como o material será exibido no site gerado pelo MkDocs.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Objetivos de aprendizagem</p>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>O que é Markdown e por que usá-lo em vez de Word/Google Docs</li>
+<li>Toda a sintaxe essencial (títulos, listas, tabelas, imagens, código)</li>
+<li>Como o MkDocs transforma arquivos <code>.md</code> em um site navegável</li>
+<li>Como configurar o <code>mkdocs.yml</code> e visualizar o site localmente</li>
+</ul>
+</div>
+<hr />
+<h2 id="1-o-que-e-markdown">1. O que é Markdown?<a class="headerlink" href="#1-o-que-e-markdown" title="Permanent link">&para;</a></h2>
+<p>Markdown é uma <strong>linguagem de marcação leve</strong>: você escreve texto simples com símbolos especiais para indicar formatação. O texto resultante pode ser renderizado como HTML, PDF ou sites.</p>
+<h3 id="por-que-markdown-para-documentacao-tecnica">Por que Markdown para documentação técnica?<a class="headerlink" href="#por-que-markdown-para-documentacao-tecnica" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Markdown</th>
+<th>Word / Google Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formato</td>
+<td>Texto puro (<code>.md</code>)</td>
+<td>Binário proprietário</td>
+</tr>
+<tr>
+<td>Controle de versão com Git</td>
+<td>Diff linha a linha, claro</td>
+<td>Diffs ilegíveis</td>
+</tr>
+<tr>
+<td>Renderização web</td>
+<td>Nativa (GitHub, MkDocs)</td>
+<td>Precisa converter</td>
+</tr>
+<tr>
+<td>Foco no conteúdo</td>
+<td>Sem botões de formatação</td>
+<td>Tentação de estilizar</td>
+</tr>
+<tr>
+<td>Portabilidade</td>
+<td>Qualquer editor de texto</td>
+<td>Depende do software</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-sintaxe-markdown-essencial">2. Sintaxe Markdown Essencial<a class="headerlink" href="#2-sintaxe-markdown-essencial" title="Permanent link">&para;</a></h2>
+<h3 id="titulos">Títulos<a class="headerlink" href="#titulos" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown"># Título nível 1  (H1 — usado uma vez por página)
+## Título nível 2  (H2 — seções principais)
+### Título nível 3  (H3 — subseções)
+#### Título nível 4  (H4 — detalhes)</code></pre>
+<hr />
+<h3 id="paragrafos-e-quebras-de-linha">Parágrafos e quebras de linha<a class="headerlink" href="#paragrafos-e-quebras-de-linha" title="Permanent link">&para;</a></h3>
+<p>Deixe uma linha em branco entre parágrafos. Uma única quebra de linha dentro do mesmo bloco é ignorada.</p>
+<pre class="highlight"><code class="language-markdown">Primeiro parágrafo.
+
+Segundo parágrafo.</code></pre>
+<hr />
+<h3 id="enfase">Ênfase<a class="headerlink" href="#enfase" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown">**negrito**        → **negrito**
+*itálico*          → *itálico*
+~~tachado~~        → ~~tachado~~
+`código inline`    → `código inline`</code></pre>
+<hr />
+<h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
+<p><strong>Lista não-ordenada:</strong>
+<pre class="highlight"><code class="language-markdown">- Item A
+- Item B
+  - Sub-item B1
+  - Sub-item B2
+- Item C</code></pre></p>
+<p><strong>Lista ordenada:</strong>
+<pre class="highlight"><code class="language-markdown">1. Primeiro passo
+2. Segundo passo
+3. Terceiro passo</code></pre></p>
+<p><strong>Lista de tarefas (checklist):</strong>
+<pre class="highlight"><code class="language-markdown">- [x] Revisado
+- [ ] Aguardando aprovação
+- [ ] Publicado</code></pre></p>
+<hr />
+<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown">[Texto do link](https://exemplo.com)
+[Link para outra página](../collab/introducao.md)</code></pre>
+<hr />
+<h3 id="imagens">Imagens<a class="headerlink" href="#imagens" title="Permanent link">&para;</a></h3>
+<p>A sintaxe básica para inserir uma imagem é:</p>
+<pre class="highlight"><code class="language-markdown">![Texto alternativo](caminho/para/imagem.png)</code></pre>
+<p>O <strong>texto alternativo</strong> é exibido quando a imagem não carrega e é lido por leitores de tela — sempre preencha com uma descrição útil.</p>
+<h4 id="convencao-de-pastas-para-imagens">Convenção de pastas para imagens<a class="headerlink" href="#convencao-de-pastas-para-imagens" title="Permanent link">&para;</a></h4>
+<p>Adote a seguinte convenção: <strong>cada pasta de documentação tem uma subpasta <code>img/</code></strong> com as imagens usadas pelos arquivos <code>.md</code> daquela mesma pasta.</p>
+<pre class="highlight"><code>docs/
+├── 01-introducao.md
+├── 02-configuracao.md
+├── img/
+│   ├── tela-login.png
+│   ├── diagrama-fluxo.png
+│   └── configuracao-avancada.png
+├── collab/
+│   ├── index.md
+│   ├── cde.md
+│   └── img/
+│       ├── painel-cde.png
+│       └── estrutura-pastas.png</code></pre>
+<p>Com essa estrutura, o caminho de referência é sempre <strong>relativo ao arquivo <code>.md</code></strong>:</p>
+<pre class="highlight"><code class="language-markdown">&lt;!-- Em docs/02-configuracao.md --&gt;
+![Tela de login](img/tela-login.png)
+
+&lt;!-- Em docs/collab/cde.md --&gt;
+![Painel do CDE](img/painel-cde.png)</code></pre>
+<h4 id="por-que-caminhos-relativos">Por que caminhos relativos?<a class="headerlink" href="#por-que-caminhos-relativos" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Funcionam tanto no <code>mkdocs serve</code> local quanto no site publicado</li>
+<li>Não quebram ao mover o bloco de documentação para outro repositório</li>
+<li>O GitHub também renderiza as imagens ao navegar pelo arquivo <code>.md</code> no browser</li>
+</ul>
+<h4 id="boas-praticas">Boas práticas<a class="headerlink" href="#boas-praticas" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Prática</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use nomes descritivos (sem espaços)</td>
+<td><code>diagrama-fluxo-aprovacao.png</code></td>
+</tr>
+<tr>
+<td>Prefira PNG para capturas de tela</td>
+<td>Lossless, texto legível</td>
+</tr>
+<tr>
+<td>Prefira SVG para diagramas</td>
+<td>Escalável e leve</td>
+</tr>
+<tr>
+<td>Mantenha imagens &lt; 200 KB quando possível</td>
+<td>Carregamento rápido</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tabelas">Tabelas<a class="headerlink" href="#tabelas" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown">| Coluna A | Coluna B | Coluna C |
+|----------|----------|----------|
+| Valor 1  | Valor 2  | Valor 3  |
+| Valor 4  | Valor 5  | Valor 6  |</code></pre>
+<p>Resultado:</p>
+<table>
+<thead>
+<tr>
+<th>Coluna A</th>
+<th>Coluna B</th>
+<th>Coluna C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Valor 1</td>
+<td>Valor 2</td>
+<td>Valor 3</td>
+</tr>
+<tr>
+<td>Valor 4</td>
+<td>Valor 5</td>
+<td>Valor 6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="blocos-de-codigo">Blocos de código<a class="headerlink" href="#blocos-de-codigo" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown">```python
+def hello():
+    print("olá, mundo")
+```</code></pre>
+<p>Especifique a linguagem logo após as três crases para habilitar syntax highlighting.</p>
+<hr />
+<h3 id="citacoes-blockquote">Citações (blockquote)<a class="headerlink" href="#citacoes-blockquote" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-markdown">&gt; Esta é uma nota importante ou citação.
+&gt; Pode ter múltiplas linhas.</code></pre>
+<hr />
+<h3 id="admonitions-extensao-admonition">Admonitions (extensão <code>admonition</code>)<a class="headerlink" href="#admonitions-extensao-admonition" title="Permanent link">&para;</a></h3>
+<p>A extensão <code>admonition</code> do Python-Markdown (habilitada no <code>mkdocs.yml</code>) adiciona caixas de destaque coloridas ao texto. Elas são amplamente usadas neste curso e nos repositórios de documentação da AltoQi.</p>
+<h4 id="sintaxe-basica">Sintaxe básica<a class="headerlink" href="#sintaxe-basica" title="Permanent link">&para;</a></h4>
+<pre class="highlight"><code class="language-markdown">!!! note "Nota"
+    Informação complementar que não interrompe o fluxo.
+    O conteúdo deve ter 4 espaços de indentação.
+
+!!! warning "Atenção"
+    Algo que o usuário precisa observar com cuidado.
+
+!!! tip "Dica"
+    Atalho ou boa prática recomendada.
+
+!!! danger "Perigo"
+    Ação que pode causar perda de dados ou danos irreversíveis.
+
+!!! important "Importante"
+    Requisito ou pré-condição essencial.</code></pre>
+<p>O título entre aspas é <strong>opcional</strong> — se omitido, o tipo é usado como título automaticamente:</p>
+<pre class="highlight"><code class="language-markdown">!!! tip
+    Esta dica não tem título personalizado — exibe "Tip" como padrão.</code></pre>
+<h4 id="veja-como-ficam-renderizados">Veja como ficam renderizados<a class="headerlink" href="#veja-como-ficam-renderizados" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Informação complementar que não interrompe o fluxo.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Atalho ou boa prática recomendada.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Atenção</p>
+<p>Algo que o usuário precisa observar com cuidado.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Perigo</p>
+<p>Ação que pode causar perda de dados ou danos irreversíveis.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Requisito ou pré-condição essencial.</p>
+</div>
+<h4 id="todos-os-tipos-disponiveis-no-tema-readthedocs">Todos os tipos disponíveis no tema ReadTheDocs<a class="headerlink" href="#todos-os-tipos-disponiveis-no-tema-readthedocs" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Cor</th>
+<th>Uso recomendado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>note</code></td>
+<td>Azul</td>
+<td>Observação ou informação complementar</td>
+</tr>
+<tr>
+<td><code>tip</code> / <code>hint</code></td>
+<td>Verde</td>
+<td>Dica, atalho, boa prática</td>
+</tr>
+<tr>
+<td><code>important</code></td>
+<td>Roxo</td>
+<td>Requisito obrigatório ou pré-condição</td>
+</tr>
+<tr>
+<td><code>warning</code> / <code>caution</code></td>
+<td>Laranja</td>
+<td>Situação que pode causar erros</td>
+</tr>
+<tr>
+<td><code>danger</code> / <code>error</code></td>
+<td>Vermelho</td>
+<td>Ação destrutiva ou irreversível</td>
+</tr>
+<tr>
+<td><code>abstract</code> / <code>summary</code></td>
+<td>Ciano</td>
+<td>Resumo de objetivos de aprendizagem</td>
+</tr>
+<tr>
+<td><code>success</code> / <code>check</code></td>
+<td>Verde claro</td>
+<td>Confirmação de conclusão ou checklist</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td>Azul claro</td>
+<td>Referência ou contexto extra</td>
+</tr>
+</tbody>
+</table>
+<h4 id="conteudo-dentro-de-admonitions">Conteúdo dentro de admonitions<a class="headerlink" href="#conteudo-dentro-de-admonitions" title="Permanent link">&para;</a></h4>
+<p>Você pode colocar listas, código e até múltiplos parágrafos — basta manter a indentação de 4 espaços:</p>
+<pre class="highlight"><code class="language-markdown">!!! warning "Antes de continuar"
+    Verifique os seguintes itens:
+
+    - O Python 3.10 ou superior está instalado
+    - O `requirements.txt` foi instalado com `pip install -r requirements.txt`
+    - Você está dentro da pasta correta do repositório
+
+    Se qualquer item estiver pendente, resolva antes de prosseguir.</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Antes de continuar</p>
+<p>Verifique os seguintes itens:</p>
+<ul>
+<li>O Python 3.10 ou superior está instalado</li>
+<li>O <code>requirements.txt</code> foi instalado com <code>pip install -r requirements.txt</code></li>
+<li>Você está dentro da pasta correta do repositório</li>
+</ul>
+<p>Se qualquer item estiver pendente, resolva antes de prosseguir.</p>
+</div>
+<h4 id="admonition-colapsavel">Admonition colapsável (<code>???</code>)<a class="headerlink" href="#admonition-colapsavel" title="Permanent link">&para;</a></h4>
+<p>Use <code>???</code> em vez de <code>!!!</code> para criar uma caixa que começa <strong>fechada</strong> — útil para conteúdo opcional, glossários ou detalhes avançados:</p>
+<pre class="highlight"><code class="language-markdown">??? note "Detalhes técnicos (opcional)"
+    Esta seção explica o funcionamento interno do MkDocs para quem quiser aprofundar.
+    Não é necessária para o uso no dia a dia.</code></pre>
+<details class="note">
+<summary>Detalhes técnicos (opcional)</summary>
+<p>Esta seção explica o funcionamento interno do MkDocs para quem quiser aprofundar.
+Não é necessária para o uso no dia a dia.</p>
+</details>
+<p>Use <code>???+</code> para começar <strong>aberta</strong> e permitir que o leitor feche:</p>
+<pre class="highlight"><code class="language-markdown">???+ tip "Atalhos do VS Code"
+    - `Ctrl+Shift+V` — preview de Markdown
+    - `Ctrl+K V` — preview ao lado</code></pre>
+<details class="tip" open="open">
+<summary>Atalhos do VS Code</summary>
+<ul>
+<li><code>Ctrl+Shift+V</code> — preview de Markdown</li>
+<li><code>Ctrl+K V</code> — preview ao lado</li>
+</ul>
+</details>
+<h4 id="erros-comuns-de-indentacao">Erros comuns de indentação<a class="headerlink" href="#erros-comuns-de-indentacao" title="Permanent link">&para;</a></h4>
+<div class="admonition danger">
+<p class="admonition-title">Indentação incorreta quebra a admonition</p>
+<p>O conteúdo <strong>deve</strong> ter exatamente 4 espaços. Usar tab ou 2 espaços faz o texto sair da caixa e ser renderizado como parágrafo comum.</p>
+</div>
+<pre class="highlight"><code class="language-markdown"># ✅ Correto — 4 espaços
+!!! tip "Dica"
+    Este texto está dentro da caixa.
+
+# ❌ Errado — 2 espaços
+!!! tip "Dica"
+  Este texto ficará fora da caixa.
+
+# ❌ Errado — sem indentação
+!!! tip "Dica"
+Este texto ficará fora da caixa.</code></pre>
+<hr />
+<h3 id="frontmatter-yaml">Frontmatter YAML<a class="headerlink" href="#frontmatter-yaml" title="Permanent link">&para;</a></h3>
+<p>Toda página de documentação no projeto Visus começa com um bloco de metadados:</p>
+<pre class="highlight"><code class="language-yaml">---
+title: Introdução ao Módulo Collab
+type: visao-geral
+created: 2025-01-10
+updated: 2025-06-05
+sources: [link-da-fonte-1, pdf-fonte-2]
+tags: [collab, CDE, modelos-bim]
+---</code></pre>
+<p>Este bloco é invisível para o leitor final, mas é usado pelo MkDocs para gerar títulos, metadados de SEO e navegação.</p>
+<div class="admonition tip">
+<p class="admonition-title">Não precisa decorar</p>
+<p>O comando <code>/nova-pagina</code> (ver <a href="07-claude-code-customizacao.html">Módulo 7</a>) preenche o frontmatter automaticamente. Basta saber que ele existe e para que serve.</p>
+</div>
+<hr />
+<h2 id="3-o-que-e-mkdocs">3. O que é MkDocs?<a class="headerlink" href="#3-o-que-e-mkdocs" title="Permanent link">&para;</a></h2>
+<p><strong>MkDocs</strong> é um gerador de site estático voltado para documentação. Ele pega os arquivos <code>.md</code> do diretório <code>docs/</code> e os transforma em um site HTML navegável.</p>
+<h3 id="como-funciona">Como funciona?<a class="headerlink" href="#como-funciona" title="Permanent link">&para;</a></h3>
+<div class="mermaid">flowchart LR
+    A["docs/*.md\nArquivos Markdown"] --&gt;|mkdocs build| B["site/*.html\nSite estático"]
+    B --&gt;|deploy| C["GitHub Pages\nSite publicado"]
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style C fill:#155f3f,stroke:#3BE592,color:#ffffff</div>
+<p>A configuração central fica em <code>mkdocs.yml</code> na raiz do repositório.</p>
+<h3 id="estrutura-de-pastas-no-repositorio">Estrutura de pastas no repositório<a class="headerlink" href="#estrutura-de-pastas-no-repositorio" title="Permanent link">&para;</a></h3>
+<p>Um repositório com MkDocs tem sempre <strong>uma única pasta de documentação publicada</strong> — por padrão chamada <code>docs/</code>, mas pode ter qualquer outro nome. O nome escolhido é declarado no <code>mkdocs.yml</code> via <code>docs_dir</code>:</p>
+<pre class="highlight"><code class="language-yaml">docs_dir: docs   # qualquer outro nome também funciona</code></pre>
+<p>Além dessa pasta, o repositório pode conter <strong>qualquer número de pastas auxiliares</strong> — rascunhos, materiais de apoio, scripts, prompts, etc. — que ficam versionadas no Git mas <strong>não são publicadas</strong> pelo MkDocs.</p>
+<pre class="highlight"><code>repositorio/
+├── mkdocs.yml
+├── docs/              ← única pasta publicada pelo MkDocs
+│   ├── index.md
+│   └── modulo-1.md
+├── rascunhos/         ← pasta auxiliar (versionada, mas não publicada)
+├── prompts/           ← pasta auxiliar (versionada, mas não publicada)
+└── site/              ← gerada pelo mkdocs build (não versionada — está no .gitignore)</code></pre>
+<div class="admonition important">
+<p class="admonition-title">A pasta <code>site/</code> não é uma pasta auxiliar</p>
+<p>A pasta <code>site/</code> é gerada automaticamente pelo <code>mkdocs build</code> e está no <code>.gitignore</code>. Ela <strong>não</strong> deve ser commitada nem confundida com pastas auxiliares — é apenas o artefato de saída do build.</p>
+</div>
+<hr />
+<h2 id="4-o-arquivo-mkdocsyml">4. O arquivo <code>mkdocs.yml</code><a class="headerlink" href="#4-o-arquivo-mkdocsyml" title="Permanent link">&para;</a></h2>
+<p>Este arquivo controla tudo: nome do site, tema, plugins, extensões, estrutura de navegação.</p>
+<pre class="highlight"><code class="language-yaml">site_name: AltoQi Visus — Documentação
+docs_dir: docs          # onde estão os arquivos .md
+site_dir: site          # onde o HTML gerado será salvo
+
+theme:
+  name: readthedocs      # tema usado pelo projeto Visus
+  language: pt-BR
+
+plugins:
+  - search               # busca em texto completo
+  - awesome-pages        # controla a navegação via arquivos .pages
+
+markdown_extensions:
+  - admonition           # caixas !!! note, !!! warning etc.
+  - tables               # tabelas GFM
+  - toc:
+      permalink: true    # âncora # em cada título</code></pre>
+<hr />
+<h2 id="5-tema-readthedocs">5. Tema ReadTheDocs<a class="headerlink" href="#5-tema-readthedocs" title="Permanent link">&para;</a></h2>
+<p>O projeto Visus usa o tema <strong>ReadTheDocs</strong> — limpo, com navegação lateral hierárquica e ótima legibilidade para documentação técnica.</p>
+<p>Características do tema:</p>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navegação lateral</td>
+<td>Índice hierárquico fixo à esquerda</td>
+</tr>
+<tr>
+<td>Busca integrada</td>
+<td>Campo de busca no topo da barra lateral</td>
+</tr>
+<tr>
+<td>Admonitions</td>
+<td>Caixas <code>!!! note</code>, <code>!!! warning</code> etc.</td>
+</tr>
+<tr>
+<td>Responsivo</td>
+<td>Funciona em desktop e mobile</td>
+</tr>
+<tr>
+<td>Fontes customizáveis</td>
+<td>Configuradas no <code>mkdocs.yml</code> via <code>extra_css</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-plugin-awesome-pages">6. Plugin <code>awesome-pages</code><a class="headerlink" href="#6-plugin-awesome-pages" title="Permanent link">&para;</a></h2>
+<p>Este plugin permite controlar a <strong>ordem e os rótulos</strong> da navegação por meio de arquivos <code>.pages</code> dentro de cada pasta. Sem ele, o MkDocs usa ordem alfabética e o nome do arquivo como rótulo.</p>
+<h3 id="controlar-ordem-e-definir-titulo-no-pages">Controlar ordem e definir título no <code>.pages</code><a class="headerlink" href="#controlar-ordem-e-definir-titulo-no-pages" title="Permanent link">&para;</a></h3>
+<p>No <code>.pages</code> você pode listar os arquivos na ordem desejada e atribuir um rótulo personalizado para cada entrada na barra de navegação:</p>
+<pre class="highlight"><code class="language-yaml"># docs/collab/.pages
+nav:
+  - index.md                              # usa o título definido no próprio arquivo
+  - "Ambiente Comum de Dados": cde.md     # rótulo explícito na navegação
+  - "Modelos BIM": modelos-bim.md
+  - gestao-documental.md</code></pre>
+<p>O rótulo definido aqui afeta <strong>apenas o item de menu</strong> — não altera o título <code>&lt;h1&gt;</code> exibido dentro da página.</p>
+<hr />
+<h3 id="definir-o-titulo-via-frontmatter-do-md">Definir o título via frontmatter do <code>.md</code><a class="headerlink" href="#definir-o-titulo-via-frontmatter-do-md" title="Permanent link">&para;</a></h3>
+<p>A alternativa (e a mais recomendada para o projeto Visus) é definir o título diretamente no frontmatter de cada página:</p>
+<pre class="highlight"><code class="language-yaml">---
+title: Ambiente Comum de Dados
+type: visao-geral
+created: 2025-03-01
+updated: 2026-06-05
+---</code></pre>
+<p>Com isso, o MkDocs usa o valor de <code>title</code> como rótulo na navegação <strong>e</strong> como título da página — sem precisar duplicar a informação no <code>.pages</code>.</p>
+<hr />
+<h3 id="quando-usar-cada-abordagem">Quando usar cada abordagem<a class="headerlink" href="#quando-usar-cada-abordagem" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Onde definir o título</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Título do menu igual ao título da página</td>
+<td>Frontmatter <code>title:</code> no <code>.md</code></td>
+</tr>
+<tr>
+<td>Menu com rótulo diferente do <code>&lt;h1&gt;</code> da página</td>
+<td><code>.pages</code> com <code>"Rótulo": arquivo.md</code></td>
+</tr>
+<tr>
+<td>Controlar apenas a ordem, sem mudar títulos</td>
+<td><code>.pages</code> listando só os nomes dos arquivos</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-pre-requisitos-e-instalacao">7. Pré-requisitos e instalação<a class="headerlink" href="#7-pre-requisitos-e-instalacao" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 3.10 ou superior instalado</li>
+<li>Terminal (PowerShell no Windows)</li>
+</ul>
+<pre class="highlight"><code class="language-bash">pip install -r requirements.txt</code></pre>
+<p>O <code>requirements.txt</code> do projeto Visus contém:</p>
+<pre class="highlight"><code>mkdocs&gt;=1.6
+mkdocs-awesome-pages-plugin&gt;=2.9</code></pre>
+<hr />
+<h2 id="8-gerar-o-site-estatico-mkdocs-build">8. Gerar o site estático (<code>mkdocs build</code>)<a class="headerlink" href="#8-gerar-o-site-estatico-mkdocs-build" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code class="language-bash">mkdocs build</code></pre>
+<p>Isso lê todos os arquivos <code>.md</code> em <code>docs/</code> e gera a pasta <code>site/</code> com HTML, CSS e JS prontos para hospedar em qualquer servidor web.</p>
+<pre class="highlight"><code>docs/*.md  ──►  mkdocs build  ──►  site/*.html</code></pre>
+<blockquote>
+<p><strong>Importante:</strong> a pasta <code>site/</code> está no <code>.gitignore</code> — ela nunca deve ser commitada. O build é sempre gerado a partir dos fontes <code>.md</code>.</p>
+</blockquote>
+<hr />
+<h2 id="9-visualizar-localmente-mkdocs-serve">9. Visualizar localmente (<code>mkdocs serve</code>)<a class="headerlink" href="#9-visualizar-localmente-mkdocs-serve" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code class="language-bash">mkdocs serve</code></pre>
+<p>Inicia um servidor local em <code>http://localhost:8000</code>. O site <strong>atualiza automaticamente</strong> ao salvar qualquer arquivo <code>.md</code> — útil para revisar formatação, links e navegação antes de commitar.</p>
+<p>Ou use o script do projeto:</p>
+<pre class="highlight"><code class="language-powershell">.\serve.ps1</code></pre>
+<blockquote>
+<p><code>mkdocs serve</code> é apenas para visualização local — não publica nada. Use <code>mkdocs build</code> para gerar o site final.</p>
+</blockquote>
+<hr />
+<h2 id="10-referencia-rapida-de-markdown">10. Referência Rápida de Markdown<a class="headerlink" href="#10-referencia-rapida-de-markdown" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sintaxe</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code># Título</code></td>
+<td>Título H1</td>
+</tr>
+<tr>
+<td><code>## Seção</code></td>
+<td>Título H2</td>
+</tr>
+<tr>
+<td><code>**negrito**</code></td>
+<td><strong>negrito</strong></td>
+</tr>
+<tr>
+<td><code>*itálico*</code></td>
+<td><em>itálico</em></td>
+</tr>
+<tr>
+<td><code>`código`</code></td>
+<td><code>código</code></td>
+</tr>
+<tr>
+<td><code>[link](url)</code></td>
+<td>Hiperlink</td>
+</tr>
+<tr>
+<td><code>![alt](img.png)</code></td>
+<td>Imagem</td>
+</tr>
+<tr>
+<td><code>&gt; citação</code></td>
+<td>Blockquote</td>
+</tr>
+<tr>
+<td><code>- item</code></td>
+<td>Lista</td>
+</tr>
+<tr>
+<td><code>1. item</code></td>
+<td>Lista numerada</td>
+</tr>
+<tr>
+<td><code>\| col \|</code></td>
+<td>Tabela</td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td>Linha horizontal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Resumo do módulo</p>
+<p>Markdown é texto simples com marcações leves, mais portável que Word ou Google Docs. Você aprendeu a sintaxe essencial (títulos, listas, tabelas, imagens e código) e como o <strong>MkDocs</strong> transforma arquivos <code>.md</code> em um site navegável — configurando o <code>mkdocs.yml</code> e visualizando tudo localmente com <code>mkdocs serve</code>.</p>
+</div>
+<hr />
+<blockquote>
+<p><strong>Módulo anterior:</strong> <a href="02-git-para-documentacao.html">02 — Git para Documentação</a><br />
+<strong>Próximo módulo:</strong> <a href="04-claude-code.html">04 — Claude Code</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="02-git-para-documentacao.html" class="btn btn-neutral float-left" title="Módulo 2 — Git para Documentação"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="04-claude-code.html" class="btn btn-neutral float-right" title="Módulo 4 — Claude Code para Documentação">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="02-git-para-documentacao.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="04-claude-code.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

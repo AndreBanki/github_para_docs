@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/05-branches-e-pull-requests.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 5 — Branches e Pull Requests - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 5 \u2014 Branches e Pull Requests";
+        var mkdocs_page_input_path = "05-branches-e-pull-requests.md";
+        var mkdocs_page_url = "/github_para_docs/05-branches-e-pull-requests.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 5 — Branches e Pull Requests</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#por-que-isso-existe">Por que isso existe?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-o-que-e-um-branch">1. O que é um Branch?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#criar-um-branch">Criar um branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#navegar-entre-branches">Navegar entre branches</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ver-todos-os-branches">Ver todos os branches</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-trabalhando-no-branch">2. Trabalhando no Branch</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-o-que-e-um-pull-request-pr">3. O que é um Pull Request (PR)?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#abrir-um-pr">Abrir um PR</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#revisar-um-pr">Revisar um PR</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mesclar-merge-o-pr">Mesclar (merge) o PR</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-conflitos-de-merge-no-fluxo-completo">4. Conflitos de Merge no Fluxo Completo</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#resolver-no-vs-code">Resolver no VS Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-estrutura-de-branches-do-repositorio">5. Estrutura de Branches do Repositório</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-fluxo-completo-referencia-rapida">6. Fluxo Completo — Referência Rápida</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 5 — Branches e Pull Requests</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-5-branches-e-pull-requests">Módulo 5 — Branches e Pull Requests<a class="headerlink" href="#modulo-5-branches-e-pull-requests" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Pré-requisito:</strong> leia o <a href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a> antes de continuar. Este documento aprofunda o <strong>Fluxo Completo</strong> — branches isolados e revisão via Pull Request.</p>
+<p><strong>Por que este módulo vem agora:</strong> depois de dominar o fluxo individual de edição, é hora de introduzir colaboração segura. Branches e Pull Requests entram aqui porque passam a fazer sentido quando o básico de edição, versionamento e validação local já está consolidado.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Objetivos de aprendizagem</p>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>O que é um branch e por que ele existe</li>
+<li>Como criar, navegar e trabalhar em branches</li>
+<li>O que é um Pull Request e como fazer revisão</li>
+<li>Como resolver conflitos de merge</li>
+<li>O fluxo completo passo a passo</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Não se preocupe se parecer complexo</p>
+<p>90% do seu dia a dia é o fluxo simplificado (Módulo 2). Branches e PRs são para quando a equipe crescer ou o conteúdo precisar de revisão formal.</p>
+</div>
+<hr />
+<h2 id="por-que-isso-existe">Por que isso existe?<a class="headerlink" href="#por-que-isso-existe" title="Permanent link">&para;</a></h2>
+<p>No fluxo simplificado, tudo que você commita e faz <code>push</code> vai direto para o <code>main</code> — e, consequentemente, para o site publicado. Isso funciona bem enquanto a equipe é pequena e os conteúdos são independentes.</p>
+<p>À medida que a equipe cresce ou o conteúdo se torna mais crítico, surgem situações que o fluxo simplificado não cobre:</p>
+<ul>
+<li>Dois redatores editam arquivos próximos ao mesmo tempo e sobrescrevem o trabalho um do outro</li>
+<li>Um rascunho incompleto vai parar no site antes de estar pronto</li>
+<li>Não há como pedir revisão de conteúdo antes de publicar</li>
+<li>É difícil trabalhar num conjunto grande de mudanças sem atrapalhar quem está editando outras seções</li>
+</ul>
+<p>A solução são dois conceitos: <strong>branch</strong> e <strong>Pull Request</strong>.</p>
+<hr />
+<h2 id="1-o-que-e-um-branch">1. O que é um Branch?<a class="headerlink" href="#1-o-que-e-um-branch" title="Permanent link">&para;</a></h2>
+<p>Um branch é uma <strong>linha do tempo paralela</strong> do repositório. Enquanto o <code>main</code> continua estável e publicado, você trabalha numa cópia isolada — sem afetar ninguém.</p>
+<div class="mermaid">gitGraph
+    commit id: "página existente"
+    commit id: "correção anterior"
+    branch docs/guia-collab
+    commit id: "commit A"
+    commit id: "commit B"
+    commit id: "commit C"
+    checkout main
+    commit id: "outro trabalho"
+    merge docs/guia-collab id: "merge do PR"
+    commit id: "site atualizado"</div>
+<p>Só quando você decidir (e alguém aprovar) é que esse trabalho é incorporado ao <code>main</code>.</p>
+<h3 id="criar-um-branch">Criar um branch<a class="headerlink" href="#criar-um-branch" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git checkout -b docs/nome-da-tarefa</code></pre>
+<p>Esse comando cria o branch a partir do estado atual do <code>main</code> e já muda para ele.</p>
+<p><strong>No VS Code:</strong> clique em <img alt="Git Branch" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/git-branch.svg" /> <strong>nome do branch</strong> na barra de status inferior → <strong>Create new branch...</strong> → digite o nome.</p>
+<p><strong>Convenção de nomes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Prefixo</th>
+<th>Quando usar</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs/</code></td>
+<td>Criação ou expansão de conteúdo</td>
+<td><code>docs/tutorial-planning</code></td>
+</tr>
+<tr>
+<td><code>fix/</code></td>
+<td>Correção pontual de erro</td>
+<td><code>fix/link-quebrado-collab</code></td>
+</tr>
+<tr>
+<td><code>refactor/</code></td>
+<td>Reorganização de estrutura</td>
+<td><code>refactor/renomear-secoes-bid</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="navegar-entre-branches">Navegar entre branches<a class="headerlink" href="#navegar-entre-branches" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git checkout main              # voltar para o main
+git checkout docs/guia-collab  # ir para um branch existente</code></pre>
+<p><strong>No VS Code:</strong> clique em <img alt="Git Branch" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/git-branch.svg" /> <strong>nome do branch</strong> na barra de status inferior → selecione o branch desejado na lista.</p>
+<hr />
+<h3 id="ver-todos-os-branches">Ver todos os branches<a class="headerlink" href="#ver-todos-os-branches" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git branch -a    # local e remoto</code></pre>
+<hr />
+<h2 id="2-trabalhando-no-branch">2. Trabalhando no Branch<a class="headerlink" href="#2-trabalhando-no-branch" title="Permanent link">&para;</a></h2>
+<p>O fluxo dentro do branch é idêntico ao fluxo simplificado — você edita, faz <code>add</code>, <code>commit</code> e <code>push</code>. A diferença é que o <code>push</code> envia para o seu branch, não para o <code>main</code>:</p>
+<pre class="highlight"><code class="language-bash">git add .
+git commit -m "docs: adiciona introdução ao módulo Collab"
+git push origin docs/guia-collab</code></pre>
+<p><strong>No VS Code:</strong> Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/source-control.svg" /> Source Control → clique em <img alt="Add" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/add.svg" /> para fazer stage → escreva a mensagem → <img alt="Check" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/check.svg" /> <strong>Commit</strong> → <img alt="Sync" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/sync.svg" /> <strong>Sync Changes</strong> (ou <img alt="Ellipsis" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/ellipsis.svg" /> → <strong>Push</strong>).</p>
+<p>Você pode fazer quantos commits quiser no branch. Enquanto não abrir o PR e ele não for mesclado, o <code>main</code> não é afetado.</p>
+<hr />
+<h2 id="3-o-que-e-um-pull-request-pr">3. O que é um Pull Request (PR)?<a class="headerlink" href="#3-o-que-e-um-pull-request-pr" title="Permanent link">&para;</a></h2>
+<p>Um Pull Request é uma <strong>proposta formal de mesclar um branch no <code>main</code></strong>. Ele é aberto no GitHub (não no terminal) e permite:</p>
+<ul>
+<li><strong>Revisão de conteúdo:</strong> um colega lê o que você escreveu antes de publicar</li>
+<li><strong>Comentários linha a linha:</strong> é possível comentar em trechos específicos</li>
+<li><strong>Histórico permanente:</strong> toda a discussão fica registrada no repositório</li>
+<li><strong>Aprovação explícita:</strong> o merge só acontece quando alguém aprova</li>
+</ul>
+<h3 id="abrir-um-pr">Abrir um PR<a class="headerlink" href="#abrir-um-pr" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Após fazer <code>push</code> do branch, acesse o repositório no GitHub</li>
+<li>Uma faixa amarela aparece: "Compare &amp; pull request" — clique nela</li>
+<li>Escreva um título descritivo e uma descrição do que foi adicionado/alterado</li>
+<li>Atribua um revisor (campo "Reviewers")</li>
+<li>Clique em <strong>Create Pull Request</strong></li>
+</ol>
+<h3 id="revisar-um-pr">Revisar um PR<a class="headerlink" href="#revisar-um-pr" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Acesse a aba <strong>Pull requests</strong> no repositório</li>
+<li>Abra o PR designado para você</li>
+<li>Vá em <strong>Files changed</strong> para ver exatamente o que mudou</li>
+<li>Clique em qualquer linha para adicionar um comentário</li>
+<li>Quando estiver satisfeito, clique em <strong>Review changes → Approve</strong></li>
+</ol>
+<h3 id="mesclar-merge-o-pr">Mesclar (merge) o PR<a class="headerlink" href="#mesclar-merge-o-pr" title="Permanent link">&para;</a></h3>
+<p>Após aprovação, o próprio autor (ou o revisor) clica em <strong>Merge pull request</strong>. O conteúdo entra no <code>main</code> e o branch pode ser deletado.</p>
+<hr />
+<h2 id="4-conflitos-de-merge-no-fluxo-completo">4. Conflitos de Merge no Fluxo Completo<a class="headerlink" href="#4-conflitos-de-merge-no-fluxo-completo" title="Permanent link">&para;</a></h2>
+<p>Quando dois branches alteram o mesmo trecho de um arquivo, o Git não consegue decidir sozinho qual versão manter. Isso é um <strong>conflito de merge</strong>.</p>
+<p>O Git marca as diferenças no arquivo:</p>
+<pre class="highlight"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto que está no seu branch
+=======
+Texto que está no main
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code></pre>
+<h3 id="resolver-no-vs-code">Resolver no VS Code<a class="headerlink" href="#resolver-no-vs-code" title="Permanent link">&para;</a></h3>
+<p>O VS Code detecta o conflito e exibe botões acima do trecho no Painel <img alt="Source Control" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/source-control.svg" /> Source Control:</p>
+<ul>
+<li><strong>Accept Current Change</strong> — mantém o que está no seu branch</li>
+<li><strong>Accept Incoming Change</strong> — mantém o que veio do main</li>
+<li><strong>Accept Both Changes</strong> — mantém os dois trechos</li>
+<li><strong>Compare Changes</strong> — mostra o diff lado a lado</li>
+</ul>
+<p>Após resolver, salve o arquivo, clique em <img alt="Add" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/add.svg" /> para fazer stage e depois em <img alt="Check" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.45/src/icons/check.svg" /> <strong>Commit</strong>.</p>
+<hr />
+<h2 id="5-estrutura-de-branches-do-repositorio">5. Estrutura de Branches do Repositório<a class="headerlink" href="#5-estrutura-de-branches-do-repositorio" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>main
+  └── Branch de produção. Nunca recebe push direto no fluxo completo.
+      Todo conteúdo chega via Pull Request revisado.
+
+docs/&lt;nome&gt;
+  └── Trabalho em andamento. Aberto por um redator para uma tarefa específica.
+      Exemplo: docs/tutorial-planning, docs/visao-geral-bid
+
+fix/&lt;nome&gt;
+  └── Correção pontual de erro de conteúdo.
+      Exemplo: fix/link-quebrado-collab, fix/terminologia-incorreta</code></pre>
+<blockquote>
+<p>Branches devem ser de vida curta. Crie, trabalhe, abra o PR, mescle e delete. Branches que ficam abertos por semanas tendem a acumular conflitos.</p>
+</blockquote>
+<hr />
+<h2 id="6-fluxo-completo-referencia-rapida">6. Fluxo Completo — Referência Rápida<a class="headerlink" href="#6-fluxo-completo-referencia-rapida" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>git pull                                  # atualizar main
+git checkout -b docs/nome-da-tarefa       # criar branch
+# ... editar arquivos ...
+git add .
+git commit -m "docs: descreve o que foi feito"
+git push origin docs/nome-da-tarefa       # enviar branch para o GitHub
+
+→ Abrir Pull Request no GitHub
+→ Revisor aprova
+→ Merge no main → site atualizado automaticamente
+→ Deletar o branch</code></pre>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Resumo do módulo</p>
+<p><strong>Branches</strong> isolam um trabalho em andamento sem afetar o <code>main</code>, e o <strong>Pull Request</strong> permite revisar o conteúdo antes de publicar. Você viu como criar e navegar em branches, abrir e revisar um PR, resolver conflitos de merge e executar o fluxo completo passo a passo.</p>
+</div>
+<hr />
+<blockquote>
+<p><strong>Módulo anterior:</strong> <a href="04-claude-code.html">04 — Claude Code</a><br />
+<strong>Próximo módulo:</strong> <a href="06-publicacao-externa.html">06 — Publicando para Acesso Externo</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="04-claude-code.html" class="btn btn-neutral float-left" title="Módulo 4 — Claude Code para Documentação"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="06-publicacao-externa.html" class="btn btn-neutral float-right" title="Módulo 6 — Publicando para Acesso Externo">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="04-claude-code.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="06-publicacao-externa.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

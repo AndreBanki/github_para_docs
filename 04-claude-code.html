@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/04-claude-code.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 4 — Claude Code para Documentação - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 4 \u2014 Claude Code para Documenta\u00e7\u00e3o";
+        var mkdocs_page_input_path = "04-claude-code.md";
+        var mkdocs_page_url = "/github_para_docs/04-claude-code.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 4 — Claude Code para Documentação</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-o-que-e-o-claude-code">1. O que é o Claude Code?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-modos-de-uso-do-claude-code">2. Modos de uso do Claude Code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-chat-no-vs-code">2.1 Chat no VS Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-edicao-pelo-chat">2.2 Edição pelo Chat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-modo-agente-aba-claude-code">2.3 Modo Agente (aba CLAUDE CODE)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#controles-principais-da-aba-claude-code">Controles principais da aba CLAUDE CODE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24-cli-claude-no-terminal">2.4 CLI (claude no terminal)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-boas-praticas-ao-usar-claude-code-para-documentacao">3. Boas práticas ao usar Claude Code para documentação</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#de-contexto-suficiente">Dê contexto suficiente</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nao-publique-sem-revisar">Não publique sem revisar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-o-claude-code-para-consistencia">Use o Claude Code para consistência</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 4 — Claude Code para Documentação</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-4-claude-code-para-documentacao">Módulo 4 — Claude Code para Documentação<a class="headerlink" href="#modulo-4-claude-code-para-documentacao" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Para quem é este módulo:</strong> toda a equipe que vai escrever documentação com apoio de IA.</p>
+<p><strong>Por que este módulo vem agora:</strong> depois de aprender Git, Markdown e MkDocs, você já sabe ler, formatar e avaliar o conteúdo que será produzido. Agora entra o Claude Code como redator técnico assistente dentro do VS Code — acelerando a escrita e a revisão sobre uma base que você já entende.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Objetivos de aprendizagem</p>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>O que é o Claude Code e o que ele pode fazer</li>
+<li>Os modos de uso do Claude Code e quando usar cada um</li>
+<li>Boas práticas para IA generativa em documentação</li>
+</ul>
+</div>
+<hr />
+<h2 id="1-o-que-e-o-claude-code">1. O que é o Claude Code?<a class="headerlink" href="#1-o-que-e-o-claude-code" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Acesso necessário</p>
+<p>O Claude Code requer acesso ao serviço Anthropic (via API key individual ou configurada pela organização). Consulte seu gestor para verificar se sua conta já tem acesso configurado.</p>
+</div>
+<p>O Claude Code é um <strong>assistente de IA desenvolvido pela Anthropic</strong>, disponível como extensão do VS Code e como ferramenta de linha de comando (CLI). Diferente de IAs de sugestão inline, o Claude Code opera como um <strong>agente</strong>: ele lê o contexto completo do repositório, edita arquivos diretamente e executa tarefas de múltiplos passos de forma autônoma.</p>
+<p>O Claude Code pode:</p>
+<ul>
+<li><strong>Entender o repositório inteiro</strong> antes de responder — lê estrutura, histórico e conteúdo</li>
+<li><strong>Gerar rascunhos</strong> de páginas de documentação a partir de uma instrução</li>
+<li><strong>Editar arquivos diretamente</strong>, com confirmação explícita do usuário antes de cada alteração</li>
+<li><strong>Revisar e melhorar</strong> textos existentes para clareza, consistência e tom</li>
+<li><strong>Responder dúvidas</strong> sobre Git, MkDocs, Markdown e o conteúdo do repositório</li>
+<li><strong>Executar tarefas autônomas de múltiplos passos</strong> no modo agente</li>
+</ul>
+<p>O Claude Code usa o contexto dos arquivos abertos e do repositório inteiro para gerar respostas relevantes ao seu projeto específico.</p>
+<hr />
+<h2 id="2-modos-de-uso-do-claude-code">2. Modos de uso do Claude Code<a class="headerlink" href="#2-modos-de-uso-do-claude-code" title="Permanent link">&para;</a></h2>
+<p>Use o diagrama abaixo para decidir qual modo usar:</p>
+<div class="mermaid">flowchart TD
+    A{"O que você quer fazer?"} --&gt;|Conversar, perguntar\nou pedir análise| B["Chat no VS Code\nÍcone Claude na Barra de Atividades"]
+    A --&gt;|Editar um trecho\nou arquivo específico| C["Edição pelo Chat\nReferencie o arquivo no chat"]
+    A --&gt;|Tarefa autônoma com\nleitura e escrita de arquivos| D["Modo Agente\nChat → modo Agent"]
+    A --&gt;|Usar pelo terminal\ncom controle total| E["CLI\n`claude` no terminal"]
+    style B fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style E fill:#0e3a30,stroke:#34d399,color:#dafff2</div>
+<h3 id="21-chat-no-vs-code">2.1 Chat no VS Code<a class="headerlink" href="#21-chat-no-vs-code" title="Permanent link">&para;</a></h3>
+<p>Clique no ícone <strong>Claude</strong> na Barra de Atividades para abrir o painel de chat ao lado do editor. Ideal para:</p>
+<ul>
+<li>Fazer perguntas sobre o conteúdo do repositório</li>
+<li>Pedir análises de estrutura</li>
+<li>Solicitar rascunhos de conteúdo sem editar arquivos imediatamente</li>
+<li>Tirar dúvidas sobre Markdown, MkDocs ou Git</li>
+</ul>
+<p><strong>Exemplos de uso:</strong></p>
+<pre class="highlight"><code>Analise a página docs/collab/introducao.md e sugira melhorias de clareza
+e estrutura para um público de engenheiros civis.</code></pre>
+<pre class="highlight"><code>Quais páginas da documentação ainda não têm uma seção de "Pré-requisitos"?</code></pre>
+<pre class="highlight"><code>Crie o rascunho de uma nova página para docs/bid/fornecedores.md com
+frontmatter YAML seguindo o padrão do projeto.</code></pre>
+<hr />
+<h3 id="22-edicao-pelo-chat">2.2 Edição pelo Chat<a class="headerlink" href="#22-edicao-pelo-chat" title="Permanent link">&para;</a></h3>
+<p>No painel de chat, referencie um arquivo específico digitando <code>#</code> seguido do nome do arquivo e peça ao Claude Code para fazer alterações. O Claude Code vai propor as edições — você revisa o diff e aceita ou rejeita cada mudança antes que ela seja aplicada.</p>
+<p><strong>Exemplo:</strong></p>
+<pre class="highlight"><code>#introducao.md Reescreva o primeiro parágrafo para um tom mais direto e técnico.</code></pre>
+<p>O Claude Code gera a edição, apresenta o diff para aprovação e só aplica após sua confirmação. Nada é alterado sem que você confirme.</p>
+<hr />
+<h3 id="23-modo-agente-aba-claude-code">2.3 Modo Agente (aba CLAUDE CODE)<a class="headerlink" href="#23-modo-agente-aba-claude-code" title="Permanent link">&para;</a></h3>
+<p>O <strong>Modo Agente</strong> é a forma mais poderosa do Claude Code: ele executa tarefas de múltiplos passos de forma autônoma, lendo e escrevendo arquivos, rodando comandos no terminal e tomando decisões com base no contexto do repositório.</p>
+<p>Para ativar: clique na aba <strong>CLAUDE CODE</strong> (não na aba <strong>CHAT</strong>) no topo do painel. A aba CLAUDE CODE é o modo agente — ela tem acesso total ao repositório e pode planejar e executar sequências de ações sem intervenção manual a cada passo.</p>
+<h4 id="controles-principais-da-aba-claude-code">Controles principais da aba CLAUDE CODE<a class="headerlink" href="#controles-principais-da-aba-claude-code" title="Permanent link">&para;</a></h4>
+<p>Na barra inferior do painel, alguns controles aparecem com frequência:</p>
+<ul>
+<li><strong><code>+</code></strong>: adiciona contexto extra à conversa — arquivos, seleção atual do editor, imagens ou outros anexos úteis.</li>
+<li><strong><code>/</code></strong>: abre um menu de ações rápidas organizado em seis seções:<ul>
+<li><strong>Context</strong> — anexar um arquivo (<code>Attach file...</code>), mencionar um arquivo do projeto (<code>Mention file from this project...</code>), limpar a conversa (<code>Clear conversation</code>) ou desfazer até um ponto anterior (<code>Rewind</code>).</li>
+<li>
+<p><strong>Model</strong> — trocar o modelo em uso (<code>Switch model...</code>, exibe o atual, ex.: Sonnet 4.6), ativar o modo de raciocínio estendido (<code>Thinking</code>) e configurar troca automática de modelo quando uma mensagem for sinalizada. Ao clicar em <code>Switch model</code>, as opções disponíveis são:</p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Versão</th>
+<th>Indicado para</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Default (recommended)</strong></td>
+<td>Opus 4.8 · 1M contexto</td>
+<td>Alias para o Opus; escolha automática da Anthropic para uso geral</td>
+</tr>
+<tr>
+<td><strong>Opus</strong></td>
+<td>Opus 4.8 · 1M contexto</td>
+<td>Raciocínio profundo, análises longas e tarefas complexas</td>
+</tr>
+<tr>
+<td><strong>Sonnet</strong></td>
+<td>Sonnet 4.6</td>
+<td>Equilíbrio entre capacidade e velocidade; suficiente para a maioria das tarefas</td>
+</tr>
+<tr>
+<td><strong>Haiku</strong></td>
+<td>Haiku 4.5</td>
+<td>O mais rápido; ideal para perguntas curtas e diretas</td>
+</tr>
+<tr>
+<td><strong>Fable</strong></td>
+<td>Claude Fable 5</td>
+<td>Modelo novo em acesso restrito — pode aparecer como desabilitado</td>
+</tr>
+</tbody>
+</table>
+<p>O modelo atualmente ativo é indicado com um ✓. Deixar no <strong>Default</strong> já usa o Opus, o modelo mais capaz. Para documentação rotineira, <strong>Sonnet</strong> é suficiente e consome menos créditos.
+    - <strong>Customize</strong> — gerenciar plugins (<code>Manage plugins</code>) e abrir o Claude Code no terminal integrado (<code>Open Claude in Terminal</code>).
+    - <strong>Slash Commands</strong> — lista os slash commands disponíveis no projeto (ex.: <code>/remote-control</code>).
+    - <strong>Settings</strong> — trocar de conta (<code>Switch account</code>) e abrir as configurações gerais (<code>General config...</code>).
+    - <strong>Support</strong> — acessar a documentação de ajuda (<code>View help docs</code>) e reportar um problema (<code>Report a problem</code>). A versão instalada da extensão também é exibida aqui (ex.: v2.1.183).
+- <strong>Indicador de seleção</strong> (ex.: <code>105 lines selected</code>): mostra o trecho de código ou texto atualmente selecionado no editor que será enviado como contexto.
+- <strong><code>Ask before edits</code></strong>: controla como o agente pede confirmação antes de editar arquivos, rodar comandos ou executar ações potencialmente sensíveis.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Cuidado ao relaxar aprovações</p>
+<p>Se você alterar o modo de <strong>Ask before edits</strong>, o agente pode executar edições e comandos com menos confirmações intermediárias. Isso acelera o fluxo, mas aumenta o risco de mudanças indesejadas. Para a maior parte do trabalho em documentação, mantenha o modo padrão.</p>
+</div>
+<p><strong>Exemplo de tarefa para o Agente:</strong></p>
+<pre class="highlight"><code>Leia todos os arquivos em docs/cost_management/ e crie um índice
+em docs/cost_management/index.md listando todas as páginas com
+seus títulos e uma linha de resumo de cada uma.</code></pre>
+<p>O agente vai ler cada arquivo, extrair o título e resumo, e criar o <code>index.md</code> automaticamente.</p>
+<hr />
+<h3 id="24-cli-claude-no-terminal">2.4 CLI (<code>claude</code> no terminal)<a class="headerlink" href="#24-cli-claude-no-terminal" title="Permanent link">&para;</a></h3>
+<p>Abra o terminal integrado do VS Code e execute <code>claude</code> para iniciar uma sessão completa pela linha de comando. Ideal para:</p>
+<ul>
+<li>Operações complexas com controle passo a passo</li>
+<li>Uso com flags específicas (<code>--model</code>, <code>--allowedTools</code>, etc.)</li>
+<li>Integração com scripts de automação</li>
+</ul>
+<pre class="highlight"><code class="language-bash">claude</code></pre>
+<p>Na CLI, o Claude Code opera em modo agente por padrão, com acesso completo ao repositório e confirmação explícita antes de cada alteração.</p>
+<hr />
+<h2 id="3-boas-praticas-ao-usar-claude-code-para-documentacao">3. Boas práticas ao usar Claude Code para documentação<a class="headerlink" href="#3-boas-praticas-ao-usar-claude-code-para-documentacao" title="Permanent link">&para;</a></h2>
+<h3 id="de-contexto-suficiente">Dê contexto suficiente<a class="headerlink" href="#de-contexto-suficiente" title="Permanent link">&para;</a></h3>
+<p>O Claude Code responde muito melhor quando você fornece contexto claro:</p>
+<p>❌ Ruim:
+<pre class="highlight"><code>Escreva sobre o módulo.</code></pre></p>
+<p>✅ Bom:
+<pre class="highlight"><code>Escreva uma página de documentação para o módulo de Planejamento 4D do
+AltoQi Visus. O público é de engenheiros civis que usam BIM. Siga o
+frontmatter YAML do projeto (title, type, created, updated, sources, tags).</code></pre></p>
+<hr />
+<h3 id="nao-publique-sem-revisar">Não publique sem revisar<a class="headerlink" href="#nao-publique-sem-revisar" title="Permanent link">&para;</a></h3>
+<p>O Claude Code pode gerar informações incorretas (chamado de "alucinação"). <strong>Toda saída gerada por IA deve ser revisada</strong> antes de entrar em um commit.</p>
+<p>Regra de ouro do projeto Visus:</p>
+<blockquote>
+<p><strong>Nunca invente conteúdo — toda informação deve ter origem em uma fonte fornecida pelo usuário.</strong></p>
+</blockquote>
+<hr />
+<h3 id="use-o-claude-code-para-consistencia">Use o Claude Code para consistência<a class="headerlink" href="#use-o-claude-code-para-consistencia" title="Permanent link">&para;</a></h3>
+<p>Peça ao Claude Code para:
+- Verificar se a terminologia está consistente com outras páginas do repositório
+- Garantir que o tom e estilo seguem o padrão estabelecido
+- Identificar links internos quebrados ou páginas referenciadas que não existem</p>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Resumo do módulo</p>
+<p>O Claude Code é um assistente de IA que opera como <strong>agente</strong> dentro do VS Code e da CLI: lê o repositório inteiro, gera rascunhos, edita com confirmação e responde dúvidas. Você conheceu os <strong>modos de uso</strong> — Chat, Edição pelo Chat, Modo Agente e CLI — e quando usar cada um, além das boas práticas para gerar documentação confiável com IA.</p>
+</div>
+<hr />
+<blockquote>
+<p><strong>Módulo anterior:</strong> <a href="03-markdown-e-mkdocs.html">03 — Markdown e MkDocs</a><br />
+<strong>Próximo módulo:</strong> <a href="05-branches-e-pull-requests.html">05 — Branches e Pull Requests</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="03-markdown-e-mkdocs.html" class="btn btn-neutral float-left" title="Módulo 3 — Markdown e MkDocs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="05-branches-e-pull-requests.html" class="btn btn-neutral float-right" title="Módulo 5 — Branches e Pull Requests">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="03-markdown-e-mkdocs.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="05-branches-e-pull-requests.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

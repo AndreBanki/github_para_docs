@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/08-instrucoes-especificas.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 8 — Instruções Específicas - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 8 \u2014 Instru\u00e7\u00f5es Espec\u00edficas";
+        var mkdocs_page_input_path = "08-instrucoes-especificas.md";
+        var mkdocs_page_url = "/github_para_docs/08-instrucoes-especificas.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02-git-para-documentacao.html">Módulo 2 — Git para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 8 — Instruções Específicas</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dica-1-documentar-uma-feature-a-partir-do-targetprocess">Dica 1 — Documentar uma feature a partir do Targetprocess</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#como-usar">Como usar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-o-agente-inclui-e-exclui">O que o agente inclui e exclui</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hierarquia-feature-user-story">Hierarquia Feature × User Story</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#o-papel-do-instructionsmd">O papel do instructions.md</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#onde-as-instrucoes-vivem">Onde as instruções vivem</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dica-2-espelhar-epicos-do-targetprocess-como-paginas-wiki">Dica 2 — Espelhar épicos do Targetprocess como páginas wiki</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#como-usar_1">Como usar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#onde-a-instrucao-vive">Onde a instrução vive</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dica-3-pasta-raw-como-zona-de-entrada-de-fontes">Dica 3 — Pasta raw/ como zona de entrada de fontes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#como-usar_2">Como usar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#por-que-a-separacao-importa">Por que a separação importa</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#variacoes-nos-repositorios">Variações nos repositórios</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#-">---</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 8 — Instruções Específicas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-8-instrucoes-especificas">Módulo 8 — Instruções Específicas<a class="headerlink" href="#modulo-8-instrucoes-especificas" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Este módulo reúne dicas práticas encontradas em repositórios reais da AltoQi. Cada dica descreve um padrão de instrução e como ele é usado no dia a dia.</p>
+<p><strong>Por que este módulo vem agora:</strong> estes padrões fazem sentido apenas depois que a trilha base já está clara. Aqui entram exceções, especializações e práticas de repositórios reais que não precisam aparecer no onboarding inicial.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 O que você vai encontrar aqui</p>
+<p>Padrões reais de instrução usados nos repositórios da AltoQi: como documentar
+a partir do Targetprocess, espelhar épicos e organizar a pasta <code>raw/</code> de fontes.</p>
+</div>
+<hr />
+<h2 id="dica-1-documentar-uma-feature-a-partir-do-targetprocess">Dica 1 — Documentar uma feature a partir do Targetprocess<a class="headerlink" href="#dica-1-documentar-uma-feature-a-partir-do-targetprocess" title="Permanent link">&para;</a></h2>
+<p><strong>Repositórios:</strong> <code>visus_docs</code>, <code>eberick_docs</code>, <code>builder_docs</code></p>
+<p>O agente recebe um ID de Feature ou User Story do Targetprocess e produz documentação orientada ao usuário final. Não é uma cópia do card — é uma interpretação: o agente lê o conteúdo, descarta detalhes técnicos e extrai apenas o que se reflete no funcionamento visível da aplicação.</p>
+<h3 id="como-usar">Como usar<a class="headerlink" href="#como-usar" title="Permanent link">&para;</a></h3>
+<p>Basta informar o ID ao agente no modo agente:</p>
+<pre class="highlight"><code>documentar feature 272753
+documentar stories 282522, 282530, 282535</code></pre>
+<p>O agente busca o conteúdo no Targetprocess, lê as stories filhas quando necessário, e produz o rascunho da página. Quando são fornecidos múltiplos IDs, o agente lê tudo antes de escrever — os itens podem ser etapas de uma mesma funcionalidade.</p>
+<h3 id="o-que-o-agente-inclui-e-exclui">O que o agente inclui e exclui<a class="headerlink" href="#o-que-o-agente-inclui-e-exclui" title="Permanent link">&para;</a></h3>
+<p><strong>Inclui:</strong> comportamento de interface, regras de negócio visíveis, mensagens de validação, novos menus e permissões, mudanças em relatórios e exportações.</p>
+<p><strong>Exclui:</strong> implementação interna (banco, API, código), decisões arquiteturais, estimativas de esforço, comentários de deploy.</p>
+<h3 id="hierarquia-feature-user-story">Hierarquia Feature × User Story<a class="headerlink" href="#hierarquia-feature-user-story" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Entidade</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Feature</strong></td>
+<td>Contextualização — o "por quê" e "o quê"</td>
+</tr>
+<tr>
+<td><strong>User Story</strong></td>
+<td>Fonte primária — o "como funciona"</td>
+</tr>
+</tbody>
+</table>
+<p>A Feature fornece o contexto do requisito; as Stories descrevem a solução. A documentação final reflete a solução conforme experimentada pelo usuário.</p>
+<h3 id="o-papel-do-instructionsmd">O papel do <code>instructions.md</code><a class="headerlink" href="#o-papel-do-instructionsmd" title="Permanent link">&para;</a></h3>
+<p>Para que o agente saiba <strong>onde</strong> criar ou atualizar páginas após ler o conteúdo do Targetprocess, os três repositórios mantêm um arquivo <code>instructions.md</code> na raiz do projeto. Ele é um mapa de conteúdo: descreve cada seção de <code>docs/</code>, os critérios do que pertence a ela e o que deve ser explicitamente excluído.</p>
+<table>
+<thead>
+<tr>
+<th>Repositório</th>
+<th>Título do arquivo</th>
+<th>O que documenta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>visus_docs</code></td>
+<td>Mapa de Conteúdo da Documentação</td>
+<td>Plataforma, Workflow, Collab, Cost Management, Planning, Bid, Tracking, Control Tower</td>
+</tr>
+<tr>
+<td><code>eberick_docs</code></td>
+<td>Mapa do Repositório — AltoQi Eberick</td>
+<td>Apresentação, Atualizações, Conceitos CAD, Comandos, Janelas, Dimensionamento, Critérios de Projeto</td>
+</tr>
+<tr>
+<td><code>builder_docs</code></td>
+<td>Instruções de Estrutura — AltoQi Builder</td>
+<td>11 seções: Apresentação, Notas de versão, Conceitos CAD, Conceitos da edificação, Critérios, Cadastro, Configurações, Janelas, Elementos, Comandos, Propriedades</td>
+</tr>
+</tbody>
+</table>
+<p>O agente lê o <code>instructions.md</code> antes de decidir o destino do conteúdo — sem ele, corre o risco de criar páginas no lugar errado ou de ignorar seções já existentes.</p>
+<h3 id="onde-as-instrucoes-vivem">Onde as instruções vivem<a class="headerlink" href="#onde-as-instrucoes-vivem" title="Permanent link">&para;</a></h3>
+<p>O comportamento do agente é definido em <code>.github/ingest-targetprocess.md</code>, referenciado pelo <code>CLAUDE.md</code> do repositório.</p>
+<hr />
+<h2 id="dica-2-espelhar-epicos-do-targetprocess-como-paginas-wiki">Dica 2 — Espelhar épicos do Targetprocess como páginas wiki<a class="headerlink" href="#dica-2-espelhar-epicos-do-targetprocess-como-paginas-wiki" title="Permanent link">&para;</a></h2>
+<p><strong>Repositório:</strong> <code>produto_docs</code></p>
+<p>O agente importa épicos do Targetprocess como páginas wiki, preservando o conteúdo <strong>exatamente como está</strong> — incluindo as figuras anexadas ao card. Não há interpretação nem filtragem. O objetivo é ter a especificação interna acessível na wiki, no mesmo formato em que o PM a escreveu.</p>
+<p>Esse padrão é diferente da Dica 1:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dica 1 — Documentar (<code>visus_docs</code>, <code>eberick_docs</code>)</th>
+<th>Dica 2 — Espelhar (<code>produto_docs</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Conteúdo gerado</strong></td>
+<td>Documentação orientada ao usuário final</td>
+<td>Cópia fiel da especificação interna</td>
+</tr>
+<tr>
+<td><strong>Figuras</strong></td>
+<td>Não se aplicam</td>
+<td>Baixadas e referenciadas na página</td>
+</tr>
+<tr>
+<td><strong>Filtragem</strong></td>
+<td>Sim — detalhes técnicos são removidos</td>
+<td>Não — tudo é importado</td>
+</tr>
+<tr>
+<td><strong>Entidade TP</strong></td>
+<td>Feature + User Stories filhas</td>
+<td>Épicos (por produto e ano)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="como-usar_1">Como usar<a class="headerlink" href="#como-usar_1" title="Permanent link">&para;</a></h3>
+<p>O agente é acionado pelo prompt <code>/atualizar-epicos</code>. O usuário informa o produto e, opcionalmente, o ano:</p>
+<pre class="highlight"><code>/atualizar-epicos  →  "Qual produto?"  →  eberick</code></pre>
+<p>O agente lista os épicos do produto no Targetprocess, identifica quais ainda não existem na wiki, importa cada um (convertendo o HTML para Markdown e baixando as imagens) e atualiza a navegação da seção.</p>
+<h3 id="onde-a-instrucao-vive">Onde a instrução vive<a class="headerlink" href="#onde-a-instrucao-vive" title="Permanent link">&para;</a></h3>
+<p>O comportamento do agente é definido em <code>.claude/commands/atualizar-epicos.md</code>. A regra de nunca reescrever ou resumir o conteúdo — e de sempre baixar as imagens junto — está no <code>CLAUDE.md</code> do repositório.</p>
+<hr />
+<h2 id="dica-3-pasta-raw-como-zona-de-entrada-de-fontes">Dica 3 — Pasta <code>raw/</code> como zona de entrada de fontes<a class="headerlink" href="#dica-3-pasta-raw-como-zona-de-entrada-de-fontes" title="Permanent link">&para;</a></h2>
+<p><strong>Repositórios:</strong> <code>produto_docs</code>, <code>cloudops_docs</code></p>
+<p>Inspirada no conceito de <strong>LLM Wiki</strong> de Andrej Karpathy, essa abordagem divide o repositório em duas zonas com papéis bem distintos:</p>
+<table>
+<thead>
+<tr>
+<th>Zona</th>
+<th>Pasta</th>
+<th>Papel</th>
+<th>Quem escreve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fontes</strong></td>
+<td><code>raw/</code></td>
+<td>Documentos originais, imutáveis</td>
+<td>Humano</td>
+</tr>
+<tr>
+<td><strong>Conhecimento</strong></td>
+<td><code>wiki/</code> ou <code>documentation/</code></td>
+<td>Páginas estruturadas e publicáveis</td>
+<td>Agente</td>
+</tr>
+</tbody>
+</table>
+<p>A ideia central é que o LLM não gera conhecimento do zero — ele <strong>processa fontes reais</strong> e produz conhecimento estruturado. O <code>raw/</code> é o arquivo permanente de tudo que alimentou a wiki; a wiki é o destilado consultável desse material.</p>
+<h3 id="como-usar_2">Como usar<a class="headerlink" href="#como-usar_2" title="Permanent link">&para;</a></h3>
+<p>O fluxo é simples:</p>
+<ol>
+<li>Um documento novo chega — PDF, DOCX, transcrição de reunião, spec doc, export do Targetprocess</li>
+<li>O arquivo é colocado em <code>raw/</code> na subpasta correspondente ao tema</li>
+<li>O agente é acionado para ingerir: <code>"ingerir raw/produto_visus/documento.md"</code></li>
+<li>O agente lê a fonte, extrai o conteúdo relevante e cria ou atualiza páginas na wiki</li>
+<li>O <code>raw/</code> nunca é modificado pelo agente — serve como rastreabilidade de todas as fontes</li>
+</ol>
+<h3 id="por-que-a-separacao-importa">Por que a separação importa<a class="headerlink" href="#por-que-a-separacao-importa" title="Permanent link">&para;</a></h3>
+<p>Sem a divisão <code>raw/wiki</code>, é comum que o repositório misture fontes e conteúdo publicável, dificultando saber o que já foi processado e o que ainda está pendente. Com a separação:</p>
+<ul>
+<li>É possível reprocessar uma fonte a qualquer momento (o original está intacto)</li>
+<li>O agente nunca "inventa" — toda página da wiki tem um arquivo em <code>raw/</code> como origem</li>
+<li>A wiki pode ser consultada pelo próprio agente para responder perguntas, sem precisar reler as fontes brutas</li>
+</ul>
+<h3 id="variacoes-nos-repositorios">Variações nos repositórios<a class="headerlink" href="#variacoes-nos-repositorios" title="Permanent link">&para;</a></h3>
+<p>Em <code>produto_docs</code>, o <code>raw/</code> está organizado por produto (<code>produto_eberick/</code>, <code>produto_visus/</code>, etc.) e o conteúdo processado vai para <code>wiki/</code>. Em <code>cloudops_docs</code>, o <code>raw/</code> usa subpastas <code>conteudo_a_organizar/</code> e <code>conteudo_ja_importado/</code> para rastrear o status de cada fonte, e o conteúdo processado vai para <code>documentation/</code>.</p>
+<h2 id="-">---<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Módulo anterior:</strong> <a href="07-claude-code-customizacao.html">07 — Personalizando o Claude Code</a><br />
+<strong>Próximo módulo:</strong> <a href="09-exercicios-praticos.html">09 — Exercícios Práticos</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="07-claude-code-customizacao.html" class="btn btn-neutral float-left" title="Módulo 7 — Personalizando o Claude Code"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="09-exercicios-praticos.html" class="btn btn-neutral float-right" title="Módulo 9 — Exercícios Práticos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="07-claude-code-customizacao.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="09-exercicios-praticos.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

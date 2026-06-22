@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="AltoQi" /><link rel="canonical" href="https://andrebanki.github.io/github_para_docs/02-git-para-documentacao.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Módulo 2 — Git para Documentação - Documentação como Código — Guia AltoQi</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/altoqi-course.css" rel="stylesheet" />
+        <link href="stylesheets/vscode.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00f3dulo 2 \u2014 Git para Documenta\u00e7\u00e3o";
+        var mkdocs_page_input_path = "02-git-para-documentacao.md";
+        var mkdocs_page_url = "/github_para_docs/02-git-para-documentacao.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Documentação como Código — Guia AltoQi
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01-setup-ambiente.html">Módulo 1 — VS Code e Configuração do Ambiente</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Módulo 2 — Git para Documentação</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-mapa-do-ecossistema">1. Mapa do ecossistema</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-por-que-usar-git-para-documentacao">2. Por que usar Git para documentação?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-conceitos-fundamentais">3. Conceitos Fundamentais</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#repositorio-repo">Repositório (repo)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#commit">Commit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#clone">Clone</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#como-clonar-pelo-github-desktop-recomendado-neste-modulo">Como clonar pelo GitHub Desktop (recomendado neste módulo)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#como-clonar-pelo-vs-code-alternativa-dentro-do-editor">Como clonar pelo VS Code (alternativa dentro do editor)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#como-clonar-pelo-terminal-alternativa">Como clonar pelo terminal (alternativa)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#o-que-acontece-quando-voce-clona">O que acontece quando você clona</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#onde-clonar-escolha-uma-pasta-dedicada">Onde clonar — escolha uma pasta dedicada</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-fluxo-de-trabalho-diario">4. Fluxo de Trabalho Diário</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fluxo-simplificado-todos-trabalham-direto-no-main">Fluxo Simplificado — todos trabalham direto no main</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fluxo-completo-branches-e-pull-requests">Fluxo Completo — branches e Pull Requests</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-comandos-essenciais">5. Comandos Essenciais</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#git-pull-atualizar-seu-repositorio-local">git pull — Atualizar seu repositório local</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-status-ver-o-que-foi-alterado">git status — Ver o que foi alterado</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-add-preparar-arquivos-para-o-commit">git add — Preparar arquivos para o commit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-commit-registrar-as-alteracoes">git commit — Registrar as alterações</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-push-enviar-para-o-repositorio-remoto">git push — Enviar para o repositório remoto</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#como-verificar-que-o-push-foi-bem-sucedido">Como verificar que o push foi bem-sucedido</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-log-ver-o-historico-de-commits">git log — Ver o histórico de commits</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-situacoes-comuns">6. Situações Comuns</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#alguem-atualizou-o-arquivo-que-eu-tambem-editei">"Alguém atualizou o arquivo que eu também editei"</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#walkthrough-passo-a-passo-resolvendo-um-conflito-no-vs-code">Walkthrough passo a passo: resolvendo um conflito no VS Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cometi-um-erro-e-quero-desfazer-antes-de-commitar">"Cometi um erro e quero desfazer antes de commitar"</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ja-commitei-algo-errado">"Já commitei algo errado"</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03-markdown-e-mkdocs.html">Módulo 3 — Markdown e MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04-claude-code.html">Módulo 4 — Claude Code para Documentação</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05-branches-e-pull-requests.html">Módulo 5 — Branches e Pull Requests</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06-publicacao-externa.html">Módulo 6 — Publicando para Acesso Externo</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07-claude-code-customizacao.html">Módulo 7 — Personalizando o Claude Code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="08-instrucoes-especificas.html">Módulo 8 — Instruções Específicas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="09-exercicios-praticos.html">Módulo 9 — Exercícios Práticos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentação como Código — Guia AltoQi</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Módulo 2 — Git para Documentação</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-2-git-para-documentacao">Módulo 2 — Git para Documentação<a class="headerlink" href="#modulo-2-git-para-documentacao" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Para quem é este módulo:</strong> equipes de Produto e Engenharia que mantêm documentação em repositórios Git — sem necessidade de saber programar.</p>
+<p><strong>Por que este módulo vem agora:</strong> com o ambiente já instalado, o próximo passo é entender o fluxo mental do trabalho com documentação versionada. Este módulo apresenta o vocabulário e o raciocínio base (repositório, commit, push, pull) que serão reutilizados em toda a trilha.</p>
+</blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">🎯 Objetivos de aprendizagem</p>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>Como Git, GitHub e VS Code se conectam no trabalho com documentação</li>
+<li>Os conceitos de repositório, local/remoto, commit, clone, push e pull</li>
+<li>O fluxo de trabalho diário (simplificado e completo)</li>
+<li>Os comandos essenciais e quando usá-los</li>
+<li>Como resolver situações comuns (conflitos, desfazer erros)</li>
+</ul>
+</div>
+<hr />
+<h2 id="1-mapa-do-ecossistema">1. Mapa do ecossistema<a class="headerlink" href="#1-mapa-do-ecossistema" title="Permanent link">&para;</a></h2>
+<p>Antes de entrar nos comandos, é importante entender quais ferramentas compõem o fluxo. Neste módulo, o caminho principal combina <strong>VS Code</strong> para edição com <strong>GitHub Desktop</strong> para as operações visuais de Git, enquanto o <strong>GitHub</strong> funciona como repositório remoto da equipe.</p>
+<table>
+<thead>
+<tr>
+<th>Ferramenta</th>
+<th>O que é</th>
+<th>Para que serve neste contexto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Git</strong></td>
+<td>Sistema de controle de versão</td>
+<td>O "motor" por baixo de tudo: rastreia cada mudança feita nos arquivos</td>
+</tr>
+<tr>
+<td><strong>GitHub</strong></td>
+<td>Plataforma na nuvem</td>
+<td>Armazena o repositório remoto e viabiliza a colaboração entre pessoas da equipe</td>
+</tr>
+<tr>
+<td><strong>VS Code</strong></td>
+<td>Editor de texto</td>
+<td>É onde você escreve e edita os arquivos de documentação (<code>.md</code>); também permite fazer pull e push diretamente pelo painel Source Control</td>
+</tr>
+<tr>
+<td><strong>GitHub Desktop</strong></td>
+<td>Aplicativo visual para usar Git</td>
+<td>É a forma principal apresentada neste módulo para clonar, sincronizar e enviar mudanças sem depender do terminal</td>
+</tr>
+</tbody>
+</table>
+<div class="mermaid">flowchart LR
+    A["✏️ VS Code\nEditar a documentação"] --&gt; B["🖥️ GitHub Desktop\nClonar, commitar e sincronizar"] --&gt; C["☁️ GitHub\nCompartilhar e revisar"]
+    style A fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style B fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style C fill:#114e34,stroke:#25CE7B,color:#ffffff</div>
+<blockquote>
+<p><strong>Em resumo:</strong> você edita no <strong>VS Code</strong>, usa o <strong>GitHub Desktop</strong> para executar as operações visuais de Git, e o resultado fica armazenado no <strong>GitHub</strong> para compartilhamento e revisão.</p>
+</blockquote>
+<hr />
+<h2 id="2-por-que-usar-git-para-documentacao">2. Por que usar Git para documentação?<a class="headerlink" href="#2-por-que-usar-git-para-documentacao" title="Permanent link">&para;</a></h2>
+<p>Git é um sistema de <strong>controle de versão</strong>: ele registra cada mudança feita em arquivos ao longo do tempo, permitindo que múltiplas pessoas colaborem sem sobrescrever o trabalho umas das outras.</p>
+<p>Para documentação, isso significa:</p>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Sem Git</th>
+<th>Com Git</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Duas pessoas editam o mesmo arquivo</td>
+<td>Uma versão sobrescreve a outra</td>
+<td>Cada mudança é rastreada e mesclada</td>
+</tr>
+<tr>
+<td>Um texto errado é publicado</td>
+<td>Difícil saber quem mudou o quê</td>
+<td>É possível ver quem alterou, quando e por quê — e reverter</td>
+</tr>
+<tr>
+<td>Nova funcionalidade precisa de doc em rascunho</td>
+<td>Arquivo paralelo vira bagunça</td>
+<td>Você cria um branch isolado</td>
+</tr>
+<tr>
+<td>Revisão de conteúdo antes de publicar</td>
+<td>E-mail ou comentário no doc</td>
+<td>Pull Request com histórico de revisão</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-conceitos-fundamentais">3. Conceitos Fundamentais<a class="headerlink" href="#3-conceitos-fundamentais" title="Permanent link">&para;</a></h2>
+<h3 id="repositorio-repo">Repositório (repo)<a class="headerlink" href="#repositorio-repo" title="Permanent link">&para;</a></h3>
+<p>É a <strong>pasta raiz do projeto</strong>, controlada pelo Git. Cada produto tem o seu repositório:</p>
+<ul>
+<li>Visus → <code>visus_docs/</code></li>
+<li>Builder → <code>builder_docs/</code></li>
+<li>Eberick → <code>eberick_docs/</code></li>
+</ul>
+<p>Tudo dentro dele — arquivos Markdown, imagens, configurações — é rastreado.</p>
+<p>Um repositório pode ser:</p>
+<ul>
+<li><strong>Local</strong>: a cópia que existe na sua máquina</li>
+<li><strong>Remoto</strong>: a cópia oficial que fica no GitHub (ou GitLab, Azure DevOps, etc.)</li>
+</ul>
+<h3 id="commit">Commit<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h3>
+<p>Um commit é um <strong>snapshot</strong> — uma fotografia do estado dos arquivos em um momento específico. Cada commit tem:
+- Uma <strong>mensagem</strong> descrevendo o que foi alterado (ex.: <code>docs: adiciona guia de acesso ao módulo Collab</code>)
+- Um <strong>autor</strong> e <strong>data/hora</strong>
+- Um <strong>identificador único</strong> (hash)</p>
+<blockquote>
+<p><strong>Analogia:</strong> um commit é como salvar uma versão de um documento Word com um nome descritivo — mas automático, rastreável e reversível.</p>
+</blockquote>
+<h3 id="clone">Clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h3>
+<p><strong>Clonar</strong> um repositório significa baixar uma cópia completa dele (incluindo todo o histórico de commits) para a sua máquina. É a <strong>primeira operação</strong> que você faz — feita uma única vez por máquina.</p>
+<h4 id="como-clonar-pelo-github-desktop-recomendado-neste-modulo">Como clonar pelo GitHub Desktop (recomendado neste módulo)<a class="headerlink" href="#como-clonar-pelo-github-desktop-recomendado-neste-modulo" title="Permanent link">&para;</a></h4>
+<p>O GitHub Desktop é a forma principal apresentada neste módulo para clonar um repositório sem depender do terminal. Ele deixa o fluxo inicial mais visual para quem está começando.</p>
+<ol>
+<li>Abra o <strong>GitHub Desktop</strong></li>
+<li>Clique em <strong>Add</strong> → <strong>Clone repository…</strong></li>
+<li>Localize o repositório desejado (ex.: <code>AltoQiTec/builder_docs</code>)</li>
+<li>Defina a pasta local onde o repositório será salvo (ex.: <code>C:\Repos\</code>)</li>
+<li>Clique em <strong>Clone</strong></li>
+<li>Depois do download, use <strong>Repository</strong> → <strong>Open in Visual Studio Code</strong></li>
+</ol>
+<p>Depois do clone, o GitHub Desktop entrega o repositório pronto para ser aberto no VS Code e continuar o trabalho de edição.</p>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Se o VS Code perguntar se você quer confiar na pasta aberta, escolha <strong>Trust the authors</strong> apenas quando estiver trabalhando em um repositório conhecido da equipe.</p>
+</div>
+<h4 id="como-clonar-pelo-vs-code-alternativa-dentro-do-editor">Como clonar pelo VS Code (alternativa dentro do editor)<a class="headerlink" href="#como-clonar-pelo-vs-code-alternativa-dentro-do-editor" title="Permanent link">&para;</a></h4>
+<p>Se você preferir fazer tudo dentro do editor, também é possível clonar diretamente pelo VS Code:</p>
+<ol>
+<li>Abra o <strong>VS Code</strong></li>
+<li>Pressione <code>Ctrl+Shift+P</code> para abrir a <strong>Command Palette</strong></li>
+<li>Execute o comando <strong>Git: Clone</strong></li>
+<li>Cole a URL do repositório</li>
+<li>Escolha a pasta local onde ele será salvo</li>
+<li>Aguarde o download e clique em <strong>Open</strong></li>
+</ol>
+<p>Depois do clone, o próprio VS Code abre o repositório para continuar o trabalho.</p>
+<h4 id="como-clonar-pelo-terminal-alternativa">Como clonar pelo terminal (alternativa)<a class="headerlink" href="#como-clonar-pelo-terminal-alternativa" title="Permanent link">&para;</a></h4>
+<p>Se preferir usar o terminal, navegue primeiro até a pasta onde quer salvar o repositório e execute:</p>
+<pre class="highlight"><code class="language-bash">cd C:\Repos
+git clone https://github.com/altoqi/visus-docs.git
+# resultado: C:\Repos\visus-docs\</code></pre>
+<h4 id="o-que-acontece-quando-voce-clona">O que acontece quando você clona<a class="headerlink" href="#o-que-acontece-quando-voce-clona" title="Permanent link">&para;</a></h4>
+<p>Em ambos os casos, o Git cria uma <strong>nova pasta</strong> com o nome do repositório dentro do diretório escolhido. Por exemplo, se você escolher <code>C:\Repos\</code>, a estrutura resultante será:</p>
+<pre class="highlight"><code>C:\Repos\                     ← pasta que você escolheu
+└── visus-docs\               ← pasta criada pelo Git (o repositório local)
+    ├── .git\                 ← histórico e metadados do Git (não mexa aqui)
+    ├── docs\
+    ├── mkdocs.yml
+    └── ...</code></pre>
+<h4 id="onde-clonar-escolha-uma-pasta-dedicada">Onde clonar — escolha uma pasta dedicada<a class="headerlink" href="#onde-clonar-escolha-uma-pasta-dedicada" title="Permanent link">&para;</a></h4>
+<p>Crie uma pasta simples para guardar todos os seus repositórios, por exemplo:</p>
+<pre class="highlight"><code>C:\Repos\          (Windows)
+C:\Dev\            (Windows)</code></pre>
+<details class="warning">
+<summary>Nunca coloque um repositório dentro de outro</summary>
+<p>O Git rastreia tudo que está dentro da pasta do repositório. Se você clonar um projeto dentro da pasta de outro repositório existente, o Git pai vai começar a enxergar o repositório filho como arquivos não rastreados — causando confusão e erros difíceis de diagnosticar.</p>
+<pre class="highlight"><code>❌  C:\Repos\visus-docs\          ← repositório A
+              └── curso_github\   ← repositório B clonado aqui dentro → PROBLEMA
+
+✅  C:\Repos\visus-docs\          ← repositório A
+    C:\Repos\curso_github\        ← repositório B na mesma pasta pai → CORRETO</code></pre>
+<p><strong>Exceção:</strong> repositórios aninhados de forma intencional existem (chamados de <em>git submodules</em>), mas são uma configuração avançada que nunca acontece por acidente — exige um comando específico.</p>
+</details>
+<hr />
+<h2 id="4-fluxo-de-trabalho-diario">4. Fluxo de Trabalho Diário<a class="headerlink" href="#4-fluxo-de-trabalho-diario" title="Permanent link">&para;</a></h2>
+<p>Existem dois fluxos possíveis. Comece pelo simplificado e migre para o completo quando a equipe crescer ou quando a documentação precisar de revisão antes de publicar.</p>
+<hr />
+<h3 id="fluxo-simplificado-todos-trabalham-direto-no-main">Fluxo Simplificado — todos trabalham direto no <code>main</code><a class="headerlink" href="#fluxo-simplificado-todos-trabalham-direto-no-main" title="Permanent link">&para;</a></h3>
+<p><strong>Quando usar:</strong> equipe pequena (2–3 pessoas), confiança mútua no conteúdo, sem necessidade de revisão formal antes de publicar. É o ponto de partida natural para quem está aprendendo.</p>
+<div class="mermaid">flowchart LR
+    A["🔄 git pull\nAtualizar"] --&gt; B["✏️ Editar\narquivos .md"] --&gt; C["📦 git add .\nRegistrar"] --&gt; D["💾 git commit\nCommitar"] --&gt; E["🚀 git push\nPublicar"]
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style C fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style E fill:#114e34,stroke:#25CE7B,color:#ffffff</div>
+<ol>
+<li><strong>git pull</strong> — baixa as alterações mais recentes do repositório remoto para a sua máquina</li>
+<li><strong>Editar arquivos .md</strong> — abre e edita os arquivos de documentação no VS Code</li>
+<li><strong>git add .</strong> — marca todos os arquivos alterados para entrarem no próximo commit</li>
+<li><strong>git commit</strong> — salva um snapshot das mudanças com uma mensagem descritiva</li>
+<li><strong>git push</strong> — envia os commits locais para o repositório remoto (e aciona a publicação)</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tudo isso pode ser feito direto no VS Code</p>
+<p>Na prática do dia a dia, você não precisa digitar esses comandos no terminal. O VS Code executa todas essas operações visualmente pelo painel <strong>Source Control</strong> (<code>Ctrl+Shift+G</code>):</p>
+<ul>
+<li><strong>Pull</strong> → clique em <strong>...</strong> → <strong>Pull</strong>, ou use o ícone ⇅ na barra de status</li>
+<li><strong>Stage (add)</strong> → clique no <strong>+</strong> ao lado do arquivo em <strong>Changes</strong></li>
+<li><strong>Commit</strong> → escreva a mensagem no campo de texto e clique em <strong>Commit</strong> (✓)</li>
+<li><strong>Push / Sincronizar</strong> → clique em <strong>Sync Changes</strong> (⇅) na barra de status — faz pull + push em sequência</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Atenção</p>
+<p>No fluxo simplificado, o que você faz <code>push</code> vai direto para produção. Revise bem antes de commitar.</p>
+</div>
+<hr />
+<h3 id="fluxo-completo-branches-e-pull-requests">Fluxo Completo — branches e Pull Requests<a class="headerlink" href="#fluxo-completo-branches-e-pull-requests" title="Permanent link">&para;</a></h3>
+<p><strong>Quando usar:</strong> equipe maior, conteúdo que precisa de revisão antes de publicar, trabalhos longos em paralelo (ex.: um redator documenta o módulo Planning enquanto outro atualiza o Collab), ou quando erros no main causariam problemas visíveis para usuários do site.</p>
+<p>O fluxo completo adiciona duas etapas entre o commit e a publicação: um <strong>branch isolado</strong> e um <strong>Pull Request</strong> com revisão. Para entender em detalhe o que são e como funcionam, veja o documento complementar: <a href="05-branches-e-pull-requests.html">05 — Branches e Pull Requests</a>.</p>
+<div class="mermaid">flowchart LR
+    A["🔄 git pull\nAtualizar"] --&gt; B["🌿 checkout -b\nCriar branch"] --&gt; C["✏️ Editar\narquivos .md"] --&gt; D["📦 git add .\nRegistrar"]
+    D --&gt; E["💾 git commit\nCommitar"] --&gt; F["🚀 git push\nEnviar branch"]
+    F --&gt; G["🔍 Pull Request\nRevisar"] --&gt; H["✅ Merge\nPublicar"]
+    style A fill:#0a2a1c,stroke:#1aa863,color:#d4ede0
+    style B fill:#0e3a30,stroke:#34d399,color:#dafff2
+    style C fill:#0c3322,stroke:#25CE7B,color:#dcfaea
+    style D fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style E fill:#0e3d28,stroke:#3BE592,color:#e3fff1
+    style F fill:#114e34,stroke:#25CE7B,color:#ffffff
+    style G fill:#3a3408,stroke:#facc15,color:#fff6cf
+    style H fill:#155f3f,stroke:#3BE592,color:#ffffff</div>
+<p>As etapas de editar, <code>git add</code>, <code>git commit</code> e <code>git push</code> são as mesmas do fluxo simplificado. As duas etapas adicionais são:</p>
+<ol>
+<li><strong>checkout -b</strong> — cria um branch isolado antes de começar a editar, para que as mudanças não afetem o <code>main</code> diretamente</li>
+<li><strong>Pull Request + Merge</strong> — abre uma solicitação de revisão no GitHub; só após a aprovação o conteúdo é mesclado ao <code>main</code> e publicado</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Quase tudo pode ser feito direto no VS Code</p>
+<p>As operações de pull, stage, commit e push seguem o mesmo caminho do fluxo simplificado pelo painel <strong>Source Control</strong> (<code>Ctrl+Shift+G</code>). A criação do branch também pode ser feita no VS Code:</p>
+<ul>
+<li><strong>Criar branch</strong> → clique no nome do branch atual na barra de status (canto inferior esquerdo) → <strong>Create new branch…</strong> → dê um nome e pressione Enter</li>
+<li><strong>Pull</strong> → <strong>...</strong> → <strong>Pull</strong>, ou ícone ⇅ na barra de status</li>
+<li><strong>Stage (add)</strong> → clique no <strong>+</strong> ao lado do arquivo em <strong>Changes</strong></li>
+<li><strong>Commit</strong> → escreva a mensagem e clique em <strong>Commit</strong> (✓)</li>
+<li><strong>Push do branch</strong> → <strong>Sync Changes</strong> (⇅) — o VS Code detecta que o branch ainda não existe no remoto e pergunta se deseja publicá-lo</li>
+</ul>
+<p>A única etapa que sai do VS Code é o <strong>Pull Request</strong>, que é criado diretamente no GitHub pelo navegador.</p>
+</div>
+<hr />
+<h2 id="5-comandos-essenciais">5. Comandos Essenciais<a class="headerlink" href="#5-comandos-essenciais" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Não é preciso decorar os comandos.</strong> O que importa é entender o <em>conceito</em> de cada operação — o que ela faz e quando usar. Na prática do dia a dia, você vai executar a maioria dessas ações pelos botões do VS Code, sem digitar nada no terminal. Veja a seção <a href="01-setup-ambiente.html#4-git-integrado-no-vs-code">4. Git integrado no VS Code</a> do Módulo 1 para conhecer a interface visual.</p>
+</blockquote>
+<hr />
+<h3 id="git-pull-atualizar-seu-repositorio-local"><code>git pull</code> — Atualizar seu repositório local<a class="headerlink" href="#git-pull-atualizar-seu-repositorio-local" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git pull</code></pre>
+<blockquote>
+<p><strong>Sempre faça isso antes de começar a trabalhar.</strong> Garante que você está partindo da versão mais recente.</p>
+</blockquote>
+<p><strong>Alternativa no VS Code:</strong> no painel <strong>Source Control</strong> (<code>Ctrl+Shift+G</code>), clique em <strong>...</strong> → <strong>Pull</strong>. Ou clique no ícone de sincronização (⇅) na barra de status inferior.</p>
+<hr />
+<h3 id="git-status-ver-o-que-foi-alterado"><code>git status</code> — Ver o que foi alterado<a class="headerlink" href="#git-status-ver-o-que-foi-alterado" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git status</code></pre>
+<p>Mostra os arquivos modificados, novos ou deletados desde o último commit.</p>
+<p><strong>Alternativa no VS Code:</strong> abra o painel <strong>Source Control</strong> (<code>Ctrl+Shift+G</code>). Todos os arquivos alterados aparecem listados automaticamente em <strong>Changes</strong>, com ícones que indicam se foram modificados (M), adicionados (U) ou deletados (D).</p>
+<hr />
+<h3 id="git-add-preparar-arquivos-para-o-commit"><code>git add</code> — Preparar arquivos para o commit<a class="headerlink" href="#git-add-preparar-arquivos-para-o-commit" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git add docs/collab/introducao.md      # arquivo específico
+git add docs/collab/                   # uma pasta inteira
+git add .                              # tudo que foi alterado</code></pre>
+<p><strong>Alternativa no VS Code:</strong> no painel <strong>Source Control</strong>, clique no <strong>+</strong> ao lado de um arquivo específico para fazer stage dele. Para adicionar tudo de uma vez, clique no <strong>+</strong> ao lado do título <strong>Changes</strong>.</p>
+<hr />
+<h3 id="git-commit-registrar-as-alteracoes"><code>git commit</code> — Registrar as alterações<a class="headerlink" href="#git-commit-registrar-as-alteracoes" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git commit -m "docs: adiciona introdução ao módulo Collab"</code></pre>
+<p><strong>Alternativa no VS Code:</strong> no painel <strong>Source Control</strong>, digite a mensagem do commit no campo de texto no topo e clique em <strong>Commit</strong> (✓).</p>
+<p><strong>Convenção de mensagens de commit</strong> (recomendada):</p>
+<table>
+<thead>
+<tr>
+<th>Prefixo</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs:</code></td>
+<td>Criação ou atualização de conteúdo de documentação</td>
+</tr>
+<tr>
+<td><code>fix:</code></td>
+<td>Correção de erro (link quebrado, informação errada)</td>
+</tr>
+<tr>
+<td><code>refactor:</code></td>
+<td>Reorganização de estrutura sem mudar o conteúdo</td>
+</tr>
+<tr>
+<td><code>chore:</code></td>
+<td>Alterações de configuração (mkdocs.yml, requirements.txt)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="git-push-enviar-para-o-repositorio-remoto"><code>git push</code> — Enviar para o repositório remoto<a class="headerlink" href="#git-push-enviar-para-o-repositorio-remoto" title="Permanent link">&para;</a></h3>
+<p>No <strong>fluxo simplificado</strong> (direto no main):</p>
+<pre class="highlight"><code class="language-bash">git push</code></pre>
+<p>No <strong>fluxo completo</strong> (branch dedicado) — veja <a href="05-branches-e-pull-requests.html">05 — Branches e Pull Requests</a>:</p>
+<pre class="highlight"><code class="language-bash">git push origin docs/guia-collab</code></pre>
+<p><strong>Alternativa no VS Code:</strong> no painel <strong>Source Control</strong>, clique em <strong>...</strong> → <strong>Push</strong>. O botão <strong>Sync Changes</strong> (⇅ na barra de status) faz <code>pull</code> + <code>push</code> em sequência, sendo a opção mais prática no dia a dia.</p>
+<h4 id="como-verificar-que-o-push-foi-bem-sucedido">Como verificar que o push foi bem-sucedido<a class="headerlink" href="#como-verificar-que-o-push-foi-bem-sucedido" title="Permanent link">&para;</a></h4>
+<p>Após executar o <code>push</code>, acesse o repositório no GitHub pelo navegador:</p>
+<ol>
+<li>Vá para <strong><code>github.com/&lt;organização&gt;/&lt;repositório&gt;</code></strong> (ex.: <code>github.com/AltoQiTec/builder_docs</code>)</li>
+<li>O branch em que você está trabalhando aparece no seletor de branches — certifique-se de que o branch correto está selecionado</li>
+<li>Navegue até a pasta/arquivo que você adicionou ou editou</li>
+<li>Confirme que:</li>
+<li>o arquivo aparece na listagem de arquivos</li>
+<li>a <strong>mensagem do seu commit</strong> aparece ao lado do nome do arquivo</li>
+<li>a <strong>data/hora</strong> corresponde ao seu push mais recente</li>
+</ol>
+<blockquote>
+<p><strong>Dica:</strong> o terminal também confirma o sucesso do push com uma saída como:
+<pre class="highlight"><code>To https://github.com/AltoQiTec/builder_docs.git
+   a1b2c3d..e4f5g6h  main -&gt; main</code></pre>
+Se aparecer um erro (ex.: <code>rejected</code>), é sinal de que há commits remotos que você ainda não baixou — execute <code>git pull</code> antes de tentar o push novamente.</p>
+</blockquote>
+<hr />
+<h3 id="git-log-ver-o-historico-de-commits"><code>git log</code> — Ver o histórico de commits<a class="headerlink" href="#git-log-ver-o-historico-de-commits" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git log --oneline --graph</code></pre>
+<p><strong>Alternativa no VS Code:</strong> abra o painel <strong>Timeline</strong> (visível na parte inferior do explorador de arquivos) para ver o histórico do arquivo aberto. Para o histórico completo do repositório, use <strong>...</strong> → <strong>View History</strong> no painel Source Control.</p>
+<hr />
+<h2 id="6-situacoes-comuns">6. Situações Comuns<a class="headerlink" href="#6-situacoes-comuns" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Conflitos são raros</p>
+<p>Se a equipe sempre faz <code>git pull</code> antes de começar a trabalhar, conflitos quase nunca acontecem. As situações abaixo são para quando eles ocorrem.</p>
+</div>
+<h3 id="alguem-atualizou-o-arquivo-que-eu-tambem-editei">"Alguém atualizou o arquivo que eu também editei"<a class="headerlink" href="#alguem-atualizou-o-arquivo-que-eu-tambem-editei" title="Permanent link">&para;</a></h3>
+<p>Isso gera um <strong>conflito de merge</strong>. O Git marca as diferenças no arquivo:</p>
+<pre class="highlight"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto que está no seu branch
+=======
+Texto que está no main
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code></pre>
+<p>Você precisa editar o arquivo manualmente, escolhendo qual versão manter (ou combinando as duas), e depois fazer um novo commit. O VS Code tem uma interface visual para resolver conflitos.</p>
+<h4 id="walkthrough-passo-a-passo-resolvendo-um-conflito-no-vs-code">Walkthrough passo a passo: resolvendo um conflito no VS Code<a class="headerlink" href="#walkthrough-passo-a-passo-resolvendo-um-conflito-no-vs-code" title="Permanent link">&para;</a></h4>
+<p><strong>Situação:</strong> você e um colega editaram o mesmo parágrafo do arquivo <code>docs/visao-geral.md</code> e agora, ao fazer <code>git pull</code>, o Git informa conflito.</p>
+<hr />
+<p><strong>Passo 1 — Identificar o conflito</strong></p>
+<p>O painel <strong>Source Control</strong> (<code>Ctrl+Shift+G</code>) exibe o arquivo com o ícone <strong>C</strong> (Conflict). Clique nele para abri-lo.</p>
+<pre class="highlight"><code>SOURCE CONTROL
+  Merge Changes
+    C  docs/visao-geral.md</code></pre>
+<hr />
+<p><strong>Passo 2 — Entender as marcações no arquivo</strong></p>
+<p>O arquivo aberto mostrará algo como:</p>
+<pre class="highlight"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Current Change)
+O AltoQi Visus é uma plataforma de gestão de obras baseada em BIM.
+=======
+O AltoQi Visus é um ambiente colaborativo para gestão de projetos BIM.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main (Incoming Change)</code></pre>
+<table>
+<thead>
+<tr>
+<th>Marcação</th>
+<th>O que significa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code></td>
+<td>Início da sua versão (local)</td>
+</tr>
+<tr>
+<td><code>=======</code></td>
+<td>Separador entre as duas versões</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main</code></td>
+<td>Fim da versão que veio do repositório remoto</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Passo 3 — Escolher a resolução usando os botões do VS Code</strong></p>
+<p>O VS Code exibe quatro botões diretamente acima do bloco de conflito no editor:</p>
+<table>
+<thead>
+<tr>
+<th>Botão</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accept Current Change</strong></td>
+<td>Mantém sua versão, descarta a do colega</td>
+</tr>
+<tr>
+<td><strong>Accept Incoming Change</strong></td>
+<td>Mantém a versão do colega, descarta a sua</td>
+</tr>
+<tr>
+<td><strong>Accept Both Changes</strong></td>
+<td>Insere as duas versões, uma após a outra</td>
+</tr>
+<tr>
+<td><strong>Compare Changes</strong></td>
+<td>Abre diff lado a lado para decidir com mais cuidado</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Na dúvida, use Compare Changes</p>
+<p>O diff lado a lado facilita entender o que cada pessoa mudou antes de decidir qual versão manter — ou como combinar as duas manualmente.</p>
+</div>
+<hr />
+<p><strong>Passo 4 — Editar manualmente se necessário</strong></p>
+<p>Se nenhum dos botões atende (por exemplo, você quer combinar partes das duas versões), apague as marcações <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> e <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> manualmente e deixe o texto como deve ficar. O resultado final deve ser um arquivo limpo, sem nenhum marcador do Git.</p>
+<div class="admonition warning">
+<p class="admonition-title">Nunca commite com marcadores de conflito</p>
+<p>Se o arquivo ainda contiver <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ou <code>=======</code>, o conteúdo publicado ficará corrompido. Revise o arquivo inteiro antes de fazer o commit.</p>
+</div>
+<hr />
+<p><strong>Passo 5 — Fazer stage e commit da resolução</strong></p>
+<p>Após salvar o arquivo resolvido:</p>
+<ol>
+<li>No painel <strong>Source Control</strong>, clique em <img alt="Add" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/add.svg" /> ao lado do arquivo para fazer stage</li>
+<li>Clique em <img alt="Check" class="vscode-icon" src="https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.35/src/icons/check.svg" /> <strong>Commit</strong> (a mensagem sugerida <code>Merge branch 'origin/main'</code> já está preenchida)</li>
+<li>Clique em <strong>Sync Changes</strong> para enviar o commit de merge</li>
+</ol>
+<p>O conflito está resolvido. O histórico registrará que houve um merge e quem o resolveu.</p>
+<hr />
+<h3 id="cometi-um-erro-e-quero-desfazer-antes-de-commitar">"Cometi um erro e quero desfazer antes de commitar"<a class="headerlink" href="#cometi-um-erro-e-quero-desfazer-antes-de-commitar" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git checkout -- docs/arquivo-errado.md   # descarta mudanças não commitadas</code></pre>
+<hr />
+<h3 id="ja-commitei-algo-errado">"Já commitei algo errado"<a class="headerlink" href="#ja-commitei-algo-errado" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">git revert HEAD    # cria um novo commit que desfaz o último</code></pre>
+<blockquote>
+<p>Não use <code>git reset --hard</code> sem entender o impacto — ele pode apagar commits irreversivelmente.</p>
+</blockquote>
+<hr />
+<details class="note">
+<summary>Glossário Rápido</summary>
+<table>
+<thead>
+<tr>
+<th>Termo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository (repo)</strong></td>
+<td>Pasta do projeto gerenciada pelo Git</td>
+</tr>
+<tr>
+<td><strong>Clone</strong></td>
+<td>Baixar uma cópia completa do repositório para sua máquina</td>
+</tr>
+<tr>
+<td><strong>Commit</strong></td>
+<td>Snapshot dos arquivos com mensagem descritiva</td>
+</tr>
+<tr>
+<td><strong>Push</strong></td>
+<td>Enviar commits locais para o repositório remoto</td>
+</tr>
+<tr>
+<td><strong>Pull</strong></td>
+<td>Baixar e integrar commits do repositório remoto</td>
+</tr>
+<tr>
+<td><strong>main</strong></td>
+<td>Branch principal (produção)</td>
+</tr>
+<tr>
+<td><strong>Branch / PR</strong></td>
+<td>Conceitos do fluxo completo — ver <a href="05-branches-e-pull-requests.html">05 — Branches e Pull Requests</a></td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">✅ Resumo do módulo</p>
+<p>Git versiona sua documentação e evita que o trabalho de uma pessoa sobrescreva o de outra. Você viu como <strong>Git, GitHub e VS Code</strong> se conectam, aprendeu os conceitos de <strong>repositório, commit, clone, push e pull</strong>, entendeu o fluxo diário (<code>pull</code> → editar → <code>add</code> → <code>commit</code> → <code>push</code>) e viu como lidar com conflitos e desfazer erros. Na prática, a trilha assume o <strong>VS Code como ambiente principal</strong> para executar esse fluxo.</p>
+</div>
+<hr />
+<blockquote>
+<p><strong>Leitura complementar:</strong> <a href="05-branches-e-pull-requests.html">05 — Branches e Pull Requests</a> — aprofundamento do fluxo completo<br />
+<strong>Módulo anterior:</strong> <a href="01-setup-ambiente.html">01 — VS Code e Configuração do Ambiente</a><br />
+<strong>Próximo módulo:</strong> <a href="03-markdown-e-mkdocs.html">03 — Markdown e MkDocs</a></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="01-setup-ambiente.html" class="btn btn-neutral float-left" title="Módulo 1 — VS Code e Configuração do Ambiente"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="03-markdown-e-mkdocs.html" class="btn btn-neutral float-right" title="Módulo 3 — Markdown e MkDocs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="01-setup-ambiente.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="03-markdown-e-mkdocs.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+      <script src="javascripts/altoqi-course.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
