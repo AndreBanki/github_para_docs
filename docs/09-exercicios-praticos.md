@@ -5,7 +5,7 @@
 > **Por que este módulo vem por último:** o fechamento consolida a trilha inteira em prática guiada, sem interromper o fluxo de aprendizagem dos módulos principais. A ideia é praticar depois que o caminho completo já fez sentido.
 
 !!! abstract "🎯 Como usar este módulo"
-    São **10 exercícios** focados no que você realmente vai fazer no dia a dia. Como na prática a escrita de Markdown é feita **com a ajuda do Claude Code**, não há exercícios de sintaxe — o foco está no fluxo Git, no uso da IA e na publicação. Cada exercício indica o módulo que reforça e o resultado esperado, para você saber se está no caminho certo.
+    São **5 exercícios** focados no que você realmente vai fazer no dia a dia. Como na prática a escrita de Markdown é feita **com a ajuda do Claude Code**, não há exercícios de sintaxe — o foco está no fluxo Git e no uso da IA. Cada exercício indica o módulo que reforça e o resultado esperado, para você saber se está no caminho certo.
 
 !!! note "Pré-requisitos"
     A maioria dos exercícios depende do ambiente configurado no **Módulo 1** e de **acesso ao repositório de exercícios** do curso. Se ainda não instalou Git, Python e VS Code, comece pelo Exercício 1.
@@ -23,11 +23,6 @@
 | 3 | Deixe a IA escrever o Markdown | [Módulos 3](./03-markdown-e-mkdocs.md) e [4](./04-claude-code.md) |
 | 4 | Revisar e reescrever uma página com o Claude Code | [Módulo 4](./04-claude-code.md) |
 | 5 | Tarefa autônoma no Modo Agente | [Módulo 4](./04-claude-code.md) |
-| 6 | Branch e Pull Request de ponta a ponta | [Módulo 5](./05-branches-e-pull-requests.md) |
-| 7 | Resolver um conflito de merge no VS Code | [Módulo 5](./05-branches-e-pull-requests.md) |
-| 8 | Publicar no GitHub Pages e acompanhar o deploy | [Módulo 6](./06-publicacao-externa.md) |
-| 9 | Personalizar o Claude Code com um comando | [Módulo 7](./07-claude-code-customizacao.md) |
-| 10 | Documentar uma feature do TargetProcess | [Módulo 8](./08-instrucoes-especificas.md) |
 
 ---
 
@@ -139,121 +134,6 @@
     4. Abra `docs/indice-exercicios.md` no preview e confira o resultado
 
     ✅ **Resultado esperado:** o agente leu múltiplas páginas e produziu um índice coerente em sequência, com a sua confirmação a cada passo sensível.
-
----
-
-## Exercício 6 — Branch e Pull Request de ponta a ponta
-
-> Reforça o **[Módulo 5 — Branches e Pull Requests](./05-branches-e-pull-requests.md)**
-
-??? example "Abrir exercício"
-    **Objetivo:** isolar o trabalho em um branch e publicá-lo via Pull Request revisado.
-
-    1. Crie um branch: clique no nome do branch na barra de status → **Create new branch...** → `docs/exercicio-pr-seu-nome`
-    2. Peça ao Claude Code para criar ou ajustar uma página; faça **commit** no branch e **Sync Changes** (o VS Code pergunta se deve publicar o branch — confirme)
-    3. No GitHub, clique na faixa **Compare & pull request**, escreva título e descrição e atribua um **revisor**
-    4. O revisor abre **Files changed**, adiciona um comentário em uma linha; você responde e ajusta com um **novo commit** no mesmo branch
-    5. Após **Approve**, clique em **Merge pull request** e **delete o branch**
-
-    ✅ **Resultado esperado:** o conteúdo chega ao `main` via PR revisado, com histórico de comentários, e o site é atualizado automaticamente após o merge.
-
----
-
-## Exercício 7 — Resolver um conflito de merge no VS Code
-
-> Reforça o **[Módulo 5 — Branches e Pull Requests](./05-branches-e-pull-requests.md)**
-
-??? example "Abrir exercício"
-    **Objetivo:** reproduzir um conflito real entre dois branches e resolvê-lo visualmente.
-
-    1. No `main`, crie `docs/conflito.md` com o texto `Versão original` e commite
-    2. Crie dois branches que editam **a mesma linha**:
-        ```bash
-        git checkout -b docs/branch-a
-        # edite docs/conflito.md → "Versão do branch A"
-        git add . ; git commit -m "docs: versão A"
-
-        git checkout main
-        git checkout -b docs/branch-b
-        # edite docs/conflito.md → "Versão do branch B"
-        git add . ; git commit -m "docs: versão B"
-        ```
-    3. Faça merge do `branch-a` no `main`; depois tente o merge do `branch-b` → o Git reporta **conflito**
-    4. No **Source Control**, abra o arquivo marcado com **C**; use **Compare Changes** e **Accept Both Changes** (ou edite à mão), removendo **todos** os marcadores `<<<<<<<`, `=======` e `>>>>>>>`
-    5. Faça **stage** e **commit** da resolução
-
-    ✅ **Resultado esperado:** o conflito é resolvido, o arquivo final fica limpo (sem marcadores) e o histórico registra o commit de merge.
-
----
-
-## Exercício 8 — Publicar no GitHub Pages e acompanhar o deploy
-
-> Reforça o **[Módulo 6 — Publicando para Acesso Externo](./06-publicacao-externa.md)**
-
-??? example "Abrir exercício"
-    **Objetivo:** ativar a publicação automática e saber ler o pipeline quando algo falha.
-
-    1. (Feito pelo dono do repositório) **Settings → Pages** → **Deploy from a branch** → branch `gh-pages`; confirme que existe `.github/workflows/deploy.yml`
-    2. Faça uma alteração pequena em qualquer `.md` e dê **push** no `main` (ou faça merge de um PR)
-    3. Na aba **Actions** do GitHub, acompanhe a execução do workflow `deploy.yml` — observe a etapa que instala dependências e a que roda `mkdocs gh-deploy`
-    4. Acesse a URL pública e confirme que a alteração apareceu
-    5. **(Opcional)** Introduza um erro de sintaxe no `mkdocs.yml`, dê push e veja a etapa que falha no log; depois corrija e publique novamente
-
-    ✅ **Resultado esperado:** a alteração entra no ar em poucos minutos e você sabe onde acompanhar e diagnosticar um deploy.
-
----
-
-## Exercício 9 — Personalizar o Claude Code com um comando
-
-> Reforça o **[Módulo 7 — Personalizando o Claude Code](./07-claude-code-customizacao.md)**
-
-??? example "Abrir exercício"
-    **Objetivo:** criar um comando reutilizável e fazer o agente seguir o padrão do projeto.
-
-    1. Crie o arquivo `.claude/commands/nova-pagina.md` com o frontmatter e as instruções (use o exemplo do Módulo 7):
-        ```markdown
-        ---
-        description: Cria uma nova página seguindo o padrão do projeto
-        allowed-tools: Read, Write, Edit
-        ---
-        Crie uma nova página de documentação em $ARGUMENTS, com o frontmatter YAML
-        padrão (title, type, created, updated, sources, tags) e a estrutura:
-        resumo de uma linha → corpo com H2/H3 → links relacionados.
-        ```
-    2. **(Opcional)** Crie ou ajuste o `CLAUDE.md` na raiz com o papel do agente, a estrutura de pastas e a regra de ouro "nunca inventar conteúdo"
-    3. No chat, invoque o comando: `/nova-pagina docs/teste-comando.md`
-    4. Confira se o rascunho gerado segue exatamente o template definido
-
-    ✅ **Resultado esperado:** o comando aparece na lista `/` e gera páginas consistentes com o padrão, sem você repetir o prompt longo toda vez.
-
----
-
-## Exercício 10 — Documentar uma feature do TargetProcess
-
-> Reforça o **[Módulo 8 — Instruções Específicas](./08-instrucoes-especificas.md)**
-
-??? example "Abrir exercício"
-    **Objetivo:** praticar a **Dica 1** — transformar um card técnico em documentação orientada ao usuário final.
-
-    1. No **Modo Agente**, cole um card simulado do TargetProcess:
-        ```
-        Feature 999001 — Exportação de relatório em PDF
-        Descrição: o usuário pode exportar o relatório de progresso do projeto em
-        PDF, com opção de incluir ou excluir gráficos.
-        Critérios de aceite:
-        - Botão "Exportar PDF" na tela de relatórios
-        - Opções: incluir gráficos (sim/não), orientação (retrato/paisagem)
-        - PDF gerado com o logo da empresa no cabeçalho
-        ```
-    2. Peça:
-        ```
-        Crie uma página de documentação para o usuário final com base nesta feature.
-        Exclua detalhes de implementação e foque no comportamento visível. Use o
-        frontmatter padrão do projeto.
-        ```
-    3. Verifique se o agente: **excluiu** os critérios técnicos, **focou** na interface e nas opções visíveis, e **criou** o frontmatter correto
-
-    ✅ **Resultado esperado:** uma página orientada ao usuário, sem jargão de desenvolvimento — uma interpretação do card, não uma cópia.
 
 ---
 
