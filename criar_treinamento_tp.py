@@ -295,9 +295,21 @@ ETAPAS = [
 # ---------------------------------------------------------------------------
 TEMPLATE_NAME = "Documentação como Código — Guia AltoQi"
 
-TRILHA_ITEMS = "".join(
-    f"<li><a href='{SITE_URL}/{['01-setup-ambiente','03-markdown-e-mkdocs','04-claude-code','05-branches-e-pull-requests','09-exercicios-praticos'][i]}.html'>{e['nome']}</a></li>"
-    for i, e in enumerate(ETAPAS)
+MODULOS_TRILHA = [
+    ("Módulo 01 — VS Code e Configuração do Ambiente",      "01-setup-ambiente"),
+    ("Módulo 02 — Git para Documentação",                   "02-git-para-documentacao"),
+    ("Módulo 03 — Markdown e MkDocs",                       "03-markdown-e-mkdocs"),
+    ("Módulo 04 — Claude Code",                             "04-claude-code"),
+    ("Módulo 05 — Branches e Pull Requests",                "05-branches-e-pull-requests"),
+    ("Módulo 06 — Publicando para Acesso Externo",          "06-publicacao-externa"),
+    ("Módulo 07 — Personalizando o Claude Code",            "07-claude-code-customizacao"),
+    ("Módulo 08 — Instruções Específicas (Repositórios Reais)", "08-instrucoes-especificas"),
+    ("Módulo 09 — Exercícios Práticos",                     "09-exercicios-praticos"),
+]
+
+MODULOS_TRILHA_ITEMS = "".join(
+    f"<li><a href='{SITE_URL}/{slug}.html'>{nome}</a></li>"
+    for nome, slug in MODULOS_TRILHA
 )
 
 ETAPAS_RESUMO = "".join(
@@ -322,9 +334,9 @@ revisar e publicar documentação como um profissional.
 </ul>
 <p><strong>Pré-requisito:</strong> nenhum — o curso começa do zero.</p>
 
-<h3>3. Trilha das etapas</h3>
+<h3>3. Trilha dos módulos</h3>
 <ul>
-{ETAPAS_RESUMO}
+{MODULOS_TRILHA_ITEMS}
 </ul>
 <p>
 Site do treinamento: <a href="{SITE_URL}">{SITE_URL}</a>
@@ -332,9 +344,16 @@ Site do treinamento: <a href="{SITE_URL}">{SITE_URL}</a>
 
 <h3>4. Como funciona</h3>
 <p>
-Cada etapa é uma tarefa separada neste projeto. Ao concluir a leitura dos módulos
-de uma etapa, o colaborador responde as <strong>5 perguntas teóricas</strong>
-por comentário na respectiva tarefa antes de avançar para a próxima.
+Os 9 módulos estão agrupados em <strong>5 etapas temáticas</strong>, cada uma com
+uma tarefa separada neste projeto:
+</p>
+<ul>
+{ETAPAS_RESUMO}
+</ul>
+<p>
+Ao concluir a leitura dos módulos de cada etapa, o colaborador responde as
+<strong>5 perguntas teóricas</strong> por comentário na respectiva tarefa antes
+de avançar para a próxima.
 </p>
 
 <h3>5. Resultados esperados</h3>
